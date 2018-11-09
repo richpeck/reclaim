@@ -23,24 +23,9 @@ SitemapGenerator::Sitemap.default_host = URI::HTTPS.build(host: ["www", Rails.ap
 SitemapGenerator::Sitemap.create do
 
   ## General ##
-  ## Used for the likes of "about", "legal", "privacy", "terms" etc ##
+  ## Used for the likes of /about, /action, /faq, /rates, /claim, /privacy, /terms etc ##
   %w(about legal privacy terms).each do |page|
     add page, priority: 0.3, changefreq: 'monthly'
-  end
-
-  ## Platforms ##
-  ## Each platform reviewed here ##
-  Meta::Platform.all.each do |platform|
-
-    ## Main Reviews ##
-    add platform.title, priority: 0.5, changefreq: 'monthly', lastmod: platform.updated_at
-
-    ## Extras ##
-    add [platform.title, 'reviews'].join("/"), changefreq: 'weekly'
-    add [platform.title, 'availability'].join("/"), changefreq: 'monthly'
-    add [platform.title, 'reviews'].join("/"), changefreq: 'weekly'
-    add [platform.title, 'availability'].join("/"), changefreq: 'monthly'
-
   end
 
   ## Functionality ##

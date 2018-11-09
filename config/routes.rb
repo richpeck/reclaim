@@ -13,19 +13,6 @@
 ########################################
 ########################################
 
-  ## Authenticated ##
-  ## Only accessible to users ##
-  ## Claims etc  ##
-  authenticated do
-    resources :servers, :settings
-  end
-
-  ## Unathenticated ##
-  ## Accessible to everybody ##
-  unauthenticated do
-    resources :application, only: :show, path: ""
-  end
-
   ###################################
   # GENERAL
   ###################################
