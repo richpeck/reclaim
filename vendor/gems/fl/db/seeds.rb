@@ -27,7 +27,7 @@ end
 ##########################################
 
 # => Users
-User.create!(email: Rails.application.credentials[Rails.env.to_sym][:admin][:email], password: Rails.application.credentials[Rails.env.to_sym][:admin][:password], password_confirmation: Rails.application.credentials[Rails.env.to_sym][:admin][:password], profile_attributes: {role: :admin, name: 'Richard Peck'}, send_email: ENV['email'] || true) unless User.any?
+User.create!(email: Rails.application.credentials[Rails.env.to_sym][:admin][:email], password: Rails.application.credentials[Rails.env.to_sym][:admin][:password], password_confirmation: Rails.application.credentials[Rails.env.to_sym][:admin][:password], profile_attributes: {role: :admin, name: Rails.application.credentials[Rails.env.to_sym][:app][:author]}, send_email: ENV['email'] || true) unless User.any?
 
 ##########################################
 ##########################################

@@ -27,15 +27,20 @@ SitemapGenerator::Sitemap.create do
 
     ## General ##
     ## Used for the /about, /action, /faq, /rates, /claim, /privacy, /terms pages (these don't change) ##
-    %w(about legal privacy terms).each do |page|
+    %w(about action privacy terms).each do |page|
       add page, priority: 0.3, changefreq: 'monthly'
     end
 
     ## News ##
     ## Cycle through Meta::News ##
-    #Meta::News.each do |news|
-    #  puts news.title
-    #end
+    if Object.const_defined?('Meta::News')
+
+      ## News (Dynamic) ##
+      Meta::News.each do |news|
+        puts news.title
+      end
+      
+    end
 
     ## Functionality ##
     ## Claims / FAQ => can change relatively frequently ##
