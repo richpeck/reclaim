@@ -23,7 +23,7 @@ SitemapGenerator::Sitemap.default_host = URI::HTTPS.build(host: ["www", Rails.ap
 SitemapGenerator::Sitemap.create do
 
   ## General ##
-  ## Used for the likes of /about, /action, /faq, /rates, /claim, /privacy, /terms etc ##
+  ## Used for the /about, /action, /faq, /rates, /claim, /privacy, /terms pages (these don't change) ##
   %w(about legal privacy terms).each do |page|
     add page, priority: 0.3, changefreq: 'monthly'
   end
