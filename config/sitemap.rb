@@ -37,9 +37,9 @@ SitemapGenerator::Sitemap.create do
 
       ## News (Dynamic) ##
       Meta::News.each do |news|
-        puts news.title
+        add news_path(news), priority: 0.3, changefreq: 'weekly'
       end
-      
+
     end
 
     ## Functionality ##
