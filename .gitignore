@@ -36,3 +36,7 @@
 # Sitemap
 /public/sitemap.*
 /public/*.xml.gz
+
+# Variables
+# This should be created on app boot
+/vendor/assets/stylesheets/_variables.sass
