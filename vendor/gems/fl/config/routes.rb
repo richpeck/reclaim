@@ -22,9 +22,13 @@ Rails.application.routes.draw do
   ########################################
   ########################################
 
+  puts "test2"
+
     # => ActiveAdmin
     # => Used to provide an "admin" area for users (won't need this with RailsHosting's dashboard)
     if Object.const_defined?("ActiveAdmin")
+
+      puts "test"
 
       # => CKEditor
       mount Ckeditor::Engine => '/ckeditor' if Object.const_defined?("Ckeditor")
@@ -49,6 +53,7 @@ Rails.application.routes.draw do
 
     # Robots.txt
     # => https://blog.ragnarson.com/2013/11/15/hide-your-staging-environment-from-google.html
+    # => Need to block access to auth + claims pages
     get "robots.txt" => "application#robots", as: :robots
 
     ########################################

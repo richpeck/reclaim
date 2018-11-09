@@ -74,6 +74,5 @@ gem 'jbuilder', '~> 2.0'
 ## Used to provide general backend support for Rails apps ##
 gem 'bootsnap', '>= 1.1.0', require: false # => Boot caching (introduced in 5.2.x)
 
-
 ########################################
 ########################################

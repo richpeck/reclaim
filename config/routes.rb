@@ -31,7 +31,7 @@
   ###################################
 
   # Pages (viewable to all)
-  # Use - instead of _
+  # Use - instead of _ (friendly_id)
 
   # https://www.damagereclaim.co.uk/about   (What We Do)          (redirect from "about-us")
   # https://www.damagereclaim.co.uk/action  (Take Action)         (redirect from "take-action")
