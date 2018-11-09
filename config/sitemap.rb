@@ -36,7 +36,7 @@ SitemapGenerator::Sitemap.create do
     if Object.const_defined?('Meta::News')
 
       ## News (Dynamic) ##
-      Meta::News.each do |news|
+      Meta::News.all.each do |news|
         add news_path(news), priority: 0.3, changefreq: 'weekly'
       end
 

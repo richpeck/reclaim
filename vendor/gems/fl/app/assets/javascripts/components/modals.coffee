@@ -21,9 +21,5 @@ $("modal").on "mousedown", ->
       isDragging = true
       alert "drag"
 
-
-$("html").on "contextmenu", (e) -> 
-	e.preventDefault();
-
 #############################################
 #############################################

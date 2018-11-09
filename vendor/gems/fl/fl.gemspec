@@ -61,7 +61,6 @@ Gem::Specification.new do |spec|
     spec.add_dependency 'liquid'                        # => Liquid
     spec.add_dependency 'trix'                          # => Trix
     spec.add_dependency 'nilify_blanks'                 # => Nilify Blanks
-    spec.add_dependency 'rmagick'                       # => RMagick
     spec.add_dependency 'friendly_id'                   # => FriendlyID
     spec.add_dependency 'devise'                        # => Devise
     spec.add_dependency 'exception_handler'             # => ExceptionHandler
