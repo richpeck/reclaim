@@ -22,49 +22,52 @@ SitemapGenerator::Sitemap.default_host = URI::HTTPS.build(host: ["www", Rails.ap
 ## This is used to create the various URLs in the sitemap etc ##
 SitemapGenerator::Sitemap.create do
 
-  ## General ##
-  ## Used for the /about, /action, /faq, /rates, /claim, /privacy, /terms pages (these don't change) ##
-  %w(about legal privacy terms).each do |page|
-    add page, priority: 0.3, changefreq: 'monthly'
-  end
+  ##############################################
+  ##############################################
 
-  ## News ##
-  ## Cycle through Meta::News ##
-  Meta::News.each do |news|
-    puts news.title
-  end
+    ## General ##
+    ## Used for the /about, /action, /faq, /rates, /claim, /privacy, /terms pages (these don't change) ##
+    %w(about legal privacy terms).each do |page|
+      add page, priority: 0.3, changefreq: 'monthly'
+    end
 
-  ## Functionality ##
-  ## Claims / FAQ => can change relatively frequently ##
+    ## News ##
+    ## Cycle through Meta::News ##
+    #Meta::News.each do |news|
+    #  puts news.title
+    #end
 
+    ## Functionality ##
+    ## Claims / FAQ => can change relatively frequently ##
 
   ##############################################
   ##############################################
 
-  # => Info
+    ## Info ##
+    ## Gives overview of syntax etc ##
 
-  # Put links creation logic here.
-  #
-  # The root path '/' and sitemap index file are added automatically for you.
-  # Links are added to the Sitemap in the order they are specified.
-  #
-  # Usage: add(path, options={})
-  #        (default options are used if you don't specify)
-  #
-  # Defaults: :priority => 0.5, :changefreq => 'weekly',
-  #           :lastmod => Time.now, :host => default_host
-  #
-  # Examples:
-  #
-  # Add '/articles'
-  #
-  #   add articles_path, :priority => 0.7, :changefreq => 'daily'
-  #
-  # Add all articles:
-  #
-  #   Article.find_each do |article|
-  #     add article_path(article), :lastmod => article.updated_at
-  #   end
+    # Put links creation logic here.
+    #
+    # The root path '/' and sitemap index file are added automatically for you.
+    # Links are added to the Sitemap in the order they are specified.
+    #
+    # Usage: add(path, options={})
+    #        (default options are used if you don't specify)
+    #
+    # Defaults: :priority => 0.5, :changefreq => 'weekly',
+    #           :lastmod => Time.now, :host => default_host
+    #
+    # Examples:
+    #
+    # Add '/articles'
+    #
+    #   add articles_path, :priority => 0.7, :changefreq => 'daily'
+    #
+    # Add all articles:
+    #
+    #   Article.find_each do |article|
+    #     add article_path(article), :lastmod => article.updated_at
+    #   end
 
   ##############################################
   ##############################################
