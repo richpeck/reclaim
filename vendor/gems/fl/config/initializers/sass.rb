@@ -34,11 +34,18 @@ OUTPUT = File.join(Rails.root, "vendor", "assets", "stylesheets", "_variables.sa
 ##############################
 
 begin
+
+  # => Make sure the directory exists
+  # => If doesn't exist, populate
+  FileUtils.mkdir_p File.dirname(OUTPUT) unless File.exists? File.dirname(OUTPUT)
+
+  # => Populate directory with file
   File.open(OUTPUT, 'w+') do |file|
     file.write FL::AssetHelper.sass INPUT
   end
+
 rescue => e
-  puts e
+  puts "SASS Initializer (FL) - #{e}"
 end
 
 ##############################
