@@ -54,7 +54,6 @@ Gem::Specification.new do |spec|
     spec.add_dependency 'autoprefixer-rails'            # => Autoprefixer
     spec.add_dependency 'font-awesome-rails'            # => Icons
     spec.add_dependency 'activeadmin'                   # => ActiveAdmin
-    spec.add_dependency 'formadmin'                     # => FormAdmin (ActiveAdmin Skin)
     spec.add_dependency 'image_processing'              # => ImageMagick support for ActiveStorage
 
     ## Backend ##

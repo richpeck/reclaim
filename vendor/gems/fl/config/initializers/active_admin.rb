@@ -178,7 +178,9 @@ if Object.const_defined?("ActiveAdmin")
     # and feel.
     #
     # To load a stylesheet:
-    #   config.register_stylesheet 'my_stylesheet.css'
+    # https://stackoverflow.com/a/27171312/1143732
+    config.register_stylesheet 'admin/base.css'
+
     #
     # You can provide an options hash for more control, which is passed along to stylesheet_link_tag():
     #   config.register_stylesheet 'my_print_stylesheet.css', media: :print

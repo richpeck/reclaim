@@ -10,6 +10,15 @@
 ###############################################
 ###############################################
 
+# => The majority of routes are handled by the FL gem
+# => Only really need specifics for different elements
+
+###############################################
+###############################################
+
+## Routes ##
+Rails.application.routes.draw do
+
   ###################################
   # GENERAL
   ###################################
@@ -41,6 +50,7 @@
     # => Blog/News
     # => https://www.damagereclaim.co.uk/news/x
     # => https://www.damagereclaim.co.uk/news/x-helps-you-buy-more-stuff (X Helps You Buy More Stuff)
+    resources :application, only: :show, path: :news, as: :news
 
   ###################################
   # APP
@@ -49,6 +59,11 @@
     # => Auth
     # => https://www.damagereclaim.co.uk/login
     # => https://www.damagereclaim.co.uk/register -> disabled for now
+
+  ###################################
+  ###################################
+
+end
 
 ###############################################
 ###############################################
