@@ -26,6 +26,8 @@ if Object.const_defined?('ActiveAdmin')
   ## Make Sure Table Exists ##
   if ActiveRecord::Base.connection.table_exists? 'nodes'
 
+
+    # => Dashboard
     ActiveAdmin.register_page 'Dash' do
 
       # => Menu

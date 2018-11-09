@@ -30,7 +30,7 @@ module Damagereclaim
 
     # => ExceptionHandler
     # => Allows us to view custom 404/500 pages in dev
-    #config.exception_handler = { dev: true }
+    config.exception_handler = { dev: true }
 
     # => Assets
     # => From "assets.rb" file (remove if unnecessary)

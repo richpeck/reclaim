@@ -110,7 +110,7 @@ if Object.const_defined?("ActiveAdmin")
     # roots for each namespace.
     #
     # Default:
-    config.root_to = 'options#index'
+    config.root_to = 'users#index'
 
     # == Admin Comments
     #
