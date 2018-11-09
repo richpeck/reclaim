@@ -28,9 +28,20 @@ SitemapGenerator::Sitemap.create do
     add page, priority: 0.3, changefreq: 'monthly'
   end
 
-  ## Functionality ##
-  ## Install / Deploy / Build ##
+  ## News ##
+  ## Cycle through Meta::News ##
+  Meta::News.each do |news|
+    puts news.title
+  end
 
+  ## Functionality ##
+  ## Claims / FAQ => can change relatively frequently ##
+
+
+  ##############################################
+  ##############################################
+
+  # => Info
 
   # Put links creation logic here.
   #
@@ -54,6 +65,10 @@ SitemapGenerator::Sitemap.create do
   #   Article.find_each do |article|
   #     add article_path(article), :lastmod => article.updated_at
   #   end
+
+  ##############################################
+  ##############################################
+
 end
 
 ##############################################
