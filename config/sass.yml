@@ -27,7 +27,7 @@
 
 # All
 base:
-  color:      rgba(0, 255, 170, 1)
+  color:      rgba(0,255,170,1)
   background: rgba(16,17,22,1)
   font:
     size:     8.5pt
@@ -36,7 +36,7 @@ tooltip:
   font:
     size:     0.8em
 color:
-  accent:    rgba(0, 255, 170, 1)
+  accent:    rgba(0,255,170,1)
 fonts:       "(monsterrat: (thin: 100, light: 200, regular: 400, bold: 600, black: 800))"
 
 

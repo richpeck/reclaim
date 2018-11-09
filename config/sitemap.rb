@@ -26,7 +26,7 @@ SitemapGenerator::Sitemap.create do
   ##############################################
 
     ## General ##
-    ## Used for the /about, /action, /faq, /rates, /claim, /privacy, /terms pages (these don't change) ##
+    ## Used for the /about, /action, /rates, /claim, /privacy, /terms pages (these don't change) ##
     %w(about action privacy terms).each do |page|
       add page, priority: 0.3, changefreq: 'monthly'
     end
