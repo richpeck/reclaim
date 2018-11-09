@@ -30,15 +30,10 @@ Rails.application.routes.draw do
       mount Ckeditor::Engine => '/ckeditor' if Object.const_defined?("Ckeditor")
 
       # => Admin
-      if Rails.env.staging?
-        devise_for :users, ActiveAdmin::Devise.config
-        ActiveAdmin.routes(self)
-      else
-        constraints subdomain: 'admin' do
-          devise_for :users, ActiveAdmin::Devise.config
-          ActiveAdmin.routes(self)
-        end
-      end
+      # => This should just show at /admin
+      # => If the user needs to authenticate, they'll need to use /login etc
+      devise_for :users, ActiveAdmin::Devise.config
+      ActiveAdmin.routes(self)
 
     end
 
