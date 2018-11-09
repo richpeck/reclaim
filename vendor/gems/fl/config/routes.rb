@@ -32,6 +32,7 @@ Rails.application.routes.draw do
       # => Admin
       # => This should just show at /admin
       # => If the user needs to authenticate, they'll need to use /login etc
+      # => Authentication should go to /login etc
       devise_for :users, ActiveAdmin::Devise.config
       ActiveAdmin.routes(self)
 

@@ -4,8 +4,7 @@ if Object.const_defined?("ActiveAdmin")
   ##################################
   ##################################
 
-  # => Location
-  namespace = (Rails.env.staging? ? 'admin' : nil)
+  # => Declarations etc here
 
   ##################################
   ##################################
@@ -13,6 +12,9 @@ if Object.const_defined?("ActiveAdmin")
   # => Engine
   # => https://github.com/activeadmin/activeadmin/wiki/define-a-resource-inside-an-engine
   ActiveAdmin.application.load_paths += [File.join(__dir__, '..', '..', 'app', 'admin')]
+
+  ##################################
+  ##################################
 
   # => Use this hook to configure ActiveAdmin
   ActiveAdmin.setup do |config|
@@ -52,7 +54,7 @@ if Object.const_defined?("ActiveAdmin")
     #   config.default_namespace = false
     #
     # Default:
-    config.default_namespace = namespace # => Staging = Heroku
+    #config.default_namespace = namespace # => Staging = Heroku
     #
     # You can customize the settings for each namespace by using
     # a namespace block. For example, to change the site title
@@ -75,7 +77,6 @@ if Object.const_defined?("ActiveAdmin")
     # within the controller.
     config.authentication_method = :authenticate_user!
 
-
     # == Current User
     #
     # Active Admin will associate actions with the current
@@ -84,7 +85,6 @@ if Object.const_defined?("ActiveAdmin")
     # This setting changes the method which Active Admin calls
     # to return the currently logged in user.
     config.current_user_method = :current_user
-
 
     # == Logging Out
     #
@@ -213,17 +213,6 @@ if Object.const_defined?("ActiveAdmin")
     #    admin.add_logout_button_to_menu menu
     #  end
     #end
-
-    ### Custom User Credentials (top right) ###
-    config.namespace namespace do |admin|
-      admin.build_menu :utility_navigation do |menu|
-        menu.add :label   => proc{ [current_active_admin_user.profile.avatar.attached? ? image_tag(current_active_admin_user.profile.avatar.variant(resize: '100x100')) : nil, display_name(current_active_admin_user.name)].join.html_safe },
-          :url            => proc{ Rails.env.staging? ?  edit_admin_user_path(current_active_admin_user) : edit_user_path(current_active_admin_user) },
-          :id             => 'current_user',
-          :if             => proc{ current_active_admin_user? }
-        admin.add_logout_button_to_menu menu
-      end
-    end
 
     #
     # If you wanted to add a static menu item to the default menu provided:

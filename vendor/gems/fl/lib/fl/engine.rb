@@ -10,6 +10,12 @@
 ##############################################################
 ##############################################################
 
+# => Main FL Engine
+# => Desgined to provide nodular framework
+
+##############################################################
+##############################################################
+
 # => FL
 module FL
 
@@ -35,7 +41,7 @@ module FL
     # => SASS Vars
     # => http://stackoverflow.com/a/4081810/1143732
     config.before_initialize do |app|
-      #Rails::Generators.invoke("fl:sass_vars") if !File.exist?("#{app.root}/config/sass.yml") && File.basename($0) != 'rake'
+      Rails::Generators.invoke("fl:sass_vars") if !File.exist?("#{app.root}/config/sass.yml") && File.basename($0) != 'rake'
     end
 
     # => ExceptionHandler

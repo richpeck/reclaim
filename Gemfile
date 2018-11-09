@@ -22,7 +22,7 @@ gem 'puma', groups: [:development, :staging] # => Production will use phusion wi
 
 # => FL
 # => Used for framework etc
-#gem 'fl', path: 'vendor/gems/fl'
+gem 'fl', path: 'vendor/gems/fl'
 
 # => DB
 # => https://github.com/rrrene/projestimate/blob/master/Gemfile#L11
