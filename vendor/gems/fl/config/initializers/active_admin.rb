@@ -179,7 +179,8 @@ if Object.const_defined?("ActiveAdmin")
     #
     # To load a stylesheet:
     # https://stackoverflow.com/a/27171312/1143732
-    config.register_stylesheet 'admin/base.css'
+    # DEPRICATED - https://github.com/activeadmin/activeadmin/issues/5419
+    # config.register_stylesheet 'admin/base.css'
 
     #
     # You can provide an options hash for more control, which is passed along to stylesheet_link_tag():
