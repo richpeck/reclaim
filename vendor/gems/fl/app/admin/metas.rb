@@ -12,12 +12,10 @@
 
 ## Info ##
 models = {
-  option:       {priority: 3},
-  page:         {priority: 4},
-  platform:     {priority: 5},
-  plan:         {priority: 6},
-  performance:  {resource: 'performance'},
-  rating:       {priority: 11}
+  option:       {priority: 6},
+  page:         {priority: 3},
+  faq:          {priority: 4},
+  news:         {priority: 5}
 }
 ############################################################
 ############################################################
