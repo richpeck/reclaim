@@ -46,15 +46,6 @@ module FL
     		@devise_mapping ||= Devise.mappings[:user]
     	end
 
-  	##########################
-  	##########################
-
-      # => Credentials
-      # => Pulls credentials from db or fallback
-      def self.credentials main, sub
-        Meta::Option.find_by(ref: "#{main}_#{sub}").try(:val) || Rails.application.credentials[Rails.env.to_sym][main.to_sym][sub.to_sym] || nil
-      end
-
     ##########################
   	##########################
 

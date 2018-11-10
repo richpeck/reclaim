@@ -38,6 +38,7 @@ if Object.const_defined?("ActiveAdmin")
     # Note: Recommended image height is 21px to properly fit in the header
     #
     # config.site_title_image = "/images/logo.png"
+    config.site_title_image = "logo.png" # => Uses asset pipeline by default -- https://github.com/activeadmin/activeadmin/issues/2646
 
     # == Default Namespace
     #
@@ -162,7 +163,7 @@ if Object.const_defined?("ActiveAdmin")
     # Breadcrumbs are enabled by default. You can customize them for individual
     # resources or you can disable them globally from here.
     #
-    # config.breadcrumb = false
+    config.breadcrumb = true
 
     # == Create Another Checkbox
     #
@@ -210,12 +211,19 @@ if Object.const_defined?("ActiveAdmin")
     #
     # To change the default utility navigation to show a link to your website & a logout btn
     #
-    #config.namespace :admin do |admin|
-    #  admin.build_menu :utility_navigation do |menu|
-    #    menu.add label: "My Great Website", url: "http://www.mygreatwebsite.com", html_options: { target: :blank }
-    #    admin.add_logout_button_to_menu menu
-    #  end
-    #end
+    config.namespace :admin do |admin|
+      admin.build_menu :utility_navigation do |menu|
+
+        ## User ##
+        menu.add :label   => proc{ display_name(current_active_admin_user.name) },
+                  :url            => proc{ edit_admin_user_path(current_active_admin_user) },
+                  :id             => 'current_user',
+                  :if             => proc{ current_active_admin_user? }
+
+        ## Login ##
+        admin.add_logout_button_to_menu menu
+      end
+    end
 
     #
     # If you wanted to add a static menu item to the default menu provided:
@@ -278,7 +286,7 @@ if Object.const_defined?("ActiveAdmin")
     # By default, the footer shows the current Active Admin version. You can
     # override the content of the footer here.
     #
-    config.footer = "<b><a href=\"#{URI::HTTP.build(host: Rails.application.credentials[Rails.env.to_sym][:app][:domain])}\">#{Rails.application.credentials[Rails.env.to_sym][:app][:name]}</a> ©️ #{Date.today.year}</b>".html_safe
+    config.footer = "<a class=\"company\" href=\"#{URI::HTTP.build(host: Rails.application.credentials[Rails.env.to_sym][:app][:domain])}\">#{Rails.application.credentials[Rails.env.to_sym][:app][:name]}</a>".html_safe
 
   end
 

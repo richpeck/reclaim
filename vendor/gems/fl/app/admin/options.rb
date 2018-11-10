@@ -31,7 +31,7 @@ if Object.const_defined?('ActiveAdmin')
     ActiveAdmin.register_page 'Dash' do
 
       # => Menu
-      menu priority: 0, label: '💵 Dashboard'
+      menu priority: 0, label: '📈 Dashboard'
 
       # => Content
       content do

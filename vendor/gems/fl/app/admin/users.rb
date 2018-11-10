@@ -34,11 +34,11 @@ if Object.const_defined?('ActiveAdmin')
     # => Index
     index title: [I18n.t("activerecord.models.user.icon"), 'Users'].join(' ') do
       selectable_column
-      column 'Avatar' do |user|
-        user.avatar.attached? ? image_tag(user.avatar) : 'N/A'
-      end
+      column :id
       column :name
-      column :email
+      column 'Email' do |user|
+          link_to user.email, edit_admin_user_path(user), title: "Edit", data: { placement: :right }
+      end
       column :role
       column :public
       column :sign_in_count

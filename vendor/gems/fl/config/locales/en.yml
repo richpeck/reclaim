@@ -2,7 +2,7 @@ en:
   activerecord:
     models:
       user:
-        icon:  '👽'
+        icon:  '💼'
         one:    'User'
         other:  'Users'
       asset:
