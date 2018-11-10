@@ -44,6 +44,21 @@ Rails.application.routes.draw do
     # => https://www.damagereclaim.co.uk/privacy (Privacy Policy)
     # => https://www.damagereclaim.co.uk/terms   (Terms of Service)
 
+    ###################################
+    ###################################
+
+    # => Redirects
+    # => Allows you to point old URL's to new ones
+    # => https://guides.rubyonrails.org/routing.html#redirection
+    unless ("Meta::Redirect".constantize rescue nil).nil?
+
+      # => Allows admin to set redirects for search engines etc
+      Meta::Redirect.all.each do |redirect|
+        get redirect.title, to: redirect(redirect.val, status: 301)
+      end
+
+    end
+
   ###################################
   ###################################
 

@@ -32,7 +32,7 @@ if Object.const_defined?('ActiveAdmin')
   if ActiveRecord::Base.connection.table_exists? 'nodes'
 
     ## Get all Meta Models ##
-    Node.where(title: 'meta').where.not(val: 'role').pluck(:val).each do |meta|
+    Node.where(title: 'meta').where.not(val: 'redirect').pluck(:val).each do |meta|
 
       ## Check ##
       unless (model = "Meta::#{meta.capitalize}".constantize rescue nil).nil?

@@ -13,6 +13,10 @@ en:
         icon:   '📋'
         one:    'Option'
         other:  'Options'
+      meta/redirect:
+        icon:   '🚦'
+        one:    'Redirect'
+        other:  'Redirects'
       meta/page:
         icon:   '🔏'
         one:    'Page'
