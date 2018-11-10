@@ -216,7 +216,7 @@ if Object.const_defined?("ActiveAdmin")
       admin.build_menu :utility_navigation do |menu|
 
         ## User ##
-        menu.add label: proc{ display_name(current_active_admin_user.name) },
+        menu.add label: proc{ ["⚙️", display_name(current_active_admin_user.name)].join(" ") },
                  url:   proc{ edit_admin_user_path(current_active_admin_user) },
                  id:    'current_user',
                  if:    proc{ current_active_admin_user? }
