@@ -38,7 +38,7 @@ if Object.const_defined?("ActiveAdmin")
     # Note: Recommended image height is 21px to properly fit in the header
     #
     # config.site_title_image = "/images/logo.png"
-    config.site_title_image = "logo.png" # => Uses asset pipeline by default -- https://github.com/activeadmin/activeadmin/issues/2646
+    #config.site_title_image = "logo.png" # => Uses asset pipeline by default -- https://github.com/activeadmin/activeadmin/issues/2646
 
     # == Default Namespace
     #
@@ -111,7 +111,7 @@ if Object.const_defined?("ActiveAdmin")
     # roots for each namespace.
     #
     # Default:
-    config.root_to = 'users#index'
+    config.root_to = 'dashboard#index'
 
     # == Admin Comments
     #
@@ -163,7 +163,7 @@ if Object.const_defined?("ActiveAdmin")
     # Breadcrumbs are enabled by default. You can customize them for individual
     # resources or you can disable them globally from here.
     #
-    config.breadcrumb = true
+    config.breadcrumb = false
 
     # == Create Another Checkbox
     #
@@ -215,10 +215,10 @@ if Object.const_defined?("ActiveAdmin")
       admin.build_menu :utility_navigation do |menu|
 
         ## User ##
-        menu.add :label   => proc{ display_name(current_active_admin_user.name) },
-                  :url            => proc{ edit_admin_user_path(current_active_admin_user) },
-                  :id             => 'current_user',
-                  :if             => proc{ current_active_admin_user? }
+        menu.add label: proc{ display_name(current_active_admin_user.name) },
+                 url:   proc{ edit_admin_user_path(current_active_admin_user) },
+                 id:    'current_user',
+                 if:    proc{ current_active_admin_user? }
 
         ## Login ##
         admin.add_logout_button_to_menu menu

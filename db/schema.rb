@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_27_094014) do
+ActiveRecord::Schema.define(version: 2018_11_16_060637) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "resource_type"
@@ -57,6 +57,18 @@ ActiveRecord::Schema.define(version: 2018_06_27_094014) do
     t.datetime "updated_at", null: false
     t.index ["associated_type", "associated_id"], name: "index_associations_on_associated_type_and_associated_id"
     t.index ["associatiable_type", "associatiable_id"], name: "index_associations_on_associatiable_type_and_associatiable_id"
+  end
+
+  create_table "claims", force: :cascade do |t|
+    t.string "first"
+    t.string "last"
+    t.string "email"
+    t.string "phone"
+    t.string "mobile"
+    t.text "address"
+    t.text "val"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "nodes", force: :cascade do |t|

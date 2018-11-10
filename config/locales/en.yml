@@ -48,6 +48,8 @@
 en:
   exception_handler:
     not_found: "Page Not Found!"
+  active_admin:
+    logout: "Logout"
 
 ############################################
 ############################################
