@@ -63,6 +63,8 @@ body
       height: auto !important
       border:
         bottom: 1px solid rgba(255,255,255,0.1)
+      box:
+        shadow: 0 2px 2px 0 rgba(0,0,0,1)
 
       // Highlight
       &:after
@@ -95,14 +97,23 @@ body
 
         // General
         > li
-          opacity: 0.5
-          margin:  0 -4px 0 0 !important
+          opacity:  0.5
+          position: relative
+          display: inline-block
+          margin:   0 -4px 0 0 !important
           border:
             right: 1px solid rgba(0,0,0,1)
 
-          & + li
-            border:
-              left: 1px solid rgba(255,255,255,0.25)
+          // Highlight
+          &:after
+            display: block
+            position: absolute
+            content: ""
+            height: 100%
+            width: 1px
+            right: 0
+            top: 0
+            background: rgba(255,255,255,0.2)
 
           // Admin Users
           &#admin_users
@@ -162,7 +173,7 @@ body
     // Styling
     &.footer
       color:      rgba(255,255,255,1)
-      background: rgba(0,0,0,1)
+      background: rgba(0,0,0,0.35)
       border:     none
       padding:    5px 0
       box:

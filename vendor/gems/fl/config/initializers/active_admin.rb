@@ -30,7 +30,8 @@ if Object.const_defined?("ActiveAdmin")
     # users to your main site. Defaults to no link.
     #
     # config.site_title_link = "/"
-    #config.site_title_link = "/"
+    # https://stackoverflow.com/a/7530710/1143732
+    config.site_title_link = :root
 
     # Set an optional image to be displayed for the header
     # instead of a string (overrides :site_title)
@@ -38,7 +39,7 @@ if Object.const_defined?("ActiveAdmin")
     # Note: Recommended image height is 21px to properly fit in the header
     #
     # config.site_title_image = "/images/logo.png"
-    #config.site_title_image = "logo.png" # => Uses asset pipeline by default -- https://github.com/activeadmin/activeadmin/issues/2646
+    config.site_title_image = "logo.png" # => Uses asset pipeline by default -- https://github.com/activeadmin/activeadmin/issues/2646
 
     # == Default Namespace
     #
@@ -163,7 +164,7 @@ if Object.const_defined?("ActiveAdmin")
     # Breadcrumbs are enabled by default. You can customize them for individual
     # resources or you can disable them globally from here.
     #
-    config.breadcrumb = false
+    config.breadcrumb = true
 
     # == Create Another Checkbox
     #
