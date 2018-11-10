@@ -64,7 +64,7 @@ body
       border:
         bottom: 1px solid rgba(255,255,255,0.1)
       box:
-        shadow: 0 2px 2px 0 rgba(0,0,0,1)
+        shadow: 0 2px 2px 0 rgba(0,0,0,0.35)
 
       // Highlight
       &:after
@@ -81,6 +81,10 @@ body
       .site_title
         margin:   0 !important
         padding:  0 5px
+
+      // Image
+      #site_title_image
+        height: 25px
 
     // Tabs
     ul
@@ -103,6 +107,20 @@ body
           margin:   0 -4px 0 0 !important
           border:
             right: 1px solid rgba(0,0,0,1)
+
+          // First
+          &:first-child
+            border:
+              left: 1px solid rgba(0,0,0,1)
+            &:before
+              display: block
+              position: absolute
+              content: ""
+              height: 100%
+              width: 1px
+              left: 0
+              top: 0
+              background: rgba(255,255,255,0.2)
 
           // Highlight
           &:after
@@ -185,11 +203,9 @@ body
         color: rgba(255,255,255,1)
         transition: opacity 0.15s ease-in-out
         font:
-          weight: bold
-          size:   10px
+          size: 11px
         text:
           decoration: none
-          transform:  uppercase
         &:hover
           opacity: 0.65
 
