@@ -66,7 +66,6 @@ ActiveRecord::Schema.define(version: 2018_11_16_060637) do
     t.string "phone"
     t.string "mobile"
     t.text "address"
-    t.text "val"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

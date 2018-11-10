@@ -14,7 +14,7 @@ en:
         one:    'Option'
         other:  'Options'
       meta/page:
-        icon:   '🖋️'
+        icon:   '🔏'
         one:    'Page'
         other:  'Pages'
       meta/news:
