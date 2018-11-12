@@ -172,6 +172,7 @@ body
     color:      rgba(255,255,255,1)
     background: rgba(255,255,255,0.05)
     border:     none
+    position:   relative
     padding:
       bottom:   40px
     border:
@@ -180,6 +181,18 @@ body
       top:      0 !important
     box:
       shadow:   none
+
+    // After
+    &:after
+      display:  block
+      content:  ""
+      position: absolute
+      width:    100%
+      height:   1px
+      left:     0
+      bottom:   0
+      background:
+        color:  rgba(0,0,0,1)
 
     // Header
     #page_title
@@ -203,6 +216,21 @@ body
     // Main Content
     #main_content
 
+      // Index Footer
+      #index_footer
+        > *
+          color: rgba(255,255,255,1) !important
+          > *
+            color: rgba(255,255,255,1) !important
+
+      // Batch Actions
+      .table_tools
+        color: rgba(63,63,63,1)
+
+        // Border etc
+        .dropdown_menu_button:not(.disabled)
+          border: 1px solid rgba(0,0,0,1)
+
       // Blank Slate Container
       .blank_slate_container
         span
@@ -221,7 +249,9 @@ body
           tr
             th
               color: rgba(0,0,0,1)
-              background: rgba(255,255,255,0.15)
+              background: rgba(255,255,255,1)
+              border:
+                bottom: 1px solid rgba(0,0,0,1)
               padding: 5px inherit
               vertical:
                 align: middle
@@ -234,7 +264,7 @@ body
               background: rgba(255,255,255,0.1)
             td
               color: rgba(255,255,255,0.5)
-              padding: 5px 10px
+              padding: 0 10px
               background: rgba(255,255,255,0.05)
               border: none
               transition: color 0.15s ease-in-out, background 0.15s ease-in-out
