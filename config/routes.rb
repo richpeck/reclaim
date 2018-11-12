@@ -67,6 +67,16 @@ Rails.application.routes.draw do
     # => https://www.damagereclaim.co.uk/news/x-helps-you-buy-more-stuff (X Helps You Buy More Stuff)
     resources :application, only: :show, path: :news, as: :news
 
+    ###################################
+    ###################################
+
+    # => Claims / FAQ's
+    # => Claims & FAQ's are "static" endpoints (they'll always be present)
+    unless ("Meta::Option".constantize rescue nil).nil?
+      resources :application, only: [:shows], path: :faq, as: :faq
+      resources :application, only: [:new,:create], path: :claim, as: :claims, path_names: {new: ""} if Meta::Option.find_by(ref: "public", val: "claims")
+    end
+
   ###################################
   # APP
   ###################################

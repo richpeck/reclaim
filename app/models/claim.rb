@@ -27,8 +27,8 @@ class Claim < ApplicationRecord
     # => mobile   (mobile)
     # => address  (address)
 
-    # => received (received)
-    # => 
+    # => received (received // date)
+    # =>
 
     ###############################
 
@@ -38,6 +38,10 @@ class Claim < ApplicationRecord
 
     # => Hubspot
     # => This is meant to fire after the event
+
+    # => Scopes
+    # => Allows us to split data dependent on nature of claim
+    scope :completed, -> { where(id: "NOT NULL") }
 
   ###########################################################
   ###########################################################
