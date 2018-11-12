@@ -34,10 +34,21 @@ class Claim < ApplicationRecord
 
     # => Validations
     # => Ensure every attribute is present (cannot have bad)
-    validates :first_name, :last_name, :email, :phone, :mobile, :address, presence: true, length: { minimum: 2 }
+    validates :first, :last, :email, :mobile, :address, presence: true, length: { minimum: 2 }
+
+    # => Numbers
+    # => Validates numericality
+    validates :phone, :mobile, numericality: { only_integer: true }
+
+    # => Email
+    # => https://stackoverflow.com/a/49925333/1143732
+    validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
 
     # => Hubspot
     # => This is meant to fire after the event
+    # => The aim is to populate Hubspot with new claims
+    # => Whilst implemented previously, was not as robust as was required
+    after_create :hubspot
 
     # => Scopes
     # => Allows us to split data dependent on nature of claim
@@ -46,13 +57,22 @@ class Claim < ApplicationRecord
   ###########################################################
   ###########################################################
 
-  # Class (public)
-  ###################
+  ########################
+  ##   Class (public)   ##
+  ########################
 
+  ########################
+  ## Instance (private) ##
+  ########################
 
-  # Instance (private)
-  ###################
+  private
 
+    # => Hubspot
+    # => Uses the "hubspot-ruby" gem
+    # => https://github.com/adimichele/hubspot-ruby#authentication-with-an-api-key
+    def hubspot
+      puts "Hubspot"
+    end
 
   ###########################################################
   ###########################################################

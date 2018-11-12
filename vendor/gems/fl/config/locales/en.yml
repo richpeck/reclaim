@@ -5,10 +5,6 @@ en:
         icon:  '🤑'
         one:    'User'
         other:  'Users'
-      claim:
-        icon:   '📮'
-        one:    'Claim'
-        other:  'Claims'
       meta/option:
         icon:   '📋'
         one:    'Option'

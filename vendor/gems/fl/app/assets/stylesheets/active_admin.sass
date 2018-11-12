@@ -58,7 +58,7 @@ body
       border:
         bottom: 1px solid rgba(0,0,0,1)
       box:
-        shadow: 0 2px 2px 0 rgba(0,0,0,0.35)
+        shadow: 0 2px 2px 0 rgba(0,0,0,0.5)
 
       // Highlight
       &:after
@@ -69,7 +69,7 @@ body
         height: 1px
         bottom: -2px
         left: 0
-        background: rgba(255,255,255,0.15)
+        background: rgba(255,255,255,0.2)
 
       // Logo
       .site_title
@@ -170,8 +170,12 @@ body
   // Title
   #title_bar
     color:      rgba(255,255,255,1)
-    background: none
+    background: rgba(255,255,255,0.05)
     border:     none
+    padding:
+      bottom:   40px
+    border:
+      bottom:   1px solid rgba(255,255,255,0.15)
     margin:
       top:      0 !important
     box:
@@ -195,13 +199,57 @@ body
 
   // Content
   #active_admin_content
-    padding:
-      top: 0
 
     // Main Content
     #main_content
+
+      // Blank Slate Container
+      .blank_slate_container
+        span
+          color: rgba(255,255,255,1)
+          background: rgba(255,255,255,0.025)
+
+      // Table
       table
-        border: 1px solid rgba(0,0,0,1)
+        $border: 1px solid rgba(255,255,255,0.25)
+
+        border: $border
+        background: none
+        font:
+          size: 11px
+        thead
+          tr
+            th
+              color: rgba(0,0,0,1)
+              background: rgba(255,255,255,0.15)
+              padding: 5px inherit
+              vertical:
+                align: middle
+        tbody
+          tr
+            &:hover
+              td
+                color: rgba(255,255,255,1)
+            &.even
+              background: rgba(255,255,255,0.1)
+            td
+              color: rgba(255,255,255,0.5)
+              padding: 5px 10px
+              background: rgba(255,255,255,0.05)
+              border: none
+              transition: color 0.15s ease-in-out, background 0.15s ease-in-out
+              & + td
+                border:
+                  left: $border
+                  top: $border
+              &.col-title
+                color: rgba(255,255,255,1)
+                font:
+                  weight: bold
+              &.col-actions
+                .table_actions
+                  a
+                    color: rgba(255,255,255,1)
 
   ////////////////////////////////////////////////////////////
   ////////////////////////////////////////////////////////////
@@ -212,7 +260,7 @@ body
     // Styling
     &.footer
       color:      rgba(255,255,255,1)
-      background: rgba(0,0,0,0.25)
+      background: rgba(0,0,0,0.3)
       border:     none
       padding:    10px 0
       box:

@@ -60,20 +60,9 @@ if Object.const_defined?('ActiveAdmin')
           # => Index
           index title: [I18n.t("activerecord.models.meta/#{meta}.icon"), (models.try(:[], meta.to_sym).try(:[], :label) || model.model_name.human(count: 2)), '|', Rails.application.credentials[Rails.env.to_sym][:app][:name] ].join(' ') do
             selectable_column
-            if meta.to_sym == :platform
-              column "Logo", :title do |platform|
-                platform.try(:logo) || platform.title
-              end
-            else
-              column :title
-            end
-            column "Info" do |x|
+            column :title, sortable: :title
+            column "Info", sortable: :info do |x|
               x.value.html_safe
-            end
-            if meta.to_sym == :platform
-              Node.ref('feature').pluck(:val).each do |feature|
-                column feature
-              end
             end
             %i(created_at updated_at).each do |x|
               column x

@@ -42,6 +42,11 @@ module Damagereclaim
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
 
+    # => Hubspot
+    # => Allows us to dynamically update claims
+    # => https://github.com/adimichele/hubspot-ruby#authentication-with-an-api-key
+    Hubspot.configure hapikey: Rails.application.credentials[Rails.env.to_sym][:hubspot][:api]
+
   end
 end
 

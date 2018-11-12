@@ -50,6 +50,17 @@ en:
     not_found: "Page Not Found!"
   active_admin:
     logout: "🔑  Logout"
+  activerecord:
+    models:
+      claim:
+        icon:   '📮'
+        one:    'Claim'
+        other:  'Claims'
+    attributes:
+      claim:
+        first:  "First Name"
+        last:   "Last Name"
+        phone:  "Phone (Landline)"
 
 ############################################
 ############################################
