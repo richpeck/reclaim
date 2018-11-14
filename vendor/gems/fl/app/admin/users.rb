@@ -38,7 +38,9 @@ if Object.const_defined?('ActiveAdmin')
       column 'Email' do |user|
           link_to user.email, edit_admin_user_path(user), title: "Edit", data: { placement: :right }
       end
-      column :role
+      column 'Role' do |user|
+          content_tag :span, user.role
+      end
       column :sign_in_count
       column :current_sign_in_at
       column :last_sign_in_at

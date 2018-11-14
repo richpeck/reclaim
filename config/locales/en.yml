@@ -52,12 +52,20 @@ en:
     logout: "🔑  Logout"
     blank_slate:
       content: ""
-      link:    "No %{resource} yet."
+      link:    "No %{resource_name} yet."
     resources:
       option:
         new_model: '🌑 + Option'
       news:
         new_model: '📢 + News'
+      claim:
+        new_model: '📂 + Claim'
+      page:
+        new_model:  '🖋️ + Page'
+      faq:
+        new_model: '🗳️ + FAQ'
+      user:
+        new_model: '☠️ + User'
   activerecord:
     models:
       claim:
