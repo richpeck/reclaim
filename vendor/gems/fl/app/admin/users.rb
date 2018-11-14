@@ -32,7 +32,7 @@ if Object.const_defined?('ActiveAdmin')
     ##################################
 
     # => Index
-    index title: [I18n.t("activerecord.models.user.icon"), 'Users'].join(' ') do
+    index title: [I18n.t("activerecord.models.user.icon"), User.model_name.human(count: 2), '|', Rails.application.credentials[Rails.env.to_sym][:app][:name]].join(' ') do
       selectable_column
       column :name, sortable: "Name"
       column 'Email' do |user|

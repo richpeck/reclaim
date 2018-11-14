@@ -273,15 +273,32 @@ body
           color: rgba(255,255,255,1)
           background: rgba(255,255,255,0.025)
 
-      // Input
+      // Inputs
       table,
       form fieldset.inputs
         $border: 1px solid rgba(255,255,255,0.25)
 
-        border: $border
+        // General
         background: none
+        background:
+          clip: border-box
         font:
           size: 11px
+
+        // Inputs
+        ol
+          li
+            > label
+              transition: color 0.15s ease-in-out
+            &:hover
+              > label
+                color: rgba(255,255,255,1)
+
+        // Legend
+        legend
+          color: rgba(0,0,0,1)
+
+        // Table
         thead
           tr
             th
@@ -297,6 +314,9 @@ body
               &.col-actions,
               &.col-created_at,
               &.col-updated_at,
+              &.col-sign_in_count,
+              &.col-current_signed_in_at,
+              &.col-last_sign_in_at,
               &.col-selectable,
               &.col-role
                 text:
@@ -328,6 +348,9 @@ body
                     weight: bold
               &.col-selectable,
               &.col-created_at,
+              &.col-sign_in_count,
+              &.col-current_signed_in_at,
+              &.col-last_sign_in_at,
               &.col-updated_at,
               &.col-actions,
               &.col-role

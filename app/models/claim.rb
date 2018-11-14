@@ -25,10 +25,31 @@ class Claim < ApplicationRecord
     # => email    (email)
     # => phone    (contact_number)
     # => mobile   (mobile)
+    # => postcode (zip)
     # => address  (address)
 
-    # => received (received // date)
-    # =>
+    # => received (received or deducted // date)
+    # => from (date)
+    # => to (date)
+    # => escalation (text)
+
+    # => insurance    (Was insurance requirements and options pointed out to the client prior to commencement of the rental? // bool)
+    # => signed       (Has a signed condition report been provided on commencement of the rental? // bool)
+    # => shown        (Was the client showed round the vehicle pointing out previous damage prior to the handover of keys? // bool)
+    # => inspected    (Did the conditions make it difficult to inspect the vehicle prior to commencement of the rental (i.e. picked up in the rain, dark, underground car park, etc.)?  //bool)
+    # => employee     (Was there an employee present when handing over the vehicle? //bool)
+    # => noted        (Was damage noted on a condition report when handing the vehicle back? //bool)
+    # => acknowledge  (Did our client acknowledge they caused the damage? //bool)
+    # => report       (Did the client sign the damage condition report?  //bool)
+    # => subsequent   (Has subsequent damage been identified by the rental company after the vehicle has been checked in and handed over? //bool)
+    # => card         (Has the damage charge already been deducted from our client’s card? //bool)
+    # => invoice      (On the damage invoice, has all the damage been described correctly and matches the inbound condition report? //bool)
+    # => images       (On the invoice have appropriate images been included evidencing the following: //bool)
+    # => a) b) c) d) e)
+    # => repair       (Is the cost of repair reasonable compared to the matrix provided? //bool)
+    # => method       (Is the repair method reasonable for the damage that has been identified? //bool)
+    # => additional   (Has the client been charged additional costs over and above the damage charges (i.e. damage handling fee, loss of usage)? //bool)
+    # => vat          (Has VAT been applied to the invoice or estimate? //bool)
 
     ###############################
 

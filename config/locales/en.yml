@@ -51,8 +51,8 @@ en:
   active_admin:
     logout: "🔑  Logout"
     blank_slate:
-      content: ""
-      link:    "No %{resource_name} yet."
+      content: "No %{resource_name} yet."
+      link:    "New"
     resources:
       option:
         new_model: '🌑 + Option'
@@ -61,7 +61,7 @@ en:
       claim:
         new_model: '📂 + Claim'
       page:
-        new_model:  '🖋️ + Page'
+        new_model:  '📜 + Page'
       faq:
         new_model: '🗳️ + FAQ'
       user:

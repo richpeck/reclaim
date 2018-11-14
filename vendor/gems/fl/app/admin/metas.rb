@@ -74,7 +74,7 @@ if Object.const_defined?('ActiveAdmin')
           ##################################
 
           # =>  Form
-          form multipart: true, title: [I18n.t("activerecord.models.meta/#{meta}.icon"), (models.try(:[], meta.to_sym).try(:[], :label) || model.model_name.human(count: 2))].join(' ') do |f|
+          form multipart: true, title: [I18n.t("activerecord.models.meta/#{meta}.icon"), (models.try(:[], meta.to_sym).try(:[], :label) || model.model_name.human(count: 2)), '|', Rails.application.credentials[Rails.env.to_sym][:app][:name]].join(' ') do |f|
             f.inputs 'Details' do
               f.input :slug if meta.to_sym == :page
               f.input :ref
