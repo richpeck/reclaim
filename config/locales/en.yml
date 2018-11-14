@@ -50,6 +50,14 @@ en:
     not_found: "Page Not Found!"
   active_admin:
     logout: "🔑  Logout"
+    blank_slate:
+      content: ""
+      link:    "No %{resource} yet."
+    resources:
+      option:
+        new_model: '🌑 + Option'
+      news:
+        new_model: '📢 + News'
   activerecord:
     models:
       claim:
