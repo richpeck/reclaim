@@ -44,20 +44,21 @@ if Object.const_defined?('ActiveAdmin')
       column :sign_in_count
       column :current_sign_in_at
       column :last_sign_in_at
-      actions
+      actions name: "Actions"
     end
 
+    # => Filter
     filter :email
 
     #[I18n.t("activerecord.models.user.icon"), 'Users'].join(' ')
-    form title: proc { |user| ['Editing', user.name].join(' ') } do |f|
-      f.inputs "Profile", for: [:profile, f.object.profile || f.object.build_profile] do |p|
+    form title: [I18n.t("activerecord.models.user.icon"), User.model_name.human(count: 2), '|', Rails.application.credentials[Rails.env.to_sym][:app][:name]].join(' ') do |f|
+      f.inputs "👻 Profile", for: [:profile, f.object.profile || f.object.build_profile] do |p|
         p.input :name
         p.input :role, include_blank: false
         p.input :public
         p.input :avatar, as: :file, hint: f.object.avatar.attached? ? image_tag(f.object.avatar.variant(resize: '150x150')) : content_tag(:span, "No Image Yet")
       end
-      f.inputs "Details" do
+      f.inputs "✔️ Details" do
         f.input :email
         f.input :password
         f.input :password_confirmation

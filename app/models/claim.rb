@@ -55,11 +55,12 @@ class Claim < ApplicationRecord
 
     # => Validations
     # => Ensure every attribute is present (cannot have bad)
-    validates :first, :last, :email, :mobile, :address, presence: true, length: { minimum: 2 }
+    validates :first, :last, :email, :mobile, :address, presence: true, length: { minimum: 2 } # => claimaint
+    validates :received, :from, :to, :escalation, presence: true # => claim
 
     # => Numbers
     # => Validates numericality
-    validates :phone, :mobile, numericality: { only_integer: true }
+    validates :phone, :mobile, numericality: { only_integer: true, allow_blank: true }
 
     # => Email
     # => https://stackoverflow.com/a/49925333/1143732

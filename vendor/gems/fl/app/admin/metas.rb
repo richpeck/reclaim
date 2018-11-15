@@ -41,6 +41,11 @@ if Object.const_defined?('ActiveAdmin')
         # => Model
         ActiveAdmin.register model, as: models.try(:[], meta.to_sym).try(:[], :resource) || meta.to_s do
 
+          ##################################
+          ##################################
+
+          # => Actions
+          actions :all, except: :show
 
           ##################################
           ##################################
@@ -58,16 +63,29 @@ if Object.const_defined?('ActiveAdmin')
           ##################################
 
           # => Index
-          index title: [I18n.t("activerecord.models.meta/#{meta}.icon"), (models.try(:[], meta.to_sym).try(:[], :label) || model.model_name.human(count: 2)), '|', Rails.application.credentials[Rails.env.to_sym][:app][:name] ].join(' ') do
-            selectable_column
-            column :title, sortable: :title
-            column "Info", sortable: :info do |x|
-              x.value.html_safe
+          # => This is a hack-job, but wanted the "news" portion to be a grid...
+          if meta.to_sym == :news
+
+            # => Grid
+            index title: [I18n.t("activerecord.models.meta/#{meta}.icon"), (models.try(:[], meta.to_sym).try(:[], :label) || model.model_name.human(count: 2)), '|', Rails.application.credentials[Rails.env.to_sym][:app][:name] ].join(' '), as: :grid do |meta|
+              content_tag :span, "test"
             end
-            %i(created_at updated_at).each do |x|
-              column x
+
+          else
+
+            # => Table
+            index title: [I18n.t("activerecord.models.meta/#{meta}.icon"), (models.try(:[], meta.to_sym).try(:[], :label) || model.model_name.human(count: 2)), '|', Rails.application.credentials[Rails.env.to_sym][:app][:name] ].join(' ') do
+              selectable_column
+              column :title, sortable: :title
+              column "Info", sortable: :info do |x|
+                x.value.html_safe
+              end
+              %i(created_at updated_at).each do |x|
+                column x
+              end
+              actions name: "Actions"
             end
-            actions
+
           end
 
           ##################################
@@ -75,10 +93,10 @@ if Object.const_defined?('ActiveAdmin')
 
           # =>  Form
           form multipart: true, title: [I18n.t("activerecord.models.meta/#{meta}.icon"), (models.try(:[], meta.to_sym).try(:[], :label) || model.model_name.human(count: 2)), '|', Rails.application.credentials[Rails.env.to_sym][:app][:name]].join(' ') do |f|
-            f.inputs 'Details' do
+            f.inputs '✔️ Details' do
               f.input :slug if meta.to_sym == :page
-              f.input :ref
-              f.input :val, as: :trix_editor
+              f.input :ref, placeholder: "Title"
+              f.input :val, as: :trix_editor, placeholder: "Content"
             end
 
             f.actions

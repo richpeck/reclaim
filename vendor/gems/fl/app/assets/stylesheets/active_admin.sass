@@ -246,6 +246,19 @@ body
   ////////////////////////////////////////////////////////////
   ////////////////////////////////////////////////////////////
 
+  // Trix
+  trix-editor
+    color: rgba(0,0,0,1)
+    background: rgba(255,255,255,1)
+  .trix-editor-wrapper
+    float: right
+    width: calc(80% - 20px)
+  trix-toolbar .button_group
+    background: rgba(255,255,255,1)
+
+  ////////////////////////////////////////////////////////////
+  ////////////////////////////////////////////////////////////
+
   // Content
   #active_admin_content
 
@@ -284,6 +297,15 @@ body
           clip: border-box
         font:
           size: 11px
+
+        // Claims
+        &.index_table_claims
+          thead
+            tr
+              th
+                &.col-email
+                  font:
+                    weight: bold
 
         // Inputs
         ol
