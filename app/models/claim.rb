@@ -55,7 +55,7 @@ class Claim < ApplicationRecord
 
     # => Validations
     # => Ensure every attribute is present (cannot have bad)
-    validates :first, :last, :email, :mobile, :address, presence: true, length: { minimum: 2 } # => claimaint
+    validates :first, :last, :email, :address, presence: true, length: { minimum: 2 } # => claimaint
     validates :received, :from, :to, :escalation, presence: true # => claim
 
     # => Numbers
@@ -66,11 +66,21 @@ class Claim < ApplicationRecord
     # => https://stackoverflow.com/a/49925333/1143732
     validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
 
+    # => Postcode
+    # => Validates postcode to ensure format is correct
+    # => https://github.com/threedaymonk/uk_postcode#tips-for-rails
+    validates :postcode, postcode: true
+
+    # => Mobile / Phone
+    # => Either required
+    # => https://stackoverflow.com/a/2134917/1143732
+    validate :mobile_or_phone
+
     # => Hubspot
     # => This is meant to fire after the event
     # => The aim is to populate Hubspot with new claims
     # => Whilst implemented previously, was not as robust as was required
-    after_create :hubspot
+    after_save :hubspot
 
     # => Scopes
     # => Allows us to split data dependent on nature of claim
@@ -87,6 +97,14 @@ class Claim < ApplicationRecord
   ## Instance (private) ##
   ########################
 
+    # => Postcode
+    # => https://github.com/threedaymonk/uk_postcode#tips-for-rails
+    def postcode=(str)
+      super UKPostcode.parse(str).to_s
+    end
+
+  # => Private
+  # => Allows us to manage the system without exposing methods publicly
   private
 
     # => Hubspot
@@ -94,6 +112,12 @@ class Claim < ApplicationRecord
     # => https://github.com/adimichele/hubspot-ruby#authentication-with-an-api-key
     def hubspot
       puts "Hubspot"
+    end
+
+    # => Mobile or Phone
+    # => Accounts for either to be present
+    def mobile_or_phone
+      errors.add(:base, "Please specify mobile OR landline (phone) number (obviously, you can have BOTH if you want).") if mobile.blank? && phone.blank?
     end
 
   ###########################################################

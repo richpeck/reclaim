@@ -79,7 +79,7 @@ if Object.const_defined?('ActiveAdmin')
               column :slug, sortable: "Slug" if meta.to_sym == :page
               column :ref, sortable: "Ref"
               column :val, sortable: "Val" do |x|
-                x.value.html_safe
+                truncate(strip_tags(x.value), length: 350, separator: ' ')
               end
               %i(created_at updated_at).each do |x|
                 column x

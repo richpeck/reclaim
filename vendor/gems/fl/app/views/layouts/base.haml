@@ -23,7 +23,7 @@
       gtag('js', new Date());
       gtag('config', '#{Rails.application.credentials[Rails.env.to_sym][:app][:analytics]}');
 
-  %body
+  %body{ class: "test" }
     - haml_tag_if content_for?(:header), "%header" do
       = liquidize yield(:header)
 

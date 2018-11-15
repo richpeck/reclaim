@@ -26,7 +26,7 @@ if Object.const_defined?('ActiveAdmin')
     menu priority: 2, label: -> { [I18n.t("activerecord.models.claim.icon")|| nil, Claim.model_name.human(count: 2)].join(' ') }
 
     # => Params
-    permit_params :first, :last, :email, :mobile, :address, :received, :from, :to, :escalation, :phone, :mobile, :insurance, :signed, :shown, :inspected, :employee, :noted, :acknowledge, :report, :subsequent, :card, :invoice, :images, :repair, :method, :additional, :vat
+    permit_params :first, :last, :email, :mobile, :address, :postcode, :received, :from, :to, :escalation, :phone, :mobile, :insurance, :signed, :shown, :inspected, :employee, :noted, :acknowledge, :report, :subsequent, :card, :invoice, :images, :repair, :method, :additional, :vat
 
     # => Actions
     actions :all, except: :show
@@ -43,10 +43,17 @@ if Object.const_defined?('ActiveAdmin')
       column "Email", sortable: "Email" do |x|
         link_to x.email, edit_admin_claim_path(x)
       end
-      column :phone,    sortable: "Phone"
-      column :mobile,   sortable: "Mobile"
+      column "Phone", sortable: "Phone" do |x|
+        x.phone.blank? ? "N/A" : x.phone
+      end
+      column "Mobile", sortable: "Mobile" do |x|
+        x.mobile.blank? ? "N/A" : x.mobile
+      end
       column :postcode, sortable: "Postcode"
       column :address,  sortable: "Address"
+      %i(created_at updated_at).each do |x|
+        column x, sortable: x
+      end
       actions name: "Actions"
     end
 
@@ -55,13 +62,15 @@ if Object.const_defined?('ActiveAdmin')
 
     # => Create
     form title: [I18n.t("activerecord.models.claim.icon"), Claim.model_name.human(count: 2), '|', Rails.application.credentials[Rails.env.to_sym][:app][:name]].join(' ') do |f|
+      f.semantic_errors
       f.inputs "⚙️ Client" do
-        f.input :first, placeholder: "First Name"
-        f.input :last,  placeholder: "Last Name"
-        f.input :email, placeholder: "Email"
-        f.input :phone, placeholder: "Phone"
-        f.input :mobile, placeholder: "Mobile"
-        f.input :address, placeholder: "Address"
+        f.input :first,     placeholder: "First Name"
+        f.input :last,      placeholder: "Last Name"
+        f.input :email,     placeholder: "Email"
+        f.input :phone,     placeholder: "Phone"
+        f.input :mobile,    placeholder: "Mobile"
+        f.input :address,   placeholder: "Address"
+        f.input :postcode,  placeholder: "Postcode"
       end
       f.inputs "📜 Claim" do
         f.input :received
