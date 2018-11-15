@@ -77,6 +77,11 @@ en:
         first:  "First Name"
         last:   "Last Name"
         phone:  "Phone (Landline)"
+      meta/faq:
+        val:    "Content"
+      meta/option:
+        ref:    "Ref"
+        val:    "Setting"
 
 ############################################
 ############################################

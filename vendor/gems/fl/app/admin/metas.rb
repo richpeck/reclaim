@@ -76,8 +76,9 @@ if Object.const_defined?('ActiveAdmin')
             # => Table
             index title: [I18n.t("activerecord.models.meta/#{meta}.icon"), (models.try(:[], meta.to_sym).try(:[], :label) || model.model_name.human(count: 2)), '|', Rails.application.credentials[Rails.env.to_sym][:app][:name] ].join(' ') do
               selectable_column
-              column :title, sortable: :title
-              column "Info", sortable: :info do |x|
+              column :slug, sortable: "Slug" if meta.to_sym == :page
+              column :ref, sortable: "Ref"
+              column :val, sortable: "Val" do |x|
                 x.value.html_safe
               end
               %i(created_at updated_at).each do |x|

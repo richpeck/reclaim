@@ -259,6 +259,13 @@ body
   ////////////////////////////////////////////////////////////
   ////////////////////////////////////////////////////////////
 
+  // Random
+  .ui-dialog-titlebar
+    color: rgba(0,0,0,1)
+
+  ////////////////////////////////////////////////////////////
+  ////////////////////////////////////////////////////////////
+
   // Content
   #active_admin_content
 
@@ -299,13 +306,21 @@ body
           size: 11px
 
         // Claims
-        &.index_table_claims
-          thead
+        &#index_table_claims
+          tbody
             tr
-              th
+              td
                 &.col-email
                   font:
                     weight: bold
+
+        // FAQ's
+        &#index_table_faqs
+          tbody
+            tr
+              td
+                &.col-val
+                  width: 40%
 
         // Inputs
         ol
@@ -333,6 +348,7 @@ body
                 bottom: 1px solid rgba(0,0,0,1)
               vertical:
                 align: middle
+              &.col-id,
               &.col-actions,
               &.col-created_at,
               &.col-updated_at,
@@ -368,6 +384,7 @@ body
                   color: rgba(255,255,255,1)
                   font:
                     weight: bold
+              &.col-id,
               &.col-selectable,
               &.col-created_at,
               &.col-sign_in_count,
