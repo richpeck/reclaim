@@ -58,7 +58,7 @@ Rails.application.routes.draw do
 
     # => Everything else
     # => Nodes shown through system
-    #resources :application, only: :show, path: "" # => url.com/:id
+    resources :application, only: :show, path: "" # => url.com/:id
 
   ########################################
   ########################################
