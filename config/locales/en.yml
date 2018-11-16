@@ -79,6 +79,8 @@ en:
         phone:  "Phone (Landline)"
       meta/faq:
         val:    "Content"
+      meta/news:
+        val:    "Description"
       meta/option:
         ref:    "Ref"
         val:    "Setting"

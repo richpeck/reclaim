@@ -306,6 +306,26 @@ body
   ////////////////////////////////////////////////////////////
   ////////////////////////////////////////////////////////////
 
+  // Grid Label
+  #collection_selection_toggle_panel
+    label
+      position: relative
+      padding:
+        top: 1px
+      color: rgba(255,255,255,0.65)
+      font:
+        size: 0.75em
+      input
+        top: -1px
+        position: relative
+        margin:
+          right: 5px
+        vertical:
+          align: middle
+
+  ////////////////////////////////////////////////////////////
+  ////////////////////////////////////////////////////////////
+
   // Content
   #active_admin_content
 
@@ -344,6 +364,61 @@ body
           clip: border-box
         font:
           size: 11px
+
+        // Grid
+        &.index_grid
+          background: none
+          border:
+            collapse: seperate
+            spacing:  2px
+          tbody
+            tr
+              &:hover
+                td
+                  color: inherit
+              td
+                border: none
+                background: none
+                padding: 0
+                width: 33%
+                vertical:
+                  align: top
+                max:
+                  width: 150px
+                margin:
+                  bottom: 15px
+                &:hover
+                  color: rgba(255,255,255,1)
+
+                // Styling
+                a
+                  display: block
+                  position: relative
+                  background: rgba(255, 255, 255, 0.05)
+                  text:
+                    decoration: none
+                  box:
+                    sizing: border-box
+                  img
+                    display: block
+                    width:   100%
+                    height:  auto
+                  strong
+                    display:  block
+                    width:    100%
+                    overflow: hidden
+                    padding:  10px 10px 0
+                    white:
+                      space: nowrap
+                    text:
+                      transform: uppercase
+                      decoration: underline
+                      overflow: ellipsis
+                  span
+                    display: block
+                    padding: 10px
+                    text:
+                      decoration: none !important
 
         // Claims
         &#index_table_claims
