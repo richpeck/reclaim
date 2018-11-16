@@ -72,7 +72,7 @@ if Object.const_defined?('ActiveAdmin')
 
                 # => Concat required or only the last content_tag returned
                 # => https://apidock.com/rails/ActionView/Helpers/TagHelper/content_tag#481-Content-tag-in-helpers
-                content = image_tag("https://via.placeholder.com/350", class: "featured")
+                content = image_tag("https://via.placeholder.com/350", class: "featured", data: { "pin-hover" => "false" })
                 content << content_tag(:strong, meta.ref)
                 content << content_tag(:span, truncate(strip_tags(meta.value), length: 350, separator: ' ',  omission: '...'))
                 content
