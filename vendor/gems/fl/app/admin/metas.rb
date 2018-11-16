@@ -72,7 +72,7 @@ if Object.const_defined?('ActiveAdmin')
 
                 # => Concat required or only the last content_tag returned
                 # => https://apidock.com/rails/ActionView/Helpers/TagHelper/content_tag#481-Content-tag-in-helpers
-                content = image_tag("https://via.placeholder.com/350", class: "featured", data: { "pin-hover" => "false" })
+                content = image_tag("https://via.placeholder.com/350", class: "featured", "nopin" => "true")
                 content << content_tag(:strong, meta.ref)
                 content << content_tag(:span, truncate(strip_tags(meta.value), length: 350, separator: ' ',  omission: '...'))
                 content
@@ -85,9 +85,10 @@ if Object.const_defined?('ActiveAdmin')
             # => Table
             index title: [I18n.t("activerecord.models.meta/#{meta}.icon"), (models.try(:[], meta.to_sym).try(:[], :label) || model.model_name.human(count: 2)), '|', Rails.application.credentials[Rails.env.to_sym][:app][:name] ].join(' ') do
               selectable_column
+              column :id,   sortable: "ID"
               column :slug, sortable: "Slug" if meta.to_sym == :page
-              column :ref, sortable: "Ref"
-              column :val, sortable: "Val" do |x|
+              column :ref,  sortable: "Ref"
+              column :val,  sortable: "Val" do |x|
                 truncate(strip_tags(x.value), length: 350, separator: ' ',  omission: '...')
               end
               %i(created_at updated_at).each do |x|
