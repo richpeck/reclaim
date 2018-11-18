@@ -1,0 +1,4 @@
+- # Main
+- %i(inner_header main inner_footer).each do |element|
+  - haml_tag_if content_for?(element), element.to_s.split("_").last do
+    = liquidize yield (element == :main ? nil : element)

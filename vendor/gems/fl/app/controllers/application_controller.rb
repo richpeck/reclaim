@@ -22,6 +22,9 @@ class ApplicationController < ActionController::Base
     # => Maintenance
     before_action Proc.new { @maintenance = Node.find_by(ref: "maintenance").try(:val) }, only: :show
 
+    # => Extras
+    before_action :layout_vars
+
   ##################################
   ##################################
 
@@ -30,7 +33,12 @@ class ApplicationController < ActionController::Base
     # => Liquid ref - https://github.com/Shopify/liquid/wiki/Liquid-for-Programmers#first-steps
     # => If not using bang operator in find, use || "No Content"
     def show
+
+      # => If they're accessing "index", it should not be shown
       raise ActionController::RoutingError.new('Not Found') if params[:id] == "index"
+
+      # => Needs to provide for FAQ's & News
+      # => If you're viewing FAQ's or News, you need to have all that content served properly
       @content = Meta::Page.find_by_slug! params[:id] || "index"
     end
 
@@ -86,6 +94,17 @@ class ApplicationController < ActionController::Base
     # => Params
     def node_params
       params.require(:node).permit(:ref, :val)
+    end
+
+    # => Layout Vars
+    # => Gives us variables for the layout (set once and maintained in an instance var)
+    def layout_vars
+
+      # => Header Links
+      @header_links = {
+        "Take Action" => "action",
+        "About Us" => "about"
+      }
     end
 
  ##################################

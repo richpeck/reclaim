@@ -31,6 +31,9 @@ base:
   background: rgba(16,17,22,1)
   font:
     size:     8.5pt
+  selection:
+    color:      rgba(0,0,0,1)
+    background: rgba(0,255,170,1)
 tooltip:
   bg:         rgba(0,0,0,1)
   font:
