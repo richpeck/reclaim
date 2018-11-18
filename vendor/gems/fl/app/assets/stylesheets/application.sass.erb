@@ -148,6 +148,25 @@ body
       > div
         width: 50%
 
+      // Company
+      .company
+        > div
+          margin:
+            bottom: 0.25em
+          &:before
+            display: inline-block
+            margin:
+              right: 0.25em
+        .email
+          &:before
+            content: "✉️"
+        .office
+          &:before
+            content: "🏢"
+        .number
+          &:before
+            content: "💼"
+
       // Contact
       .contact
         text-align: right

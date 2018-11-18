@@ -10,7 +10,11 @@
     // Company
     // Uses info from DB / Credentials
     .company
-      Company
+      .email= link_to "#{Rails.application.credentials[Rails.env.to_sym][:app][:email]}", "mailto:#{Rails.application.credentials[Rails.env.to_sym][:app][:email]}", title: "Email Us Directly"
+      .office= Rails.application.credentials[Rails.env.to_sym][:company][:address]
+      .number
+        Registered in England & Wales:
+        = Rails.application.credentials[Rails.env.to_sym][:company][:number]
 
     // Contact
     // Allows us to showcase how to contact the company

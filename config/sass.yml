@@ -36,6 +36,8 @@ base:
     background: rgba(0,255,170,1)
 tooltip:
   bg:         rgba(0,0,0,1)
+  inner:
+    shadow:   none
   font:
     size:     0.8em
 color:
