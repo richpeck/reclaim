@@ -3,12 +3,16 @@
 - # This is meant to provide users with the ability to identify the various elements of the app
 %header
 
-  // Container
-  .container
+  // Navigation
+  %nav
 
-    // Logo
-    .logo= link_to image_tag("logo.png", "nopin" => "true"), root_url
+    // Container
+    .container
 
-    // Navigation
-    .navigation
-      Test
+      // Logo
+      .logo= link_to image_tag("logo.png", "nopin" => "true"), root_url
+
+      // Navigation
+      .links
+        - @header_links.each do |text, link|
+          = link_to text, link

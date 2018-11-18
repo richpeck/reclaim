@@ -102,8 +102,11 @@ class ApplicationController < ActionController::Base
 
       # => Header Links
       @header_links = {
-        "Take Action" => "action",
-        "About Us" => "about"
+        "⚠️ Action" => "action",
+        "ℹ️ About" => "about",
+        "✔️ FAQ's" => "faq",
+        "📜 Rates" => "rates",
+        "🚩 Claim" => "claims"
       }
     end
 
