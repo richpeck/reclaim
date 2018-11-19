@@ -13,6 +13,10 @@
       .logo= link_to image_tag("logo.png", "nopin" => "true"), root_url
 
       // Navigation
+      // Instant Quote
+      .claims
+        %u Damage Reclaim LTD
+        provides an INSTANT solution for rental damage claims.
       .links
         - @header_links.each do |text, link|
-          = link_to text, link
+          = link_to text, link, class: link

@@ -105,6 +105,7 @@ class ApplicationController < ActionController::Base
         "⚠️ Action" => "action",
         "ℹ️ About" => "about",
         "✔️ FAQ's" => "faq",
+        "📰 News" => "news",
         "📜 Rates" => "rates",
         "🚩 Claim" => "claims"
       }

@@ -20,8 +20,9 @@
 ############################################
 
 # Hover click
-$(document).on "click", ".index_table tbody tr td", ->
-  window.location.href = $(this).parent().find("td.col-ref a").attr("href")
+# This fires twice for some reason (I presume Turbolinks)
+$(document).on "click", ".index_table tbody tr td", (e) ->
+    window.location.href = $(this).parent().find("td.col-ref a").attr("href")
 
 ############################################
 ############################################

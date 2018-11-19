@@ -80,7 +80,7 @@ body
     nav
       padding: 1em 0
       color: rgba(255,255,255,1)
-      background: rgba(0,0,0,0.35)
+      background: rgba(0,0,0,0.85)
 
       // Container
       .container
@@ -107,16 +107,18 @@ body
 
         // Links
         .links
+          white:
+            space: nowrap
           &:hover
             a
-              opacity: 0.45
+              opacity: 0.5
           text:
             align: right
             transform: uppercase
           a
             display: inline-block
             padding: 0.75em
-            background: rgba(255,255,255,0.1)
+            background: rgba(255,255,255,0.2)
             border:
               radius: 4px
             font:
@@ -127,14 +129,17 @@ body
               left: 0.35em
             &:hover
               opacity: 1
+            &.claims
+              background: none
 
   ////////////////////////////////
   ////////////////////////////////
 
   // Footer
   footer
+    color: rgba(255,255,255,1)
     background: rgba(0,0,0,1)
-    padding: 1.5em
+    padding: 2.5em 1.5em
 
     // Container
     .container
@@ -157,6 +162,17 @@ body
             display: inline-block
             margin:
               right: 0.25em
+        .title
+          font:
+            size: 1.35em
+            weight: bold
+          &:after
+            display:  block
+            content:  " "
+            margin:   10px 0
+            width:    20px
+            height:   3px
+            background: rgba(255,255,255,1)
         .email
           &:before
             content: "✉️"
