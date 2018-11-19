@@ -31,6 +31,16 @@ if Object.const_defined?('ActiveAdmin')
     # => Actions
     actions :all, except: :show
 
+    # => Filter
+    # => Not sure if there's a way to put these into a single declaration...
+    filter :first
+    filter :last
+    filter :email
+    filter :phone
+    filter :mobile
+    filter :postcode
+    filter :address
+
     ##################################
     ##################################
 

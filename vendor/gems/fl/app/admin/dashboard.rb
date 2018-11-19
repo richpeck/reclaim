@@ -54,12 +54,10 @@ if Object.const_defined?('ActiveAdmin')
             # => Claims
             # => Recent Claims table
             column do
-              panel "Recent Claims" do
-                table_for Claim.completed.order(created_at: :desc).limit(10) do
-
-                end
+              panel "🔏 Pages" do
+                text_node ("Test")
               end
-            end # => / Claims
+            end
 
             ###################################
             ###################################
@@ -67,12 +65,12 @@ if Object.const_defined?('ActiveAdmin')
             # => Claims
             # => Recent Claims table
             column do
-              panel "Recent Claims" do
+              panel "📮 Claims" do
                 table_for Claim.completed.order(created_at: :desc).limit(10) do
-
+                  column(:first_name) { |user| link_to(user.email, admin_user_path(user)) }
                 end
               end
-            end # => / Claims
+            end
 
             ###################################
             ###################################
