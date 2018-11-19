@@ -75,6 +75,8 @@ body
     padding: 0
     border:
       bottom: 1px solid $base-color
+    box:
+      shadow: 0 -1px 3px 0 rgba(0,0,0,0.75)
 
     // Navigation
     nav
@@ -97,20 +99,21 @@ body
 
         // Logo
         .logo
+          width: auto
           a
             display: inline-block
+            padding:
+              right: 50px
             &:hover
               opacity: 1
             img
               display: block
-              height: 45px
+              height: 55px
 
         // Claims
         .claims
           span
             display: block
-          text:
-            align: center
 
         // Links
         .links
@@ -136,6 +139,20 @@ body
               left: 0.35em
             &:hover
               opacity: 1
+
+          .number
+            display: inline-block
+            vertical:
+              align: middle
+            border:
+              right: 1px solid rgba(255,255,255,0.55)
+            padding:
+              right: 15px
+            margin:
+              right: 10px
+            font:
+              size: 1.35em
+              weight: bold
 
   ////////////////////////////////
   ////////////////////////////////

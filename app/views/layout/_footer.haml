@@ -11,7 +11,7 @@
     // Uses info from DB / Credentials
     .company
       .title= link_to "© #{Rails.application.credentials[Rails.env.to_sym][:company][:name]}", "http://www.#{Rails.application.credentials[Rails.env.to_sym][:app][:domain]}"
-      .email= link_to "#{Rails.application.credentials[Rails.env.to_sym][:app][:email]}", "mailto:#{Rails.application.credentials[Rails.env.to_sym][:app][:email]}", title: "Email Us Directly", data: { placement: :right }
+      .email= link_to "#{Rails.application.credentials[Rails.env.to_sym][:app][:email]}", "mailto:#{Rails.application.credentials[Rails.env.to_sym][:app][:email]}"
       .office= Rails.application.credentials[Rails.env.to_sym][:company][:address]
       .number
         Registered in England & Wales:
@@ -20,9 +20,9 @@
     // Info
     // Links (as demonstrated)
     .links
-      This is a test
+      Test
 
     // Contact
     // Allows us to showcase how to contact the company
     .contact
-      Contact
+      Social + Contact

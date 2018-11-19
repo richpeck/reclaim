@@ -54,7 +54,7 @@ if Object.const_defined?('ActiveAdmin')
             # => Claims
             # => Recent Claims table
             column do
-              panel "🔏 Pages" do
+              panel "Pages" do
                 text_node ("Test")
               end
             end
@@ -67,7 +67,7 @@ if Object.const_defined?('ActiveAdmin')
             column do
               panel "📮 Claims" do
                 table_for Claim.completed.order(created_at: :desc).limit(10) do
-                  column(:first_name) { |user| link_to(user.email, admin_user_path(user)) }
+                  column(:first_name) { |claim| link_to(claim.first_name, admin_edit_claims_path(claim)) }
                 end
               end
             end

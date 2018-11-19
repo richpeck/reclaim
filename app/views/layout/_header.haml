@@ -21,8 +21,10 @@
           %u INSTANT
           solution for rental damage claims.
         %span
-          Based in London, we're available 24/7 to help reduce your damage repair bills...
+          Based in London, we're available 24/7 to help reduce your rental repair bills...
 
+      // Links
       .links
+        .number= link_to "📞 #{Rails.application.credentials[Rails.env.to_sym][:company][:phone]}", "tel:#{Rails.application.credentials[Rails.env.to_sym][:company][:phone]}"
         - @header_links.each do |text, link|
           = link_to text, link, class: link
