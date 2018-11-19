@@ -85,10 +85,10 @@ if Object.const_defined?('ActiveAdmin')
             # => Table
             index title: [I18n.t("activerecord.models.meta/#{meta}.icon"), (models.try(:[], meta.to_sym).try(:[], :label) || model.model_name.human(count: 2)), '|', Rails.application.credentials[Rails.env.to_sym][:app][:name] ].join(' ') do
               selectable_column
-              column :id,   sortable: "ID"
+              id_column
               column :slug, sortable: "Slug" if meta.to_sym == :page
               column :ref,  sortable: "Ref" do |x|
-                link_to x.ref, "pages/#{x.slug}/edit"
+                link_to x.ref, eval("edit_admin_#{meta}_path(x)")
               end
               column :val,  sortable: "Val" do |x|
                 truncate(strip_tags(x.value), length: 350, separator: ' ',  omission: '...')

@@ -9,11 +9,13 @@
 
     // Info
     // Links (as demonstrated)
+    .links
+      This is a test
 
     // Company
     // Uses info from DB / Credentials
     .company
-      .title= link_to "© #{Rails.application.credentials[Rails.env.to_sym][:company][:name]}", "http://www.#{Rails.application.credentials[Rails.env.to_sym][:app][:domain]}", title: "Go Home"
+      .title= link_to "© #{Rails.application.credentials[Rails.env.to_sym][:company][:name]}", "http://www.#{Rails.application.credentials[Rails.env.to_sym][:app][:domain]}", title: "Home"
       .email= link_to "#{Rails.application.credentials[Rails.env.to_sym][:app][:email]}", "mailto:#{Rails.application.credentials[Rails.env.to_sym][:app][:email]}", title: "Email Us Directly"
       .office= Rails.application.credentials[Rails.env.to_sym][:company][:address]
       .number

@@ -42,11 +42,14 @@ if Object.const_defined?('ActiveAdmin')
 
         # => Content (this is requied)
         # => Allows us to populate viewport
-        content do
+        content title: ['💻 Dashboard', '|', Rails.application.credentials[Rails.env.to_sym][:app][:name] ].join(' ') do
 
           # => Columns
           # => Allows us to showcase which content to show
           columns do
+
+            ###################################
+            ###################################
 
             # => Claims
             # => Recent Claims table
@@ -58,6 +61,21 @@ if Object.const_defined?('ActiveAdmin')
               end
             end # => / Claims
 
+            ###################################
+            ###################################
+
+            # => Claims
+            # => Recent Claims table
+            column do
+              panel "Recent Claims" do
+                table_for Claim.completed.order(created_at: :desc).limit(10) do
+
+                end
+              end
+            end # => / Claims
+
+            ###################################
+            ###################################
 
           end
 

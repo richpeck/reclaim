@@ -25,6 +25,9 @@ if Object.const_defined?('ActiveAdmin')
     # => Menu
     menu priority: 1, label: -> { [I18n.t("activerecord.models.user.icon")|| nil, User.model_name.human(count: 2)].join(' ') }
 
+    # => Actions
+    actions :all, except: :show
+
     # => Params
     permit_params :email, :password, :password_confirmation, profile_attributes: [:id, :name, :role, :public, :avatar]  # => :avatar_attributes: [:id, FL::FILE, :_destroy] // This used to give us deep nested model - but can just attach the asset directly without custom table now
 
@@ -35,10 +38,10 @@ if Object.const_defined?('ActiveAdmin')
     index title: [I18n.t("activerecord.models.user.icon"), User.model_name.human(count: 2), '|', Rails.application.credentials[Rails.env.to_sym][:app][:name]].join(' ') do
       selectable_column
       column :name, sortable: "Name"
-      column 'Email' do |user|
+      column 'Email', sortable: "Email", id: "TEST" do |user|
           link_to user.email, edit_admin_user_path(user), title: "Edit", data: { placement: :right }
       end
-      column 'Role' do |user|
+      column 'Role', sortable: "Role" do |user|
           content_tag :span, user.role
       end
       column :sign_in_count
