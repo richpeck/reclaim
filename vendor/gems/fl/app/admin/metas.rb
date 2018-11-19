@@ -87,7 +87,9 @@ if Object.const_defined?('ActiveAdmin')
               selectable_column
               column :id,   sortable: "ID"
               column :slug, sortable: "Slug" if meta.to_sym == :page
-              column :ref,  sortable: "Ref"
+              column :ref,  sortable: "Ref" do |x|
+                link_to x.ref, "pages/#{x.slug}/edit"
+              end
               column :val,  sortable: "Val" do |x|
                 truncate(strip_tags(x.value), length: 350, separator: ' ',  omission: '...')
               end

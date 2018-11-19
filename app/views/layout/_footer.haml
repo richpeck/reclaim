@@ -14,7 +14,7 @@
       .office= Rails.application.credentials[Rails.env.to_sym][:company][:address]
       .number
         Registered in England & Wales:
-        = Rails.application.credentials[Rails.env.to_sym][:company][:number]
+        = link_to Rails.application.credentials[Rails.env.to_sym][:company][:number], "https://companycheck.co.uk/company/10685457/DAMAGE-RECLAIM-LIMITED/companies-house-data"
 
     // Contact
     // Allows us to showcase how to contact the company
