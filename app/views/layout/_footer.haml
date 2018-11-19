@@ -7,20 +7,20 @@
   // Used to determine common width across applications
   .container
 
-    // Info
-    // Links (as demonstrated)
-    .links
-      This is a test
-
     // Company
     // Uses info from DB / Credentials
     .company
-      .title= link_to "© #{Rails.application.credentials[Rails.env.to_sym][:company][:name]}", "http://www.#{Rails.application.credentials[Rails.env.to_sym][:app][:domain]}", title: "Home"
-      .email= link_to "#{Rails.application.credentials[Rails.env.to_sym][:app][:email]}", "mailto:#{Rails.application.credentials[Rails.env.to_sym][:app][:email]}", title: "Email Us Directly"
+      .title= link_to "© #{Rails.application.credentials[Rails.env.to_sym][:company][:name]}", "http://www.#{Rails.application.credentials[Rails.env.to_sym][:app][:domain]}"
+      .email= link_to "#{Rails.application.credentials[Rails.env.to_sym][:app][:email]}", "mailto:#{Rails.application.credentials[Rails.env.to_sym][:app][:email]}", title: "Email Us Directly", data: { placement: :right }
       .office= Rails.application.credentials[Rails.env.to_sym][:company][:address]
       .number
         Registered in England & Wales:
         = link_to Rails.application.credentials[Rails.env.to_sym][:company][:number], "https://companycheck.co.uk/company/10685457/DAMAGE-RECLAIM-LIMITED/companies-house-data", target: :blank
+
+    // Info
+    // Links (as demonstrated)
+    .links
+      This is a test
 
     // Contact
     // Allows us to showcase how to contact the company
