@@ -11,7 +11,7 @@ if Object.const_defined?("ActiveAdmin")
   # => And that made the system unable to load the charts
   Rails.application.config.after_initialize do
     javascripts = []
-    javascripts << 'https://www.google.com/jsapi'
+    javascripts << '//www.google.com/jsapi'
     javascripts += ActiveAdmin.application.javascripts.to_a
     ActiveAdmin.application.javascripts.replace javascripts # => Probably a smoother solution but this will suffice for now
   end

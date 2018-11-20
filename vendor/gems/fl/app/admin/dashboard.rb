@@ -55,7 +55,7 @@ if Object.const_defined?('ActiveAdmin')
             # => Recent Claims table
             column do
               panel "" do
-                column_chart [["2016-01-01", 30], ["2016-02-01", 54]], stacked: true, library: {colors: ["#D80A5B", "#21C8A9", "#F39C12", "#A4C400"]}
+                 line_chart User.group_by_day(:created_at).count
               end
             end
 
