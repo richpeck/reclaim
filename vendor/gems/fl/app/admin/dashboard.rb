@@ -93,6 +93,35 @@ if Object.const_defined?('ActiveAdmin')
                 end
 
               end
+
+              panel "🔏 Pages (#{Claim.count})" do
+
+                # => Header actions
+                # => https://github.com/activeadmin/activeadmin/issues/2552
+                # => https://devhub.io/repos/vigetlabs-chronolog
+                header_action link_to "➕", new_admin_claim_path, title: "Add New"
+
+                # => Logic
+                # => Doesn't have a fallback for nil records
+                if !Claim.any?
+                  link_to "Add New", new_admin_claim_path, class: "none"
+                else
+                  table_for Claim.all.order(created_at: :desc).limit(10), class: "dashboard" do
+                    column(:id)         { |claim| claim.id }
+                    column(:first_name) { |claim| claim.first }
+                    column(:last_name)  { |claim| claim.last }
+                    column(:email)      { |claim| link_to claim.email, edit_admin_claim_path(claim) }
+                    column(:phone)      { |claim| claim.phone }
+                    column(:mobile)     { |claim| claim.mobile }
+                    column(:postcode)   { |claim| claim.postcode }
+                    column(:address)    { |claim| claim.address }
+                    column(:created_at) { |claim| claim.created_at }
+                    column(:updated_at) { |claim| claim.updated_at }
+                  end
+
+                end
+
+              end
             end
 
             ###################################
