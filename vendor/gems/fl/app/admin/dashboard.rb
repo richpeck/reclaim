@@ -54,7 +54,7 @@ if Object.const_defined?('ActiveAdmin')
             # => Claims
             # => Recent Claims table
             column do
-              panel "Pages" do
+              panel "" do
                 column_chart [["2016-01-01", 30], ["2016-02-01", 54]], stacked: true, library: {colors: ["#D80A5B", "#21C8A9", "#F39C12", "#A4C400"]}
               end
             end
@@ -65,7 +65,12 @@ if Object.const_defined?('ActiveAdmin')
             # => Claims
             # => Recent Claims table
             column class: "claims column" do
-              panel "📮 Recent Claims" do
+              panel "📮 Claims" do
+
+                # => Header actions
+                # => https://github.com/activeadmin/activeadmin/issues/2552
+                # => https://devhub.io/repos/vigetlabs-chronolog
+                header_action link_to "➕", new_admin_claim_path, title: "Add New"
 
                 # => Logic
                 # => Doesn't have a fallback for nil records

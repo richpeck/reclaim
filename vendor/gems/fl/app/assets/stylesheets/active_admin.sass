@@ -337,9 +337,33 @@ body
       .columns
         .column
           &:not(.claims)
-            width: 34% !important
+            width: 38% !important
           &.claims
-            width: 64% !important
+            width: 60% !important
+
+            //Contents
+            .panel_contents
+              overflow: visible
+
+            // Title
+            h3
+              line:
+                height: 2.5em
+
+              // Action
+              .header_action
+                float: right
+                font:
+                  size: 0.65em
+                vertical:
+                  align: middle
+                a
+                  display: inline-block
+                  text:
+                    decoration: none
+                  vertical:
+                    align: middle
+
           .panel
             border: 0
             background: none
@@ -352,9 +376,14 @@ body
             h3
               background: none
               border: none
+              padding: 0
               color: rgba(255,255,255,1)
               box:
                 shadow: none
+
+            // Div
+            > div
+              padding: 0
 
       // Index Footer
       #index_footer
