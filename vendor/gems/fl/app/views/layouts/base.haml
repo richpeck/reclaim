@@ -3,7 +3,8 @@
   %head
     = title yield(:title) + (" - " if content_for(:title)) + Rails.application.credentials[Rails.env.to_sym][:app][:name]
 
-    = meta :stylesheet,  :application
+    = meta :js,          :application, "https://www.googletagmanager.com/gtag/js?id=#{Rails.application.credentials[Rails.env.to_sym][:app][:analytics]}"
+    = meta :stylesheet,  :application, "//fonts.googleapis.com/css?family=Montserrat", media: :all
 
     = meta :description, Rails.application.credentials[Rails.env.to_sym][:app][:description]
     = meta :keywords,    Rails.application.credentials[Rails.env.to_sym][:app][:keywords]
