@@ -65,7 +65,7 @@ if Object.const_defined?('ActiveAdmin')
             # => Claims
             # => Recent Claims table
             column class: "claims column" do
-              panel "📮 Claims" do
+              panel "📮 Claims (#{Claim.count})" do
 
                 # => Header actions
                 # => https://github.com/activeadmin/activeadmin/issues/2552
@@ -89,6 +89,9 @@ if Object.const_defined?('ActiveAdmin')
                     column(:created_at) { |claim| claim.created_at }
                     column(:updated_at) { |claim| claim.updated_at }
                   end
+
+                  # => Total
+                  span "#{Claim.count} Total Claims", class: "total"
                 end
 
               end

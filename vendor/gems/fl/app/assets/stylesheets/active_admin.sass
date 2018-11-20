@@ -345,6 +345,16 @@ body
             .panel_contents
               overflow: visible
 
+              // Total
+              span
+                &.total
+                  display: block
+                  margin: 15px 0 0
+                  padding: 0 5px
+                  color: rgba(255,255,255,0.5)
+                  font:
+                    size: 0.65em
+
             // Title
             h3
               line:
@@ -414,13 +424,13 @@ body
       table,
       form fieldset.inputs,
       .columns .column .panel .panel_contents table
-        $border: 1px solid rgba(255,255,255,1)
+        $border: 1px solid rgba(255,255,255,0.35)
 
         // General
         background: none
         background:
           clip: border-box
-        border: $border
+        border: 1px solid rgba(255,255,255,1)
         border:
           radius: 4px
         font:
