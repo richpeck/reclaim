@@ -37,6 +37,7 @@
 ////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////
 
+
 ////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////
 
@@ -44,8 +45,170 @@
 // This is hacky but whatever (should be stored in main app)
 body
 
-  background: #000
+  // Vars
+  $container: 90%
 
+  // General
+  font:
+    family: 'Montserrat', sans-serif
+
+  ////////////////////////////////
+  ////////////////////////////////
+
+  // Styling
+  .container
+    display:    block
+    width:      $container
+    margin:     auto
+    box:
+      sizing:   border-box
+
+  ////////////////////////////////
+  ////////////////////////////////
+
+  // Header
+  header
+    display: block
+    padding: 0
+    border:
+      bottom: 1px solid $base-color
+    box:
+      shadow: 0 -1px 3px 0 rgba(0,0,0,0.75)
+
+    // Navigation
+    nav
+      padding: 1em 0
+      color: rgba(255,255,255,1)
+      background: rgba(0,0,0,0.95)
+
+      // Container
+      .container
+        display: flex
+        justify:
+          content: space-between
+        align:
+          items: center
+
+        // Div
+        > div
+          display: inline-block
+          width: 50%
+
+        // Logo
+        .logo
+          width: auto
+          a
+            display: inline-block
+            padding:
+              right: 50px
+            &:hover
+              opacity: 1
+            img
+              display: block
+              height: 55px
+
+        // Claims
+        .claims
+          span
+            display: block
+
+        // Links
+        .links
+          white:
+            space: nowrap
+          &:hover
+            a
+              opacity: 0.5
+          text:
+            align: right
+            transform: uppercase
+          a
+            display: inline-block
+            padding: 0.75em
+            background: rgba(255,255,255,0.2)
+            border:
+              radius: 4px
+            font:
+              weight: bold
+            text:
+              decoration: none
+            margin:
+              left: 0.35em
+            &:hover
+              opacity: 1
+
+          .number
+            display: inline-block
+            vertical:
+              align: middle
+            border:
+              right: 1px solid rgba(255,255,255,0.55)
+            padding:
+              right: 15px
+            margin:
+              right: 10px
+            font:
+              size: 1.35em
+              weight: bold
+
+  ////////////////////////////////
+  ////////////////////////////////
+
+  // Footer
+  footer
+    color: rgba(255,255,255,1)
+    background: rgba(0,0,0,1)
+    padding: 2.5em 1.5em
+    border:
+      top: 1px solid $base-color
+    box:
+      shadow: 0 -1px 3px 0 rgba(0,0,0,0.75), inset 0 1px 0 rgba(0,0,0,1)
+
+    // Container
+    .container
+      display: flex
+      justify:
+        content: space-between
+      align:
+        items: top
+
+      // Each div
+      > div
+        width: 50%
+
+      // Company
+      .company
+        > div
+          margin:
+            bottom: 0.25em
+          &:before
+            display: inline-block
+            margin:
+              right: 0.25em
+        .title
+          font:
+            size: 1.35em
+            weight: bold
+          &:after
+            display:  block
+            content:  " "
+            margin:   10px 0
+            width:    20px
+            height:   3px
+            background: rgba(255,255,255,1)
+        .email
+          &:before
+            content: "✉️"
+        .office
+          &:before
+            content: "🏢"
+        .number
+          &:before
+            content: "💼"
+
+      // Contact
+      .contact
+        text-align: right
 
 ////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////
