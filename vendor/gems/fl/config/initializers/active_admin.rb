@@ -4,7 +4,17 @@ if Object.const_defined?("ActiveAdmin")
   ##################################
   ##################################
 
-  # => Declarations etc here
+  # => Charts (JS)
+  # => Hack to get the Google JSAPI to show before active_admin.js
+  # => https://github.com/activeadmin/activeadmin/issues/340#issuecomment-92512556
+  # => The issue is that using the register_javascript method, it would add the JSAPI after active_admin
+  # => And that made the system unable to load the charts
+  Rails.application.config.after_initialize do
+    javascripts = []
+    javascripts << 'https://www.google.com/jsapi'
+    javascripts += ActiveAdmin.application.javascripts.to_a
+    ActiveAdmin.application.javascripts.replace javascripts # => Probably a smoother solution but this will suffice for now
+  end
 
   ##################################
   ##################################
@@ -189,8 +199,7 @@ if Object.const_defined?("ActiveAdmin")
     #   config.register_stylesheet 'my_print_stylesheet.css', media: :print
     #
     # To load a javascript file:
-    # This is deprecated (for asset pipeline)
-    config.register_javascript 'https://www.google.com/jsapi'
+    #config.register_javascript 'https://www.google.com/jsapi'
 
     # == CSV options
     #
