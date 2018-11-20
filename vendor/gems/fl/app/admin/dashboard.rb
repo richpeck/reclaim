@@ -106,7 +106,7 @@ if Object.const_defined?('ActiveAdmin')
                 if !Meta::Page.any?
                   link_to "Add New", new_admin_page_path, class: "none"
                 else
-                  table_for Meta::Page.all.order(created_at: :desc).limit(10), class: "dashboard" do
+                  table_for Meta::Page.all.order(created_at: :desc).limit(10), class: "dashboard pages" do
                     column(:id)     { |page| page.id }
                     column(:ref)    { |page| page.ref }
                     column(:val)    { |page| truncate(strip_tags(page.val), length: 350, separator: ' ',  omission: '...') }
