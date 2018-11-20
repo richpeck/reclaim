@@ -55,7 +55,7 @@ if Object.const_defined?('ActiveAdmin')
             # => Recent Claims table
             column do
               panel "Pages" do
-                line_chart User.group(:created_at).count
+                column_chart [["2016-01-01", 30], ["2016-02-01", 54]], stacked: true, library: {colors: ["#D80A5B", "#21C8A9", "#F39C12", "#A4C400"]}
               end
             end
 
@@ -64,7 +64,7 @@ if Object.const_defined?('ActiveAdmin')
 
             # => Claims
             # => Recent Claims table
-            column do
+            column class: "claims column" do
               panel "📮 Recent Claims" do
 
                 # => Logic
@@ -72,15 +72,17 @@ if Object.const_defined?('ActiveAdmin')
                 if !Claim.any?
                   link_to "No Records Yet", new_admin_claim_path
                 else
-                  table_for Claim.all.order(created_at: :desc).limit(10) do
+                  table_for Claim.all.order(created_at: :desc).limit(10), class: "dashboard" do
                     column(:id)         { |claim| claim.id }
                     column(:first_name) { |claim| claim.first }
                     column(:last_name)  { |claim| claim.last }
-                    column(:email)      { |claim| claim.email}
+                    column(:email)      { |claim| link_to claim.email, edit_admin_claim_path(claim) }
                     column(:phone)      { |claim| claim.phone }
                     column(:mobile)     { |claim| claim.mobile }
                     column(:postcode)   { |claim| claim.postcode }
                     column(:address)    { |claim| claim.address }
+                    column(:created_at) { |claim| claim.created_at }
+                    column(:updated_at) { |claim| claim.updated_at }
                   end
                 end
 

@@ -336,6 +336,10 @@ body
       // Dashboard
       .columns
         .column
+          &:not(.claims)
+            width: 34% !important
+          &.claims
+            width: 64% !important
           .panel
             border: 0
             background: none
@@ -343,6 +347,7 @@ body
               radius: 0
             box:
               shadow: none
+
             // Title
             h3
               background: none
@@ -378,15 +383,54 @@ body
 
       // Inputs
       table,
-      form fieldset.inputs
-        $border: 1px solid rgba(255,255,255,0.25)
+      form fieldset.inputs,
+      .columns .column .panel .panel_contents table
+        $border: 1px solid rgba(255,255,255,1)
 
         // General
         background: none
         background:
           clip: border-box
+        border: $border
+        border:
+          radius: 4px
         font:
           size: 11px
+        box:
+          sizing: border-box
+
+        // Dashboard
+        &.dashboard
+          thead
+            tr
+              th
+                &.col-first_name,
+                &.col-last_name,
+                &.col-email,
+                &.col-phone,
+                &.col-mobile,
+                &.col-postcode,
+                &.col-address
+                  text:
+                    align: center
+          tbody
+            tr
+              td
+                &.col-first,
+                &.col-last,
+                &.col-email,
+                &.col-phone,
+                &.col-mobile,
+                &.col-postcode,
+                &.col-address
+                  text:
+                    align: center
+                &.col-postcode
+                  white:
+                    space: nowrap
+                &.col-email
+                  font:
+                    weight: bold
 
         // Actions
         &.index_table
@@ -509,6 +553,9 @@ body
                 bottom: 1px solid rgba(0,0,0,1)
               vertical:
                 align: middle
+              & + th
+                border:
+                  left: 1px solid rgba(#ccc, 1)
               &.col-id,
               &.col-actions,
               &.col-created_at,
@@ -527,7 +574,7 @@ body
                 color: rgba(255,255,255,1)
                 cursor: pointer
             &.even
-              background: rgba(255,255,255,0.1)
+              background: rgba(255,255,255,0.075)
             & + tr
               td
                 border:

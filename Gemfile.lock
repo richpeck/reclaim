@@ -122,6 +122,8 @@ GEM
       activerecord (>= 4.0.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    groupdate (4.1.0)
+      activesupport (>= 4.2)
     haml (5.0.4)
       temple (>= 0.8.0)
       tilt
@@ -287,6 +289,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2, >= 4.2.1)
   fl!
   formadmin (~> 0.2.1)
+  groupdate (~> 4.1)
   haml (~> 5.0, >= 5.0.3)
   hubspot-ruby (~> 0.1.8)
   jbuilder (~> 2.0)
