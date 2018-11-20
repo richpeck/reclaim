@@ -55,7 +55,7 @@ if Object.const_defined?('ActiveAdmin')
             # => Recent Claims table
             column do
               panel "Pages" do
-                text_node ("Test")
+                line_chart User.group(:created_at).count
               end
             end
 
@@ -65,10 +65,25 @@ if Object.const_defined?('ActiveAdmin')
             # => Claims
             # => Recent Claims table
             column do
-              panel "📮 Claims" do
-                table_for Claim.completed.order(created_at: :desc).limit(10) do
-                  column(:first_name) { |claim| link_to(claim.first_name, admin_edit_claims_path(claim)) }
+              panel "📮 Recent Claims" do
+
+                # => Logic
+                # => Doesn't have a fallback for nil records
+                if !Claim.any?
+                  link_to "No Records Yet", new_admin_claim_path
+                else
+                  table_for Claim.all.order(created_at: :desc).limit(10) do
+                    column(:id)         { |claim| claim.id }
+                    column(:first_name) { |claim| claim.first }
+                    column(:last_name)  { |claim| claim.last }
+                    column(:email)      { |claim| claim.email}
+                    column(:phone)      { |claim| claim.phone }
+                    column(:mobile)     { |claim| claim.mobile }
+                    column(:postcode)   { |claim| claim.postcode }
+                    column(:address)    { |claim| claim.address }
+                  end
                 end
+
               end
             end
 

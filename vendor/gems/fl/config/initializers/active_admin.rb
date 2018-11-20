@@ -189,8 +189,8 @@ if Object.const_defined?("ActiveAdmin")
     #   config.register_stylesheet 'my_print_stylesheet.css', media: :print
     #
     # To load a javascript file:
-    # This is deprecated
-    #   config.register_javascript 'my_javascript.js'
+    # This is deprecated (for asset pipeline)
+    config.register_javascript 'https://www.google.com/jsapi'
 
     # == CSV options
     #

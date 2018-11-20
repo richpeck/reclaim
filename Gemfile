@@ -76,6 +76,7 @@ gem 'bootsnap',     '>= 1.1.0', require: false  # => Boot caching (introduced in
 gem 'formadmin',    '~> 0.2.1'                  # => FormAdmin custom theme for ActiveAdmin
 gem 'hubspot-ruby', '~> 0.1.8'                  # => HubSpot integration (API wrapper) - used for claim management
 gem 'uk_postcode',  '~> 2.1', '>= 2.1.3'        # => UK Postcode validation (https://github.com/threedaymonk/uk_postcode)
+gem 'chartkick', '~> 3.0', '>= 3.0.1'           # => Chartkick (https://spin.atomicobject.com/2016/11/23/adding-google-charts-active-admin-application/) -- for ActiveAdmin
 
 ####################
 #      Other       #
