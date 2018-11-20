@@ -82,8 +82,8 @@ if Object.const_defined?('ActiveAdmin')
                     column(:first_name) { |claim| claim.first }
                     column(:last_name)  { |claim| claim.last }
                     column(:email)      { |claim| link_to claim.email, edit_admin_claim_path(claim) }
-                    column(:phone)      { |claim| claim.phone }
-                    column(:mobile)     { |claim| claim.mobile }
+                    column(:phone)      { |claim| claim.phone.empty? ?  "❌" : claim.phone }
+                    column(:mobile)     { |claim| claim.mobile.empty? ? "❌" : claim.mobile }
                     column(:postcode)   { |claim| claim.postcode }
                     column(:address)    { |claim| claim.address }
                     column(:created_at) { |claim| claim.created_at }
