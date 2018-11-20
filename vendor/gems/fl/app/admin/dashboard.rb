@@ -90,8 +90,6 @@ if Object.const_defined?('ActiveAdmin')
                     column(:updated_at) { |claim| claim.updated_at }
                   end
 
-                  # => Total
-                  span "#{Claim.count} Total", class: "total"
                 end
 
               end
