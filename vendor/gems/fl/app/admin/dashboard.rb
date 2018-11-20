@@ -104,10 +104,13 @@ if Object.const_defined?('ActiveAdmin')
                 # => Logic
                 # => Doesn't have a fallback for nil records
                 if !Meta::Page.any?
-                  link_to "Add New", new_admin_claim_path, class: "none"
+                  link_to "Add New", new_admin_page_path, class: "none"
                 else
                   table_for Meta::Page.all.order(created_at: :desc).limit(10), class: "dashboard" do
-                    column(:id)         { |claim| claim.id }
+                    column(:id)     { |page| page.id }
+                    column(:slug)   { |page| page.slug }
+                    column(:ref)    { |page| page.ref }
+                    column(:val)    { |page| page.val }
                   end
 
                 end
