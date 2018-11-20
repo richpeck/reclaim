@@ -344,6 +344,25 @@ body
             //Contents
             .panel_contents
               overflow: visible
+              a
+                &.none
+                  display: block
+                  color: rgba(255,255,255,1)
+                  padding: 10px
+                  opacity: 0.45
+                  border: 1px solid rgba(255,255,255,0.15)
+                  transition: opacity 0.15s ease-in-out
+                  border:
+                    radius: 4px
+                  font:
+                    size: 0.85em
+                  text:
+                    align: center
+                    decoration: none
+                  box:
+                    sizing: border-box
+                  &:hover
+                    opacity: 1
 
               // Total
               span
@@ -424,7 +443,7 @@ body
       table,
       form fieldset.inputs,
       .columns .column .panel .panel_contents table
-        $border: 1px solid rgba(255,255,255,0.35)
+        $border: 1px solid rgba(255,255,255,0.2)
 
         // General
         background: none

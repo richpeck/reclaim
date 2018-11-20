@@ -75,7 +75,7 @@ if Object.const_defined?('ActiveAdmin')
                 # => Logic
                 # => Doesn't have a fallback for nil records
                 if !Claim.any?
-                  link_to "No Records Yet", new_admin_claim_path
+                  link_to "None Yet", new_admin_claim_path, class: "none"
                 else
                   table_for Claim.all.order(created_at: :desc).limit(10), class: "dashboard" do
                     column(:id)         { |claim| claim.id }
@@ -91,7 +91,7 @@ if Object.const_defined?('ActiveAdmin')
                   end
 
                   # => Total
-                  span "#{Claim.count} Total Claims", class: "total"
+                  span "#{Claim.count} Total", class: "total"
                 end
 
               end
