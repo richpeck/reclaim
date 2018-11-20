@@ -65,7 +65,7 @@ if Object.const_defined?('ActiveAdmin')
             # => Claims
             # => Recent Claims table
             column class: "claims column" do
-              panel "📮 Claims (#{Claim.count})" do
+              panel "📮 #{link_to 'Claims', admin_claims_path} (#{Claim.count})".html_safe do
 
                 # => Header actions
                 # => https://github.com/activeadmin/activeadmin/issues/2552
@@ -94,29 +94,20 @@ if Object.const_defined?('ActiveAdmin')
 
               end
 
-              panel "🔏 Pages (#{Claim.count})" do
+              panel "🔏 #{link_to 'Pages', admin_pages_path} (#{Meta::Page.count})".html_safe do
 
                 # => Header actions
                 # => https://github.com/activeadmin/activeadmin/issues/2552
                 # => https://devhub.io/repos/vigetlabs-chronolog
-                header_action link_to "➕", new_admin_claim_path, title: "Add New"
+                header_action link_to "➕", new_admin_page_path, title: "Add New"
 
                 # => Logic
                 # => Doesn't have a fallback for nil records
-                if !Claim.any?
+                if !Meta::Page.any?
                   link_to "Add New", new_admin_claim_path, class: "none"
                 else
-                  table_for Claim.all.order(created_at: :desc).limit(10), class: "dashboard" do
+                  table_for Meta::Page.all.order(created_at: :desc).limit(10), class: "dashboard" do
                     column(:id)         { |claim| claim.id }
-                    column(:first_name) { |claim| claim.first }
-                    column(:last_name)  { |claim| claim.last }
-                    column(:email)      { |claim| link_to claim.email, edit_admin_claim_path(claim) }
-                    column(:phone)      { |claim| claim.phone }
-                    column(:mobile)     { |claim| claim.mobile }
-                    column(:postcode)   { |claim| claim.postcode }
-                    column(:address)    { |claim| claim.address }
-                    column(:created_at) { |claim| claim.created_at }
-                    column(:updated_at) { |claim| claim.updated_at }
                   end
 
                 end
