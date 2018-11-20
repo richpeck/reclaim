@@ -82,7 +82,7 @@ if Object.const_defined?('ActiveAdmin')
                     column(:first_name) { |claim| claim.first }
                     column(:last_name)  { |claim| claim.last }
                     column(:email)      { |claim| link_to claim.email, edit_admin_claim_path(claim) }
-                    column(:phone)      { |claim| claim.phone.empty? ?  "❌" : claim.phone }
+                    column(:phone)      { |claim| claim.phone.empty? ? "❌" : claim.phone }
                     column(:mobile)     { |claim| claim.mobile.empty? ? "❌" : claim.mobile }
                     column(:postcode)   { |claim| claim.postcode }
                     column(:address)    { |claim| claim.address }
@@ -94,6 +94,7 @@ if Object.const_defined?('ActiveAdmin')
 
               end
 
+              # => Pages
               panel "🔏 #{link_to 'Pages', admin_pages_path} (#{Meta::Page.count})".html_safe do
 
                 # => Header actions
@@ -110,6 +111,31 @@ if Object.const_defined?('ActiveAdmin')
                     column(:id)     { |page| page.id }
                     column(:ref)    { |page| page.ref }
                     column(:val)    { |page| truncate(strip_tags(page.val), length: 350, separator: ' ',  omission: '...') }
+                  end
+
+                end
+
+              end
+
+              # => Users
+              panel "🤑 #{link_to 'Users', admin_users_path} (#{User.count})".html_safe do
+
+                # => Header actions
+                # => https://github.com/activeadmin/activeadmin/issues/2552
+                # => https://devhub.io/repos/vigetlabs-chronolog
+                header_action link_to "➕", new_admin_user_path, title: "Add New"
+
+                # => Logic
+                # => Doesn't have a fallback for nil records
+                if !User.any?
+                  link_to "Add New", new_admin_user_path, class: "none"
+                else
+                  table_for User.all.order(created_at: :desc).limit(10), class: "dashboard users" do
+                    column(:id)         { |user| user.id }
+                    column(:name)       { |user| user.name }
+                    column(:email)      { |user| user.email }
+                    column(:created_at) { |user| user.created_at }
+                    column(:updated_at) { |user| user.updated_at }
                   end
 
                 end

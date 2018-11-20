@@ -54,10 +54,10 @@ if Object.const_defined?('ActiveAdmin')
         link_to x.email, edit_admin_claim_path(x)
       end
       column "Phone", sortable: "Phone" do |x|
-        x.phone.blank? ? "N/A" : x.phone
+        x.phone.blank? ? "❌" : x.phone
       end
       column "Mobile", sortable: "Mobile" do |x|
-        x.mobile.blank? ? "N/A" : x.mobile
+        x.mobile.blank? ? "❌" : x.mobile
       end
       column :postcode, sortable: "Postcode"
       column :address,  sortable: "Address"
