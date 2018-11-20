@@ -16,9 +16,6 @@
 // ActiveAdmin
 @import formadmin/formadmin
 
-// Includes
-@import trix
-
 ////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////
 
@@ -298,6 +295,14 @@ body
     width: 1200px
   trix-toolbar .button_group
     background: rgba(255,255,255,1)
+
+  ////////////////////////////////////////////////////////////
+  ////////////////////////////////////////////////////////////
+
+  // CKEDITOR
+  // https://github.com/activeadmin/activeadmin/wiki/ckeditor-integration#pre-062
+  .cke_chrome
+    overflow: hidden
 
   ////////////////////////////////////////////////////////////
   ////////////////////////////////////////////////////////////
@@ -592,6 +597,8 @@ body
           li
             > label
               transition: color 0.15s ease-in-out
+            > input
+              width: calc(80%)
             &:hover
               > label
                 color: rgba(255,255,255,1)

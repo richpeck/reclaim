@@ -109,7 +109,7 @@ if Object.const_defined?('ActiveAdmin')
             f.inputs '✔️ Details' do
               f.input :slug if meta.to_sym == :page
               f.input :ref, placeholder: "Title"
-              f.input :val, as: :trix_editor
+              f.input :val, as: :ckeditor
             end
 
             f.actions
