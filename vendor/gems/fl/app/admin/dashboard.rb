@@ -108,9 +108,8 @@ if Object.const_defined?('ActiveAdmin')
                 else
                   table_for Meta::Page.all.order(created_at: :desc).limit(10), class: "dashboard" do
                     column(:id)     { |page| page.id }
-                    column(:slug)   { |page| page.slug }
                     column(:ref)    { |page| page.ref }
-                    column(:val)    { |page| page.val }
+                    column(:val)    { |page| truncate(strip_tags(page.val), length: 350, separator: ' ',  omission: '...') }
                   end
 
                 end
