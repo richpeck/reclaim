@@ -25,5 +25,11 @@
 $(document).on "click", ".index_table tbody tr td, table.dashboard tbody tr td", (e) ->
     window.location.href = $(this).parent().find("td.col-ref a, td.col-email a").attr("href")
 
+# Flash click
+# Allows us to fade out the flash icon
+$(document).on "click", ".flashes .flash", (e) ->
+  $(this).fadeOut 300, ->
+    $(this).remove()
+
 ############################################
 ############################################

@@ -59,7 +59,7 @@ Gem::Specification.new do |spec|
     ## Backend ##
     spec.add_dependency 'bootstrap'                     # => Bootstrap (tooltips)
     spec.add_dependency 'liquid'                        # => Liquid
-    spec.add_dependency 'trix'                          # => Trix
+    spec.add_dependency 'ckeditor'                      # => CKEditor
     spec.add_dependency 'nilify_blanks'                 # => Nilify Blanks
     spec.add_dependency 'friendly_id'                   # => FriendlyID
     spec.add_dependency 'devise'                        # => Devise

@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 2018_11_16_060637) do
   end
 
   create_table "claims", force: :cascade do |t|
+    t.integer "hubspot_id"
     t.string "first"
     t.string "last"
     t.string "email"

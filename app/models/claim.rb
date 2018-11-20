@@ -64,7 +64,7 @@ class Claim < ApplicationRecord
 
     # => Email
     # => https://stackoverflow.com/a/49925333/1143732
-    validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
+    validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }, uniqueness: { case_sensitive: false }
 
     # => Postcode
     # => Validates postcode to ensure format is correct
@@ -80,11 +80,20 @@ class Claim < ApplicationRecord
     # => This is meant to fire after the event
     # => The aim is to populate Hubspot with new claims
     # => Whilst implemented previously, was not as robust as was required
-    after_save :hubspot
+    after_create :hubspot
+    # => before_destroy
 
     # => Scopes
     # => Allows us to split data dependent on nature of claim
     scope :completed, -> { where(id: "NOT NULL") }
+
+    # => Alias Attribute
+    # => Allows us to change the name of various columns
+    alias_attribute :first_name, :first
+    alias_attribute :firstname, :first
+
+    alias_attribute :last_name, :last
+    alias_attribute :lastname, :last
 
   ###########################################################
   ###########################################################
@@ -111,7 +120,15 @@ class Claim < ApplicationRecord
     # => Uses the "hubspot-ruby" gem
     # => https://github.com/adimichele/hubspot-ruby#authentication-with-an-api-key
     def hubspot
-      puts "Hubspot"
+      begin
+        hubspot = Hubspot::Contact.create! email: email, firstname: first, lastname: last, phone: (mobile || phone), address: address, zip: postcode
+      rescue => e
+        puts e
+        r = JSON.parse(e.response.to_s)
+        r["validationResults"].each do |x|
+          errors.add(x["name"].to_sym, x["message"])
+        end
+      end
     end
 
     # => Mobile or Phone

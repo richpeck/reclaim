@@ -8,6 +8,10 @@ class CreateClaims < ActiveRecord::Migration::Current
     def up
       create_table table do |t| # => users stored through "associations"
 
+        # => General
+        # => Used to manage various aspects of the claim within the system
+        t.integer :hubspot_id
+
         # => Client
         t.string		 :first
         t.string     :last
