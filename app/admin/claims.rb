@@ -61,7 +61,9 @@ if Object.const_defined?('ActiveAdmin')
       end
       column :postcode, sortable: "Postcode"
       column :address,  sortable: "Address"
-      column :hubspot_id, sortable: "Hubspot"
+      column :hubspot_id, sortable: "Hubspot" do |x|
+        x.hubspot_id.blank? ? "❌" : x.hubspot_id
+      end
       %i(created_at updated_at).each do |x|
         column x, sortable: x
       end

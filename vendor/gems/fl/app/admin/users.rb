@@ -58,7 +58,6 @@ if Object.const_defined?('ActiveAdmin')
       f.inputs "👻 Profile", for: [:profile, f.object.profile || f.object.build_profile] do |p|
         p.input :name
         p.input :role, include_blank: false
-        p.input :public
         p.input :avatar, as: :file, hint: f.object.avatar.attached? ? image_tag(f.object.avatar.variant(resize: '150x150')) : content_tag(:span, "No Image Yet")
       end
       f.inputs "✔️ Details" do
