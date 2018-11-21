@@ -22,10 +22,10 @@ class CreateClaims < ActiveRecord::Migration::Current
         t.text       :address
 
         # => Claim
-        t.date :received
-        t.date :from
-        t.date :to
-        t.string   :escalation
+        t.date      :received
+        t.date      :from
+        t.date      :to
+        t.string    :escalation
 
         # => Questions
         t.boolean :insurance

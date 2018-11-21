@@ -26,7 +26,7 @@ if Object.const_defined?('ActiveAdmin')
     menu priority: 2, label: -> { [I18n.t("activerecord.models.claim.icon")|| nil, Claim.model_name.human(count: 2)].join(' ') }
 
     # => Params
-    permit_params :first, :last, :email, :mobile, :address, :postcode, :received, :from, :to, :escalation, :phone, :mobile, :insurance, :signed, :shown, :inspected, :employee, :noted, :acknowledge, :report, :subsequent, :card, :invoice, :images, :repair, :method, :additional, :vat
+    permit_params :hubspot_enabled, :first, :last, :email, :mobile, :address, :postcode, :received, :from, :to, :escalation, :phone, :mobile, :insurance, :signed, :shown, :inspected, :employee, :noted, :acknowledge, :report, :subsequent, :card, :invoice, :images, :repair, :method, :additional, :vat
 
     # => Actions
     actions :all, except: :show
@@ -73,6 +73,7 @@ if Object.const_defined?('ActiveAdmin')
     # => Create
     form title: [I18n.t("activerecord.models.claim.icon"), Claim.model_name.human(count: 2), '|', Rails.application.credentials[Rails.env.to_sym][:app][:name]].join(' ') do |f|
       f.semantic_errors
+      f.input :hubspot_enabled, as: :boolean, label: "Send to Hubspot"
       f.inputs "⚙️ Client" do
         f.input :first,     placeholder: "First Name"
         f.input :last,      placeholder: "Last Name"
@@ -83,9 +84,9 @@ if Object.const_defined?('ActiveAdmin')
         f.input :postcode,  placeholder: "Postcode"
       end
       f.inputs "📜 Claim" do
-        f.input :received
-        f.input :from
-        f.input :to
+        f.input :received,  as: :date_picker, input_html: { value: Date.today } # => https://www.rubydoc.info/github/justinfrench/formtastic/Formtastic/Inputs/DatePickerInput
+        f.input :from,      as: :date_picker, input_html: { value: Date.today }
+        f.input :to,        as: :date_picker, input_html: { value: Date.today }
         f.input :escalation, placeholder: "Escalation"
       end
       f.inputs "❓ Questions" do

@@ -60,7 +60,7 @@ gem 'haml', '~> 5.0', '>= 5.0.3'
 ## JS ##
 gem 'coffee-rails', '~> 4.2', '>= 4.2.1'
 gem 'jquery-rails'
-gem 'turbolinks', '~> 5.0'
+#gem 'turbolinks', '~> 5.0' # => Had to get rid of this (it's shit)
 gem 'jbuilder', '~> 2.0'
 
 ########################################

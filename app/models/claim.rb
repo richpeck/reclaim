@@ -51,11 +51,20 @@ class Claim < ApplicationRecord
     # => additional   (Has the client been charged additional costs over and above the damage charges (i.e. damage handling fee, loss of usage)? //bool)
     # => vat          (Has VAT been applied to the invoice or estimate? //bool)
 
-    ###############################
+  ###########################################################
+  ###########################################################
+
+    # => Hubspot?
+    # => Allows us to determine whether to send data to hubspot or not
+    # => Defaults to true
+    attr_accessor :hubspot_enabled
+
+  ###########################################################
+  ###########################################################
 
     # => Validations
     # => Ensure every attribute is present (cannot have bad)
-    validates :first, :last, :email, :address, presence: true, length: { minimum: 2 } # => claimaint
+    validates :first, :last, :email, :address, :postcode, presence: true, length: { minimum: 2 } # => claimaint
     validates :received, :from, :to, :escalation, presence: true # => claim
 
     # => Numbers
@@ -80,8 +89,8 @@ class Claim < ApplicationRecord
     # => This is meant to fire after the event
     # => The aim is to populate Hubspot with new claims
     # => Whilst implemented previously, was not as robust as was required
-    after_create :hubspot
-    # => before_destroy
+    before_save :hubspot, if: :hubspot_enabled
+    #before_destroy :hubspot
 
     # => Scopes
     # => Allows us to split data dependent on nature of claim
@@ -121,13 +130,15 @@ class Claim < ApplicationRecord
     # => https://github.com/adimichele/hubspot-ruby#authentication-with-an-api-key
     def hubspot
       begin
-        hubspot = Hubspot::Contact.create! email: email, firstname: first, lastname: last, phone: (mobile || phone), address: address, zip: postcode
+        hubspot = Hubspot::Contact.create! email: 'rpeck@fl.co.uk' #, firstname: first.to_s, lastname: last.to_s, phone: (mobile || phone), address: address.to_s, zip: postcode.to_s
       rescue => e
         puts e
         r = JSON.parse(e.response.to_s)
         r["validationResults"].each do |x|
-          errors.add(x["name"].to_sym, x["message"])
+          errors.add(x["name"].to_sym, [x["message"], "(Hubspot)"].join(' '))
+          errors.add(:base, x)
         end
+        return false # => https://stackoverflow.com/a/19136658/1143732
       end
     end
 
