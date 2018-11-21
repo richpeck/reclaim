@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/adimichele/hubspot-ruby.git
+  revision: 1b14c4f084e355b61c2dd8fee787e892c746d609
+  specs:
+    hubspot-ruby (0.5.0)
+      activesupport (>= 3.0.0)
+      httparty (>= 0.10.0)
+
 PATH
   remote: vendor/gems/fl
   specs:
@@ -139,9 +147,6 @@ GEM
     httparty (0.16.3)
       mime-types (~> 3.0)
       multi_xml (>= 0.5.2)
-    hubspot-ruby (0.1.8)
-      activesupport (>= 3.0.0)
-      httparty (>= 0.10.0)
     i18n (1.1.1)
       concurrent-ruby (~> 1.0)
     image_processing (1.7.1)
@@ -294,7 +299,7 @@ DEPENDENCIES
   formadmin (~> 0.2.1)
   groupdate (~> 4.1)
   haml (~> 5.0, >= 5.0.3)
-  hubspot-ruby (~> 0.1.8)
+  hubspot-ruby!
   jbuilder (~> 2.0)
   jquery-rails
   mysql2

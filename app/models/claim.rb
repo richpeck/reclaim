@@ -57,7 +57,8 @@ class Claim < ApplicationRecord
     # => Hubspot?
     # => Allows us to determine whether to send data to hubspot or not
     # => Defaults to true
-    attr_accessor :hubspot_enabled
+    attr_accessor :hubspot_enabled # => Add to Hubspot on create/update
+    attr_accessor :hubspot_delete # => Remove from Hubspot on delete
 
   ###########################################################
   ###########################################################
@@ -89,7 +90,7 @@ class Claim < ApplicationRecord
     # => This is meant to fire after the event
     # => The aim is to populate Hubspot with new claims
     # => Whilst implemented previously, was not as robust as was required
-    before_save :hubspot, if: :hubspot_enabled
+    after_validation :hubspot, if: :hubspot_enabled # => Probably should be before_save (https://stackoverflow.com/questions/14804415/what-happens-between-after-validation-and-before-save)
     #before_destroy :hubspot
 
     # => Scopes
@@ -128,17 +129,20 @@ class Claim < ApplicationRecord
     # => Hubspot
     # => Uses the "hubspot-ruby" gem
     # => https://github.com/adimichele/hubspot-ruby#authentication-with-an-api-key
+    # => https://stackoverflow.com/questions/607069/using-activerecord-is-there-a-way-to-get-the-old-values-of-a-record-during-afte (for old ActiveRecord data)
     def hubspot
       begin
-        hubspot = Hubspot::Contact.create! email: 'rpeck@fl.co.uk' #, firstname: first.to_s, lastname: last.to_s, phone: (mobile || phone), address: address.to_s, zip: postcode.to_s
-      rescue => e
-        puts e
+        hubspot = Hubspot::Contact.create! email, { firstname: first, lastname: last, phone: phone, mobilephone: mobile, address: address, zip: postcode }
+        self[:hubspot_id] = hubspot.vid
+      rescue Hubspot::RequestError => e
         r = JSON.parse(e.response.to_s)
         r["validationResults"].each do |x|
           errors.add(x["name"].to_sym, [x["message"], "(Hubspot)"].join(' '))
           errors.add(:base, x)
         end
         return false # => https://stackoverflow.com/a/19136658/1143732
+      rescue
+        return false
       end
     end
 
