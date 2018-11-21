@@ -58,7 +58,7 @@ class Claim < ApplicationRecord
     # => Allows us to determine whether to send data to hubspot or not
     # => Defaults to true
     attr_accessor :hubspot_enabled # => Add to Hubspot on create/update
-    attr_accessor :hubspot_delete # => Remove from Hubspot on delete
+    attr_accessor :hubspot_destroy # => Remove from Hubspot on delete
 
   ###########################################################
   ###########################################################
@@ -90,8 +90,8 @@ class Claim < ApplicationRecord
     # => This is meant to fire after the event
     # => The aim is to populate Hubspot with new claims
     # => Whilst implemented previously, was not as robust as was required
-    after_validation :hubspot, if: :hubspot_enabled # => Probably should be before_save (https://stackoverflow.com/questions/14804415/what-happens-between-after-validation-and-before-save)
-    #before_destroy :hubspot
+    before_save :hubspot, if: :hubspot_enabled # => Allows us to sync the data with hubspot (https://stackoverflow.com/questions/14804415/what-happens-between-after-validation-and-before-save)
+    after_destroy :hubspot, if: :hubspot_destroy # => Allows us to determine if the contact should be deleted from the system
 
     # => Scopes
     # => Allows us to split data dependent on nature of claim
@@ -131,6 +131,7 @@ class Claim < ApplicationRecord
     # => https://github.com/adimichele/hubspot-ruby#authentication-with-an-api-key
     # => https://stackoverflow.com/questions/607069/using-activerecord-is-there-a-way-to-get-the-old-values-of-a-record-during-afte (for old ActiveRecord data)
     def hubspot
+      puts hubspot_enabled
       begin
         hubspot = Hubspot::Contact.create! email, { firstname: first, lastname: last, phone: phone, mobilephone: mobile, address: address, zip: postcode }
         self[:hubspot_id] = hubspot.vid

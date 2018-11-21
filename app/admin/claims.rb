@@ -61,6 +61,7 @@ if Object.const_defined?('ActiveAdmin')
       end
       column :postcode, sortable: "Postcode"
       column :address,  sortable: "Address"
+      column :hubspot_id, sortable: "Hubspot"
       %i(created_at updated_at).each do |x|
         column x, sortable: x
       end
@@ -73,8 +74,8 @@ if Object.const_defined?('ActiveAdmin')
     # => Create
     form title: [I18n.t("activerecord.models.claim.icon"), Claim.model_name.human(count: 2), '|', Rails.application.credentials[Rails.env.to_sym][:app][:name]].join(' ') do |f|
       f.semantic_errors
-      f.input :hubspot_enabled, as: :boolean, label: "Send to Hubspot"
       f.inputs "⚙️ Client" do
+        f.input :hubspot_enabled, as: :boolean, label: "Sync with Hubspot", input_html: { checked: 'checked' }
         f.input :first,     placeholder: "First Name"
         f.input :last,      placeholder: "Last Name"
         f.input :email,     placeholder: "Email"
