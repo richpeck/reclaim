@@ -355,6 +355,7 @@ body
           right: 5px
         vertical:
           align: middle
+
   ////////////////////////////////////////////////////////////
   ////////////////////////////////////////////////////////////
 
@@ -367,12 +368,26 @@ body
     border:
       bottom: none
     &:hover
-      color: rgba(0,0,0,1) !important
+      label
+        color: rgba(0,0,0,1) !important
     label
       padding:
         left: 0
+      user:
+        select: none
       &:hover
         color: rgba(0,0,0,1) !important
+      input
+        display: inline-block
+        vertical:
+          align: middle
+
+  ////////////////////////////////////////////////////////////
+  ////////////////////////////////////////////////////////////
+
+  // Chart
+  #chart-1
+    background: none
 
   ////////////////////////////////////////////////////////////
   ////////////////////////////////////////////////////////////
@@ -386,6 +401,26 @@ body
       // Dashboard
       .columns
         .column
+
+          // Title
+          h3
+            line:
+              height: 2.5em
+
+            // Action
+            .header_action
+              float: right
+              font:
+                size: 0.65em
+              vertical:
+                align: middle
+              a
+                display: inline-block
+                text:
+                  decoration: none
+                vertical:
+                  align: middle
+
           &:not(.claims)
             width: 38% !important
           &.claims
@@ -423,25 +458,6 @@ body
                   color: rgba(255,255,255,0.5)
                   font:
                     size: 0.65em
-
-            // Title
-            h3
-              line:
-                height: 2.5em
-
-              // Action
-              .header_action
-                float: right
-                font:
-                  size: 0.65em
-                vertical:
-                  align: middle
-                a
-                  display: inline-block
-                  text:
-                    decoration: none
-                  vertical:
-                    align: middle
 
           .panel
             border: 0

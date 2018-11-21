@@ -7,11 +7,12 @@ if Object.const_defined?("ActiveAdmin")
   # => Charts (JS)
   # => Hack to get the Google JSAPI to show before active_admin.js
   # => https://github.com/activeadmin/activeadmin/issues/340#issuecomment-92512556
+  # => https://rubyplus.com/articles/4611-Highcharts-in-Rails-5
   # => The issue is that using the register_javascript method, it would add the JSAPI after active_admin
   # => And that made the system unable to load the charts
   Rails.application.config.after_initialize do
     javascripts = []
-    javascripts << '//www.google.com/jsapi'
+    javascripts << 'https://code.highcharts.com/highcharts.js '# 'https://www.gstatic.com/charts/loader.js'
     javascripts += ActiveAdmin.application.javascripts.to_a
     ActiveAdmin.application.javascripts.replace javascripts # => Probably a smoother solution but this will suffice for now
   end
