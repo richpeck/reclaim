@@ -9,16 +9,6 @@
 // Navigation
 %nav
 
-  // Top
-  // Info about the company, CTA, social, Trustpilot etc
-  .top
-    .container
-      = content_tag :span, class: "company" do
-        = link_to "#{Rails.application.credentials[Rails.env.to_sym][:company][:name]}", root_url
-        = " - "
-        = Rails.application.credentials[Rails.env.to_sym][:company][:address]
-      = link_to "Start Claim", "/claims", class: "claim"
-
   // Container
   .container
 

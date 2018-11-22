@@ -25,15 +25,18 @@
       gtag('js', new Date());
       gtag('config', '#{Rails.application.credentials[Rails.env.to_sym][:app][:analytics]}');
 
-  //Body
+  // Body
   %body
 
-    // Header
-    %header= render "layout/header"
+    // Sticky Footer
+    .wrapper
 
-    // Main
-    %main{ class: params[:id] || ([controller_name, action_name].join(' ')) }
-      .container= liquidize yield
+      // Header
+      %header= render "layout/header"
+
+      // Main
+      %main{ class: params[:id] || ([controller_name, action_name].join(' ')) }
+        .container= liquidize yield
 
     // Footer
     %footer= render "layout/footer"

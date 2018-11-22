@@ -49,12 +49,25 @@ body
   height: 100%
   margin: 0
 
+  // Sticky Footer
+  // https://css-tricks.com/couple-takes-sticky-footer/
+  .wrapper
+    $footer: 177px
+    min:
+      height: 100%
+    margin:
+      bottom: (-$footer)
+    &:after
+      height: $footer
+    footer
+      height: $footer
+
 // Main
 // This is hacky but whatever (should be stored in main app)
 body
 
   // Vars
-  $container: 75%
+  $container: 65%
 
   // General
   position: relative
@@ -76,10 +89,9 @@ body
   ////////////////////////////////
 
   // Header
-  > header
+  header
     display: block
     padding: 0
-    position: sticky
     box:
       shadow: 0 -1px 3px 0 rgba(0,0,0,0.75)
 
@@ -190,7 +202,7 @@ body
   ////////////////////////////////
 
   // Main
-  > main
+  main
     color: rgba(0,0,0,1)
 
     // Index
@@ -205,7 +217,7 @@ body
   ////////////////////////////////
 
   // Footer
-  > footer
+  footer
     color: rgba(255,255,255,1)
     background: rgba(0,0,0,1)
     padding: 2.5em 1.5em

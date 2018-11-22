@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/adimichele/hubspot-ruby.git
-  revision: 1b14c4f084e355b61c2dd8fee787e892c746d609
+  revision: 009520d38b3102912c2d37a05dd2d8b5d4229c9f
   specs:
     hubspot-ruby (0.5.0)
       activesupport (>= 3.0.0)
