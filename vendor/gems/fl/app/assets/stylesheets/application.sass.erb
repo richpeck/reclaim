@@ -70,7 +70,6 @@ body
   $container: 65%
 
   // General
-  position: relative
   font:
     family: 'Montserrat', sans-serif
 
@@ -203,15 +202,17 @@ body
 
   // Main
   main
-    color: rgba(0,0,0,1)
+    color: rgba(255,255,255,1)
 
     // Index
     &.index
 
-      // Title Area
-      .title
-        display: block
-        background: red
+    // Claims
+    &.claims
+      form
+        ol
+          list:
+            style: none
 
   ////////////////////////////////
   ////////////////////////////////

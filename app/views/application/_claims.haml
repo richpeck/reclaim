@@ -7,7 +7,7 @@
 - ########################################################
 
 // Form
-= semantic_form_for @content do |f|
+= semantic_form_for @content, url: claims_path do |f|
   = f.semantic_errors
 
   = f.inputs do
@@ -16,7 +16,7 @@
     = f.input :email,     placeholder: "Email"
     = f.input :phone,     placeholder: "Phone"
     = f.input :mobile,    placeholder: "Mobile"
-    = f.input :address,   placeholder: "Address"
+    = f.input :address,   placeholder: "Address", as: :text
     = f.input :postcode,  placeholder: "Postcode"
 
   = f.inputs do

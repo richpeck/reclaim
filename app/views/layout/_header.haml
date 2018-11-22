@@ -28,6 +28,5 @@
 
     // Links
     .links
-      .number= link_to "📞 #{Rails.application.credentials[Rails.env.to_sym][:company][:phone]}", "tel:#{Rails.application.credentials[Rails.env.to_sym][:company][:phone]}"
       - @header_links.each do |text, link|
         = link_to text, link, class: link

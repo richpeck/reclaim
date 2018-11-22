@@ -19,9 +19,9 @@ FL::Engine.load_seed
 ########################################
 
 # => Extras
-unless ("Meta::Option".constantize rescue nil).nil?
-  Meta::Option.create ref: "private", val: "claims" # => Claims public?
-end
+#unless ("Meta::Option".constantize rescue nil).nil?
+#  Meta::Option.create ref: "private", val: "claims" # => Claims public?
+#end
 
 ########################################
 ########################################

@@ -60,8 +60,12 @@ class ApplicationController < ActionController::Base
     # => Outputs results to the /claims page
     def create
       @content = Claim.new claim_params
-      @content.save
-      redirect_to :show, id: :claims
+      if @content.save
+        redirect_to :show, id: :claims, flash: { notice: "Claim Sent" }
+      else
+        params[:id] = :claims # => Needs to be set
+        render :show
+      end
     end
 
   ##################################
@@ -93,7 +97,7 @@ class ApplicationController < ActionController::Base
 
     # => Claim Params
     def claim_params
-      params.require(:claim).permit(:first, :last, :email, :phone, :mobile, :address, :postcode)
+      params.require(:claim).permit(:first, :last, :email, :phone, :mobile, :address, :postcode, :received, :from, :to, :escalation, :insurance, :signed, :shown, :inspected, :employee, :noted, :acknowledge, :report, :subsequent, :card, :invoice, :images, :repair, :method, :additional, :vat)
     end
 
     # => Layout Vars
