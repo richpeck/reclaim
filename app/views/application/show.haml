@@ -1,6 +1,7 @@
-- # FAQ's & News
+- # FAQ's, News etc
 - # This Allows us to list the FAQ's and news as appropriate
-- if params[:id].try(:to_sym) == :faq
+- case params[:id].try(:to_sym)
+- when :faq
   FAQ
 - else
   = @content.try(:val).try(:html_safe)
