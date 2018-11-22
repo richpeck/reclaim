@@ -95,7 +95,7 @@ class Claim < ApplicationRecord
 
     # => Scopes
     # => Allows us to split data dependent on nature of claim
-    scope :completed, -> { where(id: "NOT NULL") }
+    scope :completed, -> { where( hubspot_id: "NOT NULL" ) }
 
     # => Alias Attribute
     # => Allows us to change the name of various columns

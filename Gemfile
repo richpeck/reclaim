@@ -60,7 +60,6 @@ gem 'haml', '~> 5.0', '>= 5.0.3'
 ## JS ##
 gem 'coffee-rails', '~> 4.2', '>= 4.2.1'
 gem 'jquery-rails'
-#gem 'turbolinks', '~> 5.0' # => Had to get rid of this (it's shit)
 gem 'jbuilder', '~> 2.0'
 
 ########################################
@@ -73,13 +72,13 @@ gem 'jbuilder', '~> 2.0'
 ## General ##
 ## Used to provide general backend support for Rails apps ##
 gem 'bootsnap',     '>= 1.1.0', require: false        # => Boot caching (introduced in 5.2.x)
-gem 'formadmin',    '~> 0.2.1'                        # => FormAdmin custom theme for ActiveAdmin
 gem 'hubspot-ruby', github: 'adimichele/hubspot-ruby' # => HubSpot integration (API wrapper) - used for claim management
 gem 'uk_postcode',  '~> 2.1', '>= 2.1.3'              # => UK Postcode validation (https://github.com/threedaymonk/uk_postcode)
 
 # => For ActiveAdmin
 # => Chartkick allows us to include charts
 # => Groupdate allows us to group data by time periods (day, hour etc)
+gem 'formadmin', '~> 0.2.1' # => FormAdmin custom theme for ActiveAdmin
 gem 'chartkick', '~> 3.0', '>= 3.0.1' # => Chartkick (https://github.com/ankane/chartkick)
 gem 'groupdate', '~> 4.1' # => Groupdate (https://github.com/ankane/groupdate)
 

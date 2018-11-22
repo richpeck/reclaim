@@ -6,8 +6,13 @@
 - ########################################################
 - ########################################################
 
+// Title
+%h1 📮 Claim
+
 // Form
 = semantic_form_for @content, url: claims_path do |f|
+
+  // Errors
   = f.semantic_errors
 
   = f.inputs do
@@ -16,7 +21,7 @@
     = f.input :email,     placeholder: "Email"
     = f.input :phone,     placeholder: "Phone"
     = f.input :mobile,    placeholder: "Mobile"
-    = f.input :address,   placeholder: "Address", as: :text
+    = f.input :address,   placeholder: "Address"
     = f.input :postcode,  placeholder: "Postcode"
 
   = f.inputs do
@@ -43,4 +48,4 @@
     = f.input :additional,  label: "Has the client been charged additional costs over and above the damage charges (i.e. damage handling fee, loss of usage)?"
     = f.input :vat,         label: "Has VAT been applied to the invoice or estimate?"
 
-  = f.submit
+  = f.actions :submit, :cancel

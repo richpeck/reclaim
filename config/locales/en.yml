@@ -48,6 +48,12 @@
 en:
   exception_handler:
     not_found: "Page Not Found!"
+  formtastic:
+    actions:
+      create: "Create %{model}"
+      update: "Save"
+      reset:  "Reset"
+      cancel: "Cancel"
   active_admin:
     logout: "🔑  Logout"
     blank_slate:
