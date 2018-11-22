@@ -131,7 +131,6 @@ class Claim < ApplicationRecord
     # => https://github.com/adimichele/hubspot-ruby#authentication-with-an-api-key
     # => https://stackoverflow.com/questions/607069/using-activerecord-is-there-a-way-to-get-the-old-values-of-a-record-during-afte (for old ActiveRecord data)
     def hubspot
-      puts hubspot_enabled
       begin
         hubspot = Hubspot::Contact.create! email, { firstname: first, lastname: last, phone: phone, mobilephone: mobile, address: address, zip: postcode }
         self[:hubspot_id] = hubspot.vid
