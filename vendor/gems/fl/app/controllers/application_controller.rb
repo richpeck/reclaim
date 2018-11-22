@@ -28,7 +28,7 @@ class ApplicationController < ActionController::Base
   ##################################
   ##################################
 
-    # => Specific page content
+    # => Page content
     # => All slugrouter requests passed here (including root)
     # => Liquid ref - https://github.com/Shopify/liquid/wiki/Liquid-for-Programmers#first-steps
     # => If not using bang operator in find, use || "No Content"
@@ -44,6 +44,8 @@ class ApplicationController < ActionController::Base
           @content = Meta::Faq.all
         when :news
           @content = Meta::News.all
+        when :claims
+          @content = Claim.new # => Allows us to publish "claim" forms
         else
           @content = Meta::Page.find_by_slug! params[:id] || "index"
       end
@@ -51,25 +53,13 @@ class ApplicationController < ActionController::Base
     end
 
   ##################################
-  # => Auth
   ##################################
 
-    # => New
-    def new
-      @content = Node.new
-      respond_with @content
-    end
-
-    # => Create
+    # => Claims
+    # => This processes the claims forms
+    # => Outputs results to the /claims page
     def create
-      @content = Node.new node_params
-      respond_with @content, location: -> { application_path(@content) }
-    end
-
-    # => Update
-    def update
-      @content = Node.find_by_slug! params[:id]
-      respond_with @content, location: -> { application_path(@content) }
+      @content = Claim.new claim_params
     end
 
   ##################################
@@ -79,7 +69,7 @@ class ApplicationController < ActionController::Base
     # => http://api.rubyonrails.org/classes/ActionController/ConditionalGet.html#method-i-expires_in
     def robots
       expires_in 5.hours, public: true
-      render plain: "User-agent: *\r\nSitemap: https://www.railshosting.com/sitemap.xml.gz"
+      render plain: "User-agent: *\r\nSitemap: https://www.#{Rails.application.credentials[Rails.env.to_sym][:app][:domain]}/sitemap.xml.gz"
     end
 
   ##################################
@@ -99,9 +89,9 @@ class ApplicationController < ActionController::Base
       root_path
     end
 
-    # => Params
-    def node_params
-      params.require(:node).permit(:ref, :val)
+    # => Claim Params
+    def claim_params
+      params.require(:claim).permit()
     end
 
     # => Layout Vars

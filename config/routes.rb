@@ -73,8 +73,7 @@ Rails.application.routes.draw do
     # => Claims / FAQ's
     # => Claims & FAQ's are "static" endpoints (they'll always be present)
     unless ("Meta::Option".constantize rescue nil).nil?
-      resources :application, only: [:shows], path: :faq, as: :faq
-      resources :application, only: [:new,:create], path: :claim, as: :claims, path_names: {new: ""} unless Meta::Option.find_by(ref: "private", val: "claims")
+      resources :application, only: :create, path: :claims, as: :claims unless Meta::Option.find_by(ref: "private", val: "claims")
     end
 
   ###################################

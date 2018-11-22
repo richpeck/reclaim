@@ -1,5 +1,7 @@
 !!!
 %html
+
+  // Head
   %head
     = title yield(:title) + (" - " if content_for(:title)) + Rails.application.credentials[Rails.env.to_sym][:app][:name]
 
@@ -23,10 +25,15 @@
       gtag('js', new Date());
       gtag('config', '#{Rails.application.credentials[Rails.env.to_sym][:app][:analytics]}');
 
-  %body{ class: params[:id] || ([controller_name, action_name].join(' ')) }
+  //Body
+  %body
 
-    - # Elements
+    // Header
     %header= render "layout/header"
-    %main
+
+    // Main
+    %main{ class: params[:id] || ([controller_name, action_name].join(' ')) }
       .container= liquidize yield
+
+    // Footer
     %footer= render "layout/footer"

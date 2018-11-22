@@ -44,6 +44,12 @@
 ////////////////////////////////////////////////////////////
 
 // Main
+html,
+body
+  height: 100%
+  margin: 0
+
+// Main
 // This is hacky but whatever (should be stored in main app)
 body
 
@@ -51,6 +57,7 @@ body
   $container: 75%
 
   // General
+  position: relative
   font:
     family: 'Montserrat', sans-serif
 
@@ -72,7 +79,7 @@ body
   > header
     display: block
     padding: 0
-    position: relative
+    position: sticky
     box:
       shadow: 0 -1px 3px 0 rgba(0,0,0,0.75)
 
@@ -178,9 +185,21 @@ body
             a
               background: none
 
+
+  ////////////////////////////////
+  ////////////////////////////////
+
   // Main
   > main
     color: rgba(0,0,0,1)
+
+    // Index
+    &.index
+
+      // Title Area
+      .title
+        display: block
+        background: red
 
   ////////////////////////////////
   ////////////////////////////////
@@ -190,6 +209,7 @@ body
     color: rgba(255,255,255,1)
     background: rgba(0,0,0,1)
     padding: 2.5em 1.5em
+    position: relative
 
     // Container
     .container
