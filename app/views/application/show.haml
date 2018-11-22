@@ -3,5 +3,7 @@
 - case params[:id].try(:to_sym)
 - when :faq
   FAQ
+- when :news
+  NEWS
 - else
   = @content.try(:val).try(:html_safe)

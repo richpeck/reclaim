@@ -1,28 +1,29 @@
 - # Footer
 - # Allows us to create standardized styling for all footer elements
 - # This is meant to provide users with the ability to identify the various elements of the company
-%footer
+- ########################################################
+- ########################################################
 
-  // Container
-  // Used to determine common width across applications
-  .container
+// Container
+// Used to determine common width across applications
+.container
 
-    // Company
-    // Uses info from DB / Credentials
-    .company
-      .title= link_to "&nbsp;", "https://uk.trustpilot.com/review/damagereclaim.com", target: :blank, class: "reviews"
-      .email= link_to "#{Rails.application.credentials[Rails.env.to_sym][:app][:email]}", "mailto:#{Rails.application.credentials[Rails.env.to_sym][:app][:email]}"
-      .office= Rails.application.credentials[Rails.env.to_sym][:company][:address]
-      .number
-        Registered in England & Wales:
-        = link_to Rails.application.credentials[Rails.env.to_sym][:company][:number], "https://companycheck.co.uk/company/10685457/DAMAGE-RECLAIM-LIMITED/companies-house-data", target: :blank
+  // Company
+  // Uses info from DB / Credentials
+  .company
+    .title= link_to "&nbsp;", "https://uk.trustpilot.com/review/damagereclaim.com", target: :blank, class: "reviews"
+    .email= link_to "#{Rails.application.credentials[Rails.env.to_sym][:app][:email]}", "mailto:#{Rails.application.credentials[Rails.env.to_sym][:app][:email]}"
+    .office= Rails.application.credentials[Rails.env.to_sym][:company][:address]
+    .number
+      Registered in England & Wales:
+      = link_to Rails.application.credentials[Rails.env.to_sym][:company][:number], "https://companycheck.co.uk/company/10685457/DAMAGE-RECLAIM-LIMITED/companies-house-data", target: :blank
 
-    // Info
-    // Links (as demonstrated)
-    .links
-      Test
+  // Info
+  // Links (as demonstrated)
+  .links
+    Test
 
-    // Contact
-    // Allows us to showcase how to contact the company
-    .contact
-      Social + Contact
+  // Contact
+  // Allows us to showcase how to contact the company
+  .contact
+    Social + Contact

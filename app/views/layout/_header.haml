@@ -1,40 +1,39 @@
 - # Header
 - # Allows us to create standardized styling for all header elements
 - # This is meant to provide users with the ability to identify the various elements of the app
-%header
 
-  // Navigation
-  %nav
+// Navigation
+%nav
 
-    // Top
-    // Info about the company, CTA, social, Trustpilot etc
-    .top
-      .container
-        = content_tag :span, class: "company" do
-          = link_to "#{Rails.application.credentials[Rails.env.to_sym][:company][:name]}", root_url
-          = " - "
-          = Rails.application.credentials[Rails.env.to_sym][:company][:address]
-        = link_to "Start Claim", "/claims", class: "claim"
-
-    // Container
+  // Top
+  // Info about the company, CTA, social, Trustpilot etc
+  .top
     .container
+      = content_tag :span, class: "company" do
+        = link_to "#{Rails.application.credentials[Rails.env.to_sym][:company][:name]}", root_url
+        = " - "
+        = Rails.application.credentials[Rails.env.to_sym][:company][:address]
+      = link_to "Start Claim", "/claims", class: "claim"
 
-      // Logo
-      .logo= link_to image_tag("logo_long.png", "nopin" => "true"), root_url
+  // Container
+  .container
 
-      // Navigation
-      // Instant Quote
-      .claims
-        %span
-          %u Damage Reclaim LTD
-          provides an
-          %u INSTANT
-          solution for rental damage claims.
-        %span
-          Based in London, we're available 24/7 to help reduce your rental repair bills...
+    // Logo
+    .logo= link_to image_tag("logo_long.png", "nopin" => "true"), root_url
 
-      // Links
-      .links
-        .number= link_to "📞 #{Rails.application.credentials[Rails.env.to_sym][:company][:phone]}", "tel:#{Rails.application.credentials[Rails.env.to_sym][:company][:phone]}"
-        - @header_links.each do |text, link|
-          = link_to text, link, class: link
+    // Navigation
+    // Instant Quote
+    .claims
+      %span
+        %u Damage Reclaim LTD
+        provides an
+        %u INSTANT
+        solution for rental damage claims.
+      %span
+        Based in London, we're available 24/7 to help reduce your rental repair bills...
+
+    // Links
+    .links
+      .number= link_to "📞 #{Rails.application.credentials[Rails.env.to_sym][:company][:phone]}", "tel:#{Rails.application.credentials[Rails.env.to_sym][:company][:phone]}"
+      - @header_links.each do |text, link|
+        = link_to text, link, class: link
