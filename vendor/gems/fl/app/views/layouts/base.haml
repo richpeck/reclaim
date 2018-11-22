@@ -36,7 +36,7 @@
 
       // Main
       %main{ class: params[:id] || ([controller_name, action_name].join(' ')) }
-        .container= liquidize yield
+        .container= yield
 
     // Footer
     %footer= render "layout/footer"
