@@ -39,7 +39,15 @@ class ApplicationController < ActionController::Base
 
       # => Needs to provide for FAQ's & News
       # => If you're viewing FAQ's or News, you need to have all that content served properly
-      @content = Meta::Page.find_by_slug! params[:id] || "index"
+      case params[:id].to_sym
+        when :faq
+          @content = Meta::Faq.all
+        when :news
+          @content = Meta::News.all
+        else
+          @content = Meta::Page.find_by_slug! params[:id] || "index"
+      end
+
     end
 
   ##################################

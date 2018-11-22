@@ -90,7 +90,7 @@ class Claim < ApplicationRecord
     # => This is meant to fire after the event
     # => The aim is to populate Hubspot with new claims
     # => Whilst implemented previously, was not as robust as was required
-    before_save :hubspot, if: :hubspot_enabled # => Allows us to sync the data with hubspot (https://stackoverflow.com/questions/14804415/what-happens-between-after-validation-and-before-save)
+    before_save :hubspot, if: Proc.new { |claim| claim.hubspot_enabled? } # => Allows us to sync the data with hubspot (https://stackoverflow.com/questions/14804415/what-happens-between-after-validation-and-before-save)
     after_destroy :hubspot, if: :hubspot_destroy # => Allows us to determine if the contact should be deleted from the system
 
     # => Scopes

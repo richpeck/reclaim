@@ -10,7 +10,7 @@
     // Company
     // Uses info from DB / Credentials
     .company
-      .title= link_to "© #{Rails.application.credentials[Rails.env.to_sym][:company][:name]}", "http://www.#{Rails.application.credentials[Rails.env.to_sym][:app][:domain]}"
+      .title= link_to "&nbsp;", "https://uk.trustpilot.com/review/damagereclaim.com", target: :blank, class: "reviews"
       .email= link_to "#{Rails.application.credentials[Rails.env.to_sym][:app][:email]}", "mailto:#{Rails.application.credentials[Rails.env.to_sym][:app][:email]}"
       .office= Rails.application.credentials[Rails.env.to_sym][:company][:address]
       .number

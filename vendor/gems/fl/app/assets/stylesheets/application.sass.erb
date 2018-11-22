@@ -48,7 +48,7 @@
 body
 
   // Vars
-  $container: 90%
+  $container: 75%
 
   // General
   font:
@@ -72,16 +72,43 @@ body
   header
     display: block
     padding: 0
-    border:
-      bottom: 1px solid $base-color
     box:
       shadow: 0 -1px 3px 0 rgba(0,0,0,0.75)
 
     // Navigation
     nav
-      padding: 1em 0
+      padding: 0 0 1.5em
       color: rgba(255,255,255,1)
       background: rgba(0,0,0,0.95)
+
+      // Top
+      .top
+        display: block
+        color: rgba(255,255,255,1)
+        background: rgba(0,0,0,1)
+        margin:
+          bottom: 1.5em
+        font:
+          size: 0.85em
+        .container
+          display: block
+          text:
+            align: right
+          a
+            &.claim
+              display: inline-block
+              color: rgba(255,255,255,1)
+              background: rgba(255,255,255,0.15)
+              padding: 5px
+              transition: color 0.15s ease-in-out, background 0.15s ease-in-out
+              margin:
+                left: 7px
+              text:
+                decoration: none
+              &:hover
+                opacity: 1
+                color: $base-color
+                background: rgba(255,255,255,0.1)
 
       // Container
       .container
@@ -107,7 +134,7 @@ body
               opacity: 1
             img
               display: block
-              height: 55px
+              height: 75px
 
         // Claims
         .claims
@@ -139,19 +166,16 @@ body
             &:hover
               opacity: 1
 
+          // Phone
           .number
             display: inline-block
             vertical:
               align: middle
-            border:
-              right: 1px solid rgba(255,255,255,0.55)
-            padding:
-              right: 15px
-            margin:
-              right: 10px
             font:
-              size: 1.35em
+              size: 1.65em
               weight: bold
+            a
+              background: none
 
   ////////////////////////////////
   ////////////////////////////////
@@ -161,10 +185,6 @@ body
     color: rgba(255,255,255,1)
     background: rgba(0,0,0,1)
     padding: 2.5em 1.5em
-    border:
-      top: 1px solid $base-color
-    box:
-      shadow: 0 -1px 3px 0 rgba(0,0,0,0.75), inset 0 1px 0 rgba(0,0,0,1)
 
     // Container
     .container
@@ -194,10 +214,24 @@ body
           &:after
             display:  block
             content:  " "
-            margin:   10px 0
+            margin:   15px 0 10px
             width:    20px
             height:   3px
             background: rgba(255,255,255,1)
+          a
+            &.reviews
+              display: block
+              color: transparent
+              width: 200px
+              padding: 0.65em 0
+              background:
+                image: asset_url('tp.png')
+                size:  contain
+                repeat: space
+              &:hover
+                color: transparent
+                text:
+                  decoration: none
         .email
           &:before
             content: "✉️"
