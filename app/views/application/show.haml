@@ -1,6 +1,6 @@
 - # FAQ's & News
 - # This Allows us to list the FAQ's and news as appropriate
-- if params[:id].to_sym == :faq
+- if params[:id].try(:to_sym) == :faq
   FAQ
 - else
-  TEST
+  = @content.try(:val).try(:html_safe)

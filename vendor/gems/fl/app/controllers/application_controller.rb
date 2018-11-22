@@ -39,8 +39,8 @@ class ApplicationController < ActionController::Base
 
       # => Needs to provide for FAQ's & News
       # => If you're viewing FAQ's or News, you need to have all that content served properly
-      case params[:id].to_sym
-        when :faq
+      case params[:id].try(:to_sym)
+      when :faq
           @content = Meta::Faq.all
         when :news
           @content = Meta::News.all
