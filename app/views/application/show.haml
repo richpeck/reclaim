@@ -5,5 +5,7 @@
   FAQ
 - when :news
   NEWS
+- when :claims
+  = render "application/claims"
 - else
   = @content.try(:val).try(:html_safe)

@@ -60,6 +60,8 @@ class ApplicationController < ActionController::Base
     # => Outputs results to the /claims page
     def create
       @content = Claim.new claim_params
+      @content.save
+      redirect_to :show, id: :claims
     end
 
   ##################################
@@ -91,7 +93,7 @@ class ApplicationController < ActionController::Base
 
     # => Claim Params
     def claim_params
-      params.require(:claim).permit()
+      params.require(:claim).permit(:first, :last, :email, :phone, :mobile, :address, :postcode)
     end
 
     # => Layout Vars
@@ -105,7 +107,7 @@ class ApplicationController < ActionController::Base
         "✔️ FAQ's" => "faq",
         "📰 News" => "news",
         "📜 Rates" => "rates",
-        "🚩 Claim" => "claims"
+        "🚩 Claims" => "claims"
       }
     end
 
