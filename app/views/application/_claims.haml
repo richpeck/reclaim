@@ -21,7 +21,7 @@
     = f.input :email,     placeholder: "Email"
     = f.input :phone,     placeholder: "Phone"
     = f.input :mobile,    placeholder: "Mobile"
-    = f.input :address,   placeholder: "Address", input_html: { class: 'autogrow', rows: 5, cols: 20, maxlength: 10  }
+    = f.input :address,   placeholder: "Address", input_html: { class: 'autogrow', rows: 15  }
     = f.input :postcode,  placeholder: "Postcode"
 
   = f.inputs do
@@ -30,7 +30,7 @@
     = f.input :to,        as: :date_picker, input_html: { value: Date.today }
     = f.input :escalation, placeholder: "Escalation"
 
-  = f.inputs do
+  = f.inputs class: "bools" do
     = f.input :insurance,   label: "Was insurance requirements and options pointed out to the client prior to commencement of the rental?"
     = f.input :signed,      label: "Has a signed condition report been provided on commencement of the rental?"
     = f.input :shown,       label: "Was the client showed round the vehicle pointing out previous damage prior to the handover of keys?"
@@ -48,4 +48,4 @@
     = f.input :additional,  label: "Has the client been charged additional costs over and above the damage charges (i.e. damage handling fee, loss of usage)?"
     = f.input :vat,         label: "Has VAT been applied to the invoice or estimate?"
 
-  = f.actions :submit, :cancel
+  = f.actions :submit

@@ -205,6 +205,33 @@ body
   main
     color: rgba(255,255,255,1)
 
+    // General
+    .formtastic
+      .errors
+        padding: 1.5em
+        margin: 0 0 1em 0
+        color: rgba(255,0,0,1)
+        background: rgba(255,0,0,0.15)
+        border: 1px solid rgba(255,0,0,1)
+        font:
+          size: 0.95em
+        list:
+          style: none !important
+        border:
+          radius: 4px
+        text:
+          shadow: 0 1px 1px rgba(0,0,0,1)
+        li
+          &:before
+            display: inline-block
+            content: "⚠️"
+            font:
+              size: 1.5em
+            margin:
+              right: 0.25em
+            text:
+              shadow: none
+
     // Index
     &.index
 
@@ -216,84 +243,109 @@ body
         display: block
         padding: 0.75em 0 0.35em
 
-      // Inputs
-      .inputs
-        overflow: visible
-
-      // General List
-      ul,
-      ol
-        margin:
-          left: 0
+      // Form
+      form
         padding:
-          left: 0
-        list:
-          style: none
-        li
-          width: auto
-          input
-            border: 1px solid rgba(0,0,0,1)
-          &.boolean
-            display: block
-            padding: 0.15em 0
+          top: 1em
+
+        // Inputs
+        fieldset
+          overflow: visible
+
+          // Last Boolean Section
+          &.bools
             &:hover
-              cursor: pointer
-            label
-              display: inline-block
-              width: 100%
-              white:
-                space: nowrap
-              padding:
-                left: 0
+              ol
+                li
+                  opacity: 0.55
+            ol
+              li
+                &:hover
+                  opacity: 1
+
+          // Actions
+          &.actions
+            padding:
+              top:  0.25em
+              left: 0 !important
             input
-              display: inline-block
-              position: relative
-              background: rgba(255,255,255,1)
-              appearance: none
-              padding: 1em
-              border: 1px solid rgba(0,0,0,1)
-              margin:
-                left:  0
-                right: 0.5em
-              &:checked
-                &:after
-                  content: '✔️'
-                  display: block
-                  font-size: 14px
-                  position: absolute
-                  top: 30%
-                  left: 2px
-                  color: #99a1a7
+              &[type='submit']
+                width: 100%
+                box:
+                  sizing: border-box
 
-          .inline-errors
-            display: block
-            color: rgba(255,0,0,1)
-
-        // Errors
-        &.errors
-          padding: 1.5em
-          margin: 0 0 1em 0
-          color: rgba(255,0,0,1)
-          background: rgba(255,0,0,0.15)
-          border: 1px solid rgba(255,0,0,1)
-          font:
-            size: 0.95em
+        // General List
+        ul,
+        ol
+          margin:
+            left: 0
+          padding:
+            left: 0
           list:
             style: none
-          border:
-            radius: 4px
-          text:
-            shadow: 0 1px 1px rgba(0,0,0,1)
           li
-            &:before
-              display: inline-block
-              content: "⚠️"
-              font:
-                size: 1.5em
+            width: auto
+            &.error
+              input,
+              textarea
+                border: 1px solid rgba(255,0,0,1)
+            label
+              width: none
+              abbr
+                display: inline-block
+                color: rgba(255,0,0,1)
+                padding: 0 0.5em
+            input,
+            textarea
+              border: 1px solid rgba(0,0,0,1)
+              transition: color 0.15s ease-in-out
               margin:
-                right: 0.25em
-              text:
-                shadow: none
+                left: 0 !important
+              &:hover
+                &:placeholder
+                  color: rgba(255,0,0,1) !important
+            textarea
+              padding: 10px
+
+            // Checkboxes
+            &.boolean
+              display: block
+              padding: 0.15em 0
+              margin:  0
+              transition: opacity 0.15s ease-in-out
+              &:hover
+                label
+                  cursor: pointer
+              label
+                display: inline-block
+                width: 100%
+                white:
+                  space: nowrap
+                padding:
+                  left: 0
+              input
+                display: inline-block
+                position: relative
+                background: rgba(255,255,255,1)
+                appearance: none
+                padding: 1em
+                border: 1px solid rgba(0,0,0,1)
+                margin:
+                  left:  0
+                  right: 0.75em
+                &:checked
+                  &:after
+                    content: '✔️'
+                    display: block
+                    font-size: 14px
+                    position: absolute
+                    top: 30%
+                    left: 2px
+                    color: #99a1a7
+
+            .inline-errors
+              display: block
+              color: rgba(255,0,0,1)
 
       // Form
       form

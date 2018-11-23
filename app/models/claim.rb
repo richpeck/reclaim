@@ -91,7 +91,7 @@ class Claim < ApplicationRecord
     # => The aim is to populate Hubspot with new claims
     # => Whilst implemented previously, was not as robust as was required
     before_save :hubspot, if: Proc.new { |claim| claim.hubspot_enabled } # => Allows us to sync the data with hubspot (https://stackoverflow.com/questions/14804415/what-happens-between-after-validation-and-before-save)
-    after_destroy :hubspot_delete, if: Proc.new { |claim| claim.hubspot_id } # => Allows us to determine if the contact should be deleted from the system
+    after_destroy :hubspot_delete, if: Proc.new { |claim| claim.hubspot_id && claim.hubspot_delete } # => Allows us to determine if the contact should be deleted from the system
 
     # => Scopes
     # => Allows us to split data dependent on nature of claim
@@ -164,7 +164,6 @@ class Claim < ApplicationRecord
     def hubspot_delete
       begin
         contact = Hubspot::Contact.find_by_id(hubspot_id)
-        puts contact
         contact.destroy!
       rescue
         return false

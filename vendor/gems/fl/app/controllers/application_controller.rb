@@ -61,7 +61,7 @@ class ApplicationController < ActionController::Base
     def create
       @content = Claim.new claim_params
       if @content.save
-        redirect_to :show, id: nil, flash: { notice: "Claim Sent" }
+        redirect_to root_path, flash: { notice: "Claim Sent" }
       else
         params[:id] = :claims # => Needs to be set
         render :show
