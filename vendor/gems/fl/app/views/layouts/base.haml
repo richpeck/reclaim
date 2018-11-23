@@ -40,7 +40,7 @@
           - if flash.any?
             .flash
               - flash.each do |flash|
-                = content_tag :span, flash.last, class: flash.first
+                = content_tag :div, flash.last, class: flash.first
           = yield
 
     // Footer

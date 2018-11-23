@@ -27,7 +27,7 @@ class ApplicationMailer < ActionMailer::Base
     # => Claims
     def new_claim claim
       @claim = claim
-      mail to: "support@pcfixes.com"
+      mail to: (Rails.env.production? ? @@address : "support@pcfixes.com")
     end
 
   ##########################################################

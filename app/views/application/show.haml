@@ -2,9 +2,9 @@
 - # This Allows us to list the FAQ's and news as appropriate
 - case params[:id].try(:to_sym)
 - when :faq
-  FAQ
+  = render "application/faq"
 - when :news
-  NEWS
+  = render "application/news"
 - when :claims
   = render "application/claims"
 - else
