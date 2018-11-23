@@ -7,7 +7,7 @@
 - ########################################################
 
 // Title
-%h1 📮 Claim
+%h1 📮 Create Claim
 
 // Form
 = semantic_form_for @content, url: claims_path do |f|
@@ -21,7 +21,7 @@
     = f.input :email,     placeholder: "Email"
     = f.input :phone,     placeholder: "Phone"
     = f.input :mobile,    placeholder: "Mobile"
-    = f.input :address,   placeholder: "Address"
+    = f.input :address,   placeholder: "Address", input_html: { class: 'autogrow', rows: 5, cols: 20, maxlength: 10  }
     = f.input :postcode,  placeholder: "Postcode"
 
   = f.inputs do

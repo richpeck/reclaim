@@ -90,8 +90,8 @@ class Claim < ApplicationRecord
     # => This is meant to fire after the event
     # => The aim is to populate Hubspot with new claims
     # => Whilst implemented previously, was not as robust as was required
-    before_save :hubspot, if: Proc.new { |claim| claim.hubspot_enabled? } # => Allows us to sync the data with hubspot (https://stackoverflow.com/questions/14804415/what-happens-between-after-validation-and-before-save)
-    after_destroy :hubspot, if: :hubspot_destroy # => Allows us to determine if the contact should be deleted from the system
+    before_save :hubspot, if: Proc.new { |claim| claim.hubspot_enabled } # => Allows us to sync the data with hubspot (https://stackoverflow.com/questions/14804415/what-happens-between-after-validation-and-before-save)
+    after_destroy :hubspot_delete, if: Proc.new { |claim| claim.hubspot_id } # => Allows us to determine if the contact should be deleted from the system
 
     # => Scopes
     # => Allows us to split data dependent on nature of claim
@@ -135,12 +135,37 @@ class Claim < ApplicationRecord
         hubspot = Hubspot::Contact.create! email, { firstname: first, lastname: last, phone: phone, mobilephone: mobile, address: address, zip: postcode }
         self[:hubspot_id] = hubspot.vid
       rescue Hubspot::RequestError => e
+
+        # => JSON
         r = JSON.parse(e.response.to_s)
-        r["validationResults"].each do |x|
-          errors.add(x["name"].to_sym, [x["message"], "(Hubspot)"].join(' '))
-          errors.add(:base, x)
+
+        # => Duplicate contact
+        errors.add(:base, [r["message"], "(Hubspot)"].join(' ')) if r["message"]
+
+        # => ValidationResults
+        if r["validationResults"]
+          r["validationResults"].each do |x|
+            errors.add(x["name"].to_sym, [x["message"], "(Hubspot)"].join(' '))
+            errors.add(:base, x)
+          end
         end
-        return false # => https://stackoverflow.com/a/19136658/1143732
+
+        # => Prevents Save
+        # => https://stackoverflow.com/a/19136658/1143732
+        return false
+
+      rescue
+        return false
+      end
+    end
+
+    # => Hubspot Delete
+    # => Removes Hubspot listing when claim is deleted
+    def hubspot_delete
+      begin
+        contact = Hubspot::Contact.find_by_id(hubspot_id)
+        puts contact
+        contact.destroy!
       rescue
         return false
       end
@@ -149,7 +174,7 @@ class Claim < ApplicationRecord
     # => Mobile or Phone
     # => Accounts for either to be present
     def mobile_or_phone
-      errors.add(:base, "Please specify mobile OR landline (phone) number (BOTH if you want).") if mobile.blank? && phone.blank?
+      errors.add(:base, "Please specify mobile, landline (phone) number or BOTH.") if mobile.blank? && phone.blank?
     end
 
   ###########################################################

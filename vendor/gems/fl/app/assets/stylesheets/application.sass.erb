@@ -30,6 +30,7 @@
 // Main
 @import variables
 @import functions
+@import formtastic
 
 // Libraries
 @import <%= gdep.matching_specs.max_by(&:version) ? "font-awesome" : "ionicons" %>
@@ -52,7 +53,7 @@ body
   // Sticky Footer
   // https://css-tricks.com/couple-takes-sticky-footer/
   .wrapper
-    $footer: 177px
+    $footer: 50px
     min:
       height: 100%
     margin:
@@ -209,12 +210,96 @@ body
 
     // Claims
     &.claims
+
+      // Title
+      h1
+        display: block
+        padding: 0.75em 0 0.35em
+
+      // Inputs
+      .inputs
+        overflow: visible
+
+      // General List
+      ul,
+      ol
+        margin:
+          left: 0
+        padding:
+          left: 0
+        list:
+          style: none
+        li
+          width: auto
+          input
+            border: 1px solid rgba(0,0,0,1)
+          &.boolean
+            display: block
+            padding: 0.15em 0
+            &:hover
+              cursor: pointer
+            label
+              display: inline-block
+              width: 100%
+              white:
+                space: nowrap
+              padding:
+                left: 0
+            input
+              display: inline-block
+              position: relative
+              background: rgba(255,255,255,1)
+              appearance: none
+              padding: 1em
+              border: 1px solid rgba(0,0,0,1)
+              margin:
+                left:  0
+                right: 0.5em
+              &:checked
+                &:after
+                  content: '✔️'
+                  display: block
+                  font-size: 14px
+                  position: absolute
+                  top: 30%
+                  left: 2px
+                  color: #99a1a7
+
+          .inline-errors
+            display: block
+            color: rgba(255,0,0,1)
+
+        // Errors
+        &.errors
+          padding: 1.5em
+          margin: 0 0 1em 0
+          color: rgba(255,0,0,1)
+          background: rgba(255,0,0,0.15)
+          border: 1px solid rgba(255,0,0,1)
+          font:
+            size: 0.95em
+          list:
+            style: none
+          border:
+            radius: 4px
+          text:
+            shadow: 0 1px 1px rgba(0,0,0,1)
+          li
+            &:before
+              display: inline-block
+              content: "⚠️"
+              font:
+                size: 1.5em
+              margin:
+                right: 0.25em
+              text:
+                shadow: none
+
+      // Form
       form
         display: block
 
         ol
-          list:
-            style: none
           li
             padding: 2px 0
             input

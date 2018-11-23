@@ -80,9 +80,10 @@ en:
         other:  'Claims'
     attributes:
       claim:
-        first:  "First Name"
-        last:   "Last Name"
-        phone:  "Phone (Landline)"
+        first:      "First Name"
+        last:       "Last Name"
+        phone:      "Phone (Landline)"
+        hubspot_id: "Hubspot ID"
       meta/faq:
         val:    "Content"
       meta/news:

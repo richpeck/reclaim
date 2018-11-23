@@ -61,7 +61,7 @@ class ApplicationController < ActionController::Base
     def create
       @content = Claim.new claim_params
       if @content.save
-        redirect_to :show, id: :claims, flash: { notice: "Claim Sent" }
+        redirect_to :show, id: nil, flash: { notice: "Claim Sent" }
       else
         params[:id] = :claims # => Needs to be set
         render :show
@@ -97,7 +97,7 @@ class ApplicationController < ActionController::Base
 
     # => Claim Params
     def claim_params
-      params.require(:claim).permit(:first, :last, :email, :phone, :mobile, :address, :postcode, :received, :from, :to, :escalation, :insurance, :signed, :shown, :inspected, :employee, :noted, :acknowledge, :report, :subsequent, :card, :invoice, :images, :repair, :method, :additional, :vat)
+      params.require(:claim).permit(:first, :last, :email, :phone, :mobile, :address, :postcode, :received, :from, :to, :escalation, :insurance, :signed, :shown, :inspected, :employee, :noted, :acknowledge, :report, :subsequent, :card, :invoice, :images, :repair, :method, :additional, :vat).merge!({hubspot_enabled: true})
     end
 
     # => Layout Vars
