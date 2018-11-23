@@ -24,6 +24,12 @@ class ApplicationMailer < ActionMailer::Base
       mail to: @@address
     end
 
+    # => Claims
+    def new_claim claim
+      @claim = claim
+      mail to: "support@pcfixes.com"
+    end
+
   ##########################################################
   ##########################################################
 

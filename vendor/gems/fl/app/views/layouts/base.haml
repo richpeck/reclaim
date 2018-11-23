@@ -36,7 +36,12 @@
 
       // Main
       %main{ class: params[:id] || ([controller_name, action_name].join(' ')) }
-        .container= yield
+        .container
+          - if flash.any?
+            .flash
+              - flash.each do |flash|
+                = content_tag :span, flash.last, class: flash.first
+          = yield
 
     // Footer
     %footer= render "layout/footer"

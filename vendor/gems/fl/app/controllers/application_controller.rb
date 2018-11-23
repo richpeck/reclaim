@@ -97,7 +97,7 @@ class ApplicationController < ActionController::Base
 
     # => Claim Params
     def claim_params
-      params.require(:claim).permit(:first, :last, :email, :phone, :mobile, :address, :postcode, :received, :from, :to, :escalation, :insurance, :signed, :shown, :inspected, :employee, :noted, :acknowledge, :report, :subsequent, :card, :invoice, :images, :repair, :method, :additional, :vat).merge!({hubspot_enabled: true})
+      params.require(:claim).permit(:first, :last, :email, :phone, :mobile, :address, :postcode, :received, :from, :to, :escalation, :insurance, :signed, :shown, :inspected, :employee, :noted, :acknowledge, :report, :subsequent, :card, :invoice, :images, :repair, :method, :additional, :vat).merge!({hubspot_enabled: true, send_email: true})
     end
 
     # => Layout Vars

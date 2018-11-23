@@ -59,6 +59,7 @@ class Claim < ApplicationRecord
     # => Defaults to true
     attr_accessor :hubspot_enabled # => Add to Hubspot on create/update
     attr_accessor :hubspot_destroy # => Remove from Hubspot on delete
+    attr_accessor :send_email # => Determines whether to send "new claim" email or not
 
   ###########################################################
   ###########################################################
@@ -91,7 +92,11 @@ class Claim < ApplicationRecord
     # => The aim is to populate Hubspot with new claims
     # => Whilst implemented previously, was not as robust as was required
     before_save :hubspot, if: Proc.new { |claim| claim.hubspot_enabled } # => Allows us to sync the data with hubspot (https://stackoverflow.com/questions/14804415/what-happens-between-after-validation-and-before-save)
-    after_destroy :hubspot_delete, if: Proc.new { |claim| claim.hubspot_id && claim.hubspot_delete } # => Allows us to determine if the contact should be deleted from the system
+    after_destroy :hubspot_delete, if: Proc.new { |claim| claim.hubspot_id && claim.hubspot_destroy } # => Allows us to determine if the contact should be deleted from the system
+
+    # => Email
+    # => Sends email to site owner
+    after_create Proc.new { |claim| ApplicationMailer.new_claim(claim).deliver! }, if: :send_email
 
     # => Scopes
     # => Allows us to split data dependent on nature of claim
