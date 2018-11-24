@@ -301,7 +301,7 @@ body
           // Hover
           &:hover
             .panel
-              opacity: 0.65
+              opacity: 0.45
 
           // Individual
           .panel
@@ -313,6 +313,8 @@ body
             transition: opacity 0.15s ease-in-out
             box:
               sizing: border-box
+            margin:
+              bottom: 0.5em
             border:
               bottom: 2px solid rgba(255,255,255,1)
 
@@ -353,12 +355,14 @@ body
               // Title
               h3
                 &.title
-                  margin: 1em 0 0.5em
+                  margin:  0.5em 0
+                  padding: 0 10px
                   font:
                     size: 1.35em
 
               // Content
               .content
+                padding: 0 10px
                 box:
                   sizing: boder-box
                 ul
@@ -373,7 +377,6 @@ body
                 right: 0
                 bottom: 0
                 color: rgba(255,255,255,1)
-                background: rgba(0,0,0,1)
                 border: 0
                 padding: 0.25em 0.5em
                 &:hover
