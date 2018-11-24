@@ -33,7 +33,7 @@
             = content_tag :div, item.val.html_safe, class: "content"
 
           - elsif params[:id].to_sym == :news
-            = link_to news_path(item) do
+            = link_to news_path(item), data: { published: item.created_at(:short) } do
               = image_tag "https://via.placeholder.com/350", class: "featured", "nopin" => "true"
               = content_tag :h3, item.ref, class: "title"
               = content_tag :div, truncate_html(strip_links(item.value), length: 350, separator: ' ',  omission: '…').html_safe, class: "content"

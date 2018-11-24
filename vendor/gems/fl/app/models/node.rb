@@ -52,6 +52,13 @@ class Node < ApplicationRecord
         true
       end
 
+      # => Created at
+      %i(created_at updated_at).each do |update|
+        define_method update do |format=:long|
+          self[update].to_formatted_s format if self[update]
+        end
+      end
+
       # Class (public)
       ###################
 

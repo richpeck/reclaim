@@ -331,6 +331,17 @@ body
               overflow:
                 y: hidden
 
+              // Date
+              &:after
+                display:  block
+                position: absolute
+                padding:  0.5em
+                content:  attr(data-published)
+                color: rgba(255,255,255,1)
+                background: rgba(0,0,0,1)
+                top: 0
+                left: 0
+
               // Hover
               &:hover
                 opacity: 1
