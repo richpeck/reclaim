@@ -46,6 +46,13 @@
 
 ## English ##
 en:
+  page:
+    titles:
+      claims: "📮 Create Claim"
+      news:   "📜 Industry News"
+      faq:    "✔️ FAQ's"
+      about:  "ℹ️ About Us"
+      action: "🚨 Getting Started"
   exception_handler:
     not_found: "Page Not Found!"
   formtastic:

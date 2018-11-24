@@ -205,6 +205,14 @@ body
   main
     color: rgba(255,255,255,1)
 
+    // General
+    h1
+      &.title
+        display: block
+        padding: 0.75em 0 0.5em
+        margin:
+          bottom: 0.5em
+
     // Flash
     .flash
       > div
@@ -226,7 +234,7 @@ body
           background: rgba(0,255,40,0.075)
           border:
             color: rgba(0,255,40,1)
-            size: 1px
+            size: 1px !important
             style: solid
           &:before
             content: "✔️"
@@ -267,13 +275,12 @@ body
     // Index
     &.index
 
+    // FAQ
+    &.faq
+
+
     // Claims
     &.claims
-
-      // Title
-      h1
-        display: block
-        padding: 0.75em 0 0.35em
 
       // Form
       form
