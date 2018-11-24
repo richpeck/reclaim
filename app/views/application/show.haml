@@ -14,10 +14,11 @@
   - when :faq, :news
 
     - # List
-    - @content.each do |item|
-      = content_tag :div do
-        = content_tag :strong, item.ref
-        = content_tag :span, item.val.html_safe
+    - @content.each_with_index do |item,index|
+      = content_tag :div, class: "panel" do
+        = radio_button_tag "panel", index
+        = label_tag "panel_#{index}", item.ref
+        = content_tag :div, item.val.html_safe, class: "content" 
 
   - # Claims
   - when :claims

@@ -276,8 +276,48 @@ body
     &.index
 
     // FAQ
+    // Simple accordion-style
     &.faq
 
+      // CSS-only accordion
+      // The following is from https://codepen.io/jonyablonski/pen/wreap
+      $timing: .4s
+      $ease: cubic-bezier(0.865, 0.140, 0.095, 0.870)
+
+      // Container
+      // Main accordion block
+      .container
+        > div
+          margin:
+            bottom: 0.5em
+
+        // Input
+        input
+          &[name='panel']
+            display: none
+            &:checked
+              & + label
+                background: rgba(255,0,0,1)
+              ~ .content
+                display: block
+                visibility: visible
+
+        // Header
+        label
+          position:   relative
+          display:    block
+          padding:    1em
+          cursor:     pointer
+          transition: all $timing $ease
+          font:
+            size:   1.5em
+            weight: bold
+
+        // Content
+        .content
+          display: none
+          visibility: hidden
+          padding: 1em
 
     // Claims
     &.claims
