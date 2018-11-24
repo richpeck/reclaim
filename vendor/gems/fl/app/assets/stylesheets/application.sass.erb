@@ -210,8 +210,15 @@ body
       &.title
         display: block
         padding: 0.75em 0 0.5em
-        margin:
-          bottom: 0.5em
+
+    // Intro
+    .intro
+      border:
+        bottom: 2px solid rgba(255,255,255,1)
+      margin:
+        bottom: 1em
+      padding:
+        bottom: 1em
 
     // Flash
     .flash
@@ -244,7 +251,6 @@ body
             font:
               size: 1.25em
 
-
     // General
     .formtastic
       .errors
@@ -272,8 +278,50 @@ body
             text:
               shadow: none
 
-    // Index
-    &.index
+    // News
+    &.news
+
+      // Container
+      // Flexbox
+      .container
+
+        // Panels
+        // Used to provide hover functionality etc
+        .panels
+          display: flex
+          flex:
+            wrap: wrap
+            direction: row
+          justify:
+            content: space-between
+          align:
+            items: stretch
+
+          // Individual
+          .panel
+            width: 33%
+            overflow: hidden
+            padding: 1.5em 0.25em 1.5em 0
+            box:
+              sizing: border-box
+            max:
+              height: 500px
+            margin:
+              bottom: 0.5em
+            border:
+              bottom: 2px solid rgba(255,255,255,1)
+
+            // Title
+            h3
+              &.title
+                font:
+                  size: 1.25em
+                margin:
+                  bottom: 0.35em
+
+            // Content
+            .content
+
 
     // FAQ
     // Simple accordion-style
@@ -281,43 +329,69 @@ body
 
       // CSS-only accordion
       // The following is from https://codepen.io/jonyablonski/pen/wreap
-      $timing: .4s
+      $timing: .25s
       $ease: cubic-bezier(0.865, 0.140, 0.095, 0.870)
 
       // Container
       // Main accordion block
       .container
-        > div
-          margin:
-            bottom: 0.5em
 
-        // Input
-        input
-          &[name='panel']
-            display: none
-            &:checked
-              & + label
-                background: rgba(255,0,0,1)
-              ~ .content
-                display: block
-                visibility: visible
+        // Used for panels
+        // Really should integrate with .container but works for now
+        .panels
 
-        // Header
-        label
-          position:   relative
-          display:    block
-          padding:    1em
-          cursor:     pointer
-          transition: all $timing $ease
-          font:
-            size:   1.5em
-            weight: bold
+          // Hover
+          &:hover
+            .panel
+              opacity: 0.45
 
-        // Content
-        .content
-          display: none
-          visibility: hidden
-          padding: 1em
+          // Panel
+          .panel
+            transition: all $timing $ease
+            padding:
+              bottom: 0.5em
+            &:hover
+              opacity: 1
+
+            // Input
+            input
+              &[name='panel']
+                display: none
+                &:checked
+                  & + label
+                    background: rgba(0,0,0,1)
+                  ~ .content
+                    display: block
+                    visibility: visible
+                    height: auto
+
+            // Header
+            label
+              position:   relative
+              display:    block
+              padding:    1em
+              cursor:     pointer
+              background: rgba(0,0,0,1)
+              transition: all $timing $ease
+              font:
+                size:   1.5em
+                weight: bold
+              &:hover
+                background: rgba(0,0,0,1)
+
+            // Content
+            .content
+              display: none
+              visibility: hidden
+              height: 0
+              padding: 1em 1em 0
+              transition: all $timing $ease
+              box:
+                sizing: border-box
+              font:
+                size: 1.05em
+              margin:
+                bottom: 1em
 
     // Claims
     &.claims

@@ -6,21 +6,36 @@
 - ########################################################
 - ########################################################
 
-- # Title
-= content_tag :h1, translate("page.titles.#{params[:id]}"), class: :title if params[:id] && params[:id].to_sym != :index
+- # Inner pages only
+- if params[:id] && params[:id].to_sym != :index
+  = content_tag :h1, translate("page.titles.#{params[:id]}").html_safe, class: :title # => Title
+  = content_tag :div, translate("page.intros.#{params[:id]}").html_safe, class: :intro # => Intro
+
+- ########################################################
+- ########################################################
 
 - # This Allows us to list the FAQ's and news as appropriate
 - case params[:id].try(:to_sym)
   - when :faq, :news
 
-    - # List
-    - @content.each_with_index do |item,index|
-      = content_tag :div, class: "panel" do
-        = radio_button_tag "panel", index
-        = label_tag "panel_#{index}", item.ref
-        = content_tag :div, item.val.html_safe, class: "content" 
+    - # Shouldn't have this but removes confusion with .container
+    .panels
 
-  - # Claims
+      - # List
+      - @content.each_with_index do |item,index|
+        = content_tag :div, class: "panel" do
+
+          - # FAQ
+          - if params[:id].to_sym == :faq
+            = radio_button_tag "panel", index
+            = label_tag "panel_#{index}", item.ref
+
+          - elsif params[:id].to_sym == :news
+            = content_tag :h3, item.ref, class: "title"
+
+          - # Content
+          = content_tag :div, truncate(item.value, length: 350, separator: ' ',  omission: '…').html_safe, class: "content"
+
   - when :claims
 
     - ########################################################
@@ -30,9 +45,6 @@
     - # This is meant to provide users with the ability to identify the various elements of the app
     - ########################################################
     - ########################################################
-
-    // Intro
-    = content_tag :div, "DamageReclaim is able to provide users with the ability to claim back"
 
     // Form
     // Title managed by show view
@@ -76,6 +88,5 @@
 
       = f.actions :submit
 
-  - # Standard Pages
   - else
     = @content.try(:val).try(:html_safe)

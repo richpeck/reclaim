@@ -74,7 +74,7 @@ if Object.const_defined?('ActiveAdmin')
                 # => https://apidock.com/rails/ActionView/Helpers/TagHelper/content_tag#481-Content-tag-in-helpers
                 content = image_tag("https://via.placeholder.com/350", class: "featured", "nopin" => "true")
                 content << content_tag(:strong, meta.ref)
-                content << content_tag(:span, truncate(strip_tags(meta.value), length: 350, separator: ' ',  omission: '...'))
+                content << content_tag(:span, truncate(strip_tags(meta.value), length: 350, separator: ' ',  omission: '…'))
                 content
 
               end
@@ -91,7 +91,7 @@ if Object.const_defined?('ActiveAdmin')
                 link_to x.ref, eval("edit_admin_#{meta}_path(x)")
               end
               column :val,  sortable: "Val" do |x|
-                truncate(strip_tags(x.value), length: 350, separator: ' ',  omission: '...')
+                truncate(strip_tags(x.value), length: 350, separator: ' ',  omission: '…')
               end
               %i(created_at updated_at).each do |x|
                 column x
