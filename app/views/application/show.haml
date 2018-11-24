@@ -25,16 +25,19 @@
       - @content.each_with_index do |item,index|
         = content_tag :div, class: "panel" do
 
-          - # FAQ
+          - # FAQ / News
+          - # FAQ links; News flexbox
           - if params[:id].to_sym == :faq
             = radio_button_tag "panel", index
             = label_tag "panel_#{index}", item.ref
+            = content_tag :div, item.val.html_safe, class: "content"
 
           - elsif params[:id].to_sym == :news
-            = content_tag :h3, item.ref, class: "title"
-
-          - # Content
-          = content_tag :div, truncate_html(item.value, length: 350, separator: ' ',  omission: '…').html_safe, class: "content"
+            = link_to news_path(item) do
+              = image_tag "https://via.placeholder.com/350", class: "featured", "nopin" => "true"
+              = content_tag :h3, item.ref, class: "title"
+              = content_tag :div, truncate_html(strip_links(item.value), length: 350, separator: ' ',  omission: '…').html_safe, class: "content"
+              = content_tag :div, "Read...", class: "button"
 
   - when :claims
 

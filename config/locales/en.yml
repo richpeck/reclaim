@@ -56,7 +56,7 @@ en:
     intros:
       claims: "DamageReclaim is able to provide users with the ability to claim back"
       faq:    "Providing world-class damage reclaim services since 2017, we are uniquely positioned to reduce unfair rental damage bills.<br />If you're interested in learning more about what we're able to deliver, please see our most <u>frequently asked questions</u> below:"
-      news:   "News"
+      news:   "Keep updated with the latest information from the world of rental and asset leasing..."
   exception_handler:
     not_found: "Page Not Found!"
   formtastic:
