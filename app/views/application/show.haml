@@ -34,7 +34,7 @@
             = content_tag :h3, item.ref, class: "title"
 
           - # Content
-          = content_tag :div, truncate(item.value, length: 350, separator: ' ',  omission: '…').html_safe, class: "content"
+          = content_tag :div, truncate_html(item.value, length: 350, separator: ' ',  omission: '…').html_safe, class: "content"
 
   - when :claims
 
