@@ -54,7 +54,7 @@ en:
       about:  "ℹ️ About Us"
       action: "🚨 Getting Started"
     intros:
-      claims: "DamageReclaim is able to provide users with the ability to claim back"
+      claims: "<u>DamageReclaim</u> provides businesses & consumers with the ability to <u>reclaim repair fees</u> from insurance companies.<br />If you have been treated unfairly and have a valid policy, we may be able to help you regain some of the costs levied by insurance firms..."
       faq:    "Providing world-class damage reclaim services since 2017, we are uniquely positioned to reduce unfair rental damage bills.<br />If you're interested in learning more about what we're able to deliver, please see our most <u>frequently asked questions</u> below:"
       news:   "Keep updated with the latest information from the world of rental and asset leasing..."
   exception_handler:

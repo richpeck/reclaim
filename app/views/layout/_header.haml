@@ -11,8 +11,7 @@
 
   // Top
   .top
-    .container
-      TEST
+    .container= [content_tag(:strong, link_to(Rails.application.credentials[Rails.env.to_sym][:company][:name], root_url)), Rails.application.credentials[Rails.env.to_sym][:company][:address]].join(' - ').html_safe
 
   // Container
   .container
@@ -31,7 +30,7 @@
       %span
         Based in London, we're available 24/7 to help reduce your rental repair bills...
 
-    // Links
-    %div{class: ["links", ("current" if @header_links.key(params[:id]))] }
-      - @header_links.each do |text, link|
-        = link_to text, link, class: [link, ("current" if params[:id] == link)]
+  // Links
+  %div{class: ["links", ("current" if @header_links.key(params[:id]))] }
+    - @header_links.each do |text, link|
+      = link_to text, link, class: [link, ("current" if params[:id] == link)]

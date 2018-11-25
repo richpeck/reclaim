@@ -144,43 +144,47 @@ body
               opacity: 1
             img
               display: block
-              height: 75px
+              height: 105px
 
         // Claims
         .claims
+          margin:
+            top: 1em
           span
             display: block
-
-        // Links
-        .links
-          display: block
-          margin:  1.25em 0 0
-          background: rgba(0,0,0,1)
-          white:
-            space: nowrap
-          font:
-            size: 1.25em
-          &:hover
-            a
-              opacity: 0.5
-          &.current
-            a
-              opacity: 0.25
-              &.current
-                opacity: 1
-          text:
-            align: center
-            transform: uppercase
-          a
-            display: inline-block
-            padding: 0.75em
-            background: rgba(255,255,255,0.2)
-            font:
-              weight: bold
             text:
-              decoration: none
-            &:hover
-              opacity: 1 !important
+              align: center
+
+      // Links
+      .links
+        display: block
+        margin:  1.25em 0 0
+        background: rgba(0,0,0,1)
+        white:
+          space: nowrap
+        font:
+          size: 1.25em
+        &:hover
+          a
+            opacity: 0.5
+        &.current
+          a
+            opacity: 0.25
+            &.current
+              opacity: 1
+        text:
+          align: center
+          transform: uppercase
+        a
+          display: inline-block
+          padding: 0.75em
+          background: rgba(255,255,255,0.2)
+          font:
+            weight: bold
+          text:
+            decoration: none
+          &:hover
+            opacity: 1 !important
 
   ////////////////////////////////
   ////////////////////////////////
@@ -199,26 +203,45 @@ body
       color: rgba(0,0,0,1)
       background: rgba(255,255,255,1)
       min:
-        height: 100%
+        height: 100vh
       box:
-        shadow: 0 0 40px -2px rgba(0,0,0,1)
+        shadow: 0 0 30px 20px rgba(0,0,0,1)
+
+      // Exception
+      .exception
+        display: block
+        padding: 2em 0
+        font:
+          size: 1.75em
+          weight: bold
+        text:
+          align: center
+        &:before
+          display: block
+          content: "⚠️"
+          margin:
+            bottom: 0.05em
+          font:
+            size: 2.5em
+            weight: bold
 
     // General
     h1
       &.title
         display: block
-        padding: 0.75em 0 0.5em
+        padding: 1em 0 0.5em
         font:
           weight: bold
 
     // Intro
     .intro
-      border:
-        bottom: 2px solid rgba(0,0,0,1)
+      padding: 1em
+      color: rgba(255,255,255,1)
+      background: rgba(0,0,0,1)
       margin:
         bottom: 1em
-      padding:
-        bottom: 1em
+      box:
+        sizing: border-box
 
     // Flash
     .flash
@@ -316,7 +339,7 @@ body
             margin:
               bottom: 0.5em
             border:
-              bottom: 2px solid rgba(255,255,255,1)
+              bottom: 2px solid rgba(0,0,0,1)
 
             // Hover
             &:hover
@@ -458,11 +481,20 @@ body
       // Form
       form
         padding:
-          top: 1em
+          top: 0
 
         // Inputs
         fieldset
           overflow: visible
+
+          // Legend
+          legend
+            display: block
+            width: 100%
+            margin: 1em 0
+            font:
+              size: 1.5em
+              weight: bold
 
           // Last Boolean Section
           &.bools
@@ -528,13 +560,19 @@ body
               &:hover
                 label
                   cursor: pointer
+                  font:
+                    weight: bold
               label
-                display: inline-block
-                width: 100%
+                display: block
+                width: 100px
                 white:
                   space: nowrap
                 padding:
                   left: 0
+                box:
+                  sizing: border-box
+                text:
+                  overflow: ellipsis
               input
                 display: inline-block
                 position: relative
