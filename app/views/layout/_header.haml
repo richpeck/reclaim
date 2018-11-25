@@ -11,7 +11,9 @@
 
   // Top
   .top
-    .container= [content_tag(:strong, link_to(Rails.application.credentials[Rails.env.to_sym][:company][:name], root_url)), Rails.application.credentials[Rails.env.to_sym][:company][:address]].join(' - ').html_safe
+    .container
+      = [content_tag(:strong, link_to(Rails.application.credentials[Rails.env.to_sym][:company][:name], root_url)), Rails.application.credentials[Rails.env.to_sym][:company][:address]].join(' → ').html_safe
+      = link_to Rails.application.credentials[Rails.env.to_sym][:company][:phone], "tel: #{Rails.application.credentials[Rails.env.to_sym][:company][:phone]}", class: "phone"
 
   // Container
   .container
