@@ -50,19 +50,6 @@ body
   height: 100%
   margin: 0
 
-  // Sticky Footer
-  // https://css-tricks.com/couple-takes-sticky-footer/
-  .wrapper
-    $footer: 50px
-    min:
-      height: 100%
-    margin:
-      bottom: (-$footer)
-    &:after
-      height: $footer
-    footer
-      height: $footer
-
 // Main
 // This is hacky but whatever (should be stored in main app)
 body
@@ -73,6 +60,18 @@ body
   // General
   font:
     family: 'Montserrat', sans-serif
+
+  ////////////////////////////////
+  ////////////////////////////////
+
+  // Sticky Footer
+  // Use Flexbox :D
+  // https://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/
+  display: flex
+  min:
+    height: 100vh
+  flex:
+    direction: column
 
   ////////////////////////////////
   ////////////////////////////////
@@ -94,7 +93,7 @@ body
     position: relative
     padding: 0
     color: rgba(255,255,255,1)
-    background: rgba(0,0,0,0.85)
+    background: rgba(0,0,0,0.65)
 
     // Navigation
     nav
@@ -113,6 +112,8 @@ body
           text:
             align: right
           a
+            display: inline-block
+            padding: 0.5em 0
             &.claim
               display: inline-block
               color: rgba(255,255,255,1)
@@ -144,7 +145,7 @@ body
               opacity: 1
             img
               display: block
-              height: 105px
+              height: 100px
 
         // Claims
         .claims
@@ -193,6 +194,10 @@ body
   main
     position: relative
 
+    // Sticky Footer
+    // https://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/
+    flex: 1
+
     // Links
     a
       color: rgba(0,0,0,1)
@@ -202,8 +207,6 @@ body
       padding: 0 2em
       color: rgba(0,0,0,1)
       background: rgba(255,255,255,1)
-      min:
-        height: 100vh
       box:
         shadow: 0 0 30px 20px rgba(0,0,0,1)
 
@@ -276,30 +279,36 @@ body
 
     // General
     .formtastic
+      .action
+        float: none
+        padding:
+          right: none
+      .inputs
+        overflow: visible
       .errors
         padding: 1.5em
         margin: 0 0 1em 0
-        color: rgba(255,0,0,1)
-        background: rgba(255,0,0,0.15)
-        border: 1px solid rgba(255,0,0,1)
+        color: rgba(255,255,255,1)
+        background: rgba(255,0,0,1)
         font:
-          size: 0.95em
+          size: 1em
+          weight: bold
         list:
           style: none !important
-        border:
-          radius: 4px
-        text:
-          shadow: 0 1px 1px rgba(0,0,0,1)
         li
+          vertical:
+            align: middle
           &:before
             display: inline-block
             content: "⚠️"
             font:
-              size: 1.5em
+              size: 1.35em
             margin:
               right: 0.25em
             text:
               shadow: none
+            vertical:
+              align: middle
 
     // News
     &.news
@@ -307,6 +316,13 @@ body
       // Container
       // Flexbox
       .container
+
+        // Intro
+        .intro
+          position: sticky
+          top: 0
+          z:
+            index: 1001
 
         // Panels
         // Used to provide hover functionality etc
@@ -426,7 +442,7 @@ body
           // Hover
           &:hover
             .panel
-              opacity: 0.65
+              opacity: 0.85
 
           // Panel
           .panel
@@ -485,16 +501,27 @@ body
 
         // Inputs
         fieldset
-          overflow: visible
+          position: relative
+          display: block
 
           // Legend
           legend
             display: block
+            position: sticky
+            top: 0
             width: 100%
             margin: 1em 0
+            padding: 1em
+            background: rgba(#ccc,0.75)
             font:
               size: 1.5em
               weight: bold
+            box:
+              sizing: border-box
+
+          // Inputs
+          ol
+            padding: 0 0.75em
 
           // Last Boolean Section
           &.bools
@@ -514,9 +541,19 @@ body
               left: 0 !important
             input
               &[type='submit']
+                display: block
                 width: 100%
+                margin: 0.5em 0 1em
+                color: rgba(255,255,255,1)
+                background: rgba(0,0,0,1) !important
+                border: none
+                transition: background 0.15s ease-in-out
                 box:
                   sizing: border-box
+                &:hover
+                  background: rgba(0,0,0,1)
+                  text:
+                    decoration: underline
 
         // General List
         ul,
@@ -547,7 +584,7 @@ body
                 left: 0 !important
               &:hover
                 &:placeholder
-                  color: rgba(255,0,0,1) !important
+                  color: rgba(0,0,0,1) !important
             textarea
               padding: 10px
 
@@ -596,6 +633,8 @@ body
             .inline-errors
               display: block
               color: rgba(255,0,0,1)
+              font:
+                weight: bold
 
       // Form
       form

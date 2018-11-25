@@ -28,20 +28,17 @@
   // Body
   %body
 
-    // Sticky Footer
-    .wrapper
+    // Header
+    %header= render "layout/header"
 
-      // Header
-      %header= render "layout/header"
-
-      // Main
-      %main{ class: params[:id] || ([controller_name, action_name].join(' ')) }
-        .container
-          - if flash.any?
-            .flash
-              - flash.each do |flash|
-                = content_tag :div, flash.last, class: flash.first
-          = yield
+    // Main
+    %main{ class: params[:id] || ([controller_name, action_name].join(' ')) }
+      .container
+        - if flash.any?
+          .flash
+            - flash.each do |flash|
+              = content_tag :div, flash.last, class: flash.first
+        = yield
 
     // Footer
     %footer= render "layout/footer"

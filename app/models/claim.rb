@@ -178,7 +178,7 @@ class Claim < ApplicationRecord
     # => Mobile or Phone
     # => Accounts for either to be present
     def mobile_or_phone
-      errors.add(:base, "Please specify mobile, landline (phone) number or BOTH.") if mobile.blank? && phone.blank?
+      errors.add(:base, "Please specify a mobile, landline number (or both) ↴") if mobile.blank? && phone.blank?
     end
 
   ###########################################################
