@@ -282,7 +282,7 @@ body
       .action
         float: none
         padding:
-          right: none
+          right: 0 !important
       .inputs
         overflow: visible
       .errors
@@ -354,8 +354,6 @@ body
               sizing: border-box
             margin:
               bottom: 0.5em
-            border:
-              bottom: 2px solid rgba(0,0,0,1)
 
             // Hover
             &:hover
@@ -388,8 +386,16 @@ body
                 opacity: 1
 
               // Image
-              img
-                width: 100%
+              .featured
+                display: block
+                width:   100%
+                height:  215px
+                overflow: hidden
+                img
+                  display: block
+                  width: 100%
+                  min:
+                    height: 100%
 
               // Title
               h3
@@ -434,6 +440,8 @@ body
       // Container
       // Main accordion block
       .container
+        padding:
+          bottom: 0.5em
 
         // Used for panels
         // Really should integrate with .container but works for now
@@ -601,7 +609,7 @@ body
                     weight: bold
               label
                 display: block
-                width: 100px
+                overflow: hidden
                 white:
                   space: nowrap
                 padding:
