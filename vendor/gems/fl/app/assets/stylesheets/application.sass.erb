@@ -91,15 +91,14 @@ body
   // Header
   header
     display: block
+    position: relative
     padding: 0
-    box:
-      shadow: 0 -1px 3px 0 rgba(0,0,0,0.75)
 
     // Navigation
     nav
       padding: 0 0 1.5em
       color: rgba(255,255,255,1)
-      background: rgba(0,0,0,0.95)
+      background: rgba(0,0,0,0.85)
 
       // Top
       .top
@@ -132,16 +131,6 @@ body
 
       // Container
       .container
-        display: flex
-        justify:
-          content: space-between
-        align:
-          items: center
-
-        // Div
-        > div
-          display: inline-block
-          width: 50%
 
         // Logo
         .logo
@@ -163,13 +152,20 @@ body
 
         // Links
         .links
+          display: block
+          margin:  1.5em 0
           white:
             space: nowrap
           &:hover
             a
               opacity: 0.5
+          &.current
+            a
+              opacity: 0.5
+              &.current
+                opacity: 1
           text:
-            align: right
+            align: center
             transform: uppercase
           a
             display: inline-block
@@ -181,40 +177,38 @@ body
               weight: bold
             text:
               decoration: none
-            margin:
-              left: 0.35em
             &:hover
-              opacity: 1
-
-          // Phone
-          .number
-            display: inline-block
-            vertical:
-              align: middle
-            font:
-              size: 1.65em
-              weight: bold
-            a
-              background: none
-
+              opacity: 1 !important
 
   ////////////////////////////////
   ////////////////////////////////
 
   // Main
   main
-    color: rgba(255,255,255,1)
+    position: relative
+
+    // Links
+    a
+      color: rgba(0,0,0,1)
+
+    // Container
+    .container
+      padding: 0 1em
+      color: rgba(0,0,0,1)
+      background: rgba(255,255,255,1)
 
     // General
     h1
       &.title
         display: block
         padding: 0.75em 0 0.5em
+        font:
+          weight: bold
 
     // Intro
     .intro
       border:
-        bottom: 2px solid rgba(255,255,255,1)
+        bottom: 2px solid rgba(0,0,0,1)
       margin:
         bottom: 1em
       padding:
@@ -431,13 +425,12 @@ body
               display:    block
               padding:    1em
               cursor:     pointer
+              color:      rgba(255,255,255,1)
               background: rgba(0,0,0,1)
               transition: all $timing $ease
               font:
                 size:   1.5em
                 weight: bold
-              &:hover
-                background: rgba(0,0,0,1)
 
             // Content
             .content

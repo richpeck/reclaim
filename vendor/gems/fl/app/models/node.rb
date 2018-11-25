@@ -28,6 +28,10 @@ class Node < ApplicationRecord
       # Accepts Nested Attributes
       accepts_nested_attributes_for :associations
 
+      # => Featured Image
+      # => Only used for "News" but has to be here
+      has_one_attached :featured_image
+
     ##########################################
 
       # Aliases

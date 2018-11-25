@@ -57,7 +57,7 @@ if Object.const_defined?('ActiveAdmin')
           ##################################
 
           # => Strong Params
-          permit_params :slug, :ref, :val
+          permit_params :featured_image, :slug, :ref, :val
 
           ##################################
           ##################################
@@ -72,7 +72,7 @@ if Object.const_defined?('ActiveAdmin')
 
                 # => Concat required or only the last content_tag returned
                 # => https://apidock.com/rails/ActionView/Helpers/TagHelper/content_tag#481-Content-tag-in-helpers
-                content = image_tag("https://via.placeholder.com/350", class: "featured", "nopin" => "true")
+                content = content_tag(:div, image_tag(meta.featured_image.attached? ? meta.featured_image : "https://via.placeholder.com/350", class: "featured", "nopin" => "true"), class: "img")
                 content << content_tag(:strong, meta.ref)
                 content << content_tag(:span, truncate(strip_tags(meta.value), length: 350, separator: ' ',  omission: '…'))
                 content
@@ -107,6 +107,7 @@ if Object.const_defined?('ActiveAdmin')
           # =>  Form
           form multipart: true, title: [I18n.t("activerecord.models.meta/#{meta}.icon"), (models.try(:[], meta.to_sym).try(:[], :label) || model.model_name.human(count: 2)), '|', Rails.application.credentials[Rails.env.to_sym][:app][:name]].join(' ') do |f|
             f.inputs '✔️ Details' do
+              f.input :featured_image, as: :file, hint: f.object.featured_image.attached? ? image_tag(f.object.featured_image.variant(resize: '150x150')) : content_tag(:span, "No Image Yet") if meta.to_sym == :news
               f.input :slug if meta.to_sym == :page
               f.input :ref, placeholder: "Title"
               f.input :val, as: :ckeditor

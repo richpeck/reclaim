@@ -9,6 +9,11 @@
 // Navigation
 %nav
 
+  // Top
+  .top
+    .container
+      TEST
+
   // Container
   .container
 
@@ -27,6 +32,6 @@
         Based in London, we're available 24/7 to help reduce your rental repair bills...
 
     // Links
-    .links
+    %div{class: ["links", ("current" if @header_links.key(params[:id]))] }
       - @header_links.each do |text, link|
-        = link_to text, link, class: link
+        = link_to text, link, class: [link, ("current" if params[:id] == link)]
