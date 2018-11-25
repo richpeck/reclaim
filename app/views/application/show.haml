@@ -10,6 +10,12 @@
 - if params[:id] && params[:id].to_sym != :index
   = content_tag :h1, translate("page.titles.#{params[:id]}").html_safe, class: :title # => Title
   = content_tag :div, translate("page.intros.#{params[:id]}").html_safe, class: :intro # => Intro
+  
+- # Flash
+- if flash.any?
+  .flash
+    - flash.each do |flash|
+      = content_tag :div, flash.last, class: flash.first
 
 - ########################################################
 - ########################################################
@@ -53,11 +59,11 @@
     - ########################################################
     - ########################################################
 
-    // Form
-    // Title managed by show view
+    / Form
+    / Title managed by show view
     = semantic_form_for @content, url: claims_path do |f|
 
-      // Errors
+      / Errors
       = f.semantic_errors
 
       = f.inputs "1️⃣ Client" do

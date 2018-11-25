@@ -6,19 +6,19 @@
 - ########################################################
 - ########################################################
 
-// Container
-// Used to determine common width across applications
+/ Container
+/ Used to determine common width across applications
 .container
 
-  // Pre-Footer (used for CTA)
+  / Pre-Footer (used for CTA)
   .cta
     = content_tag :span do
       WE’LL REDUCE YOUR END OF CONTRACT DAMAGE BILL – OR YOU WON’T BE CHARGED A PENNY.
       WE'RE OPEN 24/7 - CALL US FREE ON 0808 164 0282
 
 
-  // Company
-  // Uses info from DB / Credentials
+  / Company
+  / Uses info from DB / Credentials
   .company
     .title= link_to "&nbsp;", "https://uk.trustpilot.com/review/damagereclaim.com", target: :blank, class: "reviews"
     .email= link_to "#{Rails.application.credentials[Rails.env.to_sym][:app][:email]}", "mailto:#{Rails.application.credentials[Rails.env.to_sym][:app][:email]}"
@@ -27,12 +27,12 @@
       Registered in England & Wales:
       = link_to Rails.application.credentials[Rails.env.to_sym][:company][:number], "https://companycheck.co.uk/company/10685457/DAMAGE-RECLAIM-LIMITED/companies-house-data", target: :blank
 
-  // Info
-  // Links (as demonstrated)
+  / Info
+  / Links (as demonstrated)
   .links
     Test
 
-  // Contact
-  // Allows us to showcase how to contact the company
+  / Contact
+  / Allows us to showcase how to contact the company
   .contact
     Social + Contact

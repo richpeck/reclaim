@@ -6,23 +6,23 @@
 - ########################################################
 - ########################################################
 
-// Navigation
+/ Navigation
 %nav
 
-  // Top
+  / Top
   .top
     .container
       = [content_tag(:strong, link_to(Rails.application.credentials[Rails.env.to_sym][:company][:name], root_url)), Rails.application.credentials[Rails.env.to_sym][:company][:address]].join(' → ').html_safe
       = link_to Rails.application.credentials[Rails.env.to_sym][:company][:phone], "tel: #{Rails.application.credentials[Rails.env.to_sym][:company][:phone]}", class: "phone"
 
-  // Container
+  / Container
   .container
 
-    // Logo
+    / Logo
     .logo= link_to image_tag("logo_long.png", "nopin" => "true"), root_url
 
-    // Navigation
-    // Instant Quote
+    / Navigation
+    / Instant Quote
     .claims
       %span
         %u Damage Reclaim LTD
@@ -32,7 +32,7 @@
       %span
         Based in London, we're available 24/7 to help reduce your rental repair bills...
 
-  // Links
+  / Links
   %div{class: ["links", ("current" if @header_links.key(params[:id].to_s))] }
     - @header_links.each do |text, link|
       = link_to text, link, class: [link, ("current" if params[:id].to_s == link)]
