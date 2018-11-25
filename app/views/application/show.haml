@@ -22,6 +22,9 @@
     .panels
 
       - # List
+      - if !@content.any?
+        = content_tag :span, "No Items"
+      - else
       - @content.order!(created_at: :desc) if params[:id].to_sym == :news
       - @content.each_with_index do |item,index|
         = content_tag :div, class: "panel" do
