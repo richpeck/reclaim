@@ -40,6 +40,7 @@
         to help reduce your rental repair bills...
 
   / Links
-  %div{class: ["links", ("current" if @header_links.key(params[:id].to_s))] }
-    - @header_links.each do |text, link|
-      = link_to text, link, class: [link, ("current" if params[:id].to_s == link)]
+  %div{class: ["links", ("current" if @header_links.key("/" + params[:id].to_s))] }
+    .container
+      - @header_links.each do |text, link|
+        = link_to text, link, class: [link, ("current" if ["/", params[:id].to_s].join('') == link)]

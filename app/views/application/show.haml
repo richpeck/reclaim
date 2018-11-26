@@ -101,6 +101,12 @@
 
       = f.actions :submit
 
+      / Privacy & Terms
+      .links
+        = link_to "Privacy", "/privacy", class: "privacy"
+        &
+        = link_to "Terms", "/terms", class: "terms"
+
   - else
     = @content.try(:val).try(:html_safe)
 

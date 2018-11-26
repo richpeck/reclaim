@@ -15,7 +15,7 @@ class CreateClaims < ActiveRecord::Migration::Current
         # => Type
         # => This is used for the "Contact" model
         # => Allows us to use the same table for both
-        t.string     :type
+        t.string :type
 
         # => Client
         t.string		 :first

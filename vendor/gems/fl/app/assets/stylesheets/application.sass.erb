@@ -203,16 +203,32 @@ body
         text:
           align: center
           transform: uppercase
-        a
-          display: inline-block
-          padding: 0.75em
-          background: rgba(255,255,255,0.2)
-          font:
-            weight: bold
-          text:
-            decoration: none
-          &:hover
-            opacity: 1 !important
+        table
+          display: block
+          width: 100%
+
+        // Container
+        .container
+          overflow:
+            x: hidden
+          a
+            display: inline-block
+            padding: 0.75em
+            overflow: hidden
+            background: rgba(255,255,255,0.2)
+            margin:
+              bottom: -4px
+            white:
+              space: nowrap
+            font:
+              weight: bold
+            text:
+              decoration: none
+              overflow: ellipsis
+            box:
+              sizing: border-box
+            &:hover
+              opacity: 1 !important
 
   ////////////////////////////////
   ////////////////////////////////
@@ -242,7 +258,7 @@ body
       min:
         height: 100%
       padding:
-        bottom: 150px
+        bottom: 145px
       flex:
         direction: column
       box:
@@ -604,6 +620,18 @@ body
         padding:
           top: 0
 
+        // Links
+        .links
+          margin:
+            top: 0.5em
+          text:
+            align: center
+          a
+            color: rgba(0,0,0,1)
+            display: inline-block
+            font:
+              size: 0.85em
+
         // Inputs
         fieldset
           position: relative
@@ -655,6 +683,8 @@ body
                 background: $base-color !important
                 border: 2px solid rgba(0,0,0,1)
                 transition: background 0.15s ease-in-out
+                font:
+                  weight: bold
                 box:
                   sizing: border-box
                 &:hover
