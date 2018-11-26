@@ -459,6 +459,21 @@ body
             .panel
               opacity: 0.85
 
+          // Empty
+          .empty
+            display: block
+            margin:  1.25em 0
+            font:
+              size: 2em
+              weight: bold
+            text:
+              align: center
+            &:before
+              content: "🛑"
+              display: block
+              font:
+                size: 1.5em
+
           // Panel
           .panel
             transition: all $timing $ease
@@ -486,7 +501,7 @@ body
               padding:    1em
               cursor:     pointer
               color:      rgba(255,255,255,1)
-              background: rgba(0,0,0,1)
+              background: rgba(#ccc,0.75)
               transition: all $timing $ease
               font:
                 size:   1.5em
