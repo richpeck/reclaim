@@ -343,6 +343,31 @@ body
             vertical:
               align: middle
 
+
+    // FAQ's + News
+    // Used for "No Items"
+    &.news,
+    &.faq
+      .container
+        .panels
+          .empty
+            display: block
+            position: absolute
+            top: 50%
+            left: 50%
+            margin:  1.25em 0
+            transform: translateX(-50%) translateY(-50%)
+            font:
+              size: 2em
+              weight: bold
+            text:
+              align: center
+            &:before
+              content: "🛑"
+              display: block
+              font:
+                size: 1.5em
+
     // News
     &.news
 
@@ -484,21 +509,6 @@ body
           &:hover
             .panel
               opacity: 0.85
-
-          // Empty
-          .empty
-            display: block
-            margin:  1.25em 0
-            font:
-              size: 2em
-              weight: bold
-            text:
-              align: center
-            &:before
-              content: "🛑"
-              display: block
-              font:
-                size: 1.5em
 
           // Panel
           .panel
