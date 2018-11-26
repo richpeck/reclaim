@@ -8,8 +8,8 @@
 
 - # Inner pages only
 - if params[:id] && params[:id].to_sym != :index
-  = content_tag :h1, translate("page.titles.#{params[:id]}").html_safe, class: :title # => Title
-  = content_tag :div, translate("page.intros.#{params[:id]}").html_safe, class: :intro # => Intro
+  = content_tag :h1, translate("page.titles.#{params[:id]}", default: params[:id].titleize).html_safe, class: :title # => Title
+  = content_tag :div, translate("page.intros.#{params[:id]}", default: params[:id].titleize).html_safe, class: :intro # => Intro
 
 - # Flash
 - if flash.any?

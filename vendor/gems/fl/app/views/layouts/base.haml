@@ -34,6 +34,8 @@
     / Main
     %main{ class: params[:id] || ([controller_name, action_name].join(' ')) }
       .container
+        / Needed for 100% height
+        / Probably should remove
         .height
           = yield
 
