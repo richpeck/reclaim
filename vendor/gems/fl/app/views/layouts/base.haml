@@ -33,7 +33,9 @@
 
     / Main
     %main{ class: params[:id] || ([controller_name, action_name].join(' ')) }
-      .container= yield
+      .container
+        .height
+          = yield
 
     / Footer
     %footer= render "layout/footer"
