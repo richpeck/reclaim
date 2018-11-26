@@ -47,7 +47,7 @@ class ApplicationController < ActionController::Base
         when :claims
           @content = Claim.new # => Allows us to publish "claim" forms
         else
-          @content = Meta::Page.find_by_slug! params[:id] || "index"
+          @content = (params[:news] ? Meta::News : Meta::Page).find_by_slug! params[:id] || "index"
       end
 
     end
@@ -106,13 +106,13 @@ class ApplicationController < ActionController::Base
 
       # => Header Links
       @header_links = {
-        "🏢 Home" => "/",
-        "⚠️ Action" => "action",
-        "ℹ️ About" => "about",
-        "✔️ FAQ's" => "faq",
-        "📰 News" => "news",
-        "📜 Rates" => "rates",
-        "🚩 Claims" => "claims"
+        "🏢 Home"   => "/",
+        "⚠️ Action" => "/action",
+        "ℹ️ About"    => "/about",
+        "✔️ FAQ's"  => "/faq",
+        "📰 News"   => "/news",
+        "📜 Rates"  => "/rates",
+        "🚩 Claims" => "/claims"
       }
     end
 
