@@ -28,7 +28,7 @@
     .panels
 
       - # List
-      - if @content.any?
+      - if !@content.any?
         = content_tag :span, "No Items", class: "empty"
       - else
         - @content.order!(created_at: :desc) if params[:id].to_sym == :news
