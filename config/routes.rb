@@ -76,6 +76,13 @@ Rails.application.routes.draw do
       resources :application, only: :create, path: :claims, as: :claims unless Meta::Option.find_by(ref: "private", val: "claims")
     end
 
+    ###################################
+    ###################################
+
+    # => Contact
+    # => Allows users to send requests etc
+    resources :application, only: :create, path: :contact, as: :contact # => /contact [POST]
+
   ###################################
   # APP
   ###################################

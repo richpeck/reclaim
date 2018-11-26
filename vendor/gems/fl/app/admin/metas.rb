@@ -12,7 +12,7 @@
 
 ## Info ##
 models = {
-  option:       {priority: 6},
+  option:       {priority: 7},
   page:         {priority: 3},
   faq:          {priority: 4},
   news:         {priority: 5}

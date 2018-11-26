@@ -62,7 +62,7 @@ en:
       news:    "Keep updated with the latest information from the world of rental and asset leasing..."
       privacy: "We maintain the highest standards of client security & privacy. If you have any questions regarding our handling of customer data, we would request you email our data controller at <a href='mailto:data@damagereclaim.co.uk'>data@damagereclaim.co.uk</a>..."
       terms:   "Use of our service is dependent on your accepting of our <u>terms of service</u>:"
-      contact: "<u>Available 24/7</u>, we're here to give you instance assistance for any damage claims you may have..."
+      contact: "<u>Available 24/7</u>, we're here to give you instant assistance for any damage claims you may have..."
   exception_handler:
     not_found: "Page Not Found!"
   formtastic:
@@ -89,25 +89,33 @@ en:
         new_model: '🗳️ + FAQ'
       user:
         new_model: '☠️ + User'
+      contact:
+        new_model: '📱 + Contact Request'
   activerecord:
     models:
       claim:
         icon:   '📮'
         one:    'Claim'
         other:  'Claims'
+      contact:
+        icon:   '📱'
+        one:    'Contact Request'
+        other:  'Contact Requests'
     attributes:
       claim:
         first:      "First Name"
         last:       "Last Name"
         phone:      "Phone (Landline)"
         hubspot_id: "Hubspot ID"
+      contact:
+        address:    "Message"
       meta/faq:
-        val:    "Content"
+        val:        "Content"
       meta/news:
-        val:    "Description"
+        val:        "Description"
       meta/option:
-        ref:    "Ref"
-        val:    "Setting"
+        ref:        "Ref"
+        val:        "Setting"
 
 ############################################
 ############################################

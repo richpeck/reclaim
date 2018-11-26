@@ -109,7 +109,19 @@
 
   - when :contact
 
+    / Map
     #contact_map
+
+    / Form
+    = semantic_form_for @content, url: contact_index_path do |f|
+      .left
+        = f.input :first
+        = f.input :last
+        = f.input :email
+        = f.input :address
+
+      .actions
+        = f.submit
 
   - else
     = @content.try(:val).try(:html_safe)
