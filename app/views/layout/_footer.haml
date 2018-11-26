@@ -23,7 +23,8 @@
   / Info
   / Links (as demonstrated)
   .links
-    Test
+    - @footer_links.each do |text,link|
+      = link_to text, link, target: :blank
 
   / Contact
   / Allows us to showcase how to contact the company

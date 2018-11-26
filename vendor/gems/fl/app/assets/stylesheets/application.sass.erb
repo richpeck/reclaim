@@ -219,7 +219,6 @@ body
 
   // Main
   main
-    position: relative
 
     // Sticky Footer
     // https://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/
@@ -237,10 +236,13 @@ body
     .container
       display: flex
       padding: 0 2em
+      position: relative
       color: rgba(0,0,0,1)
       background: rgba(255,255,255,1)
       min:
         height: 100%
+      padding:
+        bottom: 150px
       flex:
         direction: column
       box:
@@ -256,14 +258,27 @@ body
       // This is where the user is given direct action etc
       .cta
         display: block
-        margin: 1em 0
+        position: absolute
+        bottom: 0
+        left: 0
+        right: 0
+        margin: 1.35em
         padding: 1em
         color: rgba(255,255,255,1)
         background: rgba(0,0,0,1)
         box:
           sizing: border-box
         font:
-          size: 1.25em
+          size: 1.5em
+        text:
+          align: center
+        > *
+          display: block
+        span
+          margin:
+            top: 0.5em
+        a
+          color: rgba(255,255,255,1)
 
       // Exception
       .exception
@@ -766,6 +781,13 @@ body
       // Company
       .company
         > div
+          display: block
+          width: 100%
+          overflow: hidden
+          white:
+            space: nowrap
+          text:
+            overflow: ellipsis
           margin:
             bottom: 0.25em
           &:before
@@ -806,6 +828,17 @@ body
         .number
           &:before
             content: "💼"
+
+      // Links
+      .links
+        padding:
+          left: 1em
+        margin:
+          left: 1em
+        border:
+          left: 2px solid rgba(255,255,255,1)
+        a
+          display: inline-block
 
       // Contact
       .contact

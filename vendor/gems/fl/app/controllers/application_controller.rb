@@ -112,7 +112,22 @@ class ApplicationController < ActionController::Base
         "✔️ FAQ's"  => "/faq",
         "📰 News"   => "/news",
         "📜 Rates"  => "/rates",
-        "🚩 Claims" => "/claims"
+        "🚩 Claims" => "/claims",
+        "📱 Contact" => "/contact"
+      }
+
+      # => Footer Links
+      @footer_links = {
+        "EOC Recharges Explained"          => "/",
+        "Avoiding EOC Recharges"           => "/",
+        "Business Contract Hire (CH)"      => "/",
+        "Car & Van Rental (CVR)"           => "/",
+        "Personal Contract Purchase (PCP)" => "/",
+        "Personal Contract Hire (PCH)"     => "/",
+        "I'm A Business"                   => "/",
+        "I'm An Individual"                => "/",
+        "Our Service Rates"                => "/rates",
+        "Contact Us"                       => "/contact"
       }
     end
 
