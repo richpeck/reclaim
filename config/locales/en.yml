@@ -55,12 +55,14 @@ en:
       action:  "🚨 Getting Started"
       privacy: "⚙️ Privacy Policy"
       terms:   "⚖️ Terms of Service"
+      contact: "📱 Contact"
     intros:
       claims:  "<u>DamageReclaim</u> provides businesses & consumers with the ability to <u>reclaim repair fees</u> from insurance companies.<br />If you have been treated unfairly and have a valid policy, we may be able to help you regain some of the costs levied by insurance firms..."
       faq:     "Providing world-class damage reclaim services since 2017, we are uniquely positioned to reduce unfair rental damage bills.<br />If you're interested in learning more about what we're able to deliver, please see our most <u>frequently asked questions</u> below:"
       news:    "Keep updated with the latest information from the world of rental and asset leasing..."
       privacy: "We maintain the highest standards of client security & privacy. If you have any questions regarding our handling of customer data, we would request you email our data controller at <a href='mailto:data@damagereclaim.co.uk'>data@damagereclaim.co.uk</a>..."
-      terms:   ""
+      terms:   "Use of our service is dependent on your accepting of our <u>terms of service</u>:"
+      contact: "We're <u>available 24/7</u> to give you instance assistance for any damage claims you may have..."
   exception_handler:
     not_found: "Page Not Found!"
   formtastic:

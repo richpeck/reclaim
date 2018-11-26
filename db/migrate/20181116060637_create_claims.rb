@@ -12,6 +12,11 @@ class CreateClaims < ActiveRecord::Migration::Current
         # => Used to manage various aspects of the claim within the system
         t.integer :hubspot_id
 
+        # => Type
+        # => This is used for the "Contact" model
+        # => Allows us to use the same table for both
+        t.string     :type
+
         # => Client
         t.string		 :first
         t.string     :last

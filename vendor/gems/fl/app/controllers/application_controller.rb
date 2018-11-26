@@ -46,6 +46,8 @@ class ApplicationController < ActionController::Base
           @content = Meta::News.all
         when :claims
           @content = Claim.new # => Allows us to publish "claim" forms
+        when :contact
+          @content = Contact.new # => Allows for contact form
         else
           @content = (params[:news] ? Meta::News : Meta::Page).find_by_slug! params[:id] || "index"
       end
@@ -120,12 +122,12 @@ class ApplicationController < ActionController::Base
       @footer_links = {
         "EOC Recharges Explained"          => "/",
         "Avoiding EOC Recharges"           => "/",
-        "Business Contract Hire (CH)"      => "/",
-        "Car & Van Rental (CVR)"           => "/",
-        "Personal Contract Purchase (PCP)" => "/",
-        "Personal Contract Hire (PCH)"     => "/",
-        "I'm A Business"                   => "/",
-        "I'm An Individual"                => "/",
+        "Business Contract Hire (CH)"      => "/business-contract-hire",
+        "Car & Van Rental (CVR)"           => "/car-van-rental",
+        "Personal Contract Purchase (PCP)" => "/personal-contract-purchase",
+        "Personal Contract Hire (PCH)"     => "/personal-contract-hire",
+        "I'm A Business"                   => "/business",
+        "I'm An Individual"                => "/individual",
         "Our Service Rates"                => "/rates",
         "Contact Us"                       => "/contact"
       }
