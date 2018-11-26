@@ -32,7 +32,7 @@
     %header= render "layout/header"
 
     / Main
-    %main{ class: params[:id] || ([controller_name, action_name].join(' ')) }
+    %main{ class: params[:id].to_s || ([controller_name, action_name].join(' ')) }
       .container
         / Needed for 100% height
         .height

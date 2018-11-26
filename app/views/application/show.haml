@@ -107,6 +107,10 @@
         &
         = link_to "Terms", "/terms", class: "terms"
 
+  - when :contact
+
+    #contact_map
+
   - else
     = @content.try(:val).try(:html_safe)
 

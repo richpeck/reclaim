@@ -34,6 +34,58 @@ $(document).on "click", ".flash > div", (e) ->
 #########################################################
 #########################################################
 
+## Globals ##
+map     = ""
+center  = ""
+
+#########################################################
+#########################################################
+
+## Map ##
+## Contact ##
+$(document).on "ready", ->
+
+  ## Contact Page only ##
+  if $('main').hasClass('contact')
+
+    ############################
+    ############################
+
+    ## Center ##
+    calculateCenter = ->
+      center = map.getCenter()
+
+    ############################
+    ############################
+
+    ## Contact Map ##
+    ## This loads at init ##
+    contact_map = $('#contact_map')
+    mapOptions  =
+      center:             new google.maps.LatLng(51.5273228,-0.0910834),
+      zoom:               12,
+      mapTypeId:          google.maps.MapTypeId.ROADMAP
+      disableDefaultUI:   false
+      overviewMapControl: false
+      scrollwheel:        false
+    map = new google.maps.Map(contact_map[0], mapOptions)
+
+    ## Center on Resize ##
+    google.maps.event.addDomListener map, 'idle', ->
+      calculateCenter()
+
+    ## Center ##
+    google.maps.event.addDomListener window, 'resize', ->
+      map.setCenter(center)
+
+    ## Marker ##
+    marker = new google.maps.Marker
+      map:      map
+      position: new google.maps.LatLng(51.5273228, -0.0910834)
+
+#########################################################
+#########################################################
+
 ## Mobile ##
 if !/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
 
