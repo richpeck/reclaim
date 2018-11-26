@@ -114,14 +114,12 @@
 
     / Form
     = semantic_form_for @content, url: contact_index_path do |f|
-      .left
-        = f.input :first
-        = f.input :last
-        = f.input :email
-        = f.input :address
-
-      .actions
-        = f.submit
+      = f.inputs "💬 Send A Message" do
+        = f.input :first,   placeholder: "First Name",  input_html: { autocomplete: "false" }
+        = f.input :last,    placeholder: "Last Name",   input_html: { autocomplete: "false" }
+        = f.input :email,   placeholder: "Email",       input_html: { autocomplete: "false" }
+        = f.input :address, placeholder: "Message",     input_html: { autocomplete: "false" }
+      = f.actions :submit
 
   - else
     = @content.try(:val).try(:html_safe)

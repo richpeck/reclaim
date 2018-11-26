@@ -619,6 +619,8 @@ body
       .intro
         position: sticky
         top: 0
+        z:
+          index: 2000
 
       // Map
       #contact_map
@@ -627,8 +629,36 @@ body
         box:
           sizing: border-box
 
+      // CTA
+      .container
+        padding:
+          bottom: 135px !important
+        .cta
+          margin:
+            top: 0.25em !important
+
+      // Form
+      form
+        margin:
+          top: 1.5em
+        fieldset
+          ol
+            li
+              &#contact_address_input
+                margin:
+                  bottom: 0.25em
+          &.inputs
+            margin:
+              bottom: 0
+          &.actions
+            padding:
+              top: 0 !important
+            input
+              margin: 0 !important
+
     // Claims
-    &.claims
+    &.claims,
+    &.contact
 
       // Form
       form
@@ -876,12 +906,11 @@ body
 
       // Links
       .links
-        padding:
-          left: 1em
-        margin:
-          left: 1em
+        padding: 0 1em
+        margin: 0 1em
         border:
           left: 2px solid rgba(255,255,255,1)
+          right: 2px solid rgba(255,255,255,1)
         a
           display: inline-block
 
