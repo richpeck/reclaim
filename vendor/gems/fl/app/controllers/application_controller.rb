@@ -57,15 +57,16 @@ class ApplicationController < ActionController::Base
   ##################################
   ##################################
 
-    # => Claims
+    # => Create
+    # => Works for claims + contact
     # => This processes the claims forms
     # => Outputs results to the /claims page
     def create
-      @content = Claim.new claim_params
+      @content = params.key?(:claim) ? Claim.new(claim_params) : Contact.new(contact_params)
       if @content.save
-        redirect_to "/claims", flash: { notice: "Claim Sent Successfully" }
+        redirect_to application_path(params.key?(:claim) ? "claims" : "contact"), flash: { notice: params.key?(:claim) ? "Claim Sent Successfully" : "Contact Request Sent Successfully" }
       else
-        params[:id] = :claims # => Needs to be set
+        params[:id] = params.key?(:claim) ? :claims : :contact # => Needs to be set
         render :show
       end
     end
@@ -102,34 +103,39 @@ class ApplicationController < ActionController::Base
       params.require(:claim).permit(:first, :last, :email, :phone, :mobile, :address, :postcode, :received, :from, :to, :escalation, :insurance, :signed, :shown, :inspected, :employee, :noted, :acknowledge, :report, :subsequent, :card, :invoice, :images, :repair, :method, :additional, :vat).merge!({hubspot_enabled: true, send_email: true})
     end
 
+    # => Contact Params
+    def contact_params
+      params.require(:contact).permit(:first, :last, :email, :address)
+    end
+
     # => Layout Vars
     # => Gives us variables for the layout (set once and maintained in an instance var)
     def layout_vars
 
       # => Header Links
       @header_links = {
-        "🏢 Home"   => "/",
-        "⚠️ Action" => "/action",
-        "ℹ️ About"    => "/about",
-        "✔️ FAQ's"  => "/faq",
-        "📰 News"   => "/news",
-        "📜 Rates"  => "/rates",
-        "🚩 Claims" => "/claims",
-        "📱 Contact" => "/contact"
+        "🏢 Home"   => root_path,
+        "⚠️ Action" => application_path("action"),
+        "ℹ️ About"    => application_path("about"),
+        "✔️ FAQ's"  => application_path("faq"),
+        "📰 News"   => application_path("news"),
+        "📜 Rates"  => application_path("rates"),
+        "🚩 Claims" => application_path("claims"),
+        "📱 Contact" => application_path("contact")
       }
 
       # => Footer Links
       @footer_links = {
-        "EOC Recharges Explained"          => "/",
-        "Avoiding EOC Recharges"           => "/",
-        "Business Contract Hire (CH)"      => "/business-contract-hire",
-        "Car & Van Rental (CVR)"           => "/car-van-rental",
-        "Personal Contract Purchase (PCP)" => "/personal-contract-purchase",
-        "Personal Contract Hire (PCH)"     => "/personal-contract-hire",
-        "I'm A Business"                   => "/business",
-        "I'm An Individual"                => "/individual",
-        "Our Service Rates"                => "/rates",
-        "Contact Us"                       => "/contact"
+        "💵 EOC Recharges Explained"          => "/",
+        "❌ Avoiding EOC Recharges"           => "/",
+        "📜 Business Contract Hire (CH)"      => application_path("business-contract-hire"),
+        "🚗 Car & Van Rental (CVR)"           => application_path("car-van-rental"),
+        "🔒 Personal Contract Purchase (PCP)" => application_path("personal-contract-purchase"),
+        "⬆️ Personal Contract Hire (PCH)"     => application_path("personal-contract-hire"),
+        "🏢 I'm A Business"                   => application_path("business"),
+        "😀 I'm An Individual"                => application_path("individual"),
+        "💳 Our Rates"                        => application_path("rates"),
+        "📱 Contact Us"                        => application_path("contact")
       }
     end
 

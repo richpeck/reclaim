@@ -114,6 +114,7 @@
 
     / Form
     = semantic_form_for @content, url: contact_index_path do |f|
+      = f.semantic_errors
       = f.inputs "💬 Send A Message" do
         = f.input :first,   placeholder: "First Name",  input_html: { autocomplete: "false" }
         = f.input :last,    placeholder: "Last Name",   input_html: { autocomplete: "false" }

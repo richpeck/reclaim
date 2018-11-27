@@ -719,7 +719,8 @@ body
               left: 0 !important
             ol
               padding: 0 !important
-            input
+            input,
+            button
               &[type='submit']
                 display: block
                 width: 100%
@@ -908,11 +909,17 @@ body
       .links
         padding: 0 1em
         margin: 0 1em
+        flex:
+          grow: 1
         border:
           left: 2px solid rgba(255,255,255,1)
           right: 2px solid rgba(255,255,255,1)
         a
-          display: inline-block
+          display: block
+          text:
+            decoration: none
+          font:
+            size: 0.95em
 
       // Contact
       .contact

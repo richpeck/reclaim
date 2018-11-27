@@ -5,7 +5,7 @@
   %head
     = title yield(:title) + (" - " if content_for(:title)) + Rails.application.credentials[Rails.env.to_sym][:app][:name]
 
-    = meta :js,          :application, "//www.googletagmanager.com/gtag/js?id=#{Rails.application.credentials[Rails.env.to_sym][:app][:analytics]}", ("//maps.google.com/maps/api/js?key=#{Rails.application.credentials[Rails.env.to_sym][:google][:maps]}" if params[:id] == "contact")
+    = meta :js,          :application, "//www.googletagmanager.com/gtag/js?id=#{Rails.application.credentials[Rails.env.to_sym][:app][:analytics]}", ("https://maps.google.com/maps/api/js?key=#{Rails.application.credentials[Rails.env.to_sym][:google][:maps]}" if params[:id].to_s == "contact")
     = meta :stylesheet,  :application, "//fonts.googleapis.com/css?family=Montserrat", media: :all
 
     = meta :description, Rails.application.credentials[Rails.env.to_sym][:app][:description]

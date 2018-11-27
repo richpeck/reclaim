@@ -22,7 +22,6 @@ class Contact < Claim
   ###########################################################
   ###########################################################
 
-
   ########################
   ##   Class (public)   ##
   ########################
@@ -34,6 +33,12 @@ class Contact < Claim
   # => Private
   # => Allows us to manage the system without exposing methods publicly
   private
+
+    # => Validations
+    # => Becuse this is a subclass of Claim, we need to skip validations
+    def skip_validations
+      true
+    end
 
   ###########################################################
   ###########################################################

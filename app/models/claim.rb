@@ -61,31 +61,35 @@ class Claim < ApplicationRecord
     attr_accessor :hubspot_destroy # => Remove from Hubspot on delete
     attr_accessor :send_email # => Determines whether to send "new claim" email or not
 
+    # => Validations
+    # => Because we've subclassed the Contact model from this, we need a way to stop validations
+    attr_accessor :skip_validations
+
   ###########################################################
   ###########################################################
 
     # => Validations
     # => Ensure every attribute is present (cannot have bad)
-    validates :first, :last, :email, :address, :postcode, presence: true, length: { minimum: 2 } # => claimaint
-    validates :received, :from, :to, :escalation, presence: true # => claim
+    validates :first, :last, :email, :address, presence: true, length: { minimum: 2 } # => claimaint
+    validates :postcode, :received, :from, :to, :escalation, presence: true, unless: :skip_validations # => claim
 
     # => Numbers
     # => Validates numericality
-    validates :phone, :mobile, numericality: { only_integer: true, allow_blank: true }
+    validates :phone, :mobile, numericality: { only_integer: true, allow_blank: true }, unless: :skip_validations
 
     # => Email
     # => https://stackoverflow.com/a/49925333/1143732
-    validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }, uniqueness: { case_sensitive: false }
+    validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }, uniqueness: { case_sensitive: false }, unless: :skip_validations
 
     # => Postcode
     # => Validates postcode to ensure format is correct
     # => https://github.com/threedaymonk/uk_postcode#tips-for-rails
-    validates :postcode, postcode: true
+    validates :postcode, postcode: true, unless: :skip_validations
 
     # => Mobile / Phone
     # => Either required
     # => https://stackoverflow.com/a/2134917/1143732
-    validate :mobile_or_phone
+    validate :mobile_or_phone, unless: :skip_validations
 
     # => Hubspot
     # => This is meant to fire after the event

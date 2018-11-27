@@ -43,7 +43,10 @@ center  = ""
 
 ## Map ##
 ## Contact ##
-$(document).on "ready", ->
+$(window).load ->
+
+  ## Globals ##
+  contact_map = $('#contact_map')
 
   ## Contact Page only ##
   if $('main').hasClass('contact')
@@ -60,7 +63,6 @@ $(document).on "ready", ->
 
     ## Contact Map ##
     ## This loads at init ##
-    contact_map = $('#contact_map')
     mapOptions  =
       center:             new google.maps.LatLng(51.5273228,-0.0910834),
       zoom:               12,

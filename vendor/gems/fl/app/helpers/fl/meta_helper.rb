@@ -13,7 +13,7 @@ module FL
   	def meta type, *args
   		case type
   			when :js, :javascript, :javascripts, :script, :scripts
-  				javascript_include_tag	*args.compact #-> splat operator http://stackoverflow.com/questions/13795627/ruby-send-method-passing-multiple-parameters
+  				javascript_include_tag *args.compact #-> splat operator http://stackoverflow.com/questions/13795627/ruby-send-method-passing-multiple-parameters
   			when :css, :stylesheet, :stylesheets
   				stylesheet_link_tag	*args.compact #-> splat operator http://stackoverflow.com/questions/13795627/ruby-send-method-passing-multiple-parameters
   			when :title
