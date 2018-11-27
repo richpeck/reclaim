@@ -33,6 +33,7 @@
       - else
         - @content.order!(created_at: :desc) if params[:id].to_sym == :news
         - @content.each_with_index do |item,index|
+          - puts index
           = content_tag :div, class: "panel" do
 
             - # FAQ / News

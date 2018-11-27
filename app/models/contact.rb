@@ -18,10 +18,6 @@ class Contact < Claim
   ###########################################################
   ###########################################################
 
-
-  ###########################################################
-  ###########################################################
-
   ########################
   ##   Class (public)   ##
   ########################
@@ -37,6 +33,12 @@ class Contact < Claim
     # => Validations
     # => Becuse this is a subclass of Claim, we need to skip validations
     def skip_validations
+      true
+    end
+
+    # => Email
+    # => Sends email to app/site owner
+    def send_email
       true
     end
 

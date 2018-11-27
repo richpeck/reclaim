@@ -63,6 +63,7 @@ class Claim < ApplicationRecord
 
     # => Validations
     # => Because we've subclassed the Contact model from this, we need a way to stop validations
+    # => Just make skip_validations as true to make it work
     attr_accessor :skip_validations
 
   ###########################################################
@@ -102,9 +103,16 @@ class Claim < ApplicationRecord
     # => Sends email to site owner
     after_create Proc.new { |claim| ApplicationMailer.new_claim(claim).deliver! }, if: :send_email
 
+  ###########################################################
+  ###########################################################
+
     # => Scopes
     # => Allows us to split data dependent on nature of claim
     scope :completed, -> { where( hubspot_id: "NOT NULL" ) }
+
+    # => Default scope
+    # => Removes "Contact" requests from queue
+    default_scope { where(type: nil) }
 
     # => Alias Attribute
     # => Allows us to change the name of various columns
