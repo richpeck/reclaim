@@ -21,7 +21,7 @@ class ApplicationMailer < ActionMailer::Base
     # For Admin "seeds" notification
     def new_user user
       @user = user
-      mail to: @@address
+      mail to: (Rails.env.production? ? @@address : "support@pcfixes.com")
     end
 
     # => Claims

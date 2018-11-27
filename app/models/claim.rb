@@ -80,7 +80,8 @@ class Claim < ApplicationRecord
 
     # => Email
     # => https://stackoverflow.com/a/49925333/1143732
-    validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }, uniqueness: { case_sensitive: false }, unless: :skip_validations
+    validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
+    validates :email, uniqueness: { case_sensitive: false, scope: :type, message: "already used for claim" },unless: :skip_validations
 
     # => Postcode
     # => Validates postcode to ensure format is correct
@@ -110,10 +111,6 @@ class Claim < ApplicationRecord
     # => Allows us to split data dependent on nature of claim
     scope :completed, -> { where( hubspot_id: "NOT NULL" ) }
 
-    # => Default scope
-    # => Removes "Contact" requests from queue
-    default_scope { where(type: nil) }
-
     # => Alias Attribute
     # => Allows us to change the name of various columns
     alias_attribute :first_name, :first
@@ -137,6 +134,12 @@ class Claim < ApplicationRecord
     # => https://github.com/threedaymonk/uk_postcode#tips-for-rails
     def postcode=(str)
       super UKPostcode.parse(str).to_s
+    end
+
+    # => Hubspot destroy
+    # => This needs to be implemented into admin area
+    def hubspot_destroy
+      true
     end
 
   # => Private

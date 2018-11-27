@@ -33,7 +33,6 @@
       - else
         - @content.order!(created_at: :desc) if params[:id].to_sym == :news
         - @content.each_with_index do |item,index|
-          - puts index
           = content_tag :div, class: "panel" do
 
             - # FAQ / News
@@ -104,9 +103,9 @@
 
       / Privacy & Terms
       .links
-        = link_to "Privacy", "/privacy", class: "privacy"
+        = link_to "Privacy", application_path("privacy"), class: "privacy"
         &
-        = link_to "Terms", "/terms", class: "terms"
+        = link_to "Terms", application_path("terms"), class: "terms"
 
   - when :contact
 

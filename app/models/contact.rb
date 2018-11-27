@@ -42,6 +42,13 @@ class Contact < Claim
       true
     end
 
+    # => Hubspot destroy
+    # => This needs to be implemented into admin area
+    # => Destroys hubspot listings from hubspot_id
+    def hubspot_destroy
+      true
+    end
+
   ###########################################################
   ###########################################################
 

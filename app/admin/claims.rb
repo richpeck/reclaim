@@ -44,6 +44,16 @@ if Object.const_defined?('ActiveAdmin')
     ##################################
     ##################################
 
+    # => Controller
+    controller do
+      def scoped_collection
+         Claim.where type: nil
+      end
+    end
+
+    ##################################
+    ##################################
+
     # => Index
     index title: [I18n.t("activerecord.models.claim.icon"), Claim.model_name.human(count: 2), '|', Rails.application.credentials[Rails.env.to_sym][:app][:name]].join(' ') do
       selectable_column
