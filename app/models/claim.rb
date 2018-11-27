@@ -102,7 +102,7 @@ class Claim < ApplicationRecord
 
     # => Email
     # => Sends email to site owner
-    after_create Proc.new { |claim| ApplicationMailer.new_claim(claim).deliver! }, if: :send_email
+    after_create Proc.new { |claim| ApplicationMailer.new_claim(claim).deliver! }#, if: :send_email
 
   ###########################################################
   ###########################################################
