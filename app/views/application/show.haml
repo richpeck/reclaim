@@ -133,12 +133,18 @@
     / Intro
     .introduction
       %h1
-        Have you been hit by unfair and excessive end of contract fees from your car rental company or leasing provider?
-        %u You’re not alone.
+        Hit by unfair and excessive <u>end of contract fees</u> from your car rental company or leasing provider?
+        %u You’re not alone...
 
-    / YouTube
-    .youtube-embed
-      %iframe{ allowFullScreen: "allowFullScreen", src: "https://www.youtube.com/embed/NfxTC_Egut8?ecver=1&amp;iv_load_policy=3&amp;yt:stretch=16:9&amp;autohide=1&amp;color=red&amp;width=560&amp;width=560", width: "560", height: "315", allowtransparency: "true", frameborder: "0"}
+      / YouTube
+      .youtube-embed
+        %iframe{ allowFullScreen: "allowFullScreen", src: "https://www.youtube.com/embed/NfxTC_Egut8?ecver=1&amp;iv_load_policy=3&amp;yt:stretch=16:9&amp;autohide=1&amp;color=red&amp;width=560&amp;width=560", width: "560", height: "315", allowtransparency: "true", frameborder: "0"}
+
+      / Secondary
+      %h2
+        Hire car excess charges are often hefty and in many cases unjustified.
+        %br
+        If you don't feel that the charges are fair, simply get in touch, we'll be happy to take a look at your case. Our experts will assess your case to determine whether we can help reduce your bill - if we can't, we won't charge a thing.
 
     / Content
     = @content.try(:val).try(:html_safe)
