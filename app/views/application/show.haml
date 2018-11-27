@@ -128,6 +128,21 @@
         &
         = link_to "Terms", application_path("terms"), class: "terms"
 
+  - when :index
+
+    / Intro
+    .introduction
+      %h1
+        Have you been hit by unfair and excessive end of contract fees from your car rental company or leasing provider?
+        %u You’re not alone.
+
+    / YouTube
+    .youtube-embed
+      %iframe{ allowFullScreen: "allowFullScreen", src: "https://www.youtube.com/embed/NfxTC_Egut8?ecver=1&amp;iv_load_policy=3&amp;yt:stretch=16:9&amp;autohide=1&amp;color=red&amp;width=560&amp;width=560", width: "560", height: "315", allowtransparency: "true", frameborder: "0"}
+
+    / Content
+    = @content.try(:val).try(:html_safe)
+
   - else
     = @content.try(:val).try(:html_safe)
 

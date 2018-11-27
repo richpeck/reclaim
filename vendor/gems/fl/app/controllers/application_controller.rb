@@ -49,7 +49,8 @@ class ApplicationController < ActionController::Base
         when :contact
           @content = Contact.new # => Allows for contact form
         else
-          @content = (params[:news] ? Meta::News : Meta::Page).find_by_slug! params[:id] || "index"
+          params[:id] ||= "index"
+          @content = (params[:news] ? Meta::News : Meta::Page).find_by_slug! params[:id]
       end
 
     end
@@ -126,8 +127,8 @@ class ApplicationController < ActionController::Base
 
       # => Footer Links
       @footer_links = {
-        "💵 EOC Recharges Explained"          => "/",
-        "❌ Avoiding EOC Recharges"           => "/",
+        "💵 EOC Recharges Explained"          => application_path("eoc-recharges-explained"),
+        "❌ Avoiding EOC Recharges"           => application_path("avoiding-eoc-recharges"),
         "📜 Business Contract Hire (CH)"      => application_path("business-contract-hire"),
         "🚗 Car & Van Rental (CVR)"           => application_path("car-van-rental"),
         "🔒 Personal Contract Purchase (PCP)" => application_path("personal-contract-purchase"),

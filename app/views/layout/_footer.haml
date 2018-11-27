@@ -23,8 +23,9 @@
   / Info
   / Links (as demonstrated)
   .links
-    - @footer_links.each do |text,link|
-      = link_to text, link, target: :blank
+    .columns
+      - @footer_links.each do |text,link|
+        = link_to text, link, target: :blank, class: cycle("odd", "even")
 
   / Contact
   / Allows us to showcase how to contact the company

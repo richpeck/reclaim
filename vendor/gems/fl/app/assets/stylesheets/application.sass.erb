@@ -398,6 +398,42 @@ body
             vertical:
               align: middle
 
+    // Index
+    &.index
+      .container
+
+        // Introduction
+        .introduction
+          margin: 2.5em 0
+          h1
+            color: rgba(0,0,0,1)
+            background: yellow
+            text:
+              align: center
+              transform: capitalize
+            font:
+              weight: bold
+            u
+              color: rgba(255,0,0,1)
+
+        // YouTube
+        .youtube-embed
+          margin: auto
+          position: relative
+          padding:
+            bottom: 56.25%
+            top: 30px
+          height: 0
+          overflow: hidden
+
+          iframe,
+          object,
+          embed
+            position: absolute
+            top: 0
+            left: 0
+            width: 100%
+            height: 100%
 
     // FAQ's + News
     // Used for "No Items"
@@ -850,10 +886,6 @@ body
       align:
         items: top
 
-      // Each div
-      > div
-        width: 50%
-
       // Company
       .company
         > div
@@ -909,6 +941,9 @@ body
       .links
         padding: 0 1em
         margin: 0 1em
+        column:
+          count: 2
+          gap: 20px
         flex:
           grow: 1
         border:
@@ -916,14 +951,21 @@ body
           right: 2px solid rgba(255,255,255,1)
         a
           display: block
+          overflow: hidden
+          width: 100%
+          white:
+            space: nowrap
           text:
             decoration: none
+            overflow: ellipsis
           font:
-            size: 0.95em
+            size: 1.05em
 
       // Contact
       .contact
-        text-align: right
+        text:
+          align: right
+        width: 25%
 
 ////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////
