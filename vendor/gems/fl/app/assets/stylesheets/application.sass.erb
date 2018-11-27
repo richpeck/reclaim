@@ -406,7 +406,7 @@ body
 
         // Introduction
         .introduction
-          margin: 2.5em 0 0
+          margin: 2.5em 0 2em
           h1
             display: block
             margin: 0 0 1em
@@ -448,10 +448,58 @@ body
             background: rgba(#ccc, 1)
             text:
               align: center
+              transform: capitalize
             font:
-              size: 1.85em
+              size: 1.65em
             box:
               sizing: border-box
+            &.first
+              background: rgba(0,0,0,1)
+              color: rgba(255,255,255,1)
+            &:not(.first)
+              a
+                color: rgba(255,0,0,1)
+
+        // Success
+        .success
+          display: flex
+          justify:
+            content: space-between
+          > div
+            width: 33%
+            padding: 20px
+            background: rgba(0,0,0,1)
+            margin:
+              top: 20px
+            border:
+              top: 2px solid rgba(0,0,0,1)
+              bottom: 2px solid rgba(0,0,0,1)
+            box:
+              sizing: border-box
+            h3
+              display: block
+              color: $base-color
+              width: 100%
+              overflow:
+                x: hidden
+              white:
+                space: nowrap
+              font:
+                size: 8.5em
+              text:
+                align: center
+                overflow: ellipsis
+              box:
+                sizing: border-box
+            strong
+              display: block
+              height: 45px
+              color: rgba(255,255,255,1)
+              font:
+                size: 1.2em
+            span
+              display: block
+              color: rgba(255,255,255,1)
 
     // FAQ's + News
     // Used for "No Items"
@@ -959,9 +1007,6 @@ body
       .links
         padding: 0 1em
         margin: 0 1em
-        column:
-          count: 2
-          gap: 20px
         flex:
           grow: 1
         border:

@@ -141,13 +141,28 @@
         %iframe{ allowFullScreen: "allowFullScreen", src: "https://www.youtube.com/embed/NfxTC_Egut8?ecver=1&amp;iv_load_policy=3&amp;yt:stretch=16:9&amp;autohide=1&amp;color=red&amp;width=560&amp;width=560", width: "560", height: "315", allowtransparency: "true", frameborder: "0"}
 
       / Secondary
+      %h2.first
+        Hire car excess charges are often hefty and (in many cases) <u>unjustified</u>...
       %h2
-        Hire car excess charges are often hefty and in many cases unjustified.
-        %br
-        If you don't feel that the charges are fair, simply get in touch, we'll be happy to take a look at your case. Our experts will assess your case to determine whether we can help reduce your bill - if we can't, we won't charge a thing.
+        If you don't feel that the charges are fair, please <a href="/contact">get in touch</a>, we'll be happy to take a look at your case. Our experts will assess your case to determine whether we can help reduce your bill - if we can't, we won't charge a thing.
 
     / Content
     = @content.try(:val).try(:html_safe)
+
+    / Success
+    .success
+      %div
+        %h3 54%
+        %strong Reduced clients bills by 54%
+        %span On average we've been reducing damage recharge invoices by 54% and at at times we've reduced them in full to zero!
+      %div
+        %h3 £335
+        %strong Money we are putting back in our clients pockets
+        %span The average saving to our client is £355.  Our largest success to date is £1,015.  Imagine having that money back in your pocket?
+      %div
+        %h3 66%
+        %strong Successfully reduced claims
+        %span By challenging in the right way, we are successfully reducing our clients claims 66% of the time!
 
   - else
     = @content.try(:val).try(:html_safe)
