@@ -1036,10 +1036,13 @@ body
     position: relative
     padding: 0
 
+    // Variables
+    $padding: 2em
+
     // Container
     .container
       display: flex
-      padding: 2.5em 0 0
+      padding: $padding 0 0
       justify:
         content: space-between
       align:
@@ -1047,7 +1050,7 @@ body
       box:
         sizing: border-box
       margin:
-        bottom: 2.5em
+        bottom: $padding
 
       // Company
       .company
@@ -1065,6 +1068,29 @@ body
             display: inline-block
             margin:
               right: 0.25em
+        .name
+          a
+            display: block
+            text:
+              decoration: none
+            font:
+              size: 1.5em
+              weight: bold
+            margin:
+              bottom: 0.25em
+            &:hover
+              opacity: 1
+            &:before
+              content: "©"
+              margin:
+                right: 0.15em
+            &:after
+              display:  block
+              content:  " "
+              margin:   15px 0 10px
+              width:    20px
+              height:   3px
+              background: rgba(255,255,255,1)
         .title
           font:
             size: 1.35em
@@ -1106,26 +1132,57 @@ body
         margin: 0 1em
         flex:
           grow: 1
-        border:
-          left: 2px solid rgba(255,255,255,1)
-          right: 2px solid rgba(255,255,255,1)
         a
           display: block
           overflow: hidden
           width: 100%
+          margin: 0.25em 0
+          padding: 0.25em
+          transition: background 0.15s ease-in-out
           white:
             space: nowrap
+          background:
+            color: rgba(255,255,255,0.1)
           text:
             decoration: none
             overflow: ellipsis
           font:
             size: 1.05em
+          box:
+            sizing: border-box
+          &:hover
+            opacity: 1
+            background:
+              color: rgba(255,255,255,0.025)
 
       // Contact
       .contact
-        text:
-          align: right
         width: 25%
+
+        // Social Icons
+        .social
+          display: block
+          text:
+            align: center
+          a
+            padding: 1em 0.5em
+            display: inline-block
+            text:
+              decoration: none
+            font:
+              size: 2em
+
+        // Form
+        .form
+          form
+            display: block
+            background: yellow
+            input,
+            textarea
+              padding: 10px
+              border: 1px solid rgba(0,0,0,1)
+              box:
+                sizing: border-box
 
 ////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////
