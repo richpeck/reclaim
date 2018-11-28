@@ -103,6 +103,7 @@
 
       / Privacy & Terms
       .links
+        By submitting, you agree to our
         = link_to "Privacy", application_path("privacy"), class: "privacy"
         &
         = link_to "Terms", application_path("terms"), class: "terms"
@@ -124,6 +125,7 @@
 
       / Privacy & Terms
       .links
+        By submitting, you agree to our
         = link_to "Privacy", application_path("privacy"), class: "privacy"
         &
         = link_to "Terms", application_path("terms"), class: "terms"
@@ -142,7 +144,7 @@
 
       / Secondary
       %h2.first
-        Hire car excess charges are often hefty and (in many cases) <u>unjustified</u>...
+        Hire car excess charges are often hefty and (in *<u>MOST</u>* cases) <u>unjustified</u>...
       %h2
         If you don't feel that the charges are fair, please <a href="/contact">get in touch</a>, we'll be happy to take a look at your case. Our experts will assess your case to determine whether we can help reduce your bill - if we can't, we won't charge a thing.
 
@@ -151,18 +153,21 @@
 
     / Success
     .success
-      %div
+      .car
         %h3 54%
-        %strong Reduced clients bills by 54%
-        %span On average we've been reducing damage recharge invoices by 54% and at at times we've reduced them in full to zero!
-      %div
-        %h3 £335
-        %strong Money we are putting back in our clients pockets
-        %span The average saving to our client is £355.  Our largest success to date is £1,015.  Imagine having that money back in your pocket?
-      %div
+        %div
+          %strong Bills reduced by <u>54%</u>
+          %span On average we've been reducing damage recharge invoices by 54% and at at times we've reduced them in full to zero!
+      .repair
+        %h3 £335+
+        %div
+          %strong <u>Saved</u> for clients
+          %span The average saving to our client is £355.  Our largest success to date is £1,015.  Imagine having that money back in your pocket?
+      .bill
         %h3 66%
-        %strong Successfully reduced claims
-        %span By challenging in the right way, we are successfully reducing our clients claims 66% of the time!
+        %div
+          %strong <u>Success</u> for claims
+          %span By challenging in the right way, we are successfully reducing our clients claims 66% of the time!
 
   - else
     = @content.try(:val).try(:html_safe)
@@ -172,5 +177,5 @@
 
 / CTA
 .cta
-  = content_tag :strong, "WE’LL REDUCE YOUR END OF CONTRACT DAMAGE BILL – OR YOU WON’T BE CHARGED A PENNY."
+  = content_tag :strong, "WE’LL <a href=\"#{application_path('claims')}\">REDUCE YOUR END OF CONTRACT DAMAGE BILL</a> –<br /> OR YOU WON’T BE CHARGED A PENNY.".html_safe
   = content_tag :span, "WE'RE OPEN 24/7 - CALL US FREE ON #{link_to Rails.application.credentials[Rails.env.to_sym][:company][:phone], Rails.application.credentials[Rails.env.to_sym][:company][:phone]}".html_safe
