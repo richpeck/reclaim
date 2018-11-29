@@ -237,6 +237,17 @@ body
     h3
       margin: 1em 0
 
+    // Div
+    & > div
+      &:before
+        content: ""
+        display: block
+        height: 450px
+        background:
+          repeat: no-repeat
+          size: 100%
+          position: 50% 30%
+
     // Container
     .container
       display: flex
@@ -266,11 +277,12 @@ body
         left: 0
         right: 0
         margin: 1.35em
-        padding: 1em
-        color: rgba(255,255,255,1)
-        background: rgba(0,0,0,1)
+        padding: 2.5em 0
         box:
           sizing: border-box
+        border:
+          top: 2px solid rgba(#ccc,1)
+          bottom: 2px solid rgba(#ccc,1)
         font:
           size: 1.5em
         text:
@@ -283,10 +295,6 @@ body
         span
           margin:
             top: 0.5em
-        a
-          color: yellow
-          text:
-            decoration: underline
 
       // Exception
       .exception
@@ -392,6 +400,22 @@ body
               shadow: none
             vertical:
               align: middle
+
+    // About
+    &.about
+
+      // Main Image
+      &:before
+        background:
+          image: asset_url("bg/start_saving.jpg")
+
+    // What
+    &.what
+
+      // Main Image
+      &:before
+        background:
+          image: asset_url("bg/what.jpg")
 
     // Index
     &.index
@@ -541,14 +565,8 @@ body
 
       // Main Image
       &:before
-        content: ""
-        display: block
-        height: 450px
         background:
           image: asset_url("bg/news.jpg")
-          repeat: no-repeat
-          size: 100%
-          position: 50% 30%
 
       // Container
       // Flexbox
@@ -583,7 +601,7 @@ body
           .panel
             position: relative
             display: block
-            width:    33%
+            width:    25%
             overflow: hidden
             padding:  1em
             transition: opacity 0.15s ease-in-out
@@ -604,6 +622,7 @@ body
                 height: 500px
               text:
                 decoration: none
+                align: center
               overflow:
                 y: hidden
 
@@ -647,12 +666,14 @@ body
               // Content
               .content
                 padding: 0 10px
+                color: #1d1d1d
                 box:
-                  sizing: boder-box
-                ul
-                  margin: 1em 0
-                h1
-                  margin: 0 0 0.5em
+                  sizing: border-box
+                font:
+                  size: 14px
+                  weight: 300
+                letter:
+                  spacing: 0.06em
 
               // CTA
               .button
@@ -675,6 +696,11 @@ body
       // The following is from https://codepen.io/jonyablonski/pen/wreap
       $timing: .25s
       $ease: cubic-bezier(0.865, 0.140, 0.095, 0.870)
+
+      // Main Image
+      &:before
+        background:
+          image: asset_url("faq.jpg")
 
       // Container
       // Main accordion block
@@ -740,12 +766,36 @@ body
     // Contact
     &.contact
 
+      // Main Image
+      &:before
+        background:
+          image: asset_url("bg/contact.jpg")
+
+      // Title
+      h1
+        padding: 0 20%
+        &.title
+          font:
+            size: 80px
+            weight: 300
+          letter:
+            spacing: 0.01em
+          line:
+            height: 1.4em
+
       // Intro
       .intro
-        position: sticky
-        top: 0
-        z:
-          index: 2000
+        color: rgba(29,29,29,.7)
+        background: transparent
+        padding: 0 20%
+        margin: 2em 0
+        line:
+          height: 1.8em
+        font:
+          size: 18px
+          weight: 400
+        letter:
+          spacing: 0.06em
 
       // Map
       #contact_map
@@ -753,6 +803,14 @@ body
         border: 2px solid rgba(0,0,0,1)
         box:
           sizing: border-box
+        &:before
+          display: block
+          content: "Our Location"
+          padding: 0.25em
+          color: rgba(255,255,255,1)
+          background: rgba(0,0,0,1)
+          z:
+            index: 1001
 
       // CTA
       .container
@@ -845,24 +903,21 @@ body
               left: 0 !important
             ol
               padding: 0 !important
-            input,
-            button
-              &[type='submit']
-                display: block
-                width: 100%
-                margin: 0.5em 0 0
-                color: rgba(0,0,0,1)
-                background: $base-color !important
-                border: 2px solid rgba(0,0,0,1)
-                transition: background 0.15s ease-in-out
-                font:
-                  weight: bold
-                box:
-                  sizing: border-box
-                &:hover
-                  background: rgba(0,0,0,1)
-                  text:
-                    decoration: underline
+              input,
+              button
+                &[type='submit']
+                  display: block
+                  width: 100%
+                  margin: 0.5em 0 0
+                  color: rgba(255,255,255,1)
+                  background: $base-color !important
+                  transition: background 0.15s ease-in-out
+                  font:
+                    weight: bold
+                  box:
+                    sizing: border-box
+                  &:hover
+                    background: darken($base-color, 5%)
 
         // General List
         ul,

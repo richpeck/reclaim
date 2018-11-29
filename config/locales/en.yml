@@ -58,7 +58,7 @@ en:
       faq:     "Got a question for our damage reclaim experts? Have a read of our FAQs…"
       privacy: "We maintain the highest standards of client security & privacy. If you have any questions regarding our handling of customer data, we would request you email our data controller at <a href='mailto:data@damagereclaim.co.uk'>data@damagereclaim.co.uk</a>..."
       terms:   "Use of our service is dependent on your accepting of our <u>terms of service</u>:"
-      contact: "<u>Available 24/7</u>, we're here to give you instant assistance for any damage claims you may have..."
+      contact: "<p>We'd love to hear from you here at Damage Reclaim. If you are a business looking to save £000's we're positive our team of industry experts can add value by saving you time, money and hassle (and if we don't we won't charge you a penny).  We are flexible to your business needs, so get in touch by completing a few details below and one of our team will be back in touch within 24 hours.</p><p>If you're an individual ready to start your claim, you can do this be completing a few details online and we can be working on your claim within minutes.</p><p>Still have a query?  No worries, simply fill in the contact form below, give us a call on 0808 164 0282 or get in touch through one of our social media channels and we'll get back to you as soon as possible."
   exception_handler:
     not_found: "Page Not Found!"
   formtastic:

@@ -46,8 +46,8 @@
               = link_to news_path(item), data: { published: item.created_at(:short) } do
                 = image_tag (item.featured_image.attached? ? item.featured_image : "https://via.placeholder.com/350"), class: "featured", "nopin" => "true"
                 = content_tag :h3, item.ref, class: "title"
-                = content_tag :div, truncate_html(strip_links(item.value), length: 350, separator: ' ',  omission: '…').html_safe, class: "content"
-                = content_tag :div, "Read...", class: "button"
+                = content_tag :div, truncate_html(strip_tags(item.value), length: 350, separator: ' ',  omission: '…').html_safe, class: "content"
+                = content_tag :div, "Read More ", class: "button"
 
   - when :claims
 

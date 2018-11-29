@@ -117,7 +117,7 @@ class ApplicationController < ActionController::Base
       @header_links = {
         "Take Action"     => application_path("action"),
         "About Us"        => application_path("about"),
-        "What We Do"      => application_path("rates"),        
+        "What We Do"      => application_path("rates"),
         "Industry News"   => application_path("news"),
         "FAQ's"           => application_path("faq"),
       }
