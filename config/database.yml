@@ -38,6 +38,7 @@ prod: &prod
   password: <%= Rails.application.credentials.production[:db][:pass] %>
   host:     <%= Rails.application.credentials.production[:db][:host] %>
   port:     <%= Rails.application.credentials.production[:db][:port] %>
+  encoding: utf8mb4
 
 ##########################################################
 ##########################################################
