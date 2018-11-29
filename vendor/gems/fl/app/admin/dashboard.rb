@@ -68,7 +68,7 @@ if Object.const_defined?('ActiveAdmin')
             # => Claims
             # => Recent Claims table
             column class: "claims column" do
-              panel "📮 #{link_to 'Claims', admin_claims_path} (#{Claim.count})".html_safe do
+              panel "📮 #{link_to 'Claims', admin_claims_path} (#{Claim.where(type: nil).count})".html_safe do
 
                 # => Header actions
                 # => https://github.com/activeadmin/activeadmin/issues/2552
