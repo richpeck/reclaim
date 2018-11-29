@@ -77,7 +77,7 @@ if Object.const_defined?('ActiveAdmin')
 
                 # => Logic
                 # => Doesn't have a fallback for nil records
-                if !Claim.any?
+                if !Claim.where(type: nil).any?
                   link_to "Add New", new_admin_claim_path, class: "none"
                 else
                   table_for Claim.where(type: nil).order(created_at: :desc).limit(10), class: "dashboard" do
