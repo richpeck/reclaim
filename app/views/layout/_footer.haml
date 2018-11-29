@@ -13,20 +13,15 @@
   / Company
   / Uses info from DB / Credentials
   .company
-    .title= link_to "&nbsp;", "https://uk.trustpilot.com/review/damagereclaim.com", target: :blank, class: "reviews"
-    .name=  link_to "#{Rails.application.credentials[Rails.env.to_sym][:company][:name]}" , root_url
-    .email= link_to "#{Rails.application.credentials[Rails.env.to_sym][:app][:email]}", "mailto:#{Rails.application.credentials[Rails.env.to_sym][:app][:email]}"
-    .office= Rails.application.credentials[Rails.env.to_sym][:company][:address]
+    .email
+      email:
+      = link_to "#{Rails.application.credentials[Rails.env.to_sym][:app][:email]}", "mailto:#{Rails.application.credentials[Rails.env.to_sym][:app][:email]}"
+    .office
+      office:
+      = Rails.application.credentials[Rails.env.to_sym][:company][:address]
     .number
-      Registered in England & Wales:
+      Company No:
       = link_to Rails.application.credentials[Rails.env.to_sym][:company][:number], "https://companycheck.co.uk/company/10685457/DAMAGE-RECLAIM-LIMITED/companies-house-data", target: :blank
-
-  / Info
-  / Links (as demonstrated)
-  .links
-    .columns
-      - @footer_links.each do |text,link|
-        = link_to text, link, class: cycle("odd", "even")
 
   / Contact
   / Allows us to showcase how to contact the company
@@ -34,10 +29,11 @@
     .social
       - {"envelope-open" => "mailto: #{Rails.application.credentials[Rails.env.to_sym][:app][:email]}", twitter: 'https://www.twitter.com/DamageReclaim', linkedin: 'https://www.linkedin.com/company/damagereclaim/', facebook: 'https://www.facebook.com/Damage-Reclaim-659249180932932/'}.each do |k,v|
         = link_to "", v, class: "fa fa-#{k}", target: :blank
-    .form
-      = semantic_form_for Contact.new, url: contact_index_path, remote: true do |f|
-        = f.text_field  :first,   placeholder: "First Name"
-        = f.text_field  :last,    placeholder: "Last Name"
-        = f.email_field :email,   placeholder: "Email"
-        = f.text_area   :address, placeholder: "Message"
-        = f.actions :submit
+    .call= content_tag :span, "We're open 24/7 - Call us free on #{Rails.application.credentials[Rails.env.to_sym][:company][:phone]}"
+
+/ Info
+/ Links (as demonstrated)
+.links
+  .container
+    - @footer_links.each do |text,link|
+      = link_to text, link, class: cycle("odd", "even")

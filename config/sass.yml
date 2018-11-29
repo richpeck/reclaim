@@ -27,8 +27,8 @@
 
 # All
 base:
-  color:      rgba(0,255,170,1)
-  background: rgba(13,13,13,1)
+  color:      rgba(0,0,0,1)
+  background: rgba(255,255,255,1)
   font:
     size:     8.5pt
   selection:

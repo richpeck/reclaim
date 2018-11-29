@@ -115,28 +115,25 @@ class ApplicationController < ActionController::Base
 
       # => Header Links
       @header_links = {
-        "🏢 Home"   => root_path,
-        "⚠️ Action" => application_path("action"),
-        "ℹ️ About"    => application_path("about"),
-        "✔️ FAQ's"  => application_path("faq"),
-        "📰 News"   => application_path("news"),
-        "📜 Rates"  => application_path("rates"),
-        "🚩 Claims" => application_path("claims"),
-        "📱 Contact" => application_path("contact")
+        "Take Action"     => application_path("action"),
+        "About Us"        => application_path("about"),
+        "What We Do"      => application_path("rates"),        
+        "Industry News"   => application_path("news"),
+        "FAQ's"           => application_path("faq"),
       }
 
       # => Footer Links
       @footer_links = {
-        "💵 EOC Recharges Explained"          => application_path("eoc-recharges-explained"),
-        "❌ Avoiding EOC Recharges"           => application_path("avoiding-eoc-recharges"),
-        "📜 Business Contract Hire (CH)"      => application_path("business-contract-hire"),
-        "🚗 Car & Van Rental (CVR)"           => application_path("car-van-rental"),
-        "🔒 Personal Contract Purchase (PCP)" => application_path("personal-contract-purchase"),
-        "⬆️ Personal Contract Hire (PCH)"     => application_path("personal-contract-hire"),
-        "🏢 I'm A Business"                   => application_path("business"),
-        "😀 I'm An Individual"                => application_path("individual"),
-        "💳 Our Rates"                        => application_path("rates"),
-        "📱 Contact Us"                        => application_path("contact")
+        "EOC Recharges Explained"          => application_path("eoc-recharges-explained"),
+        "Avoiding EOC Recharges"           => application_path("avoiding-eoc-recharges"),
+        "Business Contract Hire (CH)"      => application_path("business-contract-hire"),
+        "Car & Van Rental (CVR)"           => application_path("car-van-rental"),
+        "Personal Contract Purchase (PCP)" => application_path("personal-contract-purchase"),
+        "Personal Contract Hire (PCH)"     => application_path("personal-contract-hire"),
+        "I'm A Business"                   => application_path("business"),
+        "I'm An Individual"                => application_path("individual"),
+        "Our Rates"                        => application_path("rates"),
+        "Contact Us"                       => application_path("contact")
       }
     end
 

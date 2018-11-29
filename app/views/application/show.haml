@@ -8,8 +8,8 @@
 
 - # Inner pages only
 - if params[:id] && params[:id].to_sym != :index
-  = content_tag :h1, translate("page.titles.#{params[:id]}", default: params[:id].to_s.titleize).html_safe, class: :title # => Title
-  = content_tag :div, translate("page.intros.#{params[:id]}", default: params[:id].to_s.titleize).html_safe, class: :intro # => Intro
+  = content_tag :h1, translate("page.titles.#{params[:id]}", default: params[:id].to_s.titleize).html_safe, class: :title   if I18n.exists?("page.titles.#{params[:id]}") # => Title
+  = content_tag :div, translate("page.intros.#{params[:id]}", default: params[:id].to_s.titleize).html_safe, class: :intro  if I18n.exists?("page.intros.#{params[:id]}") # => Intro
 
 - # Flash
 - if flash.any?
@@ -110,6 +110,9 @@
 
   - when :contact
 
+    / Content
+    = @content.try(:val).try(:html_safe)
+
     / Map
     #contact_map
 
@@ -135,8 +138,7 @@
     / Intro
     .introduction
       %h1
-        Hit by unfair and excessive <u>end of contract fees</u> from your car rental company or leasing provider?
-        %u You’re not alone...
+        Hit by unfair and excessive end of contract fees from your car rental company or leasing provider? You’re not alone.
 
       / YouTube
       .youtube-embed
