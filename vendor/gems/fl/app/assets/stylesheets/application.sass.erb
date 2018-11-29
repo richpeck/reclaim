@@ -237,17 +237,6 @@ body
     h3
       margin: 1em 0
 
-    // Div
-    & > div
-      &:before
-        content: ""
-        display: block
-        height: 450px
-        background:
-          repeat: no-repeat
-          size: 100%
-          position: 50% 30%
-
     // Container
     .container
       display: flex
@@ -255,8 +244,6 @@ body
       position: relative
       min:
         height: 100%
-      padding:
-        bottom: 165px
       flex:
         direction: column
 
@@ -272,10 +259,6 @@ body
       // This is where the user is given direct action etc
       .cta
         display: block
-        position: absolute
-        bottom: 0
-        left: 0
-        right: 0
         margin: 1.35em
         padding: 2.5em 0
         box:
@@ -406,7 +389,13 @@ body
 
       // Main Image
       &:before
+        content: ""
+        display: block
+        height: 450px
         background:
+          repeat: no-repeat
+          size: 100%
+          position: 50% 30%
           image: asset_url("bg/start_saving.jpg")
 
     // What
@@ -414,7 +403,13 @@ body
 
       // Main Image
       &:before
+        content: ""
+        display: block
+        height: 450px
         background:
+          repeat: no-repeat
+          size: 100%
+          position: 50% 30%
           image: asset_url("bg/what.jpg")
 
     // Index
@@ -565,7 +560,13 @@ body
 
       // Main Image
       &:before
+        content: ""
+        display: block
+        height: 450px
         background:
+          repeat: no-repeat
+          size: 100%
+          position: 50% 30%
           image: asset_url("bg/news.jpg")
 
       // Container
@@ -699,12 +700,52 @@ body
 
       // Main Image
       &:before
+        content: ""
+        display: block
+        height: 450px
         background:
-          image: asset_url("faq.jpg")
+          repeat: no-repeat
+          size: 100%
+          position: 50% 30%
+          image: asset_url("bg/faq.jpg")
+
+      // Title
+      h1
+        &.title
+          padding: 0
+          margin: 1.5em 0 0.5em 0
+          font:
+            weight: 300
+            style:  normal
+            size:   40px
+          letter:
+            spacing: 0.05em
+          line:
+            height: 1.4em
+          text:
+            transform: uppercase
+            align: center
+
+      // Intro
+      .intro
+        color: rgba(0,0,0,1)
+        padding: 0
+        background: none
+        font:
+          weight: 400
+          style: normal
+          size: 26px
+        letter:
+          spacing: .02em
+        line:
+          height: 1.2em
+        text:
+          transform: none
 
       // Container
       // Main accordion block
       .container
+        padding: 0 10%
 
         // Used for panels
         // Really should integrate with .container but works for now
@@ -723,52 +764,51 @@ body
             &:hover
               opacity: 1
 
-            // Input
-            input
-              &[name='panel']
-                display: none
-                &:checked
-                  & + label
-                    background: rgba(0,0,0,0.15)
-                  ~ .content
-                    display: block
-                    visibility: visible
-                    height: auto
-
             // Header
             label
               position:   relative
               display:    block
-              padding:    1em
-              cursor:     pointer
-              background: rgba(0,0,0,0.05)
-              transition: all $timing $ease
+              color:      rgba(29,29,29,.7)
               font:
-                size:   1.5em
+                size:   18px
                 weight: bold
-              &:hover
-                background: rgba(0,0,0,0.1)
+              letter:
+                spacing: 0.06em
 
             // Content
             .content
-              display: none
-              visibility: hidden
-              height: 0
-              padding: 1em 1em 0
-              transition: all $timing $ease
+              display: block
+              padding: 1em 0
+              letter:
+                spacing: .06em
+              line:
+                height: 1.8em
+              text:
+                transform: none
+              color: rgba(29,29,29,.7)
               box:
                 sizing: border-box
               font:
-                size: 1.05em
+                size:   18px
+                weight: normal
+                weight: 400
               margin:
                 bottom: 1em
+              a
+                color: $base-color
 
     // Contact
     &.contact
 
       // Main Image
       &:before
+        content: ""
+        display: block
+        height: 450px
         background:
+          repeat: no-repeat
+          size: 100%
+          position: 50% 30%
           image: asset_url("bg/contact.jpg")
 
       // Title

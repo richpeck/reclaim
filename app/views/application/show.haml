@@ -38,7 +38,6 @@
             - # FAQ / News
             - # FAQ links; News flexbox
             - if params[:id].to_sym == :faq
-              = radio_button_tag "panel", index, ('checked' if index == 0)
               = label_tag "panel_#{index}", item.ref
               = content_tag :div, item.val.html_safe, class: "content"
 
