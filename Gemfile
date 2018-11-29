@@ -85,9 +85,5 @@ gem 'formadmin', '~> 0.2.1' # => FormAdmin custom theme for ActiveAdmin
 gem 'chartkick', '~> 3.0', '>= 3.0.1' # => Chartkick (https://github.com/ankane/chartkick)
 gem 'groupdate', '~> 4.1' # => Groupdate (https://github.com/ankane/groupdate)
 
-####################
-#      Other       #
-####################
-
 ########################################
 ########################################

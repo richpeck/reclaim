@@ -80,7 +80,7 @@ if Object.const_defined?('ActiveAdmin')
                 if !Claim.any?
                   link_to "Add New", new_admin_claim_path, class: "none"
                 else
-                  table_for Claim.all.order(created_at: :desc).limit(10), class: "dashboard" do
+                  table_for Claim.where(type: nil).order(created_at: :desc).limit(10), class: "dashboard" do
                     column(:id)         { |claim| claim.id }
                     column(:first_name) { |claim| claim.first }
                     column(:last_name)  { |claim| claim.last }
