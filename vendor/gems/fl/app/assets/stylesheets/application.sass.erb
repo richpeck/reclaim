@@ -74,14 +74,15 @@
   body
     footer
       > .container
-          padding: 0.5em 0
-          flex:
-            direction: column
-          text:
-            align: center
-          > div
-            margin:
-              bottom: 1.5em
+        padding: 0.5em 0
+        -webkit-flex-direction: column
+        flex:
+          direction: column
+        text:
+          align: center
+        > div
+          margin:
+            bottom: 1.5em
 
 ////////////////////////////////
 ////////////////////////////////
@@ -93,6 +94,7 @@
         > .container
           > .introduction
             > .options
+              -webkit-flex-direction: column
               flex:
                 direction: column
               > div
@@ -136,10 +138,11 @@ body
   ////////////////////////////////
 
   // Sticky Footer
-  // Use Flexbox :D
+  // Use Flexbox
   // https://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/
   display: flex
   display: -webkit-flex
+  -webkit-flex-direction: column
   min:
     height: 100vh
   flex:
@@ -278,6 +281,7 @@ body
       display: -webkit-flex
       padding: 0 2em
       position: relative
+      -webkit-flex-direction: column
       flex:
         direction: column
 
@@ -958,6 +962,7 @@ body
         .panels
           display: flex
           display: -webkit-flex
+          -webkit-flex-direction: row
           margin:
             top: 2em
           flex:
@@ -1268,6 +1273,11 @@ body
           size: 100%
           position: 50% 30%
           image: asset_url("bg/contact.jpg")
+
+      // Container
+      .container
+        overflow:
+          x: hidden
 
       // Title
       h1
