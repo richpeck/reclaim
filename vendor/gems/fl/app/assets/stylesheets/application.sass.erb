@@ -174,18 +174,9 @@ body
         @include align-items(center)
         @include justify-content(space-between)
 
-        &:after
-          content: ""
-          display: block
-          clear: both
-
         // Logo
         .logo
           width: auto
-          text:
-            align: center
-          vertical:
-            align: middle
           a
             display: inline-block
             margin: 2em 0
@@ -203,7 +194,8 @@ body
         font:
           size: 1.25em
         text:
-          align: right !important
+          align: right
+          transform: uppercase
         vertical:
           align: middle
         &:hover
@@ -214,9 +206,6 @@ body
             opacity: 0.25
             &.current
               opacity: 1
-        text:
-          align: center
-          transform: uppercase
 
         // Links
         a
