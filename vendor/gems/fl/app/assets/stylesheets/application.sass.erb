@@ -72,21 +72,6 @@
 
 @media screen and (max-width: 950px)
   body
-    footer
-      > .container
-        padding: 0.5em 0
-        @include flex-direction(column)
-        text:
-          align: center
-        > div
-          margin:
-            bottom: 1.5em
-
-////////////////////////////////
-////////////////////////////////
-
-@media screen and (max-width: 850px)
-  body
     main
       &.index
         > .container
@@ -109,6 +94,15 @@
               span
                 font:
                   size: 32px !important
+    footer
+      > .container
+        padding: 0.5em 0
+        @include flex-direction(column)
+        text:
+          align: center
+        > div
+          margin:
+            bottom: 1.5em
 
 ////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////
@@ -176,12 +170,10 @@ body
 
         // Logo
         .logo
-          width: auto
+          width: 150px
           a
             display: inline-block
             margin: 2em 0
-            padding:
-              right: 50px
             &:hover
               opacity: 1
             img
