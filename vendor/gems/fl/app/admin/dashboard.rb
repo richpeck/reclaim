@@ -28,7 +28,7 @@ if Object.const_defined?('ActiveAdmin')
     # => Dashboard
     # => This allows us to populate with all the data / info required to get claims processed
     # => Basic setup will take submitted claims and match them with anything they've used before
-    ActiveAdmin.register_page 'Dashboard', as: "" do
+    ActiveAdmin.register_page 'Dashboard', as: '' do 
 
       ###################################
       ###################################

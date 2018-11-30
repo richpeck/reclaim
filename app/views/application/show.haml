@@ -152,13 +152,27 @@
     .introduction
       %h1 Have you been hit by unfair and excessive end of contract fees from your car rental company or leasing provider? You’re not alone.
 
-      / YouTube
-      .youtube-embed
-        %iframe{ allowFullScreen: "allowFullScreen", src: "https://www.youtube.com/embed/NfxTC_Egut8?ecver=1&amp;iv_load_policy=3&amp;yt:stretch=16:9&amp;autohide=1&amp;color=red&amp;width=560&amp;width=560", width: "560", height: "315", allowtransparency: "true", frameborder: "0"}
+      / Table
+      .options
+        .video
+          .youtube-embed
+            %iframe{ allowFullScreen: "allowFullScreen", src: "https://www.youtube.com/embed/NfxTC_Egut8?ecver=1&amp;iv_load_policy=3&amp;yt:stretch=16:9&amp;autohide=1&amp;color=red&amp", height: "315", allowtransparency: "true", frameborder: "0"}
+          %span Hire car excess charges are often hefty and in many cases unjustified. If you don't feel that the charges are fair, simply get in touch, we'll be happy to take a look at your case. Our experts will assess your case to determine whether we can help reduce your bill - if we can't, we won't charge a thing.
+        .input
+          %h3 TAKE ACTION NOW
+          = semantic_form_for Contact.new, url: contact_index_path do |f|
+            = f.inputs "Name *", class: "name" do
+              = f.input :first, label: false, placeholder: "First Name"
+              = f.input :last, label: false, placeholder: "Last Name"
+            = f.inputs "Email Address *" do
+              = f.input :email, label: false, placeholder: "Email"
+            = f.inputs "Phone Number *" do
+              = f.input :phone, label: false, placeholder: "Phone"
+            .actions= f.submit "Start My Claim"
 
       / Trustpilot
       .trustpilot
-        = image_tag "trustpilot.png"
+        = image_tag "trustpilot.png", "no-pin" => true
         = link_to "Read Our Trustpilot Reviews", "https://uk.trustpilot.com/review/damagereclaim.com", target: :blank
 
     / Content
@@ -201,7 +215,7 @@
     .simple
       %h3
         IN 4 SIMPLE STEPS DAMAGE RECLAIM CAN START YOUR CLAIM AND PUT MONEY BACK IN YOUR POCKET!
-      = image_tag "4_step.jpg"
+      = image_tag "4_step.jpg", "no-pin" => "nopin"
       = link_to "Take Action", application_path("action"), class: "take_action"
       .testimonial
         %blockquote Replied promptly and communicated politely with the rental company. My £900 repair bill for a dent on the bumper was reduced by £300. Their terms were clear and well articulated, no surprises.
