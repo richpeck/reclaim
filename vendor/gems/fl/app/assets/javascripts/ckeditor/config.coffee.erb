@@ -108,10 +108,10 @@ CKEDITOR.editorConfig = (config) ->
   config.title = false
 
   # HTML5 Tags
-  config.extraAllowedContent = 'section article header nav aside[lang,foo]'
+  config.allowedContent = 'section article header nav aside[lang,foo] div(*) p(*)'
 
   # Plugins
-  config.removePlugins  = "forms"
+  config.removePlugins = "forms"
 
   # Autogrow
   # http://docs.ckeditor.com/#!/guide/dev_autogrow-section-stylistic-fine-tuning

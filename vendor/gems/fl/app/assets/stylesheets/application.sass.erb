@@ -404,6 +404,116 @@ body
           position: 50% 30%
           image: asset_url("bg/start_saving.jpg")
 
+      // Title
+      h1
+        &.title
+          display: block
+          margin:
+            top: 1.5em
+          padding: 0 15%
+          font:
+            weight: 300
+            style: normal
+            size: 40px
+          letter:
+            spacing: .05em
+          line:
+            height: 1.4em
+          text:
+            align: center
+            transform: uppercase
+
+      // Intro
+      .intro
+        display: block
+        background: transparent
+        color: rgba(0,0,0,1)
+        margin:
+          top: 1.5em
+        padding: 0 15%
+        font:
+          weight: 300
+          style: normal
+          size: 40px
+        letter:
+          spacing: .05em
+        line:
+          height: 1.4em
+        text:
+          align: center
+          transform: uppercase
+
+      // General
+      h2
+        display: block
+        padding: 0
+        font:
+          weight: 300
+          style: normal
+          size: 40px
+        letter:
+          spacing: .05em
+        line:
+          height: 1.4em
+        text:
+          transform: uppercase
+
+      p
+        font:
+          weight: 400
+          style: normal
+          size: 18px
+        letter:
+          spacing: .06em
+        line:
+          height: 1.8em
+        text:
+          transform: none
+        color: rgba(29,29,29,.7)
+
+      // Take Action
+      .take_action
+        display: block
+        text:
+          align: center
+        a
+          display: inline-block
+          margin: auto
+          font:
+            size: 2em
+          text:
+            align: center
+            transform: uppercase
+
+      // First
+      .first
+        &:before
+          content: ""
+          display: block
+          float: left
+          width: 500px
+          height: 500px
+          margin:
+            right: 25px
+          background:
+            image: asset_url("bg/about.jpg")
+            repeat: no-repeat
+            size: 100%
+
+      // CTA
+      .cta
+        padding: 17px 0
+        font:
+          weight: 300
+          style: normal
+          size: 40px
+        letter:
+          spacing: .05em
+        line:
+          height: 1.4em
+        text:
+          transform: uppercase
+
     // What
     &.what
 
