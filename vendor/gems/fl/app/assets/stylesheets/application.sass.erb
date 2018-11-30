@@ -462,39 +462,115 @@ body
               width: 100%
               height: 100%
 
-          // Trustpilot
-          .trustpilot
+        // Trustpilot
+        .trustpilot
+          display: block
+          margin: 2em 0
+          padding: 2em 0
+          text:
+            align: center
+          border:
+            top: 1px solid rgba(#ccc,1)
+            bottom: 1px solid rgba(#ccc,1)
+          img
+            diaply: block
+            width: 100%
+          a
+            display: inline-block
+            margin: 1em 0
+            padding: 1em
+            border: 2px solid rgba(0,0,0,1)
+            font:
+              size: 15px
+              weight: 400
+              style: normal
+            text:
+              transform: uppercase
+              decoration: none
+            letter:
+              spacing: .15em
+            color: #000
+            &:hover
+              opacity: 1
+              color: rgba(255,255,255,1)
+              background: rgba(0,0,0,1)
+              text:
+                decoration: none
+
+        // Explained
+        .explained
+          display: block
+          height: 500px
+          margin:
+            top: 2em
+          padding:
+            top: 25%
+            left: 50%
+          background:
+            image: asset_url("bg/aid.jpg")
+            repeat: no-repeat
+            size: cover
+          span
+            color: rgba(255,255,255,1)
+            font:
+              style: normal
+              size: 55px
+              weight: 300
+            letter:
+              spacing: .01em
+            line:
+              height: 1.4em
+            text:
+              transform: none
+          a
             display: block
-            margin: 2em 0
-            padding: 2em 0
+            color: rgba(255,255,255,1)
+            font:
+              size: 1.2em
+            padding:
+              bottom: .05em
+
+        // Overview
+        .overview
+          display: flex
+          justify:
+            content: space-between
+          .main
+            width: 35%
             text:
               align: center
-            border:
-              top: 1px solid rgba(#ccc,1)
-              bottom: 1px solid rgba(#ccc,1)
-            img
-              diaply: block
-            a
-              display: inline-block
-              margin: 1em 0
-              padding: 1em
-              border: 2px solid rgba(0,0,0,1)
+            span
+              display: block
               font:
-                size: 15px
-                weight: 400
+                weight: 300
                 style: normal
-              text:
-                transform: uppercase
-                decoration: none
+                size: 40px
               letter:
-                spacing: .15em
-              color: #000
-              &:hover
-                opacity: 1
-                color: rgba(255,255,255,1)
-                background: rgba(0,0,0,1)
-                text:
-                  decoration: none
+                spacing: .05em
+              line:
+                height: 1.4em
+              text:
+                align: center
+                transform: uppercase
+            a
+              margin: 1.5em auto 0
+              font:
+                size: 1.65em
+          .input
+            flex: 1
+            padding:
+              left: 1em
+            font:
+              weight: 400
+              style: normal
+              size: 18px
+            letter:
+              spacing: .06em
+            line:
+              height: 1.8em
+            text:
+              transform: none
+            color: rgba(29,29,29,.7)
 
           // Secondary
           h2
@@ -516,12 +592,38 @@ body
               a
                 color: rgba(255,0,0,1)
 
-        // Content
-        .content
-          .overview
-
-          .input
-
+        // How
+        .how
+          display: block
+          height: 550px
+          color: rgba(255,255,255,1)
+          padding: 0 5%
+          margin:
+            top: 3.5em
+          background:
+            image: asset_url("bg/start_saving.jpg")
+            repeat: no-repeat
+            size: 100%
+            position: 0
+          span
+            display: block
+            padding:
+              top: 15%
+            font:
+              weight: 300
+              style: normal
+              size: 80px
+            letter:
+              spacing: .01em
+            line:
+              height: 1.4em
+            text:
+              transform: none
+          a
+            display: block
+            color: rgba(255,255,255,1)
+            font:
+              size: 2.25em
 
         // Success
         .success
@@ -533,8 +635,6 @@ body
             width: 33%
             padding:
               bottom: 75px
-            margin:
-              top: 20px
             box:
               sizing: border-box
             h3
@@ -548,8 +648,8 @@ body
                 space: nowrap
               font:
                 size: 120px
-                weight: 300
-                style: normal
+                weight: 400
+                style: bold
               text:
                 align: center
                 overflow: ellipsis

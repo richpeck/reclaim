@@ -162,12 +162,17 @@
         = link_to "Read Our Trustpilot Reviews", "https://uk.trustpilot.com/review/damagereclaim.com", target: :blank
 
     / Content
-    .content
-      .overview
-        SO WHY CHOOSE DAMAGE RECLAIM TO HANDLE YOUR CASE?
-        = link_to "Take Action", application_path("action")
+    .overview
+      .main
+        %span SO WHY CHOOSE DAMAGE RECLAIM TO HANDLE YOUR CASE?
+        = link_to "Take Action", application_path("action"), class: "take_action"
       .input
         = @content.try(:val).try(:html_safe)
+
+    / How It Works
+    .how
+      %span How it works?
+      = link_to "Find out more", application_path("what")
 
     / Success
     .success
@@ -186,6 +191,11 @@
         %div
           %strong <u>Success</u> for claims
           %span By challenging in the right way, we are successfully reducing our clients claims 66% of the time!
+
+    / Explained
+    .explained
+      %span Coming to your aid to ensure fair treatment!
+      = link_to "End of contract jargon explained", application_path("eoc-recharges-explained")
 
     / Simple
     .simple
