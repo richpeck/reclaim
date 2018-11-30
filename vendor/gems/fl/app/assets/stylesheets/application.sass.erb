@@ -74,9 +74,25 @@
   body
     main
       &.index
-        .options
-          flex:
-            diection: column
+        .container
+          .introduction
+            .options
+              flex:
+                direction: column
+              > div
+                width: 100% !important
+              > .input
+                border:
+                  top: 1px solid rgba(#ccc,1)
+                margin:
+                  top: 1.5em
+                padding:
+                  top: 1.5em
+          .overview
+            .main
+              span
+                font:
+                  size: 36px !important
 
 ////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////
@@ -105,6 +121,7 @@ body
   // Use Flexbox :D
   // https://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/
   display: flex
+  display: -webkit-flex
   min:
     height: 100vh
   flex:
@@ -143,6 +160,7 @@ body
         display: -webkit-flex
         align:
           items: center
+        -webkit-align-items: center
         justify:
           content: space-between
 
@@ -240,6 +258,7 @@ body
     // Container
     .container
       display: flex
+      display: -webkit-flex
       padding: 0 2em
       position: relative
       flex:
@@ -633,6 +652,7 @@ body
         // Overview
         .overview
           display: flex
+          display: -webkit-flex
           justify:
             content: space-between
           .main
@@ -695,15 +715,15 @@ body
         // How
         .how
           display: block
-          height: 550px
+          height: auto
           color: rgba(255,255,255,1)
-          padding: 0 5%
+          padding: 150px 5%
           margin:
             top: 3.5em
           background:
             image: asset_url("bg/start_saving.jpg")
             repeat: no-repeat
-            size: 100%
+            size: 150%
             position: 0
           span
             display: block
@@ -728,6 +748,7 @@ body
         // Success
         .success
           display: flex
+          display: -webkit-flex
           justify:
             content: space-between
           > div
@@ -918,6 +939,7 @@ body
         // Used to provide hover functionality etc
         .panels
           display: flex
+          display: -webkit-flex
           margin:
             top: 2em
           flex:
@@ -1483,6 +1505,7 @@ body
     // Container
     > .container
       display: flex
+      display: -webkit-flex
       padding: $padding 0 0
       color: rgba(29,29,29,.3)
       justify:
