@@ -56,8 +56,7 @@ if Object.const_defined?('ActiveAdmin')
             column class:"charts column" do
               panel "📈 Growth" do
                  line_chart [
-                   { name: "Claims", data: Claim.group_by_day(:created_at).count }
-                   #{ name: "Users",  data: User.group_by_day(:created_at).count }
+                   { name: "Claims", data: Claim.where(type: nil).group_by_day(:created_at).count }
                  ], class: "Chart"
               end
             end

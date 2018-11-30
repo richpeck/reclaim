@@ -46,7 +46,21 @@
                 = image_tag (item.featured_image.attached? ? item.featured_image : "https://via.placeholder.com/350"), class: "featured", "nopin" => "true"
                 = content_tag :h3, item.ref, class: "title"
                 = content_tag :div, truncate_html(strip_tags(item.value), length: 350, separator: ' ',  omission: '…').html_safe, class: "content"
-                = content_tag :div, "Read More ", class: "button"
+                = content_tag :div, "Read More →", class: "button"
+
+      - if params[:id].to_sym == :faq
+
+        / CTA
+        .cta
+
+          .intro
+            %span We're Open 24/7 - Call Us Free On
+            %span= Rails.application.credentials[Rails.env.to_sym][:company][:phone]
+
+          .sting
+            %strong TAKE THE STING OUT OF END OF CONTRACT CHARGES
+            %span Our team of experts are here to help!
+            = link_to "Take Action", application_path("action")
 
   - when :claims
 
@@ -170,13 +184,28 @@
           %strong <u>Success</u> for claims
           %span By challenging in the right way, we are successfully reducing our clients claims 66% of the time!
 
+  - when :about
+
+    / Content
+    = @content.try(:val).try(:html_safe)
+
+    / CTA
+    .cta
+      %span WE’LL REDUCE YOUR END OF CONTRACT DAMAGE BILL – OR YOU WON’T BE CHARGED A PENNY.
+      %span WE'RE OPEN 24/7 - CALL US FREE ON 0808 164 0282
+
+  - when :action
+
+    / Content
+    = @content.try(:val).try(:html_safe)
+
+    / CTA
+    .cta
+      = content_tag :strong, "WE’LL <a href=\"#{application_path('claims')}\">REDUCE YOUR END OF CONTRACT DAMAGE BILL</a> –<br /> OR YOU WON’T BE CHARGED A PENNY.".html_safe
+      = content_tag :span, "WE'RE OPEN 24/7 - CALL US FREE ON #{link_to Rails.application.credentials[Rails.env.to_sym][:company][:phone], Rails.application.credentials[Rails.env.to_sym][:company][:phone]}".html_safe
+
   - else
     = @content.try(:val).try(:html_safe)
 
 - ########################################################
 - ########################################################
-
-/ CTA
-.cta
-  = content_tag :strong, "WE’LL <a href=\"#{application_path('claims')}\">REDUCE YOUR END OF CONTRACT DAMAGE BILL</a> –<br /> OR YOU WON’T BE CHARGED A PENNY.".html_safe
-  = content_tag :span, "WE'RE OPEN 24/7 - CALL US FREE ON #{link_to Rails.application.credentials[Rails.env.to_sym][:company][:phone], Rails.application.credentials[Rails.env.to_sym][:company][:phone]}".html_safe

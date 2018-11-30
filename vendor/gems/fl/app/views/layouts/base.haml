@@ -33,9 +33,7 @@
 
     / Main
     %main{ class: params[:id].try(:to_s) || "index" }
-      .container
-        .height
-          = yield
+      .container= yield
 
     / Footer
     %footer= render "layout/footer"
