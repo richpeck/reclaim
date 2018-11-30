@@ -70,13 +70,13 @@
 ////////////////////////////////
 ////////////////////////////////
 
-@media (max-width: 730px)
+@media (max-width: 850px)
   body
     main
       &.index
-        .success
-          margin:
-            bottom: 35px
+        .options
+          flex:
+            diection: column
 
 ////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////
@@ -140,15 +140,20 @@ body
       // Container
       .container
         display: flex
+        display: -webkit-flex
         align:
           items: center
         justify:
           content: space-between
 
+        &:after
+          content: ""
+          display: block
+          clear: both
+
         // Logo
         .logo
           width: auto
-          float: left
           text:
             align: center
           vertical:
@@ -431,8 +436,11 @@ body
           // Table
           .options
             display: flex
+            display: -webkit-flex
             justify:
               content: space-between
+            align:
+              items: flex-start
 
             // Input
             > .input
@@ -555,8 +563,10 @@ body
         // Trustpilot
         .trustpilot
           display: block
-          margin: 2em 0
+          margin: 2em auto
           padding: 2em 0
+          max:
+            width: 850px
           text:
             align: center
           border:
