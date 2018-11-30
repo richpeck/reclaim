@@ -74,9 +74,9 @@
   body
     main
       &.index
-        .container
-          .introduction
-            .options
+        > .container
+          > .introduction
+            > .options
               flex:
                 direction: column
               > div
@@ -88,11 +88,25 @@
                   top: 1.5em
                 padding:
                   top: 1.5em
-          .overview
-            .main
+          > .overview
+            align:
+              items: center
+            > .main
               span
                 font:
-                  size: 36px !important
+                  size: 32px !important
+
+////////////////////////////////
+////////////////////////////////
+
+@media (max-width: 750px)
+body
+  footer
+    > .container
+        flex:
+          direction: column
+        text:
+          align: center
 
 ////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////
