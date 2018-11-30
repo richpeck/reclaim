@@ -150,21 +150,24 @@
 
     / Intro
     .introduction
-      %h1
-        Hit by unfair and excessive end of contract fees from your car rental company or leasing provider? You’re not alone.
+      %h1 Have you been hit by unfair and excessive end of contract fees from your car rental company or leasing provider? You’re not alone.
 
       / YouTube
       .youtube-embed
         %iframe{ allowFullScreen: "allowFullScreen", src: "https://www.youtube.com/embed/NfxTC_Egut8?ecver=1&amp;iv_load_policy=3&amp;yt:stretch=16:9&amp;autohide=1&amp;color=red&amp;width=560&amp;width=560", width: "560", height: "315", allowtransparency: "true", frameborder: "0"}
 
-      / Secondary
-      %h2.first
-        Hire car excess charges are often hefty and (in *<u>MOST</u>* cases) <u>unjustified</u>...
-      %h2
-        If you don't feel that the charges are fair, please <a href="/contact">get in touch</a>, we'll be happy to take a look at your case. Our experts will assess your case to determine whether we can help reduce your bill - if we can't, we won't charge a thing.
+      / Trustpilot
+      .trustpilot
+        = image_tag "trustpilot.png"
+        = link_to "Read Our Trustpilot Reviews", "https://uk.trustpilot.com/review/damagereclaim.com", target: :blank
 
     / Content
-    = @content.try(:val).try(:html_safe)
+    .content
+      .overview
+        SO WHY CHOOSE DAMAGE RECLAIM TO HANDLE YOUR CASE?
+        = link_to "Take Action", application_path("action")
+      .input
+        = @content.try(:val).try(:html_safe)
 
     / Success
     .success
@@ -174,7 +177,7 @@
           %strong Bills reduced by <u>54%</u>
           %span On average we've been reducing damage recharge invoices by 54% and at at times we've reduced them in full to zero!
       .repair
-        %h3 £335+
+        %h3 £335
         %div
           %strong <u>Saved</u> for clients
           %span The average saving to our client is £355.  Our largest success to date is £1,015.  Imagine having that money back in your pocket?
@@ -183,6 +186,22 @@
         %div
           %strong <u>Success</u> for claims
           %span By challenging in the right way, we are successfully reducing our clients claims 66% of the time!
+
+    / Simple
+    .simple
+      %h3
+        IN 4 SIMPLE STEPS DAMAGE RECLAIM CAN START YOUR CLAIM AND PUT MONEY BACK IN YOUR POCKET!
+      = image_tag "4_step.jpg"
+      = link_to "Take Action", application_path("action"), class: "take_action"
+      .testimonial
+        %blockquote Replied promptly and communicated politely with the rental company. My £900 repair bill for a dent on the bumper was reduced by £300. Their terms were clear and well articulated, no surprises.
+        %figcaption ELEANOR BRUG
+
+    / CTA
+    .cta
+      %span WHAT ARE YOU WAITING FOR? IF WE DON'T SAVE YOU MONEY, WE WON'T CHARGE YOU A PENNY!
+      %span BUT WE WILL SAVE YOU MONEY.
+      = link_to "Take Action", application_path("action"), class: "take_action"
 
   - when :about
 
