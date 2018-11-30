@@ -75,9 +75,7 @@
     footer
       > .container
         padding: 0.5em 0
-        -webkit-flex-direction: column
-        flex:
-          direction: column
+        @include flex-direction(column)
         text:
           align: center
         > div
@@ -94,9 +92,7 @@
         > .container
           > .introduction
             > .options
-              -webkit-flex-direction: column
-              flex:
-                direction: column
+              @include flex-direction(column)
               > div
                 width: 100% !important
               > .input
@@ -140,13 +136,10 @@ body
   // Sticky Footer
   // Use Flexbox
   // https://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/
-  display: flex
-  display: -webkit-flex
-  -webkit-flex-direction: column
+  @include flexbox()
+  @include flex-direction(column)
   min:
     height: 100vh
-  flex:
-    direction: column
 
   ////////////////////////////////
   ////////////////////////////////
@@ -177,13 +170,9 @@ body
 
       // Container
       .container
-        display: flex
-        display: -webkit-flex
-        align:
-          items: center
-        -webkit-align-items: center
-        justify:
-          content: space-between
+        @include flexbox()
+        @include align-items(center)
+        @include justify-content(space-between)
 
         &:after
           content: ""
@@ -256,7 +245,7 @@ body
 
     // Sticky Footer
     // https://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/
-    flex: 1
+    @include flex(1)
 
     // Links
     a
@@ -277,19 +266,16 @@ body
 
     // Container
     .container
-      display: flex
-      display: -webkit-flex
+      @include flexbox()
+      @include flex-direction(column)
       padding: 0 2em
       position: relative
-      -webkit-flex-direction: column
-      flex:
-        direction: column
 
       // Height
       // This is a hack but was needed to maintain 100% height for <main>
       // I'd love to change it, but will have to do for now
       .height
-        flex: 1
+        @include flex(1)
         padding:
           top: 25px
 
@@ -475,12 +461,9 @@ body
 
           // Table
           .options
-            display: flex
-            display: -webkit-flex
-            justify:
-              content: space-between
-            align:
-              items: flex-start
+            @include flexbox()
+            @include justify-content(space-between)
+            @include align-items(flex-start)
 
             // Input
             > .input
@@ -672,10 +655,8 @@ body
 
         // Overview
         .overview
-          display: flex
-          display: -webkit-flex
-          justify:
-            content: space-between
+          @include flexbox()
+          @include justify-content(space-between)
           .main
             width: 35%
             text:
@@ -698,7 +679,7 @@ body
               font:
                 size: 1.65em
           .input
-            flex: 1
+            @include flex(1)
             padding:
               left: 1em
             font:
@@ -768,10 +749,8 @@ body
 
         // Success
         .success
-          display: flex
-          display: -webkit-flex
-          justify:
-            content: space-between
+          @include flexbox()
+          @include justify-content(space-between)
           > div
             position: relative
             width: 33%
@@ -960,19 +939,14 @@ body
         // Panels
         // Used to provide hover functionality etc
         .panels
-          display: flex
-          display: -webkit-flex
-          -webkit-flex-direction: row
+          @include flexbox()
+          @include flex-wrap(wrap)
+          @include flex-direction(row)
           margin:
             top: 2em
-          flex:
-            wrap: wrap
-            direction: row
-          justify:
-            content: space-between
-          align:
-            items:   stretch
-            content: space-between
+          @include justify-content(space-between)
+          @include align-items(stretch)
+          @include align-content(space-between)
 
           // Hover
           &:hover
@@ -1532,12 +1506,10 @@ body
 
     // Container
     > .container
-      display: flex
-      display: -webkit-flex
+      @include flexbox()
+      @include justify-content(space-between)
       padding: $padding 0 0
       color: rgba(29,29,29,.3)
-      justify:
-        content: space-between
       font:
         size: 18px
       box:
