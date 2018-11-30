@@ -111,7 +111,7 @@ if Object.const_defined?('ActiveAdmin')
                 else
                   table_for Meta::Page.all.order(created_at: :desc).limit(10), class: "dashboard pages" do
                     column(:id)     { |page| page.id }
-                    column(:ref)    { |page| page.ref }
+                    column(:ref)    { |page| link_to page.ref, edit_admin_page_path(page) }
                     column(:val)    { |page| truncate(strip_tags(page.val), length: 350, separator: ' ',  omission: '...') }
                   end
 
@@ -135,7 +135,7 @@ if Object.const_defined?('ActiveAdmin')
                   table_for User.all.order(created_at: :desc).limit(10), class: "dashboard users" do
                     column(:id)         { |user| user.id }
                     column(:name)       { |user| user.name }
-                    column(:email)      { |user| user.email }
+                    column(:email)      { |user| link_to user.email, edit_admin_user_path(user) }
                     column(:created_at) { |user| user.created_at }
                     column(:updated_at) { |user| user.updated_at }
                   end
