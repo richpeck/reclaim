@@ -35,7 +35,7 @@
 ////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////
 
-@media (max-width: 1125px)
+@media screen and (max-width: 1125px)
   main
     .container
       padding:
@@ -48,7 +48,7 @@
 ////////////////////////////////
 ////////////////////////////////
 
-@media (max-width: 1080px)
+@media screen and (max-width: 1080px)
   main
     .formtastic
       label
@@ -69,6 +69,48 @@
 
 ////////////////////////////////
 ////////////////////////////////
+
+@media screen and (max-width: 950px)
+  body
+    footer
+      > .container
+          padding: 0.5em 0
+          flex:
+            direction: column
+          text:
+            align: center
+          > div
+            margin:
+              bottom: 1.5em
+
+////////////////////////////////
+////////////////////////////////
+
+@media screen and (max-width: 850px)
+  body
+    main
+      &.index
+        > .container
+          > .introduction
+            > .options
+              flex:
+                direction: column
+              > div
+                width: 100% !important
+              > .input
+                border:
+                  top: 1px solid rgba(#ccc,1)
+                margin:
+                  top: 1.5em
+                padding:
+                  top: 1.5em
+          > .overview
+            align:
+              items: center
+            > .main
+              span
+                font:
+                  size: 32px !important
 
 ////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////
@@ -837,10 +879,11 @@ body
         // CTA
         .cta
           border: 0
-          height: 650px
           display: table-cell
           padding: 5% 20%
           color: rgba(255,255,255,1)
+          margin:
+            bottom: 0
           background:
             image: asset_url("bg/cta.jpg")
             repeat: no-repeat
