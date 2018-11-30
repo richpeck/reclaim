@@ -166,6 +166,7 @@ body
       .container
         @include flexbox()
         @include align-items(center)
+        @include flex-direction(row)
         @include justify-content(space-between)
 
         // Logo
@@ -637,6 +638,7 @@ body
         // Overview
         .overview
           @include flexbox()
+          @include flex-direction(row)
           @include justify-content(space-between)
           .main
             width: 35%
@@ -731,6 +733,7 @@ body
         // Success
         .success
           @include flexbox()
+          @include flex-direction(row)
           @include justify-content(space-between)
           > div
             position: relative
@@ -1488,6 +1491,7 @@ body
     // Container
     > .container
       @include flexbox()
+      @include flex-direction(row)
       @include justify-content(space-between)
       padding: $padding 0 0
       color: rgba(29,29,29,.3)
