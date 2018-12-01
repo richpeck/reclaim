@@ -251,6 +251,16 @@
       %h4 We'll Ensure A Fair Outcome When You Return Your Vehicle.
       .take_action= link_to "Take Action", application_path("action"), class: "take_action"
 
+  - when :action
+
+    / Content
+    = @content.try(:val).try(:html_safe)
+
+    // CTA
+    .cta
+      = link_to "Start Your Claim", "#", class: "take_action"
+      %h2 WE'RE OPEN 24/7 - CALL US FREE ON 0808 164 0282
+
   - when :about
 
     / Content
