@@ -108,8 +108,8 @@ CKEDITOR.editorConfig = (config) ->
   config.title = false
 
   # HTML5 Tags
-  config.allowedContent = true
-  #config.extraAllowedContent = 'section article header nav aside[lang,foo] div(*) p(*) figure caption figcaption blockquote'
+  config.allowedContent = true # => this allows all styling etc (which I guess is okay), but we need more granular support from extraAllowedContent
+  #config.extraAllowedContent = 'section article header nav aside[lang,foo] div(*) p(*) figure caption figcaption blockquote' # => this doesn't work at present (https://github.com/galetahub/ckeditor/issues/824)
 
   # Plugins
   config.removePlugins = "forms"

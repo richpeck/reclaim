@@ -393,6 +393,10 @@ body
     // Rates
     &.rates
 
+      // Container
+      .container
+        padding: 0 15%
+
       // Main Image
       &:before
         content: ""
@@ -408,7 +412,7 @@ body
       .pre-cta
         display: block
         content: "WE'RE OPEN 24/7 - CALL US FREE ON 0808 164 0282"
-        margin: 1.5em auto
+        margin: 0.5em auto
         font:
           weight: 300
           style: normal
@@ -446,8 +450,103 @@ body
           line:
             height: 1.8em
           text:
+            align: center
             transform: none
           color: rgba(29,29,29,.7)
+
+      // Quote
+      figure
+        display: block
+        color: rgba(29,29,29,.7)
+        margin: 1em 0
+        blockquote
+          display: block
+          font:
+            weight: 300
+            style: normal
+            size: 36px
+          letter:
+            spacing: 0em
+          line:
+            height: 1.6em
+          text:
+            transform: none
+          &:before ,
+          &:after
+            content: '"'
+        figcaption
+          display: block
+          font:
+            weight: 400
+            style: normal
+            size: 12px
+          letter:
+            spacing: .15em
+          line:
+            height: 4em
+          text:
+            transform: uppercase
+
+      // Take Action
+      .take_action
+        margin: 1em 0
+        text:
+          align: center
+        a
+          font:
+            size: 2em
+
+      // Subtitle
+      .subtitle
+        display: block
+        margin: 1.5em 0
+        color: rgba(29,29,29,.7)
+        font:
+          weight: 300
+          style: normal
+          size: 40px
+        letter:
+          spacing: .05em
+        line:
+          height: 1.4em
+        text:
+          align: center
+          transform: uppercase
+
+      // H2
+      h2
+        color: rgba(29,29,29,.7)
+        display: block
+        margin: 0.5em 0
+        font:
+          weight: 300
+          style: normal
+          size: 40px
+        letter:
+          spacing: .05em
+        line:
+          height: 1.4em
+        text:
+          transform: uppercase
+
+      // P
+      p
+        display: block
+        margin: 0.25em 0
+        font:
+          weight: 400
+          style: normal
+          size: 18px
+        letter:
+          spacing: .06em
+        line:
+          height: 1.8em
+        text:
+          transform: none
+        color: rgba(29,29,29,.7)
+        a
+          color: #36b3a8
+
 
     // About
     &.about
