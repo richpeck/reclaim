@@ -1114,12 +1114,15 @@ body
         // Overview
         .overview
           display: flex
+          width: 100%
           flex:
             direction: row
           justify:
             content: space-between
           .main
             display: inline-block
+            flex:
+              grow: 1
             width: 35%
             text:
               align: center
@@ -1141,7 +1144,8 @@ body
               font:
                 size: 1.65em
           .input
-            flex: 1
+            flex:
+              grow: 2
             display: inline-block
             padding:
               left: 1em
