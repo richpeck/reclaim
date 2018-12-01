@@ -467,6 +467,54 @@ body
           align: center
           transform: uppercase
 
+      // CTA
+      .cta
+        display: table-cell
+        padding: 0 15%
+        color: rgba(255,255,255,1)
+        height: 850px
+        vertical:
+          align: middle
+        background:
+          image: asset_url("bg/rates2.jpg")
+          repeat: no-repeat
+          size: cover
+        > *
+          display: block
+        h2
+          font:
+            size: 4em
+            weight: 300
+            style: normal
+          letter:
+            spacing: 0.02em
+          line:
+            height: 1em
+        h4
+          display: block
+          font:
+            size: 1.15em
+            weight: 300
+            style: normal
+        a
+          display: inline-block
+          padding: 1em 1.5em
+          margin:  2em 0 0
+          color: rgba(255,255,255,1)
+          background: rgba(#36b3a8,1)
+          border: 2px solid rgba(255,255,255,1)
+          font:
+            weight: 300
+            style: normal
+            size: 14px
+          letter:
+            spacing: .1em
+          line:
+            height: 1.1em
+          text:
+            transform: uppercase
+            decoration: none
+
     // Rates
     &.rates
 
@@ -500,17 +548,6 @@ body
         text:
           align: center
           transform: uppercase
-
-      // CTA
-      .cta
-        display: block
-        padding: 2.5em 0
-        border:
-          top: 1px solid rgba(#ccc,1)
-          bottom: 1px solid rgba(#ccc, 1)
-        img
-          display: block
-          width: 100%
 
       // Title
       h1
