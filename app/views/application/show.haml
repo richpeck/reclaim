@@ -240,6 +240,17 @@
     .cta
       = image_tag "4_step.jpg"
 
+  - when :individual
+
+    / Content
+    = @content.try(:val).try(:html_safe)
+
+    / CTA
+    .cta
+      %h2 Treated Like A Child By Your Finance Or Leainge Provider?
+      %h4 We'll Ensure A Fair Outcome When You Return Your Vehicle.
+      .take_action= link_to "Take Action", application_path("action"), class: "take_action"
+
   - when :about
 
     / Content

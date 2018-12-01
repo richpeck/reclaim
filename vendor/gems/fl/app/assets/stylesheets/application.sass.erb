@@ -390,6 +390,83 @@ body
             vertical:
               align: middle
 
+
+    // Individual
+    &.individual
+
+      // Container
+      .container
+        padding: 0 15%
+
+      // Main Image
+      &:before
+        content: ""
+        display: block
+        height: 450px
+        background:
+          repeat: no-repeat
+          size: 100%
+          position: 50% 30%
+          image: asset_url("bg/individual.jpg")
+
+      // Take Action
+      .take_action
+        margin: 1em 0
+        text:
+          align: center
+        a
+          font:
+            size: 2em
+
+      // H2
+      h2
+        color: #1d1d1d
+        display: block
+        margin: 0.5em 0
+        font:
+          weight: 300
+          style: normal
+          size: 40px
+        letter:
+          spacing: .05em
+        line:
+          height: 1.4em
+        text:
+          transform: uppercase
+
+      // P
+      p
+        display: block
+        margin: 0.25em 0
+        font:
+          weight: 400
+          style: normal
+          size: 18px
+        letter:
+          spacing: .06em
+        line:
+          height: 1.8em
+        text:
+          transform: none
+        color: rgba(29,29,29,.7)
+        a
+          color: #36b3a8
+
+      // Pre-CTA
+      .pre-cta
+        display: block
+        font:
+          weight: 300
+          style: normal
+          size: 40px
+        letter:
+          spacing: .05em
+        line:
+          height: 1.4em
+        text:
+          align: center
+          transform: uppercase
+
     // Rates
     &.rates
 
@@ -411,7 +488,6 @@ body
       // Pre-CTA
       .pre-cta
         display: block
-        content: "WE'RE OPEN 24/7 - CALL US FREE ON 0808 164 0282"
         margin: 0.5em auto
         font:
           weight: 300
@@ -493,6 +569,7 @@ body
         text:
           align: center
         a
+          display: inline-block
           font:
             size: 2em
 
