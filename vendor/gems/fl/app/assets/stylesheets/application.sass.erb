@@ -77,7 +77,8 @@
         > .container
           > .introduction
             > .options
-              @include flex-direction(column)
+              flex:
+                direction: column
               > div
                 width: 100% !important
               > .input
@@ -97,7 +98,8 @@
     footer
       > .container
         padding: 0.5em 0
-        @include flex-direction(column)
+        flex:
+          direction: column
         text:
           align: center
         > div
@@ -130,8 +132,9 @@ body
   // Sticky Footer
   // Use Flexbox
   // https://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/
-  @include flexbox()
-  @include flex-direction(column)
+  display: flex
+  flex:
+    direction: column
   min:
     height: 100vh
 
@@ -164,15 +167,17 @@ body
 
       // Container
       .container
-        @include flexbox()
-        @include flex-wrap(wrap)
-        @include align-items(center)
-        @include flex-direction(row)
-        @include justify-content(space-between)
+        display: flex
+        flex:
+          wrap: wrap
+          direction: row
+        align:
+          items: center
+        justify:
+          content: space-between
 
         // Logo
         .logo
-          width: 150px
           a
             display: inline-block
             margin: 2em 0
@@ -226,7 +231,7 @@ body
 
     // Sticky Footer
     // https://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/
-    @include flex(1)
+    flex: 1
 
     // Links
     a
@@ -246,19 +251,10 @@ body
       margin: 1em 0
 
     // Container
+    // This used to be 100% height but used the following to get it working for client
     .container
-      @include flexbox()
-      @include flex-direction(column)
       padding: 0 2em
       position: relative
-
-      // Height
-      // This is a hack but was needed to maintain 100% height for <main>
-      // I'd love to change it, but will have to do for now
-      .height
-        @include flex(1)
-        padding:
-          top: 25px
 
       // CTA
       // This is where the user is given direct action etc
@@ -287,11 +283,7 @@ body
       // Exception
       .exception
         display: block
-        padding: 150px 0 0
-        position: absolute
-        top: 50%
-        left: 50%
-        transform: translateX(-50%) translateY(-50%)
+        padding: 10% 0 0
         font:
           size: 1.75em
           weight: bold
@@ -561,6 +553,56 @@ body
         border: 0
         margin: 0
         padding: 0
+
+    // Business
+    &.business
+
+      // Main Image
+      &:before
+        content: ""
+        display: block
+        height: 450px
+        background:
+          repeat: no-repeat
+          size: 100%
+          position: 50% 30%
+          image: asset_url("bg/business.jpg")
+
+      // Container
+      .container
+        padding: 5% 15% 0
+
+      // Title
+      h2
+        display: block
+        color: rgba(#1d1d1d, 1)
+        margin:
+          bottom: 0.5em
+        font:
+          weight: 300
+          style: normal
+          size: 40px
+        letter:
+          spacing: .05em
+        line:
+          height: 1.4em
+        text:
+          transform: uppercase
+
+      // Paragraph
+      p
+        display: block
+        font:
+          weight: 400
+          style: normal
+          size: 18px
+        letter:
+          spacing: .06em
+        line:
+          height: 1.8em
+        text:
+          transform: none
+        color: rgba(29,29,29,.7)
 
     // Rates
     &.rates
@@ -875,9 +917,11 @@ body
 
           // Table
           .options
-            @include flexbox()
-            @include justify-content(space-between)
-            @include align-items(flex-start)
+            display: flex
+            justify:
+              content: space-between
+            align:
+              items: flex-start
 
             // Input
             > .input
@@ -1069,9 +1113,11 @@ body
 
         // Overview
         .overview
-          @include flexbox()
-          @include flex-direction(row)
-          @include justify-content(space-between)
+          display: flex
+          flex:
+            direction: row
+          justify:
+            content: space-between
           .main
             width: 35%
             text:
@@ -1094,7 +1140,7 @@ body
               font:
                 size: 1.65em
           .input
-            @include flex(1)
+            flex: 1
             padding:
               left: 1em
             font:
@@ -1164,9 +1210,11 @@ body
 
         // Success
         .success
-          @include flexbox()
-          @include flex-direction(row)
-          @include justify-content(space-between)
+          display: flex
+          flex:
+            direction: row
+          justify:
+            content: space-between
           > div
             position: relative
             width: 33%
@@ -1355,14 +1403,17 @@ body
         // Panels
         // Used to provide hover functionality etc
         .panels
-          @include flexbox()
-          @include flex-wrap(wrap)
-          @include flex-direction(row)
+          display: flex
+          flex:
+            wrap: wrap
+            direction: row
           margin:
             top: 2em
-          @include justify-content(space-between)
-          @include align-items(stretch)
-          @include align-content(space-between)
+          justify:
+            content: space-between
+          align:
+            items: stretch
+            content: space-between
 
           // Hover
           &:hover
@@ -1922,9 +1973,9 @@ body
 
     // Container
     > .container
-      @include flexbox()
-      @include flex-direction(row)
-      @include justify-content(space-between)
+      display: flex
+      justify:
+        content: space-between
       padding: $padding 0 0
       color: rgba(29,29,29,.3)
       font:
