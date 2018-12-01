@@ -319,7 +319,8 @@ body
   // Forms
   input:not([type='submit']):not([type='checkbox']),
   textarea
-    width: calc(80%) !important
+    &:not(.cke_source)
+      width: calc(80%) !important
 
   form
     select,

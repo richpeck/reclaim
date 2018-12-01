@@ -390,6 +390,65 @@ body
             vertical:
               align: middle
 
+    // Rates
+    &.rates
+
+      // Main Image
+      &:before
+        content: ""
+        display: block
+        height: 450px
+        background:
+          repeat: no-repeat
+          size: 100%
+          position: 50% 30%
+          image: asset_url("bg/rates.jpg")
+
+      // Pre-CTA
+      .pre-cta
+        display: block
+        content: "WE'RE OPEN 24/7 - CALL US FREE ON 0808 164 0282"
+        margin: 1.5em auto
+        font:
+          weight: 300
+          style: normal
+          size: 40px
+        letter:
+          spacing: .05em
+        line:
+          height: 1.4em
+        text:
+          align: center
+          transform: uppercase
+
+      // CTA
+      .cta
+        display: block
+        padding: 2.5em 0
+        border:
+          top: 1px solid rgba(#ccc,1)
+          bottom: 1px solid rgba(#ccc, 1)
+        img
+          display: block
+          width: 100%
+
+      // Title
+      h1
+        &.title
+          display: block
+          margin:  2.5em 0
+          font:
+            weight: 400
+            style: normal
+            size: 18px
+          letter:
+            spacing: .06em
+          line:
+            height: 1.8em
+          text:
+            transform: none
+          color: rgba(29,29,29,.7)
+
     // About
     &.about
 

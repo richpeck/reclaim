@@ -108,7 +108,8 @@ CKEDITOR.editorConfig = (config) ->
   config.title = false
 
   # HTML5 Tags
-  config.allowedContent = 'section article header nav aside[lang,foo] div(*) p(*)'
+  config.allowedContent = true
+  #config.extraAllowedContent = 'section article header nav aside[lang,foo] div(*) p(*) figure caption figcaption blockquote'
 
   # Plugins
   config.removePlugins = "forms"
