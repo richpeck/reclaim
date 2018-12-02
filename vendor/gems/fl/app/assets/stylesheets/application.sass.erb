@@ -87,7 +87,8 @@
                 margin:
                   top: 1.5em
                 padding:
-                  top: 1.5em
+                  top: 2.5em
+                  left: 0 !important
           > .overview
             align:
               items: center
@@ -105,6 +106,26 @@
         > div
           margin:
             bottom: 1.5em
+
+////////////////////////////////
+////////////////////////////////
+
+@media screen and (max-width: 740px)
+body
+  main
+    &.index
+      .container
+        .overview
+          flex:
+            direction: column
+          > div
+            width: 100% !important
+          .input
+            margin:
+              top: 1.5em
+        .how
+          margin:
+            top: 0 !important
 
 ////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////
@@ -1123,6 +1144,8 @@ body
         // Overview
         .overview
           display: flex
+          align:
+            items: center
           justify:
             content: space-between
           .main
