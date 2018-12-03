@@ -106,6 +106,8 @@
             align:
               items: center
             > .main
+              margin:
+                right: 0 !important
               span
                 font:
                   size: 32px !important
@@ -902,21 +904,6 @@ body
           text:
             align: center
             transform: uppercase
-
-      // First
-      .first
-        &:before
-          content: ""
-          display: block
-          float: left
-          width: 500px
-          height: 500px
-          margin:
-            right: 25px
-          background:
-            image: asset_url("bg/about.jpg")
-            repeat: no-repeat
-            size: 100%
 
       // CTA
       .cta
