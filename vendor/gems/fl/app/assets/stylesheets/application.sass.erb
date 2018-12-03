@@ -209,11 +209,18 @@ body
     // Container
     .container
       display: flex
-      height:  150px
+      flex: 1
       align:
         items: center
       justify:
         content: space-between
+
+      // General
+      > div
+        flex:
+          grow: 1
+          shrink: 0
+          basis: auto
 
       // Logo
       .logo
@@ -231,8 +238,8 @@ body
             opacity: 1
           img
             display: block
-            height: 140px
             width: 140px
+            margin: 2em 0
 
       // Links
       .links
