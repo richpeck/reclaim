@@ -212,12 +212,15 @@ body
     .container
       display: table
 
-      // Logo
-      .logo
+      // Div
+      > div
         display: table-cell
-        width: 140px
         vertical:
           align: middle
+
+      // Logo
+      .logo
+        width: 140px
         box:
           sizing: border-box
         a
@@ -232,10 +235,9 @@ body
 
       // Links
       .links
-        display: table-cell
         overflow: hidden
-        vertical:
-          align: middle
+        white:
+          space: nowrap
         font:
           size: 1.25em
         text:
