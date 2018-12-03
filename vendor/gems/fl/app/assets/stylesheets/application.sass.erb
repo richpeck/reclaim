@@ -210,6 +210,8 @@ body
     .container
       display: flex
       background: red
+      min:
+        height: 140px
       flex:
         basis: 0
       align:
@@ -217,17 +219,14 @@ body
       justify:
         content: space-between
 
-      // General
-      > div
-        flex:
-          grow: 1
-          shrink: 0
-          basis: 0
-
       // Logo
       .logo
         display: inline-block
         width:  140px
+        flex:
+          grow: 0
+          shrink: 1
+          basis: auto
         box:
           sizing: border-box
         a
@@ -247,6 +246,10 @@ body
         display: inline-block
         width: 70%
         overflow: hidden
+        flex:
+          grow: 1
+          shrink: 1
+          basis: auto
         white:
           space: nowrap
         font:
