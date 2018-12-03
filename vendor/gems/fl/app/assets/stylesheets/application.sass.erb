@@ -190,7 +190,10 @@ body
   // Styling
   .container
     display:    block
-
+    width:      $container
+    margin:     auto
+    max:
+      width:    1800px
     box:
       sizing:   border-box
 
@@ -205,16 +208,14 @@ body
 
     // Container
     .container
-      display: flex
-      align:
-        items: center
-      justify:
-        content: space-between
+      display: table
 
       // Logo
       .logo
-        display: inline-block
+        display: table-cell
         width: 140px
+        vertical:
+          align: middle
         box:
           sizing: border-box
         a
@@ -229,15 +230,10 @@ body
 
       // Links
       .links
-        display: inline-block
+        display: table-cell
         overflow: hidden
-        width: 70%
-        flex:
-          grow: 1
-          shrink: 1
-          basis: auto
-        white:
-          space: nowrap
+        vertical:
+          align: middle
         font:
           size: 1.25em
         text:
