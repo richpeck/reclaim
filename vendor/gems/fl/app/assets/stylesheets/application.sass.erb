@@ -289,8 +289,6 @@ body
     // https://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/
     // https://codepen.io/sulfurious/pen/eWPBjY?editors=1100
     flex: 1
-    box:
-      sizing: border-box
 
     // Links
     a
@@ -313,6 +311,8 @@ body
     // This used to be 100% height but used the following to get it working for client
     .container
       position: relative
+      overflow:
+        x: hidden
 
       // CTA
       // This is where the user is given direct action etc
