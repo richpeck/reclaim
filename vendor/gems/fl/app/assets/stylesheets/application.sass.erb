@@ -35,12 +35,25 @@
 ////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////
 
+@media screen and (max-width: 1450px)
+  body
+    main
+      &.index
+        > .container
+          > .introduction
+            h1
+              padding: 0 !important
+
+////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+
 @media screen and (max-width: 1125px)
-  main
-    &.news
-      .panels
-        .panel
-          width: 33% !important
+  body
+    main
+      &.news
+        .panels
+          .panel
+            width: 33% !important
 
 ////////////////////////////////
 ////////////////////////////////
@@ -72,6 +85,9 @@
     main
       &.index
         > .container
+          > .explained
+            padding:
+              left: 4% !important
           > .introduction
             > .options
               flex:
@@ -126,8 +142,15 @@
               margin:
                 top: 1.5em
           .how
+            padding: 65px 15px !important
             margin:
               top: 0 !important
+          .success
+            flex:
+              direction: column !important
+            > div
+              display: block !important
+              width: 100% !important
 
 ////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////
