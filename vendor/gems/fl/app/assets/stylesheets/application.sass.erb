@@ -209,7 +209,9 @@ body
     // Container
     .container
       display: flex
-      flex: 1
+      background: red
+      flex:
+        basis: 0
       align:
         items: center
       justify:
@@ -220,17 +222,17 @@ body
         flex:
           grow: 1
           shrink: 0
-          basis: auto
+          basis: 0
 
       // Logo
       .logo
         display: inline-block
-        width:  28%
+        width:  140px
         box:
           sizing: border-box
         a
           display: block
-          margin: 0
+          margin: 2em 0
           padding: 0
           box:
             sizing: border-box
@@ -239,7 +241,6 @@ body
           img
             display: block
             width: 140px
-            margin: 2em 0
 
       // Links
       .links
