@@ -205,13 +205,13 @@ body
     display: block
     color: rgba(255,255,255,1)
     background: rgba(29,29,29,1)
+    min:
+      height: 140px
 
     // Container
     .container
       display: flex
       background: red
-      min:
-        height: 140px
       flex:
         basis: 0
       align:
@@ -222,11 +222,10 @@ body
       // Logo
       .logo
         display: inline-block
-        width:  140px
         flex:
           grow: 0
           shrink: 1
-          basis: auto
+          basis: 140px
         box:
           sizing: border-box
         a
