@@ -6,16 +6,13 @@
 - ########################################################
 - ########################################################
 
-/ Navigation
-%nav
+/ Container
+.container
 
-  / Container
-  .container
+  / Logo
+  .logo= link_to image_tag("logo_long.jpg", "nopin" => "true"), root_url
 
-    / Logo
-    .logo= link_to image_tag("logo_long.jpg", "nopin" => "true"), root_url
-
-    / Links
-    %div{class: ["links", ("current" if @header_links.key("/" + params[:id].to_s))] }
-      - @header_links.each do |text, link|
-        = link_to text, link, class: [link.strip, ("current" if ["/", params[:id].to_s].join('') == link)] unless link == "/claims" && Meta::Option.ref(:privacy).pluck(:val) == "claims"
+  / Links
+  %div{class: ["links", ("current" if @header_links.key("/" + params[:id].to_s))] }
+    - @header_links.each do |text, link|
+      = link_to text, link, class: [link.strip, ("current" if ["/", params[:id].to_s].join('') == link)] unless link == "/claims" && Meta::Option.ref(:privacy).pluck(:val) == "claims"

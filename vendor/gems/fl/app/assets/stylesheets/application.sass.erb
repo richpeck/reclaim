@@ -208,73 +208,70 @@ body
     color: rgba(255,255,255,1)
     background: rgba(29,29,29,1)
 
-    // Navigation
-    nav
+    // Container
+    .container
+      display: flex
+      align:
+        items: center
+      justify:
+        content: space-between
 
-      // Container
-      .container
-        display: flex
-        align:
-          items: center
-        justify:
-          content: space-between
-
-        // Logo
-        .logo
-          display: inline-block
-          width: 28%
-          box:
-            sizing: border-box
-          a
-            display: inline-block
-            margin: 2em 0
-            &:hover
-              opacity: 1
-            img
-              display: block
-              height: 140px
-
-        // Links
-        .links
-          display: inline-block
-          width: 70%
-          overflow: hidden
-          white:
-            space: nowrap
-          font:
-            size: 1.25em
-          text:
-            align: right
-            transform: uppercase
-          box:
-            sizing: border-box
-          &:hover
-            a
-              opacity: 0.5
-          &.current
-            a
-              opacity: 0.25
-              &.current
-                opacity: 1
-
-        // Links
+      // Logo
+      .logo
+        display: inline-block
+        width: 28%
+        box:
+          sizing: border-box
         a
           display: inline-block
-          padding: 0.75em 0.5em
-          overflow: hidden
-          white:
-            space: nowrap
-          letter:
-            spacing: 0.2em
-          font:
-            size: 16px
-          text:
-            decoration: none
-            overflow: ellipsis
-          box:
-            sizing: border-box
+          margin: 2em 0
           &:hover
-            opacity: 1 !important
+            opacity: 1
+          img
+            display: block
+            height: 140px
+
+      // Links
+      .links
+        display: inline-block
+        width: 70%
+        overflow: hidden
+        white:
+          space: nowrap
+        font:
+          size: 1.25em
+        text:
+          align: right
+          transform: uppercase
+        box:
+          sizing: border-box
+        &:hover
+          a
+            opacity: 0.5
+        &.current
+          a
+            opacity: 0.25
+            &.current
+              opacity: 1
+
+      // Links
+      a
+        display: inline-block
+        padding: 0.75em 0.5em
+        overflow: hidden
+        white:
+          space: nowrap
+        letter:
+          spacing: 0.2em
+        font:
+          size: 16px
+        text:
+          decoration: none
+          overflow: ellipsis
+        box:
+          sizing: border-box
+        &:hover
+          opacity: 1 !important
 
   ////////////////////////////////
   ////////////////////////////////
@@ -286,8 +283,6 @@ body
     // https://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/
     // https://codepen.io/sulfurious/pen/eWPBjY?editors=1100
     flex: 1
-    min:
-      height: 0px
 
     // Links
     a
