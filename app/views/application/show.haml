@@ -21,8 +21,8 @@
 - ########################################################
 
 - # This Allows us to list the FAQ's and news as appropriate
-- case params[:id].try(:to_sym)
-  - when :faq, :news
+- case params[:id].try(:to_s)
+  - when 'faq','news'
 
     - # Shouldn't have this but removes confusion with .container
     .panels
@@ -62,7 +62,7 @@
             %span Our team of experts are here to help!
             = link_to "Take Action", application_path("action")
 
-  - when :claims
+  - when 'claims'
 
     - ########################################################
     - ########################################################
@@ -121,7 +121,7 @@
         &
         = link_to "Terms", application_path("terms"), class: "terms"
 
-  - when :contact
+  - when 'contact'
 
     / Content
     = @content.try(:val).try(:html_safe)
@@ -146,7 +146,7 @@
         &
         = link_to "Terms", application_path("terms"), class: "terms"
 
-  - when :index
+  - when 'index'
 
     / Intro
     .introduction
@@ -227,7 +227,7 @@
       %span BUT WE WILL SAVE YOU MONEY.
       = link_to "Take Action", application_path("action"), class: "take_action"
 
-  - when :rates
+  - when 'rates'
 
     / Content
     = @content.try(:val).try(:html_safe)
@@ -240,7 +240,7 @@
     .cta
       = image_tag "4_step.jpg"
 
-  - when :individual
+  - when 'individual'
 
     / Content
     = @content.try(:val).try(:html_safe)
@@ -251,7 +251,7 @@
       %h4 We'll Ensure A Fair Outcome When You Return Your Vehicle.
       .take_action= link_to "Take Action", application_path("action"), class: "take_action"
 
-  - when :business
+  - when 'business'
 
     / Content
     = @content.try(:val).try(:html_safe)
@@ -267,7 +267,23 @@
       %span Is your lease company profiteering with unreasonable EOC charges?
       = link_to "Contact Us", contact_index_path
 
-  - when :action
+  - when "personal-contract-hire"
+
+    / Content
+    = @content.try(:val).try(:html_safe)
+
+    // Pre CTA
+    .pre-cta
+      %span WE'RE OPEN 24/7 - CALL US FREE ON
+      %span 0808 164 0282
+
+    // CTA
+    .cta
+      %strong Are You Being Taken For A Rise By Your Leasing Provider?
+      %span Our Experts Will Ensure You're Treated Fairly!
+      = link_to "Take Action", application_path("action")
+
+  - when 'action'
 
     / Content
     = @content.try(:val).try(:html_safe)
@@ -277,7 +293,7 @@
       = link_to "Start Your Claim", "#", class: "take_action"
       %h2 WE'RE OPEN 24/7 - CALL US FREE ON 0808 164 0282
 
-  - when :about
+  - when 'about'
 
     / Content
     = @content.try(:val).try(:html_safe)
@@ -287,7 +303,7 @@
       %span WE’LL REDUCE YOUR END OF CONTRACT DAMAGE BILL – OR YOU WON’T BE CHARGED A PENNY.
       %span WE'RE OPEN 24/7 - CALL US FREE ON 0808 164 0282
 
-  - when :action
+  - when 'action'
 
     / Content
     = @content.try(:val).try(:html_safe)
