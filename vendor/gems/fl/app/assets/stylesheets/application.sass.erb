@@ -641,6 +641,176 @@ body
         margin: 0
         padding: 0
 
+    // Avoiding EOC Recharges
+    &.avoiding-eoc-recharges
+
+      // Main Image
+      &:before
+        content: ""
+        display: block
+        height: 450px
+        background:
+          repeat: no-repeat
+          size: 100%
+          position: 50% 30%
+          image: asset_url("bg/avoiding.jpg")
+
+      // Container
+      .container
+        margin:
+          top: 3.5%
+
+      // CTA
+      .pre-cta
+        color: #1d1d1d
+        margin: 1.5em 0
+        font:
+          weight: 300
+          style: normal
+          size: 40px
+        letter:
+          spacing: .05em
+        line:
+          height: 1.4em
+        text:
+          align: center
+          transform: uppercase
+        > *
+          display: block
+
+      // Buttons
+      .buttons
+        display: table
+        width: 100%
+        > div
+          display: table-cell
+          width: 50%
+          box:
+            sizing: border-box
+          vertical:
+            align: middle
+          a
+            display: block
+            width: 85%
+            height: 100%
+            margin: auto
+            padding: 1em 2em
+            overflow: hidden
+            box:
+              sizing: border-box
+            white:
+              space: nowrap
+            font:
+              size: 20px
+              weight: 300
+              style: normal
+            text:
+              align: center
+              overflow: ellipsis
+              transform: uppercase
+              decoration: none
+            letter:
+              spacing: .1em
+            color: #fff
+            background:
+              color: #36b3a8
+
+      // CTA
+      .cta
+        display: block
+        position: relative
+        padding: 20% 15%
+        color: rgba(255,255,255,1)
+        border: 0
+        box:
+          sizing: border-box
+        margin:
+          top: 30px
+        vertical:
+          align: middle
+        background:
+          image: asset_url("bg/damage.jpg")
+          repeat: no-repeat
+          size: cover
+        > *
+          display: block
+        strong
+          font:
+            size: 5em
+            weight: 300
+            style: normal
+          letter:
+            spacing: 0.02em
+          line:
+            height: 1em
+          text:
+            transform: uppercase
+        span
+          display: block
+          font:
+            size: 1.3em
+            weight: 300
+            style: normal
+        a
+          display: inline-block
+          padding: 1em 1.5em
+          margin:  2em 0 0
+          color: rgba(255,255,255,1)
+          background: rgba(#36b3a8,1)
+          border: 2px solid rgba(255,255,255,1)
+          font:
+            weight: 300
+            style: normal
+            size: 16px
+          letter:
+            spacing: .1em
+          line:
+            height: 1.1em
+          text:
+            transform: uppercase
+            decoration: none
+
+    // EOC Recharges Explained
+    &.eoc-recharges-explained
+
+      // Main Image
+      &:before
+        content: ""
+        display: block
+        height: 450px
+        background:
+          repeat: no-repeat
+          size: 100%
+          position: 50% 30%
+          image: asset_url("bg/eoc_recharges.jpg")
+
+      // Container
+      .container
+        padding: 5% 15% 0
+
+      // H2
+      h2
+        display: block
+        margin:
+          top: 25px
+
+      // CTA
+      .pre-cta
+        color: #1d1d1d
+        margin: 1.5em 0
+        font:
+          weight: 300
+          style: normal
+          size: 40px
+        letter:
+          spacing: .05em
+        line:
+          height: 1.4em
+        text:
+          align: center
+          transform: uppercase
+        > *
+          display: block
 
     // Business Contract Hire
     &.business-contract-hire

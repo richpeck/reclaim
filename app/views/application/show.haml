@@ -267,6 +267,32 @@
       %span Is your lease company profiteering with unreasonable EOC charges?
       = link_to "Contact Us", contact_index_path
 
+  - when "eoc-recharges-explained"
+
+    / Content
+    = @content.try(:val).try(:html_safe)
+
+    // Pre CTA
+    .pre-cta
+      %span WE'RE OPEN 24/7 - CALL US FREE ON
+      %span 0808 164 0282
+
+  - when "avoiding-eoc-recharges"
+
+    / Content
+    = @content.try(:val).try(:html_safe)
+
+    // CTA
+    .cta
+      %strong Still Unsure?
+      %span Why don't you download our helpsheet of things to consider when looking after your vehicle. As an extra bonus, our team of experts have pulled together their top ten tips of do's and don'ts for minimizing car damage.
+      = link_to "Download Our Help Sheet Now", application_path("action")
+
+    // Pre CTA
+    .pre-cta
+      %span WE'RE OPEN 24/7 - CALL US FREE ON
+      %span 0808 164 0282
+
   - when "personal-contract-hire"
 
     / Content
