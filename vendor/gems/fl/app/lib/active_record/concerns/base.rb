@@ -23,7 +23,7 @@ module ActiveRecord
         def options(key=:id)
           case adapter
           when "mysql2"
-            { options: 'DEFAULT CHARSET=utf8' }
+            { options: 'DEFAULT CHARSET=utf8mb4' }
           else
             {}
           end

@@ -659,6 +659,103 @@ body
           transform: none
         color: rgba(29,29,29,.7)
 
+        // Take Action
+        .take_action
+          display: block
+          text:
+            align: center
+          a
+            display: inline-block
+            margin: auto
+            font:
+              size: 2em
+            text:
+              align: center
+              transform: uppercase
+
+      // CTA
+      .pre-cta
+        color: #1d1d1d
+        margin: 1.5em 0
+        font:
+          weight: 300
+          style: normal
+          size: 40px
+        letter:
+          spacing: .05em
+        line:
+          height: 1.4em
+        text:
+          align: center
+          transform: uppercase
+        > *
+          display: block
+
+      // CTA
+      .cta
+        display: block
+        position: relative
+        padding: 20% 15%
+        color: rgba(255,255,255,1)
+        height: 850px
+        border: 0
+        box:
+          sizing: border-box
+        margin:
+          top: 30px
+        vertical:
+          align: middle
+        background:
+          image: asset_url("bg/fleeced.jpg")
+          repeat: no-repeat
+          size: cover
+        &:before
+          display: block
+          content: ""
+          position: absolute
+          width: 100%
+          height: 1px
+          top: -45px
+          left: 0
+          background: rgba(#ccc, 1)
+        > *
+          display: block
+        strong
+          font:
+            size: 6.5em
+            weight: 300
+            style: normal
+          letter:
+            spacing: 0.02em
+          line:
+            height: 1em
+          text:
+            transform: uppercase
+        span
+          display: block
+          font:
+            size: 1.3em
+            weight: 300
+            style: normal
+        a
+          display: inline-block
+          padding: 1em 1.5em
+          margin:  2em 0 0
+          color: rgba(255,255,255,1)
+          background: rgba(#36b3a8,1)
+          border: 2px solid rgba(255,255,255,1)
+          font:
+            weight: 300
+            style: normal
+            size: 14px
+          letter:
+            spacing: .1em
+          line:
+            height: 1.1em
+          text:
+            transform: uppercase
+            decoration: none
+
     // Rates
     &.rates
 
