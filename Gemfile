@@ -13,7 +13,7 @@ source 'https://rails-assets.org' # => (Heroku) https://github.com/tenex/rails-a
 ruby [RUBY_VERSION, '2.5.3'].min
 
 # => Rails
-gem 'rails', '~> 5.2', '>= 5.2.1'
+gem 'rails', '~> 5.2', '>= 5.2.2'
 
 # => Server
 # => Default dev development for Rails 5 but still needs the gem....
