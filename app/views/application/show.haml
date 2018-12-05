@@ -283,6 +283,22 @@
       %span Our Experts Will Ensure You're Treated Fairly!
       = link_to "Take Action", application_path("action")
 
+  - when 'personal-contract-purchase'
+
+    / Content
+    = @content.try(:val).try(:html_safe)
+
+    // Pre CTA
+    .pre-cta
+      %span WE'RE OPEN 24/7 - CALL US FREE ON
+      %span 0808 164 0282
+
+    // CTA
+    .cta
+      %strong Feel Your Finance Provider Is Acting Unfairly?
+      %span Let our experts come to you!
+      = link_to "Take Action", application_path("action")
+
   - when 'action'
 
     / Content
