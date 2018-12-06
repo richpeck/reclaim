@@ -47,12 +47,6 @@ module Damagereclaim
     # => https://github.com/adimichele/hubspot-ruby#authentication-with-an-api-key
     Hubspot.configure hapikey: Rails.application.credentials[Rails.env.to_sym][:hubspot][:api]
 
-    # => WickedPDF
-    # => Requires WKHTMLTOPDF exectuable
-    # => https://github.com/mileszs/wicked_pdf#installation
-    # => https://stackoverflow.com/questions/7723937/wkhtmltopdf-runtimeerror-location-of-wkhtmltopdf-unknown
-    #WickedPdf.config = { exe_path: Rails.root.join('bin', 'wkhtmltopdf-amd64').to_s }
-
   end
 end
 

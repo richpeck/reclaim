@@ -88,11 +88,17 @@
         = f.input :address,   placeholder: "Address", input_html: { class: 'autogrow', rows: 15  }
         = f.input :postcode,  placeholder: "Postcode"
 
-      = f.inputs "2️⃣ Claim" do
-        = f.input :received,  as: :date_picker, input_html: { value: Date.today }
+      = f.inputs "2️⃣ Company" do
+        = f.input :company_name,     placeholder: "Company Name"
+        = f.input :company_contact,  placeholder: "Company Contact"
+        = f.input :company_email,    placeholder: "Company Email"
+        = f.input :company_phone,    placeholder: "Company Phone Number"
+        = f.input :company_address,  placeholder: "Company Address"
+        = f.input :company_postcode, placeholder: "Company Postcode"
+        = f.input :received, as: :select, include_blank: false
         = f.input :from,      as: :date_picker, input_html: { value: Date.today }
         = f.input :to,        as: :date_picker, input_html: { value: Date.today }
-        = f.input :escalation, placeholder: "Escalation"
+        = f.input :escalation, as: :select, include_blank: false
 
       = f.inputs "3️⃣ Information", class: "bools" do
         = f.input :insurance,   label: "Was insurance requirements and options pointed out to the client prior to commencement of the rental?"

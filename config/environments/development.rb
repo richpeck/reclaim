@@ -72,6 +72,19 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   # config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+
+  ###############################################################
+  ###############################################################
+
+    # => WickedPDF
+    # => Requires WKHTMLTOPDF exectuable
+    # => https://github.com/mileszs/wicked_pdf#installation
+    # => https://stackoverflow.com/questions/7723937/wkhtmltopdf-runtimeerror-location-of-wkhtmltopdf-unknown
+    WickedPdf.config = { exe_path: 'C:/Users/Richard/Downloads/wkhtmltox/bin' }
+
+  ###############################################################
+  ###############################################################
+
 end
 
 ####################################################################

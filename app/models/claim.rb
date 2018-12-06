@@ -69,14 +69,22 @@ class Claim < ApplicationRecord
   ###########################################################
   ###########################################################
 
+    # => Enumerators
+    # => Received + Escalation are enumerators
+    enum received:   [:received, :deducted]
+    enum escalation: ['BVRLA',	'ECRCS']
+
+  ###########################################################
+  ###########################################################
+
     # => Validations
     # => Ensure every attribute is present (cannot have bad)
     validates :first, :last, :email, :address, presence: true, length: { minimum: 2 } # => claimaint
-    validates :postcode, :received, :from, :to, :escalation, presence: true, unless: :skip_validations # => claim
+    validates :postcode, :received, :from, :to, :escalation, :received, :company_name, :company_contact, :company_email, :company_phone, :company_address, :company_postcode, presence: true, unless: :skip_validations # => claim
 
     # => Numbers
     # => Validates numericality
-    validates :phone, :mobile, numericality: { only_integer: true, allow_blank: true }, unless: :skip_validations
+    validates :phone, :mobile, :company_phone, numericality: { only_integer: true, allow_blank: true }, unless: :skip_validations
 
     # => Email
     # => https://stackoverflow.com/a/49925333/1143732
@@ -86,7 +94,7 @@ class Claim < ApplicationRecord
     # => Postcode
     # => Validates postcode to ensure format is correct
     # => https://github.com/threedaymonk/uk_postcode#tips-for-rails
-    validates :postcode, postcode: true, unless: :skip_validations
+    validates :postcode, :company_postcode, postcode: true, unless: :skip_validations
 
     # => Mobile / Phone
     # => Either required

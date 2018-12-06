@@ -26,11 +26,17 @@ class CreateClaims < ActiveRecord::Migration::Current
         t.string     :postcode
         t.text       :address
 
-        # => Claim
-        t.date      :received
+        # => Company
+        t.string    :company_name       # => Company name
+        t.string    :company_contact    # => Company contact name
+        t.string    :company_email      # => Company contact email
+        t.string    :company_phone      # => Company contact phone number
+        t.text      :company_address    # => Company address
+        t.string    :company_postcode   # => Company postcode
+        t.integer   :received           # => Needs to be enum in the model (received or deducted)
         t.date      :from
         t.date      :to
-        t.string    :escalation
+        t.integer   :escalation         # => Needs to be enum (received or deducted? // ECRCS or BVRLA)
 
         # => Questions
         t.boolean :insurance

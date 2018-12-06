@@ -26,7 +26,7 @@ if Object.const_defined?('ActiveAdmin')
     menu priority: 2, label: -> { [I18n.t("activerecord.models.claim.icon")|| nil, Claim.model_name.human(count: 2)].join(' ') }
 
     # => Params
-    permit_params :hubspot_enabled, :first, :last, :email, :mobile, :address, :postcode, :received, :from, :to, :escalation, :phone, :mobile, :insurance, :signed, :shown, :inspected, :employee, :noted, :acknowledge, :report, :subsequent, :card, :invoice, :images, :repair, :method, :additional, :vat
+    permit_params :hubspot_enabled, :first, :last, :email, :mobile, :address, :postcode, :company_name, :company_contact, :company_email, :company_phone, :company_address, :company_postcode, :received, :from, :to, :escalation, :phone, :mobile, :insurance, :signed, :shown, :inspected, :employee, :noted, :acknowledge, :report, :subsequent, :card, :invoice, :images, :repair, :method, :additional, :vat
 
     # => Actions
     actions :all, except: :show
@@ -107,11 +107,17 @@ if Object.const_defined?('ActiveAdmin')
         f.input :address,   placeholder: "Address"
         f.input :postcode,  placeholder: "Postcode"
       end
-      f.inputs "📜 Claim" do
-        f.input :received,  as: :date_picker, input_html: { value: Date.today } # => https://www.rubydoc.info/github/justinfrench/formtastic/Formtastic/Inputs/DatePickerInput
-        f.input :from,      as: :date_picker, input_html: { value: Date.today }
-        f.input :to,        as: :date_picker, input_html: { value: Date.today }
-        f.input :escalation, placeholder: "Escalation"
+      f.inputs "📜 Company" do
+        f.input :company_name,     placeholder: "Company Name"
+        f.input :company_contact,  placeholder: "Company Contact"
+        f.input :company_email,    placeholder: "Company Email"
+        f.input :company_phone,    placeholder: "Company Phone Number"
+        f.input :company_address,  placeholder: "Company Address"
+        f.input :company_postcode, placeholder: "Company Postcode"
+        f.input :received, as: :select, include_blank: false
+        f.input :from, as: :date_picker, input_html: { value: Date.today } # => https://www.rubydoc.info/github/justinfrench/formtastic/Formtastic/Inputs/DatePickerInput
+        f.input :to,   as: :date_picker, input_html: { value: Date.today }
+        f.input :escalation, as: :select, include_blank: false
       end
       f.inputs "❓ Questions" do
         f.input :insurance,   label: "Was insurance requirements and options pointed out to the client prior to commencement of the rental?"
