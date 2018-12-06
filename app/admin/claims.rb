@@ -57,7 +57,7 @@ if Object.const_defined?('ActiveAdmin')
     # => PDF (letter)
     # => Allows us to download letter based on the claim
     member_action :pdf, method: :get do
-      render pdf: "claim-#{resource.id}.pdf", title: "DamageReclaim/#{resource.id}/#{resource.created_at(:short)}", template: "application/claim"
+      render pdf: "claim-#{resource.id}.pdf", title: "DamageReclaim/#{resource.id}", template: "application/claim", locals: { items: %w(insurance signed shown inspected employee noted acknowledge report subsequent card invoice repair method additional vat) }
     end
 
     ##################################
@@ -122,7 +122,7 @@ if Object.const_defined?('ActiveAdmin')
       f.inputs "❓ Questions" do
         f.input :insurance,   label: "Was insurance requirements and options pointed out to the client prior to commencement of the rental?"
         f.input :signed,      label: "Has a signed condition report been provided on commencement of the rental?"
-        f.input :shown,       label: "Was the client showed round the vehicle pointing out previous damage prior to the handover of keys?"
+        f.input :shown,       label: "Was the client shown around the vehicle pointing out previous damage prior to the handover of keys?"
         f.input :inspected,   label: "Did the conditions make it difficult to inspect the vehicle prior to commencement of the rental (i.e. picked up in the rain, dark, underground car park, etc)?"
         f.input :employee,    label: "Was there an employee present when handing over the vehicle?"
         f.input :noted,       label: "Was damage noted on a condition report when handing the vehicle back?"

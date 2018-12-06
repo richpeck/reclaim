@@ -7,7 +7,7 @@
 - ########################################################
 
 / Table
-%table{width: "85%", align: "center"}
+%table{width: "85%", align: "center", style: "font-family: Arial, sans-serif;"}
   %thead
     %th.logo{width: "35%"}= image_tag image_url("logo_long.jpg"), width: "100%"
     %th.address{align: "right"}
@@ -18,8 +18,20 @@
             %br
   %tbody
     %tr
-      %td{ rowspan: 2 }
-        Dear Sirs,
+      %td{ colspan: 2 }
+        %p{ style: "margin: 0.5em 0;" } Dear Sirs,
+    %tr
+      %td{ colspan: 2 }
+        %p{ style: "margin: 0.5em 0;" }= t("claim.intro", client: @claim.first, from: @claim.from, to: @claim.to).html_safe
+      - items.each do |item|
+        %tr
+          %td{ colspan: 2 }
+            %p{ style: "margin: 0.5em 0;" }= t("claim.#{item}", client: @claim.first, from: @claim.from, to: @claim.to).html_safe
+    %tr
+      %td{ colspan: 2 }
+        %p We are fully aware of our client's rights and the escalation process with the ECRCS process and will follow their conciliation process if we don't get a considered response.
+        %p Kind Regards,
+        %p The Damage Reclaim Team.
 
 - ########################################################
 - ########################################################

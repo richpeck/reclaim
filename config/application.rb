@@ -49,7 +49,8 @@ module Damagereclaim
 
     # => Asset Precompilation
     # => Allows us to use PDF styling for letters
-    config.assets.precompile << %w(pdf.css)
+    # => Needs more research
+    #config.assets.precompile << %w(pdf.css)
 
   end
 end
