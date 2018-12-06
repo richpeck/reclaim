@@ -9,7 +9,7 @@
 / Table
 %table{width: "85%", align: "center", style: "font-family: Arial, sans-serif;"}
   %thead
-    %th.logo{width: "35%"}= image_tag image_url("logo_long.jpg"), width: "100%"
+    %th.logo{width: "35%", height: "150px"}= image_tag image_url("logo_long.jpg"), width: "100%"
     %th.address{align: "right"}
       - %i(name address).each do |x|
         = content_tag :span, class: x do
@@ -22,14 +22,39 @@
         %p{ style: "margin: 0.5em 0;" } Dear Sirs,
     %tr
       %td{ colspan: 2 }
-        %p{ style: "margin: 0.5em 0;" }= t("claim.intro", client: @claim.first, from: @claim.from, to: @claim.to).html_safe
+        %p{ style: "margin: 0.5em 0;" }= t("claim.intro", client: [@claim.try(:first), @client.try(:last)].join(' '), from: @claim.from, to: @claim.to).html_safe
       - items.each do |item|
         - case item
           - when "insurance"
             - truth = !@claim.try(:insurance) # => should only show if false
+          - when "signed"
+            - truth = !@claim.try(:signed) # => should only show if false
+          - when "shown"
+            - truth = !@claim.try(:shown) # => should only show if false
+          - when "inspected"
+            - truth = !@claim.try(:inspected) # => should only show if true
           - when "employee"
             - truth = !@claim.try(:employee) # => should only show if false
           - when "noted"
+            - truth = !@claim.try(:insurance) # => should only show if false
+          - when "acknowledge"
+            - truth = !@claim.try(:acknowledge) # => should only show if false
+          - when "report"
+            - truth = !@claim.try(:report) # => should only show if false
+          - when "subsequent"
+            - truth = @claim.try(:subsequent) # => should only show if true
+          - when "card"
+            - truth = @claim.try(:card) # => should only show if true
+          - when "invoice"
+            - truth = !@claim.try(:invoice) # => should only show if false
+          - when "repair"
+            - truth = !@claim.try(:repair) # => should only show if false
+          - when "method"
+            - truth = !@claim.try(:method) # => should only show if false
+          - when "additional"
+            - truth = @claim.try(:additional) # => should only show if true
+          - when "vat"
+            - truth = true # => true in both cases
           - else
             - truth = true
         - if truth
@@ -40,7 +65,7 @@
       %td{ colspan: 2 }
         %p We are fully aware of our client's rights and the escalation process with the ECRCS process and will follow their conciliation process if we don't get a considered response.
         %p Kind Regards,
-        %p The Damage Reclaim Team.
+        %p The Damage Reclaim Team
 
 - ########################################################
 - ########################################################
