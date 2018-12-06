@@ -57,7 +57,7 @@ if Object.const_defined?('ActiveAdmin')
     # => PDF (letter)
     # => Allows us to download letter based on the claim
     member_action :pdf, method: :get do
-      render WickedPdf.new.pdf_from_string('<h1>Hello There!</h1>')
+      render pdf: "claim-#{resource.id}.pdf", title: "DamageReclaim/#{resource.id}"
     end
 
     ##################################
