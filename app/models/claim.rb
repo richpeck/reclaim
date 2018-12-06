@@ -138,6 +138,12 @@ class Claim < ApplicationRecord
   ## Instance (private) ##
   ########################
 
+    # => Created At
+    # => Allows us to format the value
+    def created_at format=:long
+      self[:created_at].to_formatted_s format
+    end
+
     # => Postcode
     # => https://github.com/threedaymonk/uk_postcode#tips-for-rails
     def postcode=(str)

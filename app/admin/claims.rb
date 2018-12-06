@@ -57,7 +57,7 @@ if Object.const_defined?('ActiveAdmin')
     # => PDF (letter)
     # => Allows us to download letter based on the claim
     member_action :pdf, method: :get do
-      render pdf: "claim-#{resource.id}.pdf", title: "DamageReclaim/#{resource.id}"
+      render pdf: "claim-#{resource.id}.pdf", title: "DamageReclaim/#{resource.id}/#{resource.created_at(:short)}", template: "application/claim"
     end
 
     ##################################

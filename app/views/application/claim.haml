@@ -6,7 +6,20 @@
 - ########################################################
 - ########################################################
 
-TEST
+/ Table
+%table{width: "85%", align: "center"}
+  %thead
+    %th.logo{width: "35%"}= image_tag image_url("logo_long.jpg"), width: "100%"
+    %th.address{align: "right"}
+      - %i(name address).each do |x|
+        = content_tag :span, class: x do
+          - Rails.application.credentials[Rails.env.to_sym][:company][x.to_sym].split(",").each do |y|
+            = y
+            %br
+  %tbody
+    %tr
+      %td{ rowspan: 2 }
+        Dear Sirs,
 
 - ########################################################
 - ########################################################
