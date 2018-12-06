@@ -112,7 +112,7 @@ Rails.application.configure do
     # => https://github.com/mileszs/wicked_pdf#installation
     # => https://stackoverflow.com/questions/7723937/wkhtmltopdf-runtimeerror-location-of-wkhtmltopdf-unknown
     # => https://github.com/mileszs/wicked_pdf/issues/693#issuecomment-338639615
-    WickedPdf.config = { exe_path: '/usr/local/bin/wkhtmltopdf' }
+    WickedPdf.config = { exe_path: '/usr/local/bin/wkhtmltopdf' } if Rails.env.production?
 
   ###############################################################
   ###############################################################

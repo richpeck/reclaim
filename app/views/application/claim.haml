@@ -24,9 +24,18 @@
       %td{ colspan: 2 }
         %p{ style: "margin: 0.5em 0;" }= t("claim.intro", client: @claim.first, from: @claim.from, to: @claim.to).html_safe
       - items.each do |item|
-        %tr
-          %td{ colspan: 2 }
-            %p{ style: "margin: 0.5em 0;" }= t("claim.#{item}", client: @claim.first, from: @claim.from, to: @claim.to).html_safe
+        - case item
+          - when "insurance"
+            - truth = !@claim.try(:insurance) # => should only show if false
+          - when "employee"
+            - truth = !@claim.try(:employee) # => should only show if false
+          - when "noted"
+          - else
+            - truth = true
+        - if truth
+          %tr
+            %td{ colspan: 2 }
+              %p{ style: "margin: 0.5em 0;" }= t("claim.#{item}", client: @claim.first, from: @claim.from, to: @claim.to).html_safe
     %tr
       %td{ colspan: 2 }
         %p We are fully aware of our client's rights and the escalation process with the ECRCS process and will follow their conciliation process if we don't get a considered response.
