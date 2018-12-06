@@ -77,7 +77,11 @@ gem 'truncate_html', '~> 0.9.3'
 gem 'bootsnap',     '>= 1.1.0', require: false # => Boot caching (introduced in 5.2.x)
 gem 'hubspot-ruby', '~> 0.5.0'                 # => HubSpot integration (API wrapper) - used for claim management
 gem 'uk_postcode',  '~> 2.1', '>= 2.1.3'       # => UK Postcode validation (https://github.com/threedaymonk/uk_postcode)
+
+## WickedPDF ##
+## Allows us to generate PDF letter from db settings ##
 gem 'wicked_pdf', '~> 1.1'                     # => Allows us to implement letter builder in the backend
+gem 'wkhtmltopdf_binary', '~> 0.12.3.2', groups: [:staging, :production] # => Unix
 
 # => For ActiveAdmin
 # => Chartkick allows us to include charts
