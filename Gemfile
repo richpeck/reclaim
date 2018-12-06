@@ -77,6 +77,7 @@ gem 'truncate_html', '~> 0.9.3'
 gem 'bootsnap',     '>= 1.1.0', require: false # => Boot caching (introduced in 5.2.x)
 gem 'hubspot-ruby', '~> 0.5.0'                 # => HubSpot integration (API wrapper) - used for claim management
 gem 'uk_postcode',  '~> 2.1', '>= 2.1.3'       # => UK Postcode validation (https://github.com/threedaymonk/uk_postcode)
+gem 'wicked_pdf', '~> 1.1'                     # => Allows us to implement letter builder in the backend
 
 # => For ActiveAdmin
 # => Chartkick allows us to include charts

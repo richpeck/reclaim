@@ -33,8 +33,8 @@ if Object.const_defined?("Ckeditor")
     # config.parent_controller = 'MyController'
 
     # Asset model classes
-    config.picture_model          { Asset }
-    config.attachment_file_model  { Asset }
+    #config.picture_model          { Asset } # => This should be Asset but we've got it as CKEditor::Asset for ActiveStorage
+    #config.attachment_file_model  { Asset }
 
     # Paginate assets
     # By default: 24

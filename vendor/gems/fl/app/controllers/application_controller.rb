@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
     before_action Proc.new { @maintenance = Node.find_by(ref: "maintenance").try(:val) }, only: :show
 
     # => Extras
-    before_action :layout_vars
+    before_action :layout_vars, unless: -> { request.xhr? }
 
   ##################################
   ##################################

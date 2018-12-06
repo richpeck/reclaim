@@ -54,6 +54,15 @@ if Object.const_defined?('ActiveAdmin')
     ##################################
     ##################################
 
+    # => PDF (letter)
+    # => Allows us to download letter based on the claim
+    member_action :letter, method: :get do
+      redirect_to resource_path, notice: "Locked!"
+    end
+
+    ##################################
+    ##################################
+
     # => Index
     index title: [I18n.t("activerecord.models.claim.icon"), Claim.model_name.human(count: 2), '|', Rails.application.credentials[Rails.env.to_sym][:app][:name]].join(' ') do
       selectable_column
@@ -77,7 +86,9 @@ if Object.const_defined?('ActiveAdmin')
       %i(created_at updated_at).each do |x|
         column x, sortable: x
       end
-      actions name: "Actions"
+      actions name: "Actions", default: true do |claim|
+        link_to fa_icon("file-pdf", text: "PDF"), root_url, class: "pdf_link"
+      end
     end
 
     ##################################

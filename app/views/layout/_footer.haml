@@ -28,7 +28,7 @@
   .contact
     .social
       - {"envelope-open" => "mailto: #{Rails.application.credentials[Rails.env.to_sym][:app][:email]}", twitter: 'https://www.twitter.com/DamageReclaim', linkedin: 'https://www.linkedin.com/company/damagereclaim/', facebook: 'https://www.facebook.com/Damage-Reclaim-659249180932932/'}.each do |k,v|
-        = link_to "", v, class: "fa fa-#{k}", target: :blank
+        = link_to fa_icon(k), v, target: :blank
     .call= content_tag :span, "We're open 24/7 - Call us free on #{Rails.application.credentials[Rails.env.to_sym][:company][:phone]}"
 
 / Info
