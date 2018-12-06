@@ -56,8 +56,8 @@ if Object.const_defined?('ActiveAdmin')
 
     # => PDF (letter)
     # => Allows us to download letter based on the claim
-    member_action :letter, method: :get do
-      redirect_to resource_path, notice: "Locked!"
+    member_action :pdf, method: :get do
+      render WickedPdf.new.pdf_from_string('<h1>Hello There!</h1>')
     end
 
     ##################################
@@ -87,7 +87,7 @@ if Object.const_defined?('ActiveAdmin')
         column x, sortable: x
       end
       actions name: "Actions", default: true do |claim|
-        link_to fa_icon("file-pdf", text: "PDF"), root_url, class: "pdf_link"
+        link_to fa_icon("file-pdf", text: "PDF"), pdf_admin_claim_path(claim), class: "pdf_link"
       end
     end
 
