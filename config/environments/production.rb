@@ -103,7 +103,20 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-  
+
+  ###############################################################
+  ###############################################################
+
+    # => WickedPDF
+    # => Requires WKHTMLTOPDF exectuable
+    # => https://github.com/mileszs/wicked_pdf#installation
+    # => https://stackoverflow.com/questions/7723937/wkhtmltopdf-runtimeerror-location-of-wkhtmltopdf-unknown
+    # => https://github.com/mileszs/wicked_pdf/issues/693#issuecomment-338639615
+    WickedPdf.config = { exe_path: '/usr/local/bin/wkhtmltopdf' }
+
+    ###############################################################
+    ###############################################################
+
 end
 
 ####################################################################
