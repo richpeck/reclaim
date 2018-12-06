@@ -96,8 +96,8 @@
         = f.input :company_address,  placeholder: "Company Address"
         = f.input :company_postcode, placeholder: "Company Postcode"
         = f.input :received, as: :select, include_blank: false
-        = f.input :from,      as: :date_picker, input_html: { value: Date.today }
-        = f.input :to,        as: :date_picker, input_html: { value: Date.today }
+        = f.input :from,     as: :date_picker, input_html: { value: Date.today }
+        = f.input :to,       as: :date_picker, input_html: { value: Date.today }
         = f.input :escalation, as: :select, include_blank: false
 
       = f.inputs "3️⃣ Information", class: "bools" do

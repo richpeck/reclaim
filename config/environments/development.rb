@@ -80,7 +80,8 @@ Rails.application.configure do
     # => Requires WKHTMLTOPDF exectuable
     # => https://github.com/mileszs/wicked_pdf#installation
     # => https://stackoverflow.com/questions/7723937/wkhtmltopdf-runtimeerror-location-of-wkhtmltopdf-unknown
-    WickedPdf.config = { exe_path: 'C:/Users/Richard/Downloads/wkhtmltox/bin' }
+    # => https://github.com/mileszs/wicked_pdf/issues/693#issuecomment-338639615
+    WickedPdf.config = { exe_path: 'C:\Users\Richard\Downloads\wkhtmltox\bin\wkhtmltopdf.exe' }
 
   ###############################################################
   ###############################################################
