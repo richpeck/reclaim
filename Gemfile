@@ -80,8 +80,11 @@ gem 'uk_postcode',  '~> 2.1', '>= 2.1.3'       # => UK Postcode validation (http
 
 ## WickedPDF ##
 ## Allows us to generate PDF letter from db settings ##
-gem 'wicked_pdf', '~> 1.1'                     # => Allows us to implement letter builder in the backend
-gem 'wkhtmltopdf_binary', '~> 0.12.3.2', groups: [:staging, :production] # => Unix
+gem 'wicked_pdf', '~> 1.1' # => Allows us to implement letter builder in the backend
+
+# => These are required to get the gem working, but their setup depends on which platform they're running
+gem 'wkhtmltopdf-heroku', '~> 2.12', '>= 2.12.4.0', group: :staging # => Heroku
+gem 'wkhtmltopdf_binary', '~> 0.12.3.2', group: :production # => Unix
 
 # => For ActiveAdmin
 # => Chartkick allows us to include charts
