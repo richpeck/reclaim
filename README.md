@@ -6,12 +6,6 @@
 
 ----------
 
-**Master Key:**
-
-    f647e7a73e87624b1aeb1b467e38dc1a
-
-----------
-
 **:copyright:** <a href="http://www.frontlineutilities.co.uk" align="absmiddle" ><img src="./private/readme/fl.jpg" height="22" align="absmiddle" /></a> <a href="http://stackoverflow.com/users/1143732/richard-peck?tab=profile" align="absmiddle" ><img src="https://avatars0.githubusercontent.com/u/1104431" height="22" align="absmiddle" /></a>
 
 <!-- ################################### -->
