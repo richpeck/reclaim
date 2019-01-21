@@ -79,8 +79,8 @@ class Claim < ApplicationRecord
 
     # => Validations
     # => Ensure every attribute is present (cannot have bad)
-    validates :first, :last, :email, :address, presence: true, length: { minimum: 2 } # => claimaint
-    validates :postcode, :received, :from, :to, :escalation, :received, :company_name, :company_contact, :company_email, :company_phone, :company_address, :company_postcode, presence: true, unless: :skip_validations # => claim
+    validates :first, :last, :email, presence: true, length: { minimum: 2 } # => claimaint
+    validates :postcode, :received, :address, :from, :to, :escalation, :received, :company_name, :company_contact, :company_email, :company_phone, :company_address, :company_postcode, presence: true, unless: :skip_validations # => claim
 
     # => Numbers
     # => Validates numericality
