@@ -10,7 +10,7 @@
 %table{width: "85%", align: "center", style: "font-family: Arial, sans-serif;"}
   %thead
     %th.logo{width: "35%", height: "150px"}
-      %img{src: ["#{request.protocol + request.host}", Rails.root.join(Rails.application.config.assets.prefix, image_path('logo_long.png'))].join, width: '100%' }
+      %img{src: ["file://", Rails.root.join("app", "assets", "images", "logo_long.png")].join, width: '100%' }
     %th.address{align: "right"}
       - %i(name address).each do |x|
         = content_tag :span, class: x do
