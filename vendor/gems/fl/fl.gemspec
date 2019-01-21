@@ -64,7 +64,6 @@ Gem::Specification.new do |spec|
     spec.add_dependency 'friendly_id'                   # => FriendlyID
     spec.add_dependency 'devise'                        # => Devise
     spec.add_dependency 'exception_handler'             # => ExceptionHandler
-    spec.add_dependency 'responders'                    # => Responders (used in controller)
     spec.add_dependency 'sitemap_generator'             # => Sitemaps
 
   ##############################################################

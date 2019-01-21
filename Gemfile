@@ -10,7 +10,7 @@ source 'https://rails-assets.org' # => (Heroku) https://github.com/tenex/rails-a
 
 # => Ruby
 # => https://github.com/cantino/huginn/blob/master/Gemfile#L4
-ruby [RUBY_VERSION, '2.5.3'].min
+ruby [RUBY_VERSION, '2.6.0'].min
 
 # => Rails
 gem 'rails', '~> 5.2', '>= 5.2.2'
