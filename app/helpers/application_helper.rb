@@ -2,7 +2,7 @@ module ApplicationHelper
 
   ## PDF Image View ##
   def pdf_image_url(image, options = {})
-    options[:src] = Rails.root.join(Rails.application.config.assets.prefix, image_path(image))
+    options[:src] = ["file:///", Rails.root.join("app", "assets", "images", image)].join
     tag(:img, options)
    end
 
