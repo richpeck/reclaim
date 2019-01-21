@@ -57,7 +57,7 @@ if Object.const_defined?('ActiveAdmin')
     # => PDF (letter)
     # => Allows us to download letter based on the claim
     member_action :pdf, method: :get do
-      render pdf: "claim-#{resource.id}", title: "DamageReclaim/#{resource.id}", template: "application/claim", locals: { items: %w(insurance signed shown inspected employee noted acknowledge report subsequent card invoice repair method additional vat) }
+      render pdf: "claim-#{resource.id}", title: "DamageReclaim/#{resource.id}", template: "application/claim", show_as_html: params[:debug].present?, locals: { items: %w(insurance signed shown inspected employee noted acknowledge report subsequent card invoice repair method additional vat) }
     end
 
     ##################################
