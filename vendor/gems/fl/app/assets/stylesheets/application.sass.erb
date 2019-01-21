@@ -601,6 +601,17 @@ body
     // Action
     &.action
 
+      // Main Image
+      &:before
+        content: ""
+        display: block
+        height: 450px
+        background:
+          repeat: no-repeat
+          size: 100%
+          position: top 30%
+          image: asset_url("bg/action.jpg")
+
       // Container
       .container
         padding: 0 15%
@@ -621,19 +632,19 @@ body
 
       // Paragraph
       p
-      display: block
-      margin: 1em 0
-      font:
-        weight: 400
-        style: normal
-        size: 18px
-      letter:
-        spacing: .06em
-      line:
-        height: 1.8em
-      text:
-        transform: none
-      color: rgba(29,29,29,.7)
+        display: block
+        margin: 1em 0
+        font:
+          weight: 400
+          style: normal
+          size: 18px
+        letter:
+          spacing: .06em
+        line:
+          height: 1.8em
+        text:
+          transform: none
+        color: rgba(29,29,29,.7)
 
       // CTA
       .cta
@@ -1721,6 +1732,15 @@ body
                 text:
                   align: center
                   transform: uppercase
+              .flash
+                display: block
+                padding: 10px
+                color: rgba(255,255,255,1)
+                background: rgba(0,0,0,1)
+                box:
+                  sizing: border-box
+                text:
+                  align: center
               form
                 .actions
                   padding: 0

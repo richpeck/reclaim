@@ -165,7 +165,7 @@
             %iframe{ allowFullScreen: "allowFullScreen", src: "https://www.youtube.com/embed/NfxTC_Egut8?ecver=1&amp;iv_load_policy=3&amp;yt:stretch=16:9&amp;autohide=1&amp;color=red&amp", height: "315", allowtransparency: "true", frameborder: "0"}
           %span Hire car excess charges are often hefty and in many cases unjustified. If you don't feel that the charges are fair, simply get in touch, we'll be happy to take a look at your case. Our experts will assess your case to determine whether we can help reduce your bill - if we can't, we won't charge a thing.
         .input
-          %h3 TAKE ACTION NOW
+          %h3{id: "contact_form"} TAKE ACTION NOW
           = semantic_form_for Contact.new, url: contact_index_path do |f|
             = f.inputs "Name *", class: "name" do
               = f.input :first, label: false, placeholder: "First Name"
@@ -174,6 +174,7 @@
               = f.input :email, label: false, placeholder: "Email"
             = f.inputs "Phone Number *" do
               = f.input :phone, label: false, placeholder: "Phone"
+            = f.input :address, as: :hidden, input_html: { value: "Homepage Submission" }
             .actions= f.submit "Start My Claim"
 
       / Trustpilot

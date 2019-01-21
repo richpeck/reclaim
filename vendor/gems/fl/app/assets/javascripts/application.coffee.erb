@@ -41,6 +41,29 @@ center  = ""
 #########################################################
 #########################################################
 
+## Index ##
+## Claim Form ##
+$(document).on "submit", ".index form#new_contact", (e) ->
+
+  ## Prevent Default ##
+  e.preventDefault()
+
+  ## Vars ##
+  form = $(this)
+
+  ## Send Request ##
+  ## Need to specify the "script" datatype ##
+  $.post({
+    url:      $(this).attr("action"),
+    data:     $(this).serialize(),
+    dataType: "script"
+  }).always (data, textStatus, jqXHR) ->
+    $( $("<div></div>").addClass("flash").html(data.responseText) ).insertAfter("h3#contact_form")
+    form.find('.actions input[type="submit"]').prop("disabled", false) # Formtastic disables submit button
+
+#########################################################
+#########################################################
+
 ## Map ##
 ## Contact ##
 $(window).load ->

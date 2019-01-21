@@ -63,12 +63,27 @@ class ApplicationController < ActionController::Base
     # => This processes the claims forms
     # => Outputs results to the /claims page
     def create
+      # => Set content
       @content = params.key?(:claim) ? Claim.new(claim_params) : Contact.new(contact_params)
-      if @content.save
-        redirect_to application_path(params.key?(:claim) ? "claims" : "contact"), flash: { notice: params.key?(:claim) ? "Claim Sent Successfully" : "Contact Request Sent Successfully" }
-      else
-        params[:id] = params.key?(:claim) ? :claims : :contact # => Needs to be set
-        render :show
+
+      # => Response
+      respond_to do |format|
+
+        # => Does it save?
+        if @content.save
+
+          format.js   { render json: (params.key?(:claim) ? "Claim Sent Successfully" : "Contact Request Sent Successfully - You Will Hear From Our Advisors Soon!") }
+          format.html { redirect_to application_path(params.key?(:claim) ? "claims" : "contact"), flash: { notice: params.key?(:claim) ? "Claim Sent Successfully" : "Contact Request Sent Successfully" } }
+
+        else
+
+          format.js   { render json: (params.key?(:claim) ? "Error With Claim" : "Error With Contact") }
+          format.html do
+            params[:id] = params.key?(:claim) ? :claims : :contact # => Needs to be set
+            render :show
+          end
+
+        end
       end
     end
 
@@ -106,7 +121,7 @@ class ApplicationController < ActionController::Base
 
     # => Contact Params
     def contact_params
-      params.require(:contact).permit(:first, :last, :email, :address)
+      params.require(:contact).permit(:first, :last, :email, :phone, :address)
     end
 
     # => Layout Vars
