@@ -166,7 +166,18 @@ class Claim < ApplicationRecord
     # => https://stackoverflow.com/questions/607069/using-activerecord-is-there-a-way-to-get-the-old-values-of-a-record-during-afte (for old ActiveRecord data)
     def hubspot
       begin
-        hubspot = Hubspot::Contact.create! email, { firstname: first, lastname: last, phone: phone, mobilephone: mobile, address: address, zip: postcode }
+
+        ## If VID exists, use it to find the contact ##
+        contact = self[:hubspot_id] ? : Hubspot::Contact.find_by_id(self[:hubspot_id]) : Hubspot::Contact.find_by_email(email)
+
+        ## Create or Update ##
+        Rails.logger.info contact
+        if contact
+          contact.update!({ firstname: first, lastname: last, phone: phone, mobilephone: mobile, address: address, zip: postcode })
+        else
+          Hubspot::Contact.create! email, { firstname: first, lastname: last, phone: phone, mobilephone: mobile, address: address, zip: postcode }
+        end
+
         self[:hubspot_id] = hubspot.vid
       rescue Hubspot::RequestError => e
 
