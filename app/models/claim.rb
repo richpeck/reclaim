@@ -171,8 +171,7 @@ class Claim < ApplicationRecord
         contact = self[:hubspot_id] ? Hubspot::Contact.find_by_id(self[:hubspot_id]) : Hubspot::Contact.find_by_email(email)
 
         ## Create or Update ##
-        Rails.logger.info "TEST"
-        Rails.logger.info contact.inspect()
+        ## This should be refactored but works for now ##
         if contact
           contact.update!({ firstname: first, lastname: last, phone: phone, mobilephone: mobile, address: address, zip: postcode })
         else
