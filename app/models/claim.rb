@@ -168,8 +168,8 @@ class Claim < ApplicationRecord
       begin
         hubspot = Hubspot::Contact.create_or_update! [{email: email, firstname: first, lastname: last, phone: phone, mobilephone: mobile, address: address, zip: postcode }]
         self[:hubspot_id] = hubspot.vid
-        Rails.logger.info hubspot
-        Rails.logger.info hubspot.vid
+        puts hubspot
+        puts hubspot.vid
       rescue Hubspot::RequestError => e
 
         # => JSON
