@@ -171,14 +171,14 @@ class Claim < ApplicationRecord
         contact = self[:hubspot_id] ? Hubspot::Contact.find_by_id(self[:hubspot_id]) : Hubspot::Contact.find_by_email(email)
 
         ## Create or Update ##
-        Rails.logger.info contact
+        Rails.logger.info contact.vid
         if contact
           contact.update!({ firstname: first, lastname: last, phone: phone, mobilephone: mobile, address: address, zip: postcode })
         else
-          Hubspot::Contact.create! email, { firstname: first, lastname: last, phone: phone, mobilephone: mobile, address: address, zip: postcode }
+          hubspot = Hubspot::Contact.create! email, { firstname: first, lastname: last, phone: phone, mobilephone: mobile, address: address, zip: postcode }
+          self[:hubspot_id] = hubspot.vid
         end
 
-        self[:hubspot_id] = hubspot.vid
       rescue Hubspot::RequestError => e
 
         # => JSON
