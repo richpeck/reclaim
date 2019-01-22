@@ -60,12 +60,9 @@
             - truth = true # => true in both cases
           - else
             - truth = true
-        = item
-        = "-" + truth.to_s
         - if truth
           %tr
             %td{ colspan: 2 }
-              = item
               %p{ style: "margin: 0.5em 0;" }= t("claim.#{item}", client: @claim.first, from: @claim.from, to: @claim.to).html_safe
     %tr
       %td{ colspan: 2 }
