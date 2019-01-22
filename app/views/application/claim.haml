@@ -27,8 +27,7 @@
       %td{ colspan: 2 }
         %p{ style: "margin: 0.5em 0;" }= t("claim.intro", client: [@claim.try(:first), @client.try(:last)].join(' '), from: @claim.from, to: @claim.to).html_safe
       - items.each do |item|
-        = item
-        - case item
+        - case item.to_s
           - when "insurance"
             - truth = !@claim.try(:insurance) # => should only show if false
           - when "signed"
@@ -61,6 +60,8 @@
             - truth = true # => true in both cases
           - else
             - truth = true
+        = item
+        = "-" + truth
         - if truth
           %tr
             %td{ colspan: 2 }
