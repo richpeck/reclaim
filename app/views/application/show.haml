@@ -79,7 +79,7 @@
       / Errors
       = f.semantic_errors
 
-      = f.inputs "1️⃣ Client" do
+      = f.inputs "Client Details" do
         = f.input :first,     placeholder: "First Name"
         = f.input :last,      placeholder: "Last Name"
         = f.input :email,     placeholder: "Email"
@@ -88,7 +88,7 @@
         = f.input :address,   placeholder: "Address", input_html: { class: 'autogrow', rows: 15  }
         = f.input :postcode,  placeholder: "Postcode"
 
-      = f.inputs "2️⃣ Company" do
+      = f.inputs "Company Details" do
         = f.input :company_name,     placeholder: "Company Name"
         = f.input :company_contact,  placeholder: "Company Contact"
         = f.input :company_email,    placeholder: "Company Email"
@@ -100,7 +100,7 @@
         = f.input :to,       as: :date_picker, input_html: { value: Date.today }
         = f.input :escalation, as: :select, include_blank: false
 
-      = f.inputs "3️⃣ Information", class: "bools" do
+      = f.inputs "Claim Information", class: "bools" do
         = f.input :insurance,   label: "Was insurance requirements and options pointed out to the client prior to commencement of the rental?"
         = f.input :signed,      label: "Has a signed condition report been provided on commencement of the rental?"
         = f.input :shown,       label: "Was the client showed round the vehicle pointing out previous damage prior to the handover of keys?"

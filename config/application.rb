@@ -45,12 +45,7 @@ module Damagereclaim
     # => Hubspot
     # => Allows us to dynamically update claims
     # => https://github.com/adimichele/hubspot-ruby#authentication-with-an-api-key
-    Hubspot.configure hapikey: Rails.application.credentials[Rails.env.to_sym][:hubspot][:api]
-
-    # => Asset Precompilation
-    # => Allows us to use PDF styling for letters
-    # => Needs more research
-    #config.assets.precompile << %w(pdf.css)
+    #Hubspot.configure hapikey: Rails.application.credentials[Rails.env.to_sym][:hubspot][:api]
 
   end
 end
