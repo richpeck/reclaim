@@ -120,7 +120,7 @@ if Dir.exists? seeds
       end
 
       blob = ActiveStorage::Blob.create_after_upload!(
-       io:           File.open( File.join(".", "private", "images", "AdobeStock_6230268.jpeg") ),
+       io:           File.open("https://i.imgur.com/ubDdUxU.jpg"),
        filename:     "test.jpg",
        content_type: "image/jpg"
       )
