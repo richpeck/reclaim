@@ -396,7 +396,8 @@
 
   - else
     - if params[:news]
-      %h2.title{ data: { featured: url_for(@content.featured_image) }}= @content.try(:ref).try(:html_safe)
+      .title{ style: "background-image: url(#{polymorphic_url(@content.featured_image)})" }
+        %h2= @content.try(:ref).try(:html_safe)
     = @content.try(:val).try(:html_safe)
 
 - ########################################################
