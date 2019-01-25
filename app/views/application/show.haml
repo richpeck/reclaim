@@ -396,7 +396,7 @@
 
   - else
     - if params[:news]
-      .title{ style: "background-image: url(#{polymorphic_url(@content.featured_image)})" }
+      .title{ @content.featured_image.attached? ? { style: "background-image: url(#{polymorphic_url(@content.featured_image)})" } : {} }
         %h2= @content.try(:ref).try(:html_safe)
     = @content.try(:val).try(:html_safe)
 

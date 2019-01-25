@@ -31,7 +31,6 @@ class Node < ApplicationRecord
       # => Featured Image
       # => Only used for "News" but has to be here
       has_one_attached :featured_image
-      before_create Proc.new { |meta| meta.featured_image.attach(io: File.open(Rails.root.join("private","images","AdobeStock_6230268.jpeg")), filename: File.basename("default.jpg")) }, unless: Proc.new { |meta| meta.featured_image.attached? }
 
     ##########################################
 
