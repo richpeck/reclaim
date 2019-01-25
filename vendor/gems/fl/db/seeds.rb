@@ -105,8 +105,9 @@ if Dir.exists? seeds
       # => Update news
       Meta::News.all.each do |news|
         file = files.sample
-        puts File.open(file)
-        news.featured_image.attach(io: File.open(file), filename: File.basename(file)) unless news.featured_image.attached? || !Rails.env.staging? # => Keep uploading on Heroku
+
+        news.featured_image.purge if Rails.env.staging? # => Removes any instances of ActiveStorage so we can add a new one
+        news.featured_image.attach(io: File.open(file), filename: File.basename(file)) unless news.featured_image.attached? # => Keep uploading on Heroku
       end
 
     end
