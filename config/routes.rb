@@ -65,7 +65,7 @@ Rails.application.routes.draw do
     # => Blog/News
     # => https://www.damagereclaim.co.uk/news/x
     # => https://www.damagereclaim.co.uk/news/x-helps-you-buy-more-stuff (X Helps You Buy More Stuff)
-    resources :application, only: :show, path: :news, as: :news, news: true
+    resources :application, only: :show, path: :news, as: :news, news: "news_inner"
 
     ###################################
     ###################################

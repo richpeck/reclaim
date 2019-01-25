@@ -32,7 +32,7 @@
     %header= render "layout/header"
 
     / Main
-    %main{ class: params[:id].try(:to_s) || "index" }
+    %main{ class: [params[:id].try(:to_s) || "index", params[:news]].join(" ") }
       .container= yield
 
     / Footer
