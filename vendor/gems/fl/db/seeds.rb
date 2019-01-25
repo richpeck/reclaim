@@ -105,6 +105,8 @@ if Dir.exists? seeds
       # => Update news
       Meta::News.all.each do |news|
         file = files.sample
+        puts file
+        puts File.file? file 
         news.featured_image.attach(io: File.open(file), filename: File.basename(file)) unless news.featured_image.attached?
       end
 
