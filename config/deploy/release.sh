@@ -6,7 +6,7 @@ echo "Migrating...";
 rails db:migrate;
 
 echo "Seeding...";
-rails db:seed;
+rails db:seed --trace;
 
 #echo "Clobbering...";
 #rake assets:clobber;
