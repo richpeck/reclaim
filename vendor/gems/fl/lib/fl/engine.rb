@@ -112,7 +112,7 @@ module FL
 
         # => Base URL
         # => https://github.com/rails-api/active_model_serializers/blob/master/docs/general/getting_started.md#rails-integration
-        #Rails.application.routes.default_url_options = { host: Rails.application.credentials[Rails.env.to_sym][:app][:domain] }
+        Rails.application.routes.default_url_options = { host: "https://damagereclaim.herokuapp.com" }
 
         # => Partials using Namespacing
         # => As referenced in this pull request: https://github.com/rails/rails/pull/5625
