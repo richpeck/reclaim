@@ -94,6 +94,48 @@ if Dir.exists? seeds
       end
     end
 
+  ###########################################
+  ###########################################
+  ##          _____ _ _                    ##
+  ##         |  ___(_) |                   ##
+  ##         | |_   _| | ___  ___          ##
+  ##         |  _| | | |/ _ \/ __|         ##
+  ##         | |   | | |  __/\__ \         ##
+  ##         \_|   |_|_|\___||___/         ##
+  ##                                       ##
+  ###########################################
+  ###########################################
+  ## Because Heroku totally wipes the dyno ##
+  ## before launching, we've had to use an ##
+  ## S3 bucket for this. Sucks but have to ##
+  ## do it.                                ##
+  ###########################################
+  ###########################################
+
+    # => Files
+    # => Get list of files from /private/images
+    # => https://stackoverflow.com/a/50133403/1143732
+    files = Dir.glob( File.join(".", "private", "images", "*") ).select{ |e| File.file? e }
+
+    # => News
+    # => Allows us to add featured images for news items
+    if files.any?
+
+      # => Update news
+      Meta::News.all.each do |news|
+
+        # => Random file
+        file = files.sample
+        open = File.open(file)
+
+        # => News
+        news.featured_image.purge if Rails.env.staging? # => Removes any instances of ActiveStorage so we can add a new one
+        news.featured_image.attach(io: File.open(file), filename: File.basename(file), content_type: 'image/jpeg') unless news.featured_image.attached? # => Upload stored files
+
+      end
+
+    end
+
   ##########################################
   ##########################################
 
