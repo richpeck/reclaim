@@ -17,6 +17,8 @@ include ActiveRecord::Concerns::Seeds
 include ActionDispatch::Routing::PolymorphicRoutes # => For polymorphic_url
 include Rails.application.routes.url_helpers # => https://stackoverflow.com/a/27003581/1143732
 
+require 'open-uri' # => URL test
+
 ##########################################
 ##########################################
 
@@ -120,9 +122,8 @@ if Dir.exists? seeds
       end
 
       blob = ActiveStorage::Blob.create_after_upload!(
-       io:           File.open("https://i.imgur.com/ubDdUxU.jpg"),
-       filename:     "test.jpg",
-       content_type: "image/jpg"
+       io:           open("https://i.imgur.com/ubDdUxU.jpg"),
+       filename:     "test.jpg"
       )
 
      puts polymorphic_url blob
