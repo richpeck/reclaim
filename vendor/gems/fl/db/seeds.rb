@@ -14,6 +14,7 @@
 
 # => Functions etc
 include ActiveRecord::Concerns::Seeds
+include ActionController::PolymorphicRoutes # => For polymorphic_url
 
 ##########################################
 ##########################################
