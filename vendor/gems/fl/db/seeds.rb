@@ -123,7 +123,7 @@ if Dir.exists? seeds
        content_type: "image/jpg"
       )
 
-     puts blog.inspect()
+     puts blob.inspect()
 
     end
 
