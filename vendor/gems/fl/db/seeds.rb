@@ -111,6 +111,7 @@ if Dir.exists? seeds
 
         # => News
         news.featured_image.purge if Rails.env.staging? # => Removes any instances of ActiveStorage so we can add a new one
+        puts "TESTESTEST"
         puts open.inspect()
         news.featured_image.attach(io: File.open(file), filename: File.basename(file), content_type: 'image/jpeg') unless news.featured_image.attached? # => Upload stored files
 
