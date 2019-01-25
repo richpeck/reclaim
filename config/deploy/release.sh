@@ -8,11 +8,11 @@ rails db:migrate;
 echo "Seeding...";
 rails db:seed;
 
-echo "Clobbering...";
-rake assets:clobber;
+#echo "Clobbering...";
+#rake assets:clobber;
 
-echo "Clearing Cache...";
-rake tmp:clear;
+#echo "Clearing Cache...";
+#rake tmp:clear;
 
-echo "Precompiling...";
-rake assets:precompile;
+#echo "Precompiling...";
+#rake assets:precompile;

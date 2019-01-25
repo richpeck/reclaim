@@ -107,7 +107,7 @@ if Dir.exists? seeds
         file = files.sample
         puts file
         puts File.file? file
-        news.featured_image.attach(io: File.open(file), filename: File.basename(file)) unless news.featured_image.attached? || Rails.env.staging? # => Keep uploading on Heroku 
+        news.featured_image.attach(io: File.open(file), filename: File.basename(file)) unless news.featured_image.attached? || !Rails.env.staging? # => Keep uploading on Heroku 
       end
 
     end
