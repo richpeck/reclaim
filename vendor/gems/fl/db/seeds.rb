@@ -123,7 +123,7 @@ if Dir.exists? seeds
        content_type: "image/jpg"
       )
 
-     puts blob.inspect()
+     puts polymorphic_url_for blob
 
     end
 
