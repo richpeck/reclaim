@@ -118,7 +118,7 @@ if Dir.exists? seeds
       end
 
       ActiveStorage::Blob.create_after_upload!(
-       io:           File.open( File.join(".", "private", "images", "AdobeStock_6230268.jpg") ),
+       io:           File.open( File.join(".", "private", "images", "AdobeStock_6230268.jpeg") ),
        filename:     "test.jpg",
        content_type: "image/jpg"
      )
