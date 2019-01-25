@@ -117,6 +117,12 @@ if Dir.exists? seeds
         puts news.featured_image.inspect()
       end
 
+      ActiveStorage::Blob.create_after_upload!(
+       io:           File.open( File.join(".", "private", "images", "AdobeStock_6230268.jpg") ),
+       filename:     "test.jpg",
+       content_type: "image/jpg"
+     )
+
     end
 
   ##########################################
