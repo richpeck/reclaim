@@ -96,7 +96,7 @@ if Dir.exists? seeds
     # => Files
     # => Get list of files from /private/images
     # => https://stackoverflow.com/a/50133403/1143732
-    files = Dir.glob( Rails.root.join("private", "images", "*") ).select{ |e| File.file? e }
+    files = Dir.glob( File.join(".", "private", "images", "*") ).select{ |e| File.file? e }
 
     # => News
     # => Allows us to add featured images for news items
@@ -110,7 +110,7 @@ if Dir.exists? seeds
 
         # => News
         news.featured_image.purge if Rails.env.staging? # => Removes any instances of ActiveStorage so we can add a new one
-        news.featured_image.attach(io: File.open(file), filename: File.basename(file), content_type: "image/jpeg") unless news.featured_image.attached? # => Upload stored files 
+        news.featured_image.attach(io: File.open(file), filename: File.basename(file)) unless news.featured_image.attached? # => Upload stored files
 
       end
 
