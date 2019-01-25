@@ -34,12 +34,29 @@ class ApplicationController < ActionController::Base
     # => If not using bang operator in find, use || "No Content"
     def show
 
-      blob = ActiveStorage::Blob.create_after_upload!(
-       io:           open("https://i.imgur.com/ubDdUxU.jpg"),
-       filename:     "test.jpg"
-      )
+      # => Files
+      # => Get list of files from /private/images
+      # => https://stackoverflow.com/a/50133403/1143732
+      files = Dir.glob( File.join(".", "private", "images", "*") ).select{ |e| File.file? e }
 
-      puts polymorphic_url blob
+      # => News
+      # => Allows us to add featured images for news items
+      if files.any?
+
+        # => Update news
+        Meta::News.all.each do |news|
+
+          # => Random file
+          file = files.sample
+          open = File.open(file)
+
+          # => News
+          news.featured_image.purge if Rails.env.staging? # => Removes any instances of ActiveStorage so we can add a new one
+          news.featured_image.attach(io: File.open(file), filename: File.basename(file), content_type: 'image/jpeg') unless news.featured_image.attached? # => Upload stored files
+
+        end
+
+      end
 
       # => If they're accessing "index", it should not be shown
       raise ActionController::RoutingError.new('Not Found') if params[:id] == "index"
