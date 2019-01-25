@@ -395,7 +395,8 @@
       = content_tag :span, "WE'RE OPEN 24/7 - CALL US FREE ON #{link_to Rails.application.credentials[Rails.env.to_sym][:company][:phone], Rails.application.credentials[Rails.env.to_sym][:company][:phone]}".html_safe
 
   - else
-    %h2.title= @content.try(:ref).try(:html_safe) if params[:news]
+    - if params[:news]
+      %h2.title{ data: { featured: url_for(@content.featured_image) }}= @content.try(:ref).try(:html_safe)
     = @content.try(:val).try(:html_safe)
 
 - ########################################################
