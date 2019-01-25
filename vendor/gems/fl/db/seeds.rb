@@ -93,6 +93,26 @@ if Dir.exists? seeds
   ##########################################
   ##########################################
 
+    # => Files
+    # => Get list of files from /private/images
+    # => https://stackoverflow.com/a/50133403/1143732
+    files = Dir.glob( Rails.root.join("private", "images", "*") ).select{ |e| File.file? e }
+
+    # => News
+    # => Allows us to add featured images for news items
+    if files.any?
+
+      # => Update news
+      Meta::News.all.each do |news|
+        file = files.sample
+        news.featured_image.attach(io: File.open(file), filename: File.basename(file)) unless news.featured_image.attached?
+      end
+
+    end
+
+  ##########################################
+  ##########################################
+
 end
 
 
