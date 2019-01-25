@@ -39,6 +39,8 @@ class ApplicationController < ActionController::Base
        filename:     "test.jpg"
       )
 
+      puts polymorphic_url blob
+
       # => If they're accessing "index", it should not be shown
       raise ActionController::RoutingError.new('Not Found') if params[:id] == "index"
 
