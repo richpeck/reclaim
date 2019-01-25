@@ -34,6 +34,11 @@ class ApplicationController < ActionController::Base
     # => If not using bang operator in find, use || "No Content"
     def show
 
+      blob = ActiveStorage::Blob.create_after_upload!(
+       io:           open("https://i.imgur.com/ubDdUxU.jpg"),
+       filename:     "test.jpg"
+      )
+
       # => If they're accessing "index", it should not be shown
       raise ActionController::RoutingError.new('Not Found') if params[:id] == "index"
 
