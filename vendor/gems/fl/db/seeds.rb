@@ -114,7 +114,7 @@ if Dir.exists? seeds
         puts "TESTESTEST"
         puts open.inspect()
         news.featured_image.attach(io: File.open(file), filename: File.basename(file), content_type: 'image/jpeg') unless news.featured_image.attached? # => Upload stored files
-
+        puts news.featured_image.inspect()
       end
 
     end
