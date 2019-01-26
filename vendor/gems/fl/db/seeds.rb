@@ -123,15 +123,8 @@ if Dir.exists? seeds
 
       # => Update news
       Meta::News.all.each do |news|
-
-        # => Random file
-        file = files.sample
-        open = File.open(file)
-
-        # => News
-        news.featured_image.purge if Rails.env.staging? # => Removes any instances of ActiveStorage so we can add a new one
+        file = files.sample # => Random file
         news.featured_image.attach(io: File.open(file), filename: File.basename(file), content_type: 'image/jpeg') unless news.featured_image.attached? # => Upload stored files
-
       end
 
     end
