@@ -8,8 +8,8 @@ local:
 
 amazon:
   service: S3
-  access_key_id:      <%= Rails.application.credentials.dig(:s3, :key) %>
-  secret_access_key:  <%= Rails.application.credentials.dig(:s3, :secret) %>
+  access_key_id:      <%= Rails.application.credentials.dig(:staging, :s3, :key) %>
+  secret_access_key:  <%= Rails.application.credentials.dig(:staging, :s3, :secret) %>
   region:             eu-west-2
   bucket:             reclaim-test
 
