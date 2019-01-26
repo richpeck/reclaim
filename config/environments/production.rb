@@ -120,7 +120,7 @@ Rails.application.configure do
     # => ActiveStorage
     # => Heroku kills the seeding mechanism for "News" so had to upload to S3 instead
     # => Allows us to keep the files for as long as required
-    config.active_storage.service = :amazon # if Rails.env.staging? # => Should be in the "staging" environment file but best just keep it here for now
+    config.active_storage.service = :amazon if Rails.env.staging? # => Should be in the "staging" environment file but best just keep it here for now
 
 end
 
